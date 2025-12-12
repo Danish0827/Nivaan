@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-rubik);
+  --font-mono: var(--font-montserrat);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: white;
+  color: var(--foreground);
+  /* font-family: var(--font-sans); */
+}
+
+section.home-main-section h1 span {
+    color: #06A1DC;
+}
+section.home-main-section p i {
+    color: #06A1DC;
+    font-weight: 600;
+    padding-right: 6px;
+}
+
+section.home-main-section p span {
+    color: #0852A0;
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+}
+
+section.home-main-section p span::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+    width: 100%;
+    height: 14px; 
+    background: url('/images/underline.svg') no-repeat;
+    background-size: contain;
+}
+
+/* @keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(50px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes moveDot {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(var(--move-distance));
+    opacity: 1;
+  }
+}
+
+@keyframes drawLine {
+  0% {
+    height: 0;
+    opacity: 0;
+  }
+  100% {
+    height: var(--line-height);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.dot-move {
+  animation: moveDot 0.7s ease-out forwards;
+}
+
+.line-animate {
+  animation: drawLine 0.6s ease-out forwards;
+}
+
+.text-animate {
+  animation: fadeInUp 0.6s ease-out forwards;
+} */
