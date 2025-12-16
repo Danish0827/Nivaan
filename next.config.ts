@@ -1,10 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  reactCompiler: true,
-
   eslint: {
-    ignoreDuringBuilds: true, // ✅ Disable ESLint during Vercel build
+    ignoreDuringBuilds: true,
   },
 
   images: {
