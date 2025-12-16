@@ -62,19 +62,19 @@ export default function NivaanFooter() {
         <footer className="bg-[#D4F1FF] w-full pt-16 pb-6 mt-10 relative overflow-hidden">
             <img
                 src="/images/watermark.webp"
-                className="absolute top-60 left-0 w-[850px] pointer-events-none"
+                className="absolute top-20 left-0 w-[850px] pointer-events-none"
             />
             <div className="max-w-[1700px] mx-auto px-6 xl:px-10 2xl:px-0 relative">
                 <div className="lg:flex justify-between">
                     {/* Top Section */}
-                    <div className="">
+                    <div className="lg:w-1/3 xl:w-2/5">
                         <h2 className="text-4xl font-bold text-[#0852A0]">Get The Latest Insights!</h2>
                         <p className="text-gray-700 mt-3 max-w-2xl text-lg">
                             Join our newsletter for simple tips, clear guidance, and updates directly from our Pain Management Specialists.
                         </p>
                     </div>
                     {/* Input Row */}
-                    <div className="flex flex-col lg:flex-row items-center justify-end gap-4 mt-6 w-full">
+                    <div className="lg:w-1/3 xl:w-1/2 flex flex-col lg:flex-row items-center justify-end gap-4 mt-6 ">
                         <input
                             type="text"
                             placeholder="Your Name"
@@ -94,12 +94,10 @@ export default function NivaanFooter() {
 
                 {/* Grid Sections */}
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-[22%_15%_15%_15%_15%_15%] gap-5">
-
                     {/* Logo */}
-                    <div className="col-span-2 md:col-span-1">
+                    <div className="col-span-2 md:col-span-1 m-auto pb-10 lg:pb-0 lg:m-0">
                         <Image src="/images/logo.svg" alt="Nivaan Logo" width={260} height={80} />
                     </div>
-
                     {/* Dynamic Sections */}
                     {footerData.map((section) => (
                         <div key={section.title}>
@@ -115,7 +113,6 @@ export default function NivaanFooter() {
                             </ul>
                         </div>
                     ))}
-
                     {/* Contact */}
                     <div>
                         <h4 className="font-bold text-[#06A1DC] mb-3">CONTACT</h4>

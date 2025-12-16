@@ -7,7 +7,7 @@ import { useState } from "react";
 
 interface RoleItem {
     title: string;
-    info: string; 
+    info: string;
     button: string;
 }
 
@@ -30,13 +30,13 @@ export default function RecoveryTeam({
     afterInfo,
     button,
 }: RecoveryTeamProps) {
-     const [openIndex, setOpenIndex] = useState(null);
+    const [openIndex, setOpenIndex] = useState(null);
 
-  const toggle = (i:any) => {
-    setOpenIndex(openIndex === i ? null : i);
-  };
+    const toggle = (i: any) => {
+        setOpenIndex(openIndex === i ? null : i);
+    };
     return (
-        <div className=" pt-10 pb-[400px] px-4 md:px-20 bg-[#EEF8FD]">
+        <div className=" pt-10 pb-[400px] px-4 lg:px-10 xl:px-14 2xl:px-20 bg-[#EEF8FD]">
 
             {/* HEADER */}
             <div className="text-center mb-12">
@@ -48,113 +48,92 @@ export default function RecoveryTeam({
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 py-5 lg:py-10">
                 <div className="order-2 lg:order-1">
-                   <div className="hidden lg:block bg-[#06A1DC0A] rounded-[50px] shadow-lg p-6">
+                    <div className="hidden lg:block bg-[#06A1DC0A] rounded-[50px] shadow-lg p-6">
+                        {roles.map((role, index) => {
+                            // const isFirst = index === 0;
+                            // const isLast = index === roles.length - 1;
 
-                    {roles.map((role, index) => {
-                        // const isFirst = index === 0;
-                        // const isLast = index === roles.length - 1;
-
-                        return (
-                            <>
-                            <div key={index} className="group">  
-                            <Link href={role?.button}>
-                            <div
-                                className={` p-5 px-10 py-8 hover:rounded-[40px]
+                            return (
+                                    <div key={index} className="group">
+                                        <Link href={role?.button}>
+                                            <div
+                                                className={` p-5 px-10 lg:py-4 xl:py-8 hover:rounded-[40px]
                                 transition-all duration-300 cursor-pointer
                                 hover:shadow-lg hover:-translate-y-1 hover:bg-[#06A1DC29] hover:border-0   `}
-                            >
-                                <div className="flex justify-between">
-                                <h3 className="font-semibold text-xl text-black">
-                                    {role.title}
-                                </h3>
+                                            >
+                                                <div className="flex justify-between">
+                                                    <h3 className="font-semibold text-xl text-black">
+                                                        {role.title}
+                                                    </h3>
 
-                                <Image
-                                    className="group-hover:-rotate-45 duration-700"
-                                    src="/images/leftarrow.svg"
-                                    width={23}
-                                    height={23}
-                                    alt="arrow"
-                                />
-                                </div>
+                                                    <Image
+                                                        className="group-hover:-rotate-45 duration-700"
+                                                        src="/images/leftarrow.svg"
+                                                        width={23}
+                                                        height={23}
+                                                        alt="arrow"
+                                                    />
+                                                </div>
 
-                                <div
-                                className="
+                                                <div
+                                                    className="
                                     text-gray-600 text-lg mt-2 leading-relaxed 
                                     opacity-0 max-h-0 overflow-hidden 
                                     transition-all duration-300
                                     group-hover:opacity-100 group-hover:max-h-40
                                 "
-                                >
-                                {parse(role.info || "")}
-                                </div>
-                            </div>
-                            </Link>
-
-                            {/* BOTTOM HR (not for last item) */}
-                            {/* {!isLast && (
-                            <hr
-                                className="
-                                text-[#CEE0EB] m-0 
-                                transition-all duration-300 
-                                group-hover:opacity-0
-                                "
-                            />
-                            )} */}
-
-                        </div>
-
-
-
-
-</>
-                        
-                        );
-                    })}
+                                                >
+                                                    {parse(role.info || "")}
+                                                </div>
+                                            </div>
+                                        </Link>
+                                    </div>
+                            );
+                        })}
                     </div>
                     <div className="lg:hidden space-y-2">
-                    {roles.map((role, index) => (
-                        <div
-                        key={index}
-                        className="border border-[#CEE0EB] rounded-2xl bg-[#E7F7FF]"
-                        >
-                        {/* HEADER */}
-                        <button
-                            onClick={() => toggle(index)}
-                            className="w-full p-6 flex justify-between items-center text-left"
-                        >
-                            <h3 className="font-semibold text-xl text-black">{role.title}</h3>
+                        {roles.map((role, index) => (
+                            <div
+                                key={index}
+                                className="border border-[#CEE0EB] rounded-2xl bg-[#E7F7FF]"
+                            >
+                                {/* HEADER */}
+                                <button
+                                    onClick={() => toggle(index)}
+                                    className="w-full p-6 flex justify-between items-center text-left"
+                                >
+                                    <h3 className="font-semibold text-xl text-black">{role.title}</h3>
 
-                            <Image
-                            src="/images/leftarrow.svg"
-                            width={20}
-                            height={20}
-                            alt="arrow"
-                            className={`transition-transform duration-300 ${
-                                openIndex === index ? "-rotate-45" : "rotate-0"
-                            }`}
-                            />
-                        </button>
+                                    <Image
+                                        src="/images/leftarrow.svg"
+                                        width={20}
+                                        height={20}
+                                        alt="arrow"
+                                        className={`transition-transform duration-300 ${openIndex === index ? "-rotate-45" : "rotate-0"
+                                            }`}
+                                    />
+                                </button>
 
-                        {/* CONTENT */}
-                        <div
-                            className={`
+                                {/* CONTENT */}
+                                <div
+                                    className={`
                             px-6 transition-all overflow-hidden
                             ${openIndex === index ? "max-h-40 py-2" : "max-h-0"}
                             `}
-                        >
-                            <p className="text-gray-600 text-[15px] leading-relaxed">
-                            {parse(role.info || "")}
-                            </p>
+                                >
+                                    <div className="text-gray-600 text-[15px] leading-relaxed">
+                                        {parse(role.info || "")}
+                                    </div>
 
-                            <Link
-                            href={role.button}
-                            className="text-[#F05A28] font-semibold mt-3 inline-block"
-                            >
-                            LEARN MORE →
-                            </Link>
-                        </div>
-                        </div>
-                    ))}
+                                    <Link
+                                        href={role.button}
+                                        className="text-[#F05A28] font-normal my-3 inline-block"
+                                    >
+                                        LEARN MORE →
+                                    </Link>
+                                </div>
+                            </div>
+                        ))}
                     </div>
 
                     {afterInfo && (
@@ -166,10 +145,18 @@ export default function RecoveryTeam({
                         <Link
                             href={button?.url}
                             target={button?.target || "_self"}
-                            className="inline-flex items-center gap-2 bg-[#FF7A45] text-white px-7 py-3 rounded-full
-                            font-medium hover:bg-[#ff5e1e] transition"
+                            className="w-fit block"
                         >
-                            {button?.title} <span className="text-xl">→</span>
+                            <button className="uppercase bg-gradient-to-r gap-3 flex justify-between items-center w-full lg:w-fit from-orange-600 to-orange-600 text-white px-5 py-2 xl:px-7 2xl:py-2 rounded-full font-medium shadow-md hover:scale-105 duration-500 cursor-pointer">
+                                {button?.title}
+                                <Image
+                                    className="group-hover:-rotate-45 w-10 h-10 duration-700 bg-white rounded-full p-3"
+                                    src="/images/orangearrow.svg"
+                                    width={20}
+                                    height={20}
+                                    alt="arrow"
+                                />
+                            </button>
                         </Link>
                     </div>
                 </div>

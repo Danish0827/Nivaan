@@ -34,7 +34,7 @@ interface EvidenceNewsSectionProps {
 export default function EvidenceNewsSection({ evidence, news }: EvidenceNewsSectionProps) {
   return (
     <section className="max-w-[1500px] mx-auto px-6 xl:px-10 2xl:px-0 py-16">
-      <div className="grid lg:grid-cols-[52.5%_45%] xl:grid-cols-[57%_40%] lg:gap-5 xl:gap-10">
+      <div className="grid lg:grid-cols-[52.5%_45%] xl:grid-cols-[57%_40%] gap-5 xl:gap-10">
 
         {/* ------------------ LEFT : Evidence ------------------ */}
         <div className="p-6 xl:p-8 rounded-3xl bg-white shadow-[0_4px_30px_rgba(0,0,0,0.08)]">
@@ -81,13 +81,13 @@ interface EvidenceCardProps {
 
 function EvidenceCard({ item }: EvidenceCardProps) {
   return (
-    <div className="rounded-[50px] h-full bg-[#E8F4FF] border border-[#b1c8dd] px-4 lg:py-5 xl:px-6 xl:py-7 text-center shadow-sm">
+    <div className="rounded-[50px] h-full bg-[#E8F4FF] border border-[#b1c8dd] px-4 py-5 xl:px-6 xl:py-7 text-center shadow-sm">
       <Image
         src={item.logo.url}
         alt={item.logo.title}
         width={200}
         height={100}
-        className="mx-auto lg:w-36 xl:w-52 my-2 pb-3 object-contain"
+        className="mx-auto w-32 lg:w-36 xl:w-52 my-2 pb-3 object-contain"
       />
       <p className="text-gray-800 lg:text-sm xl:text-base font-bold leading-relaxed">
         {item.details}

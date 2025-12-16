@@ -42,7 +42,7 @@ const StatsBar: React.FC<StatsBarProps> = ({ stats = [] }) => {
   return (
     <div
       ref={ref}
-      className="w-full hidden lg:flex flex-wrap md:flex-nowrap justify-center lg:justify-between items-start gap-8 py-10 pb-20 bg-[#fff] px-20"
+      className="w-full hidden lg:flex flex-wrap md:flex-nowrap justify-center lg:justify-between items-start gap-8 py-10 pb-20 bg-[#fff] lg:px-10 xl:px-14 2xl:px-20"
     >
       {stats.map((item, index) => {
         const value = Number(

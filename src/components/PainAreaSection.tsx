@@ -1,4 +1,5 @@
 "use client";
+import { ChevronDown } from "lucide-react";
 import React, { useEffect, useState } from "react";
 
 /* ---------------- TYPES ---------------- */
@@ -28,7 +29,7 @@ const PAIN_AREAS: PainArea[] = [
 const CONTENT = {
     face: {
         title: "Face Pain",
-        desc: "Shoulder pain can limit lifting, reaching, or simple daily movements...",
+        desc: "Shoulder pain can limit lifting, reaching, or simple daily movements due to stiffness, tendon injuries, or inflammation. Early treatment helps restore mobility and prevent the pain from becoming long-term.",
         items: [
             "Frozen Shoulder",
             "Shoulder Stiffness",
@@ -42,7 +43,7 @@ const CONTENT = {
     },
     neck: {
         title: "Neck Pain",
-        desc: "Shoulder pain can limit lifting, reaching, or simple daily movements...",
+        desc: "Shoulder pain can limit lifting, reaching, or simple daily movements due to stiffness, tendon injuries, or inflammation. Early treatment helps restore mobility and prevent the pain from becoming long-term.",
         items: [
             "Frozen Shoulder",
             "Shoulder Stiffness",
@@ -56,7 +57,7 @@ const CONTENT = {
     },
     shoulder: {
         title: "Shoulder Pain",
-        desc: "Shoulder pain can limit lifting, reaching, or simple daily movements...",
+        desc: "Shoulder pain can limit lifting, reaching, or simple daily movements due to stiffness, tendon injuries, or inflammation. Early treatment helps restore mobility and prevent the pain from becoming long-term.",
         items: [
             "Frozen Shoulder",
             "Shoulder Stiffness",
@@ -70,7 +71,7 @@ const CONTENT = {
     },
     upper_back: {
         title: "Upper Back Pain",
-        desc: "Shoulder pain can limit lifting, reaching, or simple daily movements...",
+        desc: "Shoulder pain can limit lifting, reaching, or simple daily movements due to stiffness, tendon injuries, or inflammation. Early treatment helps restore mobility and prevent the pain from becoming long-term.",
         items: [
             "Frozen Shoulder",
             "Shoulder Stiffness",
@@ -84,7 +85,7 @@ const CONTENT = {
     },
     lower_back: {
         title: "Lower Back Pain",
-        desc: "Shoulder pain can limit lifting, reaching, or simple daily movements...",
+        desc: "Shoulder pain can limit lifting, reaching, or simple daily movements due to stiffness, tendon injuries, or inflammation. Early treatment helps restore mobility and prevent the pain from becoming long-term.",
         items: [
             "Frozen Shoulder",
             "Shoulder Stiffness",
@@ -98,7 +99,7 @@ const CONTENT = {
     },
     elbow: {
         title: "Elbow Pain",
-        desc: "Shoulder pain can limit lifting, reaching, or simple daily movements...",
+        desc: "Shoulder pain can limit lifting, reaching, or simple daily movements due to stiffness, tendon injuries, or inflammation. Early treatment helps restore mobility and prevent the pain from becoming long-term.",
         items: [
             "Frozen Shoulder",
             "Shoulder Stiffness",
@@ -112,7 +113,7 @@ const CONTENT = {
     },
     hip: {
         title: "Hip Pain",
-        desc: "Shoulder pain can limit lifting, reaching, or simple daily movements...",
+        desc: "Shoulder pain can limit lifting, reaching, or simple daily movements due to stiffness, tendon injuries, or inflammation. Early treatment helps restore mobility and prevent the pain from becoming long-term.",
         items: [
             "Frozen Shoulder",
             "Shoulder Stiffness",
@@ -126,7 +127,7 @@ const CONTENT = {
     },
     knee: {
         title: "Knee Pain",
-        desc: "Shoulder pain can limit lifting, reaching, or simple daily movements...",
+        desc: "Shoulder pain can limit lifting, reaching, or simple daily movements due to stiffness, tendon injuries, or inflammation. Early treatment helps restore mobility and prevent the pain from becoming long-term.",
         items: [
             "Frozen Shoulder",
             "Shoulder Stiffness",
@@ -140,7 +141,7 @@ const CONTENT = {
     },
     ankle: {
         title: "Ankle Pain",
-        desc: "Shoulder pain can limit lifting, reaching, or simple daily movements...",
+        desc: "Shoulder pain can limit lifting, reaching, or simple daily movements due to stiffness, tendon injuries, or inflammation. Early treatment helps restore mobility and prevent the pain from becoming long-term.",
         items: [
             "Frozen Shoulder",
             "Shoulder Stiffness",
@@ -191,7 +192,8 @@ function getDotPosition(key: PainKeys, screen: ScreenSize) {
 /* ---------------- COMPONENT ---------------- */
 
 export default function PainAreaSection() {
-    const [active, setActive] = useState<PainKeys>("shoulder");
+    const [active, setActive] = useState<PainKeys | null>("shoulder");
+
     const [screenSize, setScreenSize] = useState<ScreenSize>("xl");
 
     useEffect(() => {
@@ -203,13 +205,15 @@ export default function PainAreaSection() {
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
     }, []);
+    // const [active, setActive] = useState<number | null>(2); // Shoulder open by default
+    const activeKey = active ?? "shoulder";
 
     return (
-        <div className="max-w-[1500px] mx-auto px-6 xl:px-10 2xl:px-0 relative -mt-96 mb-10">
+        <div className="max-w-[1500px] mx-auto px-6 xl:px-10 2xl:px-0 relative -mt-96 lg:mb-10">
             <div className="w-full p-4 bg-gradient-to-b from-[#0AA2DC] to-[#115CAB] rounded-[60px] shadow-xl grid grid-cols-1 lg:grid-cols-[27%_35%_35%] xl:grid-cols-[27%_34%_35%] 2xl:grid-cols-[27%_33.5%_36%] gap-4 xl:gap-6">
 
                 {/* LEFT MENU */}
-                <div className="bg-white text-[#0852A0] rounded-[50px] lg:px-3 xl:px-6 py-10">
+                <div className="hidden lg:block bg-white text-[#0852A0] rounded-[50px] lg:px-1 xl:px-3 xl:px-6 py-10">
                     <h2 className="text-3xl font-bold text-center mb-4">Pain Areas</h2>
 
                     <div className="flex flex-col gap-1">
@@ -227,10 +231,10 @@ export default function PainAreaSection() {
                 </div>
 
                 {/* BODY IMAGE + DOTS */}
-                <div className="relative top-20 left-10 xl:left-12 2xl:left-20">
+                <div className="h-[550px] lg:h-auto relative top-20 left-8 md:left-20 lg:left-10 xl:left-12 2xl:left-20">
                     <img
                         src="/images/body.webp"
-                        className="w-[250px] lg:h-[440px] xl:w-72 xl:h-[500px] scale-125 select-none"
+                        className="w-[250px] h-[440px] lg:w-[250px] lg:h-[440px] xl:w-72 xl:h-[500px] scale-125 select-none"
                         alt="Body Map"
                     />
 
@@ -246,27 +250,81 @@ export default function PainAreaSection() {
                 </div>
 
                 {/* CONTENT PANEL */}
-                <div className="bg-white rounded-[50px] p-10">
-                    <h2 className="text-3xl font-bold text-[#0852A0] mb-4">
-                        {CONTENT[active].title}
-                    </h2>
+                <div className="hidden lg:block bg-white rounded-[50px] p-10">
+                    <h2 className="text-2xl xl:text-3xl font-bold text-[#0852A0] mb-4">
+                {CONTENT[activeKey].title}
+                </h2>
 
-                    <p className="text-gray-700 text-lg font-light mb-4">
-                        {CONTENT[active].desc}
-                    </p>
+                <p className="text-gray-700 text-base xl:text-lg font-light mb-4">
+                    {CONTENT[activeKey].desc}
+                </p>
 
-                    <ul className="list-disc marker:text-orange-500 marker:text-3xl pl-6 space-y-2 pb-2">
-                        {CONTENT[active].items.map((item) => (
-                            <li key={item} className="underline cursor-pointer text-black text-lg">
-                                {item}
-                            </li>
-                        ))}
-                    </ul>
+                <ul className="list-disc marker:text-orange-500 lg:marker:text-base xl:marker:text-2xl pl-6 space-y-2 pb-2">
+                    {CONTENT[activeKey].items.map((item) => (
+                        <li
+                            key={item}
+                            className="underline underline-offset-[6px] cursor-pointer text-black text-lg"
+                        >
+                            {item}
+                        </li>
+                    ))}
+                </ul>
 
-                    <button className="bg-gradient-to-r from-orange-500 to-orange-600 text-white mt-4 px-7 py-4 rounded-full shadow-md hover:scale-105 duration-500">
+                    <button className="bg-gradient-to-r from-orange-500 to-orange-600 text-white mt-4 px-7 py-3.5 cursor-pointer rounded-full shadow-md hover:scale-105 duration-500">
                         LEARN MORE
                     </button>
                 </div>
+
+                <div className="block mt-10 lg:hidden max-w-fullw-full rounded-[50px] border border-gray-300 overflow-hidden bg-white shadow-sm">
+                    <div className="text-[#0852A0] bg-white text-center py-6 text-lg font-semibold border-b border-gray-300">
+                        Pain Areas
+                    </div>
+
+                    <div className="divide-y">
+                        {PAIN_AREAS.map((area) => {
+                            const isOpen = active === area.key;
+                            return (
+                                <div key={area.key}>
+                                    <button
+                                        onClick={() => setActive(isOpen ? null : area.key)}
+                                        className="w-full flex items-center justify-between px-5 py-5.5 text-left font-medium text-gray-900"
+                                    >
+                                        {area.label}
+                                        <ChevronDown
+                                            className={`h-5 w-5 transition-transform ${isOpen ? "rotate-180" : ""
+                                                }`}
+                                        />
+                                    </button>
+
+                                    <div
+                                        className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-[700px]" : "max-h-0"
+                                            }`}
+                                    >
+                                        {isOpen && (
+                                            <div className="px-5 pb-6 text-sm text-gray-700">
+                                                <p className="mb-4">{CONTENT[area.key].desc}</p>
+
+                                                <ul className="space-y-2 mb-5">
+                                                    {CONTENT[area.key].items.map((item) => (
+                                                        <li key={item} className="flex items-start gap-2">
+                                                            <span className="mt-2 h-2 w-2 rounded-full bg-orange-500"></span>
+                                                            <span>{item}</span>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+
+                                                <button className="w-full rounded-full bg-orange-500 py-3 text-white font-semibold">
+                                                    LEARN MORE
+                                                </button>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </div>
+
             </div>
         </div>
     );

@@ -10,12 +10,28 @@ import ReviewsStoriesSection from "@/components/ReviewsStoriesSection";
 import ExpertsSection from "@/components/ExpertsSection";
 
 export default async function Home() {
-  const res = await fetch("https://hclient.in/nivaan/wp-json/site/v1/home", {
-    next: { revalidate: 10 }, 
-  });
+  // console.log(process.env.NEXT_PUBLIC_BACKEND, "BACKEND");
 
-  const data = await res.json();
-console.log("API data:", data);
+  const res = await fetch(
+    `https://hclient.in/nivaan/wp-json/site/v1/home`,
+    {
+      next: { revalidate: 60 }, // IMPORTANT
+    }
+  );
+
+  if (!res.ok) {
+    console.error("API failed", res.status);
+    return null;
+  }
+
+  let data;
+  try {
+    data = await res.json();
+  } catch (err) {
+    console.error("JSON parse failed");
+    return null;
+  }
+
   const {
     banner,
     understand,
@@ -26,7 +42,7 @@ console.log("API data:", data);
     news,
     reviews,
     stories,
-    experts
+    experts,
   } = data;
 
   return (
@@ -36,17 +52,17 @@ console.log("API data:", data);
         description={banner?.info}
         primaryBtn={banner?.button_one}
         secondaryBtn={banner?.button_two}
-        // image={banner?.video_image?.url}
-        image={"images/banner.webp"}
+        image={banner?.video_image?.url}
+        mobile={banner?.banner_videoimage_mobile?.url}
       />
       <StatsBar stats={banner?.counters} />
       <UnderstandPain
         imageUrl={understand?.video_image?.url}
         videoUrl={understand?.video?.url}
-        title={understand.title}
-        description={understand.info}
-        buttonText={understand.button?.title}
-        onButtonClick={understand.button?.url}
+        title={understand?.title}
+        description={understand?.info}
+        buttonText={understand?.button?.title}
+        onButtonClick={understand?.button?.url}
       />
       <RecoveryTeam
         sectionTitle={recovery?.subtitle}

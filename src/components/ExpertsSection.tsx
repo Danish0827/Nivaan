@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function ExpertsSection({ title, description, button }:any) {
     const experts = [
@@ -34,15 +35,15 @@ export default function ExpertsSection({ title, description, button }:any) {
 
     return (
         <section className="px-4 lg:px-24 xl:px-10 2xl:px-24 mt-10 text-white">
-            <div className="w-full bg-[#003B73] rounded-[40px] lg:rounded-[80px] px-5 lg:px-10 py-10 lg:py-20">
+            <div className="w-full bg-gradient-to-br from-[#003368] to-[#0052A9] rounded-[40px] lg:rounded-[80px] px-5 lg:px-10 py-10 lg:py-20">
                 <div className="text-center max-w-5xl mx-auto mb-8 lg:mb-14">
                     <h2 className="text-3xl md:text-4xl font-semibold">{title}</h2>
-                    <p className="text-sm md:text-lg mt-4 opacity-90 leading-relaxed">
+                    <p className="text-sm md:text-lg font-thin mt-4 opacity-90 leading-relaxed">
                         {description}
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 pb-10">
                     {experts.map((item, i) => (
                         <div
                             key={i}
@@ -68,10 +69,24 @@ export default function ExpertsSection({ title, description, button }:any) {
                 </div>
 
                 <div className="flex justify-center mt-12">
-                    <button className="bg-orange-500 hover:bg-orange-600 text-white font-medium px-8 py-4 rounded-full flex items-center gap-2 transition">
-                        MEET OUR TEAM OF PAIN SPECIALISTS
-                        <span className="text-xl">→</span>
-                    </button>
+                    <Link
+                    href={''}
+                        // href={journey.button.url}
+                        className="block w-fit"
+                    >
+                        <button className="uppercase bg-gradient-to-r gap-3 flex justify-between items-center w-full lg:w-fit from-orange-600 to-orange-600 text-white px-5 py-2 xl:px-7 2xl:py-2 rounded-full font-medium shadow-md hover:scale-105 duration-500 cursor-pointer">
+                           MEET OUR TEAM OF PAIN SPECIALISTS
+                            <Image
+                                className="group-hover:-rotate-45 w-10 h-10 duration-700 bg-white rounded-full p-3"
+                                src="/images/orangearrow.svg"
+                                width={20}
+                                height={20}
+                                alt="arrow"
+                            />
+                        </button>
+
+                    </Link>
+                    
                 </div>
             </div>
         </section>

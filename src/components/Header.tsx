@@ -16,8 +16,8 @@ export default function Header() {
           />
         </div>
 
-        <nav className="hidden lg:flex items-center gap-6 text-sm font-medium">
-          <div className="bg-white flex items-center gap-6 text-sm font-medium p-3 rounded-full text-black shadow-lg px-6">
+        <nav className="hidden lg:flex items-center gap-6 text-xs xl:text-sm font-medium">
+          <div className="bg-white flex items-center gap-6 text-xs xl:text-sm font-medium p-3 rounded-full text-black shadow-lg px-6">
             <div className="flex items-center gap-1 cursor-pointer hover:text-blue-600 transition">
               CONDITIONS <ChevronDown size={16} />
             </div>
@@ -28,14 +28,14 @@ export default function Header() {
               PAIN MANAGEMENT <ChevronDown size={16} />
             </div>
           </div>
-          <div className="flex items-center gap-1 text-black bg-white shadow px-4 py-3 rounded-full cursor-pointer hover:shadow-md transition">
+          <div className="flex shadow-lg items-center gap-1 text-black bg-white shadow px-4 py-3 rounded-full cursor-pointer hover:shadow-md transition">
             <MapPin size={16} className="text-black hover:text-blue-500" />
             LOCATION <ChevronDown size={16} />
           </div>
         </nav>
 
         {/* CTA Button */}
-        <button className="hidden lg:block bg-gradient-to-r from-[#EC6724] to-[#F05432] text-white font-semibold px-6 py-3 rounded-full shadow hover:opacity-90 transition">
+        <button className="hidden lg:block bg-gradient-to-r from-[#EC6724] to-[#F05432] text-white font-semibold text-sm xl:text-base px-6 py-3 rounded-full shadow hover:opacity-90 transition">
           BOOK APPOINTMENT
         </button>
         <button className="lg:hidden bg-gradient-to-r flex gap-2 justify-between items-center from-[#fff] to-white text-[#F05432] font-semibold px-8 sm:px-12 py-3 rounded-full shadow hover:opacity-90 transition">
