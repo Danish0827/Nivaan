@@ -2,7 +2,28 @@ import parse from "html-react-parser";
 import he from "he";
 import Image from "next/image";
 
-export function HeroSection({ title, description, primaryBtn, secondaryBtn, image, mobile }: any) {
+interface Button {
+  title: string;
+  url?: string;
+}
+
+interface HeroSectionProps {
+  title: string;
+  description: string;
+  primaryBtn: Button;
+  secondaryBtn: Button;
+  image: string;
+  mobile: string;
+}
+
+export function HeroSection({
+  title,
+  description,
+  primaryBtn,
+  secondaryBtn,
+  image,
+  mobile,
+}: HeroSectionProps) {
   console.log(image,mobile);
   
   const decodedTitle = he.decode(title);

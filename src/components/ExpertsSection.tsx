@@ -1,7 +1,22 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function ExpertsSection({ title, description, button }:any) {
+interface Button {
+  title: string;
+  url?: string;
+}
+
+interface ExpertsSectionProps {
+  title: string;
+  description: string;
+  button?: Button;
+}
+
+export default function ExpertsSection({
+  title,
+  description,
+  button,
+}: ExpertsSectionProps) {
     const experts = [
         {
             name: "Dr. Rohit Gulati",
