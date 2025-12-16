@@ -9,7 +9,9 @@ export default function Header() {
       <div className="xl:px-24 flex items-center justify-between py-4 px-4 lg:px-6 w-full">
         {/* Logo */}
         <div className=" gap-2 cursor-pointer select-none w-fit">
-          <img
+          <Image
+            width={1000}
+            height={1000}
             src="/images/logo.svg" /* Replace with actual logo path */
             alt="Nivaan Logo"
             className="h-10 object-contain"
@@ -33,7 +35,6 @@ export default function Header() {
             LOCATION <ChevronDown size={16} />
           </div>
         </nav>
-
         {/* CTA Button */}
         <button className="hidden lg:block bg-gradient-to-r from-[#EC6724] to-[#F05432] text-white font-semibold text-sm xl:text-base px-6 py-3 rounded-full shadow hover:opacity-90 transition">
           BOOK APPOINTMENT
@@ -41,7 +42,7 @@ export default function Header() {
         <button className="lg:hidden bg-gradient-to-r flex gap-2 justify-between items-center from-[#fff] to-white text-[#F05432] font-semibold px-8 sm:px-12 py-3 rounded-full shadow hover:opacity-90 transition">
           <Image className="-ml-2 sm:-ml-4 " src="images/menu.svg" alt="menu" width={20} height={20} />
           MENU
-        </button> 
+        </button>
       </div>
     </header>
   );

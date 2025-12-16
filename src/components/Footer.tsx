@@ -60,7 +60,10 @@ export default function NivaanFooter() {
     ];
     return (
         <footer className="bg-[#D4F1FF] w-full pt-16 pb-6 mt-10 relative overflow-hidden">
-            <img
+            <Image
+            width={1000}
+            height={1000}
+            alt="water"
                 src="/images/watermark.webp"
                 className="absolute top-20 left-0 w-[850px] pointer-events-none"
             />
