@@ -40,7 +40,6 @@ interface Props {
 export default function ReviewsStoriesSection({ reviews, stories }: Props) {
   const [count, setCount] = useState<String>();
 
-  // ---------- Counter Animation for star rating ----------
   useEffect(() => {
     let start = 0;
     const end = parseFloat(String(reviews.start_number));
@@ -88,11 +87,8 @@ export default function ReviewsStoriesSection({ reviews, stories }: Props) {
               />
               <span className="text-[#0852A0]">({reviews.reviews_numbers_counts})</span>
             </div>
-
             <ReviewSlider lists={reviews.lists} star={reviews.start_image.url} />
           </div>
-
-          {/* Stories Section */}
           <div className="lg:w-1/2 mt-10 lg:-mt-2 xl:mt-0">
             <h2 className="text-xl md:text-2xl font-bold text-[#004A86] text-center">
               {stories.title}
@@ -107,43 +103,54 @@ export default function ReviewsStoriesSection({ reviews, stories }: Props) {
   );
 }
 
-/* ================= Review Slider ================= */
-/* ================= Review Slider ================= */
+function useItemsToShow() {
+  const [items, setItems] = useState(1)
+
+  useEffect(() => {
+    const update = () => {
+      setItems(window.innerWidth >= 768 ? 2 : 1)
+    }
+    update()
+    window.addEventListener('resize', update)
+    return () => window.removeEventListener('resize', update)
+  }, [])
+
+  return items
+}
+
 function ReviewSlider({ lists, star }: { lists: Review[]; star: string }) {
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(0)
+  const itemsToShow = useItemsToShow()
 
-  const itemsToShow = 2; // max items to show on md+ screens
+  const next = () =>
+    setIndex((prev) => (prev + itemsToShow) % lists.length)
 
-  const next = () => setIndex((prev) => (prev + 1) % lists.length);
-  const prev = () => setIndex((prev) => (prev - 1 + lists.length) % lists.length);
+  const prev = () =>
+    setIndex((prev) => (prev - itemsToShow + lists.length) % lists.length)
 
   return (
     <div className="relative mt-10">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 xl:gap-6 transition-all duration-500">
-        {[0, 1].map((i) => {
-          const current = (index + i) % lists.length;
-          return <ReviewCard key={current} item={lists[current]} star={star} />;
+        {Array.from({ length: itemsToShow }).map((_, i) => {
+          const current = (index + i) % lists.length
+          return (
+            <ReviewCard key={current} item={lists[current]} star={star} />
+          )
         })}
       </div>
 
-      {/* Buttons */}
       <div className="flex justify-center gap-4 mt-6">
-        <button
-          onClick={prev}
-          className="w-10 h-10 flex items-center justify-center rounded-full border border-blue-700 text-blue-700 hover:bg-blue-700 hover:text-white transition"
-        >
+        <button onClick={prev} className="cursor-pointer w-10 h-10 rounded-full border border-blue-700 text-blue-700">
           ←
         </button>
-        <button
-          onClick={next}
-          className="w-10 h-10 flex items-center justify-center rounded-full bg-blue-700 text-white hover:bg-blue-800 transition"
-        >
+        <button onClick={next} className="cursor-pointer w-10 h-10 rounded-full bg-blue-700 text-white">
           →
         </button>
       </div>
     </div>
-  );
+  )
 }
+
 
 function ReviewCard({ item, star }: { item: Review; star: string }) {
   return (
@@ -170,72 +177,107 @@ function ReviewCard({ item, star }: { item: Review; star: string }) {
   );
 }
 
-/* ================= Stories Slider ================= */
 function StoriesSlider({ items }: { items: Story[] }) {
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(0)
+  const itemsToShow = useItemsToShow()
 
-  const next = () => setIndex((prev) => (prev + 1) % items.length);
-  const prev = () => setIndex((prev) => (prev - 1 + items.length) % items.length);
+  const next = () =>
+    setIndex((prev) => (prev + itemsToShow) % items.length)
+
+  const prev = () =>
+    setIndex((prev) => (prev - itemsToShow + items.length) % items.length)
 
   return (
     <div className="relative">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 transition-all duration-500">
-        {[0, 1].map((i) => {
-          const current = (index + i) % items.length;
-          return <StoryCard key={current} item={items[current]} />;
+        {Array.from({ length: itemsToShow }).map((_, i) => {
+          const current = (index + i) % items.length
+          return <StoryCard key={current} item={items[current]} />
         })}
       </div>
-
-      {/* Buttons */}
       <div className="flex gap-4 justify-center mt-6">
-        <button
-          onClick={prev}
-          className="w-10 h-10 flex items-center justify-center rounded-full border border-blue-700 text-blue-700 hover:bg-blue-700 hover:text-white transition"
-        >
+        <button onClick={prev} className="cursor-pointer w-10 h-10 rounded-full border border-blue-700 text-blue-700">
           ←
         </button>
-        <button
-          onClick={next}
-          className="w-10 h-10 flex items-center justify-center rounded-full bg-blue-700 text-white hover:bg-blue-800 transition"
-        >
+        <button onClick={next} className="cursor-pointer w-10 h-10 rounded-full bg-blue-700 text-white">
           →
         </button>
       </div>
     </div>
-  );
+  )
 }
 
 function StoryCard({ item }: { item: Story }) {
+  const [open, setOpen] = useState(false);
+
   return (
-    <div className="relative rounded-[50px] overflow-hidden shadow-[0_3px_20px_rgba(0,0,0,0.15)]">
-      {item.video_image ? (
-        <Image
-          src={item.video_image.url}
-          alt="Video Preview"
-          width={600}
-          height={350}
-          className="w-full h-[270px] object-cover"
-        />
-      ) : (
-        <video
-          src={item.video?.url}
-          className="w-full h-[270px] object-cover"
-          muted
-          loop
-          playsInline
-        />
-      )}
+    <>
+      {/* CARD */}
+      <div className="relative rounded-[50px] overflow-hidden shadow-[0_3px_20px_rgba(0,0,0,0.15)]">
+        {item.video_image ? (
+          <Image
+            src={item.video_image.url}
+            alt="Video Preview"
+            width={600}
+            height={350}
+            className="w-full h-[270px] object-cover"
+          />
+        ) : (
+          <video
+            src={item.video?.url}
+            className="w-full h-[270px] object-cover"
+            muted
+            loop
+            playsInline
+          />
+        )}
 
-      <button className="absolute right-4 bottom-4 w-12 h-12 rounded-full bg-white/90 flex items-center justify-center shadow-lg text-blue-700 text-xl">
-        ▶
-      </button>
+        {/* Play Button */}
+        {item.video?.url && (
+          <button
+            onClick={() => setOpen(true)}
+            className="cursor-pointer absolute right-4 bottom-4 w-12 h-12 rounded-full bg-white/90 flex items-center justify-center shadow-lg text-blue-700 text-xl hover:scale-105 transition"
+          >
+            ▶
+          </button>
+        )}
 
-      <div className="absolute bottom-6 left-4 text-white">
-        <p className="font-semibold">
-          {item.name}, {item.age} {item.place}
-        </p>
-        <p className="text-sm opacity-90">{item.type}</p>
+        <div className="absolute bottom-6 left-4 text-white">
+          <p className="font-semibold">
+            {item.name}, {item.age} {item.place}
+          </p>
+          <p className="text-sm opacity-90">{item.type}</p>
+        </div>
       </div>
-    </div>
+
+      {/* ================= VIDEO MODAL ================= */}
+      {open && item.video?.url && (
+        <div
+          className="fixed inset-0 z-[999] bg-black/70 flex items-center justify-center px-4"
+          onClick={() => setOpen(false)}
+        >
+          <div
+            className="relative w-full max-w-3xl bg-black rounded-2xl overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => setOpen(false)}
+              className="cursor-pointer absolute top-3 right-3 z-10 text-white text-2xl"
+            >
+              ✕
+            </button>
+
+            {/* Video */}
+            <video
+              src={item.video.url}
+              controls
+              autoPlay
+              className="w-full h-auto max-h-[80vh]"
+            />
+          </div>
+        </div>
+      )}
+    </>
   );
 }

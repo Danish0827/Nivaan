@@ -1,20 +1,7 @@
 import parse from "html-react-parser";
 import he from "he";
 import Image from "next/image";
-
-interface Button {
-  title: string;
-  url?: string;
-}
-
-interface HeroSectionProps {
-  title: string;
-  description: string;
-  primaryBtn: Button;
-  secondaryBtn: Button;
-  image: string;
-  mobile: string;
-}
+import { HeroSectionProps } from "@/interfaces/hero";
 
 export function HeroSection({
   title,
@@ -23,12 +10,9 @@ export function HeroSection({
   secondaryBtn,
   image,
   mobile,
-}: HeroSectionProps) {
-  console.log(image,mobile);
-  
+}: HeroSectionProps) {  
   const decodedTitle = he.decode(title);
   const decodedDescription = he.decode(description);
-
   const parsedTitle = parse(decodedTitle, {
     replace: (domNode: any) => {
       if (domNode.name === "spam") {
@@ -43,7 +27,6 @@ export function HeroSection({
       }
     },
   });
-
   const parsedDescription = parse(decodedDescription, {
     replace: (domNode: any) => {
       if (domNode.name === "spam") {
@@ -61,9 +44,6 @@ export function HeroSection({
 
   return (
     <section className="home-main-section bg-gradient-to-t from-[#edf8fc] to-[#edf8fc] relative overflow-hidden w-full ">
-      
-      {/* <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-white to-transparent"></div> */}
-
       <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-0 items-center overflow-hidden pb-8">
         <img
         src="/images/watermark.webp"
@@ -93,7 +73,6 @@ export function HeroSection({
           </div>
         </div>
         <div className="relative z-20 order-1 lg:order-2">
-          {/* Mobile video */}
           <video
             src={mobile}
             className="w-full h-full block lg:hidden"
@@ -102,8 +81,6 @@ export function HeroSection({
             loop
             playsInline
           />
-
-          {/* Desktop video */}
           <video
             src={image}
             className="w-full h-full hidden lg:block"
@@ -113,7 +90,6 @@ export function HeroSection({
             playsInline
           />
         </div>
-
       </div>
     </section>
   );

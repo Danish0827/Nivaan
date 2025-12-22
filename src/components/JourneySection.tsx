@@ -1,7 +1,12 @@
 "use client";
-import { useEffect, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay, Navigation } from "swiper/modules";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 interface JourneyItem {
     title: string;
@@ -17,7 +22,18 @@ interface JourneyData {
     button: { url: string; title: string };
 }
 
+// interface JourneySectionProps {
+//     journey: JourneyData;
+// }
+
+// interface JourneyCardProps {
+//     item: JourneyItem;
+//     step: number;
+//     index: number;
+// }
 export default function JourneySection({ journey }: { journey: JourneyData }) {
+    const prevRef = useRef<HTMLButtonElement>(null);
+    const nextRef = useRef<HTMLButtonElement>(null);
     return (
         <section className="pt-10 pb-20 bg-white ">
             <div className="max-w-[1500px] mx-auto px-6 xl:px-10 2xl:px-0 relative text-center">
@@ -29,7 +45,8 @@ export default function JourneySection({ journey }: { journey: JourneyData }) {
                     {journey.info}
                 </p>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mt-14">
+                <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-5 mt-7 lg:mt-14">
+
                     {journey.list.map((item, index) => (
                         <JourneyCard
                             key={index}
@@ -40,8 +57,54 @@ export default function JourneySection({ journey }: { journey: JourneyData }) {
                         />
                     ))}
                 </div>
-
-                <div className="flex justify-center mt-10 fade-in-up">
+                <div className="block md:hidden mt-7 lg:mt-14">
+                    <Swiper
+                        modules={[Pagination, Autoplay, Navigation]}
+                        loop={true}
+                        // spaceBetween={20}
+                        slidesPerView={1}
+                        navigation={{
+                            prevEl: prevRef.current,
+                            nextEl: nextRef.current,
+                        }}
+                        autoplay={{
+                            delay: 2500,
+                            disableOnInteraction: false,
+                        }}
+                        // pagination={{ clickable: true }}
+                        onBeforeInit={(swiper) => {
+                            if (!swiper.params.navigation || typeof swiper.params.navigation === "boolean") {
+                                swiper.params.navigation = {};
+                            }
+                            (swiper.params.navigation as any).prevEl = prevRef.current;
+                            (swiper.params.navigation as any).nextEl = nextRef.current;
+                        }}
+                    >
+                        {journey.list.map((item, index) => (
+                            <SwiperSlide key={index}>
+                                <JourneyCard
+                                    item={item}
+                                    step={index + 1}
+                                    isLast={false}
+                                    index={index}
+                                />
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                    <button
+                        ref={prevRef}
+                        className="absolute bottom-20 left-36 bg-[#0852A0] w-12 h-12 p-2 rounded-full shadow-md z-10"
+                    >
+                        &#8592;
+                    </button>
+                    <button
+                        ref={nextRef}
+                        className="absolute bottom-20 right-36 bg-[#0852A0] w-12 h-12 p-2 rounded-full shadow-md z-10"
+                    >
+                        &#8594;
+                    </button>
+                </div>
+                <div className="flex justify-center mt-16 lg:mt-10 fade-in-up">
                     <Link
                         href={journey.button.url}
                         className="block w-fit"
@@ -97,16 +160,17 @@ function JourneyCard({
 
     return (
         <div
-            className={`p-6 border-t-2 shadow transition bg-white relative flex flex-col items-center text-center rounded-t-full rounded-b-2xl `}
+            className={`w-full p-3 transition bg-white relative flex flex-col items-center text-center rounded-t-full rounded-b-2xl `}
         // 👈 stagger animation
         >
-            <div className="relative rounded-2xl overflow-hidden w-full mb-5">
-                <div className="absolute top-10 left-1/2 -translate-x-1/2 bg-white rounded-full p-5 w-20 h-20 mb-5 shadow  z-10">
+            <div className="relative rounded-[40px] lg:rounded-2xl overflow-hidden w-full mb-5">
+                <div className="absolute top-10 left-1/2 -translate-x-1/2 bg-white rounded-full p-5 w-20 h-20 mb-5   z-10">
                     <Image
                         src={item.icon.url}
                         alt={item.title}
                         width={65}
                         height={65}
+                        className="w-16 h-16 -mt-3  flex justify-center items-center"
                     />
                 </div>
                 <Image
@@ -114,7 +178,7 @@ function JourneyCard({
                     alt={item.title}
                     width={3000}
                     height={3000}
-                    className="w-full h-full shadow-xl object-cover fade-in-up"
+                    className="w-full h-48 lg:h-full shadow-2xl object-cover fade-in-up rounded-[40px]"
                     style={{ animationDelay: `${index * 0.2}s` }}
                 />
             </div>
@@ -136,7 +200,7 @@ function JourneyCard({
                 } as React.CSSProperties}
             /> */}
 
-            <span style={{ animationDelay: `${index * 0.2}s` }} className="text-[#004A86] flex justify-center items-center text-4xl font-bold relative -top-16 rounded-full bg-white w-20 h-20 fade-in-up">
+            <span style={{ animationDelay: `${index * 0.2}s` }} className="text-[#06A1DC] flex justify-center items-center text-3xl lg:text-4xl font-bold relative -top-14 lg:-top-16 rounded-full bg-white w-16 h-16 lg:w-20 lg:h-20 fade-in-up">
                 {index + 1}
             </span>
 
@@ -144,7 +208,7 @@ function JourneyCard({
                 {item.title}
             </h3>
 
-            <p style={{ animationDelay: `${index * 0.2}s` }} className="text-gray-600 text-xs xl:text-base mt-2 leading-relaxed font-light pb-5 fade-in-up">
+            <p style={{ animationDelay: `${index * 0.2}s` }} className="text-gray-600 text-sm lg:text-xs xl:text-base mt-2 leading-relaxed font-light pb-5 fade-in-up">
                 {item.info}
             </p>
         </div>

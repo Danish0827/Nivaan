@@ -52,6 +52,18 @@ section.home-main-section p span::after {
     background-size: contain;
 }
 
+span.swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+}
+.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {
+    position: relative;
+    top: 0;
+}
+span.swiper-pagination-bullet.swiper-pagination-bullet-active
+ {
+    background: #59D1FF;
+}
 /* @keyframes fadeInUp {
   0% { opacity: 0; transform: translateY(50px); }
   100% { opacity: 1; transform: translateY(0); }

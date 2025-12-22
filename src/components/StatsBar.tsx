@@ -57,13 +57,11 @@ const StatsBar: React.FC<StatsBarProps> = ({ stats = [] }) => {
             <h2 className="text-[38px] font-bold text-[#0056a9]">
               {animate ? <Counter end={value} suffix={suffix} /> : "0"}
             </h2>
-
-            <p className="text-xl uppercase font-semibold text-[#0090d0] tracking-wide">
+            <p className="text-xs xl:text-xl uppercase font-semibold text-[#0090d0] tracking-wide">
               {label}
             </p>
-
             {index !== stats.length - 1 && (
-              <div className="hidden md:block absolute right-0 top-[15%] h-[70%] w-[1px] bg-[#dce3ed]" />
+              <div className="hidden md:block absolute -right-5 top-[15%] h-28 w-[1px] bg-[#dce3ed]" />
             )}
           </div>
         );
