@@ -1,4 +1,5 @@
 "use client";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay, Navigation } from "swiper/modules";
 import { useEffect, useRef, useState } from "react";
@@ -22,31 +23,33 @@ interface JourneyData {
     button: { url: string; title: string };
 }
 
-// interface JourneySectionProps {
-//     journey: JourneyData;
-// }
-
-// interface JourneyCardProps {
-//     item: JourneyItem;
-//     step: number;
-//     index: number;
-// }
 export default function JourneySection({ journey }: { journey: JourneyData }) {
-    const prevRef = useRef<HTMLButtonElement>(null);
-    const nextRef = useRef<HTMLButtonElement>(null);
+     const prevRef = useRef<HTMLButtonElement>(null);
+  const nextRef = useRef<HTMLButtonElement>(null);
+  const swiperRef = useRef<any>(null);
+
+  useEffect(() => {
+    if (swiperRef.current && prevRef.current && nextRef.current) {
+      swiperRef.current.params.navigation.prevEl = prevRef.current;
+      swiperRef.current.params.navigation.nextEl = nextRef.current;
+      swiperRef.current.navigation.destroy(); // re-init navigation
+      swiperRef.current.navigation.init();
+      swiperRef.current.navigation.update();
+    }
+  }, []);
+
     return (
-        <section className="pt-10 pb-20 bg-white ">
+        <section className="pt-10 pb-20 bg-white">
             <div className="max-w-[1500px] mx-auto px-6 xl:px-10 2xl:px-0 relative text-center">
-                <h2 className="text-3xl md:text-5xl font-bold text-[#004A86] ">
+                <h2 className="text-3xl md:text-5xl font-bold text-[#004A86]">
                     {journey.title}
                 </h2>
-
                 <p className="text-black mt-4 max-w-6xl mx-auto leading-relaxed text-lg font-light">
                     {journey.info}
                 </p>
 
+                {/* Desktop Grid */}
                 <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-5 mt-7 lg:mt-14">
-
                     {journey.list.map((item, index) => (
                         <JourneyCard
                             key={index}
@@ -57,27 +60,25 @@ export default function JourneySection({ journey }: { journey: JourneyData }) {
                         />
                     ))}
                 </div>
-                <div className="block md:hidden mt-7 lg:mt-14">
+
+                {/* Mobile Swiper */}
+                <div className="block md:hidden mt-7 lg:mt-14 relative">
                     <Swiper
                         modules={[Pagination, Autoplay, Navigation]}
                         loop={true}
-                        // spaceBetween={20}
                         slidesPerView={1}
-                        navigation={{
-                            prevEl: prevRef.current,
-                            nextEl: nextRef.current,
-                        }}
                         autoplay={{
                             delay: 2500,
                             disableOnInteraction: false,
                         }}
-                        // pagination={{ clickable: true }}
+                                onSwiper={(swiper) => (swiperRef.current = swiper)}
+
                         onBeforeInit={(swiper) => {
-                            if (!swiper.params.navigation || typeof swiper.params.navigation === "boolean") {
-                                swiper.params.navigation = {};
+                            const navigation = swiper.params.navigation
+                            if (typeof navigation !== 'boolean' && navigation) {
+                                navigation.prevEl = prevRef.current
+                                navigation.nextEl = nextRef.current
                             }
-                            (swiper.params.navigation as any).prevEl = prevRef.current;
-                            (swiper.params.navigation as any).nextEl = nextRef.current;
                         }}
                     >
                         {journey.list.map((item, index) => (
@@ -91,24 +92,27 @@ export default function JourneySection({ journey }: { journey: JourneyData }) {
                             </SwiperSlide>
                         ))}
                     </Swiper>
-                    <button
-                        ref={prevRef}
-                        className="absolute bottom-20 left-36 bg-[#0852A0] w-12 h-12 p-2 rounded-full shadow-md z-10"
-                    >
-                        &#8592;
-                    </button>
-                    <button
-                        ref={nextRef}
-                        className="absolute bottom-20 right-36 bg-[#0852A0] w-12 h-12 p-2 rounded-full shadow-md z-10"
-                    >
-                        &#8594;
-                    </button>
+
+                    {/* Navigation Buttons */}
+                    <div className="flex justify-center items-center gap-4 ">
+                        <button
+                            ref={prevRef}
+                            className="w-10 h-10 rounded-full border bg-[#0852A0] border-white text-white flex items-center justify-center"
+                        >
+                            ←
+                        </button>
+                        <button
+                            ref={nextRef}
+                            className="w-10 h-10 rounded-full border bg-[#0852A0] border-white text-white flex items-center justify-center"
+                        >
+                            →
+                        </button>
+                    </div>
                 </div>
-                <div className="flex justify-center mt-16 lg:mt-10 fade-in-up">
-                    <Link
-                        href={journey.button.url}
-                        className="block w-fit"
-                    >
+
+                {/* Button Link */}
+                <div className="flex justify-center mt-6 lg:mt-10 fade-in-up">
+                    <Link href={journey.button.url}>
                         <button className="uppercase bg-gradient-to-r gap-3 flex justify-between items-center w-full lg:w-fit from-orange-600 to-orange-600 text-white px-5 py-2 xl:px-7 2xl:py-2 rounded-full font-medium shadow-md hover:scale-105 duration-500 cursor-pointer">
                             {journey.button.title}
                             <Image
@@ -119,7 +123,6 @@ export default function JourneySection({ journey }: { journey: JourneyData }) {
                                 alt="arrow"
                             />
                         </button>
-
                     </Link>
                 </div>
             </div>
@@ -127,11 +130,13 @@ export default function JourneySection({ journey }: { journey: JourneyData }) {
     );
 }
 
+// ---------------- JourneyCard Component ----------------
+
 function JourneyCard({
     item,
     step,
     isLast,
-    index
+    index,
 }: {
     item: JourneyItem;
     step: number;
@@ -159,18 +164,15 @@ function JourneyCard({
     }, [step]);
 
     return (
-        <div
-            className={`w-full p-3 transition bg-white relative flex flex-col items-center text-center rounded-t-full rounded-b-2xl `}
-        // 👈 stagger animation
-        >
+        <div className="w-full p-3 transition bg-white relative flex flex-col items-center text-center rounded-t-full rounded-b-2xl">
             <div className="relative rounded-[40px] lg:rounded-2xl overflow-hidden w-full mb-5">
-                <div className="absolute top-10 left-1/2 -translate-x-1/2 bg-white rounded-full p-5 w-20 h-20 mb-5   z-10">
+                <div className="absolute top-10 left-1/2 -translate-x-1/2 bg-white rounded-full p-5 w-20 h-20 mb-5 z-10">
                     <Image
                         src={item.icon.url}
                         alt={item.title}
                         width={65}
                         height={65}
-                        className="w-16 h-16 -mt-3  flex justify-center items-center"
+                        className="w-16 h-16 -mt-3 flex justify-center items-center"
                     />
                 </div>
                 <Image
@@ -183,32 +185,24 @@ function JourneyCard({
                 />
             </div>
 
-            {/* <span
-                className={`hidden lg:block absolute left-[370px] z-20 top-[287px] h-[48%] border-blue-400 rotate-90 dot-move ${isLast ? "border-l-0" : "border-l-4"
-                    }`}
-                style={{
-                    animationDelay: `${index * 0.8}s`,
-                    "--move-distance": "-360px"
-                } as React.CSSProperties}
-            />
-
             <span
-                className="hidden lg:block absolute left-44 top-[465px] h-4 w-4 rounded-full bg-blue-400 border-blue-400 rotate-90 dot-move"
-                style={{
-                    animationDelay: `${index * 0.8}s`,
-                    "--move-distance": "-360px"
-                } as React.CSSProperties}
-            /> */}
-
-            <span style={{ animationDelay: `${index * 0.2}s` }} className="text-[#06A1DC] flex justify-center items-center text-3xl lg:text-4xl font-bold relative -top-14 lg:-top-16 rounded-full bg-white w-16 h-16 lg:w-20 lg:h-20 fade-in-up">
+                style={{ animationDelay: `${index * 0.2}s` }}
+                className="text-[#06A1DC] flex justify-center items-center text-3xl lg:text-4xl font-bold relative -top-14 lg:-top-16 rounded-full bg-white w-16 h-16 lg:w-20 lg:h-20 fade-in-up"
+            >
                 {index + 1}
             </span>
 
-            <h3 style={{ animationDelay: `${index * 0.2}s` }} className="font-semibold -mt-14 xl:-mt-12 2xl:-mt-10 text-2xl text-gray-800 line-clamp-2 fade-in-up">
+            <h3
+                style={{ animationDelay: `${index * 0.2}s` }}
+                className="font-semibold -mt-14 xl:-mt-12 2xl:-mt-10 text-2xl text-gray-800 line-clamp-2 fade-in-up"
+            >
                 {item.title}
             </h3>
 
-            <p style={{ animationDelay: `${index * 0.2}s` }} className="text-gray-600 text-sm lg:text-xs xl:text-base mt-2 leading-relaxed font-light pb-5 fade-in-up">
+            <p
+                style={{ animationDelay: `${index * 0.2}s` }}
+                className="text-gray-600 text-sm lg:text-xs xl:text-base mt-2 leading-relaxed font-light pb-5 fade-in-up"
+            >
                 {item.info}
             </p>
         </div>
