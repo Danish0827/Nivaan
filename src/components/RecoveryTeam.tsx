@@ -77,11 +77,11 @@ export default function RecoveryTeam({
 
                                                 <div
                                                     className="
-                                    text-gray-600 text-lg mt-2 leading-relaxed 
-                                    opacity-0 max-h-0 overflow-hidden 
-                                    transition-all duration-300
-                                    group-hover:opacity-100 group-hover:max-h-40
-                                "
+                                                        text-gray-600 text-lg mt-2 leading-relaxed 
+                                                        opacity-0 max-h-0 overflow-hidden 
+                                                        transition-all duration-300
+                                                        group-hover:opacity-100 group-hover:max-h-40
+                                                    "
                                                 >
                                                     {parse(role.info || "")}
                                                 </div>
@@ -161,13 +161,21 @@ export default function RecoveryTeam({
                     </div>
                 </div>
                 <div className="relative flex items-center justify-center lg:order-2 order-1">
-                    <Image
+                    {/* <Image
                         src={image}
                         alt="Recovery Team Graphic"
                         width={700}
                         height={700}
                         className="object-contain drop-shadow-lg"
-                    />
+                    /> */}
+                    <video
+            src={image}
+            className="w-full h-full block "
+            autoPlay
+            muted
+            loop
+            playsInline
+          />
                 </div>
             </div>
         </div>

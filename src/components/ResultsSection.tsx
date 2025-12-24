@@ -27,14 +27,15 @@ export default function ResultsSection({
     <section className="w-full pb-16 overflow-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-[30%_70%] xl:grid-cols-[40%_60%] xl:gap-12 items-center w-full">
         <div className="relative w-full lg:ml-20 xl:ml-40 2xl:ml-52 z-20 p-10 lg:p-0 top-32 lg:top-0">
-          <div className="overflow-hidden flex justify-end lg:rounded-[40px] rounded-[60px]">
-            <Image
-              src={image}
-              alt="results image"
-              width={1000}
-              height={800}
-              className="lg:w-[500px] lg:h-[400px] xl:w-full xl:h-[450px] object-cover"
-            />
+          <div className="overflow-hidden flex justify-end lg:rounded-[40px] rounded-[60px]">            
+            <video
+            src={image}
+            className="h-[300px] lg:w-[500px] lg:h-[400px] xl:w-full xl:h-[450px] object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+          />
           </div>
         </div>
         <div className="relative text-white lg:rounded-l-[60px] bg-gradient-to-r from-[#0AA2DC] to-[#115CAB] p-5 md:p-14 m-3 rounded-[50px]">

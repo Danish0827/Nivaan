@@ -3,9 +3,11 @@ export interface DoctorsDataProps {
 }
 
 export interface Doctor {
-  name: string;
-  degree: string;
+  title: string;
+  slug:string;
+  featured_image: {url:string};
+  qualification:string;
   experience: string;
-  subtitle: string;
-  image: string;
+  place: string;
+  hospital: string;
 }

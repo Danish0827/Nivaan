@@ -2,126 +2,56 @@
 
 import { DoctorsDataProps } from '@/interfaces/DoctorData'
 import Image from 'next/image'
-import React, { useRef } from 'react'
-
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Pagination, Autoplay, Navigation } from 'swiper/modules'
-import type { Swiper as SwiperType } from 'swiper'
-
-import 'swiper/css'
-import 'swiper/css/pagination'
+import Link from 'next/link'
+import React from 'react'
 
 const Doctorsdata: React.FC<DoctorsDataProps> = ({ experts }) => {
-    const prevRef = useRef<HTMLButtonElement>(null)
-    const nextRef = useRef<HTMLButtonElement>(null)
 
     return (
-
         <>
-            {/* ================= MOBILE CAROUSEL ================= */}
-            <div className="block lg:hidden relative">
-                <Swiper
-                    modules={[Pagination, Autoplay, Navigation]}
-                    spaceBetween={16}
-                    slidesPerView={1}
-                    loop={true}
-                    autoplay={{
-                        delay: 2500,
-                        disableOnInteraction: false,
-                    }}
-                    pagination={{ clickable: true }}
-                    navigation={{
-                        prevEl: prevRef.current,
-                        nextEl: nextRef.current,
-                    }}
-                    onBeforeInit={(swiper) => {
-                        // 👇 Type-safe navigation fix
-                        const navigation = swiper.params.navigation
-                        if (typeof navigation !== 'boolean' && navigation) {
-                            navigation.prevEl = prevRef.current
-                            navigation.nextEl = nextRef.current
-                        }
-                    }}
-                >
-
-                    {experts.map((item, i) => (
-                        <SwiperSlide key={i}>
-                            <div className="rounded-3xl text-left text-[#003B73]">
-                                <div className="mb-6">
-                                    <Image
-                                        src={item.image}
-                                        alt={item.name}
-                                        width={600}
-                                        height={500}
-                                        className="rounded-xl object-cover w-full"
-                                    />
-                                </div>
-                                <div className="px-6 pb-8">
-                                    <h3 className="text-xl font-medium text-white">
-                                        {item.name}
-                                    </h3>
-                                    <p className="text-xs text-[#06A1DC] mt-1">
-                                        {item.degree}
-                                    </p>
-                                    <p className="text-base font-semibold text-white mt-3">
-                                        {item.experience}
-                                    </p>
-                                    <p className="text-sm font-light text-blue-100">
-                                        {item.subtitle}
-                                    </p>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-5 xl:gap-10 py-16 px-4 lg:px-10 xl:px-16 2xl:px-24">
+                {experts.map((item, i) => (
+                    <Link
+                        key={i}
+                        href={`/doctors/${item.slug}`}
+                        className="group"
+                    >
+                        <div className="rounded-3xl text-left text-[#003B73] overflow-hidden">
+                            <div className="relative pt-5 mb-6 overflow-hidden rounded-[50px] group-hover:-mt-5 duration-500">
+                                <Image
+                                    src={item?.featured_image?.url}
+                                    alt={item?.title}
+                                    width={1000}
+                                    height={1000}
+                                    className="rounded-xl object-cover w-full transition-transform duration-500 "
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#003B73] via-[#003B73]/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                <div className="absolute inset-0 flex items-end mb-10 justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <span className="text-white text-sm xl:text-base font-semibold border border-white px-5 py-2 rounded-full backdrop-blur-sm">
+                                        View Profile
+                                    </span>
                                 </div>
                             </div>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
+                            <div className="px-6">
+                                <h3 className="text-lg md:text-xl xl:text-2xl font-medium text-[#0852A0] line-clamp-1">
+                                    {item?.title}
+                                </h3>
+                                <p className="text-[11px] md:text-xs xl:text-sm text-[#06A1DC] mt-1 line-clamp-1">
+                                    {item.qualification}
+                                </p>
+                                <p className="text-sm md:text-base font-normal text-black mt-2 mb-1">
+                                    <span className="font-bold">{item.experience}+ years</span> Experience
+                                </p>
+                                <p className="text-sm font-light text-black">
+                                    {item.place}
+                                </p>
+                            </div>
 
-                {/* ===== Bottom Navigation Arrows ===== */}
-                {/* <div className="flex justify-center items-center gap-4 mt-6">
-          <button
-            ref={prevRef}
-            className="w-10 h-10 rounded-full border border-white text-white flex items-center justify-center"
-          >
-            ←
-          </button>
-          <button
-            ref={nextRef}
-            className="w-10 h-10 rounded-full border border-white text-white flex items-center justify-center"
-          >
-            →
-          </button>
-        </div> */}
-            </div>
-
-            {/* ================= DESKTOP GRID ================= */}
-            <div className="hidden lg:grid grid-cols-4 gap-5 xl:gap-6 pb-10">
-                {experts.map((item, i) => (
-                    <div key={i} className="rounded-3xl text-left text-[#003B73]">
-                        <div className="mb-6">
-                            <Image
-                                src={item.image}
-                                alt={item.name}
-                                width={600}
-                                height={500}
-                                className="rounded-xl object-cover w-full"
-                            />
                         </div>
-                        <div className="px-6">
-                            <h3 className="text-xl xl:text-2xl font-medium text-white">
-                                {item.name}
-                            </h3>
-                            <p className="text-xs xl:text-sm text-[#06A1DC] mt-1">
-                                {item.degree}
-                            </p>
-                            <p className="text-base font-semibold text-white mt-3">
-                                {item.experience}
-                            </p>
-                            <p className="text-sm font-light text-blue-100">
-                                {item.subtitle}
-                            </p>
-                        </div>
-                    </div>
+                    </Link>
                 ))}
             </div>
+
         </>
     )
 }

@@ -45,6 +45,26 @@ export default async function Home() {
     experts,
   } = data;
 
+  const res1 = await fetch(
+    `https://hclient.in/nivaan/wp-json/site/v1/doctors?page=1&per_page=4`,
+    {
+      next: { revalidate: 60 }, // IMPORTANT
+    }
+  );
+
+  if (!res1.ok) {
+    console.error("API failed", res.status);
+    return null;
+  }
+
+  let data1;
+  try {
+    data1 = await res1.json();
+  } catch (err) {
+    console.error("JSON parse failed");
+    return null;
+  }
+
   return (
     <>
       <HeroSection
@@ -82,7 +102,7 @@ export default async function Home() {
         lists={results.lists}
       />
       <JourneySection journey={journey} />
-      <ExpertsSection title={experts.title} description={experts.info} button={experts.button}/>
+      <ExpertsSection title={experts.title} description={experts.info} button={experts.button} doctordata={data1?.data}/>
       <EvidenceNewsSection evidence={evidence} news={news} />
       <ReviewsStoriesSection
         reviews={reviews}

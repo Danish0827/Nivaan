@@ -64,6 +64,226 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active
  {
     background: #59D1FF;
 }
+
+.single-doctor-style p {
+    margin-bottom: 15px;
+}
+.single-doctor-style ul {
+  padding-left: 1.5rem; /* pl-6 */
+  padding-bottom: 0.5rem; /* pb-2 */
+  list-style-type: disc;
+}
+
+.single-doctor-style ul li {
+  margin-bottom: 0.5rem; /* space-y-2 */
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.single-doctor-style ul li::marker {
+  color: #F36B2B; /* text-orange-500 */
+  font-size: 1.5rem; /* base */
+}
+
+.blog-content-section {
+  font-size: 16px;
+  line-height: 1.75;
+  color: #111827;
+}
+
+/* Paragraph */
+.blog-content-section p {
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+/* Headings */
+.blog-content-section h1,
+.blog-content-section h2,
+.blog-content-section h3,
+.blog-content-section h4,
+.blog-content-section h5,
+.blog-content-section h6 {
+  margin-top: 28px;
+  margin-bottom: 12px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: #0f4c92;
+}
+
+.blog-content-section h1 { font-size: 1.75rem; }
+.blog-content-section h2 { font-size: 1.4rem; }
+.blog-content-section h3 { font-size: 1.2rem; }
+.blog-content-section h4 { font-size: 1.05rem; }
+
+/* Lists */
+.blog-content-section ul,
+.blog-content-section ol {
+  margin: 16px 0;
+  padding-left: 20px;
+}
+
+.blog-content-section li {
+  margin-bottom: 8px;
+}
+
+/* Images */
+.blog-content-section img {
+  width: 100%;
+  height: auto;
+  margin: 20px auto;
+  border-radius: 14px;
+  display: block;
+  padding: 3px;
+}
+
+/* Blockquote */
+.blog-content-section blockquote {
+  margin: 20px 0;
+  padding: 14px 18px;
+  background: #f5fbff;
+  border-left: 4px solid #0f4c92;
+  font-style: italic;
+}
+
+/* Tables (mobile safe) */
+.blog-content-section table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  overflow-x: auto;
+  display: block;
+}
+
+.blog-content-section th,
+.blog-content-section td {
+  padding: 10px;
+  border: 1px solid #e5e7eb;
+  font-size: 14px;
+}
+
+/* Code */
+.blog-content-section pre {
+  background: #0b1220;
+  color: #e5e7eb;
+  padding: 14px;
+  border-radius: 12px;
+  overflow-x: auto;
+  font-size: 14px;
+}
+
+/* Links */
+.blog-content-section a {
+  color: #0f4c92;
+  text-decoration: underline;
+}
+
+/* Anchor offset */
+.blog-content-section h2,
+.blog-content-section h3 {
+  scroll-margin-top: 110px;
+}
+
+/* ---------- TABLET ---------- */
+@media (min-width: 768px) {
+  .blog-content-section {
+    font-size: 17px;
+  }
+
+  .blog-content-section h1 { font-size: 2rem; }
+  .blog-content-section h2 { font-size: 1.6rem; }
+  .blog-content-section h3 { font-size: 1.35rem; }
+
+  .blog-content-section img {
+    margin: 28px auto;
+    border-radius: 18px;
+  }
+}
+
+/* ---------- DESKTOP ---------- */
+@media (min-width: 1024px) {
+  .blog-content-section {
+    font-size: 18px;
+    line-height: 1.8;
+  }
+
+  .blog-content-section h1 { font-size: 2.3rem; }
+  .blog-content-section h2 { font-size: 1.8rem; }
+  .blog-content-section h3 { font-size: 1.45rem; }
+
+  .blog-content-section blockquote {
+    padding: 18px 24px;
+  }
+}
+/* ===== Phone Input Wrapper ===== */
+.phone-input-wrapper {
+  width: 100%;
+  background: white;
+  border-radius: 9999px;
+  padding: 6px 12px;
+  display: flex;
+  align-items: center;
+}
+
+/* ===== Phone Number Input ===== */
+.phone-input-field {
+  border: none !important;
+  outline: none !important;
+  font-size: 14px;
+  color: #000;
+  padding-left: 8px;
+  background: transparent;
+}
+
+/* ===== Country Button ===== */
+.react-international-phone-country-selector-button {
+  border: none !important;
+  background: transparent !important;
+  border-radius: 9999px;
+  padding: 4px 8px;
+  transition: background 0.2s ease;
+}
+
+.react-international-phone-country-selector-button:hover {
+  background: #f1f5f9;
+}
+
+/* ===== Dropdown ===== */
+.react-international-phone-country-selector-dropdown {
+  border-radius: 16px;
+  padding: 6px;
+  box-shadow: 0 12px 40px rgba(15, 76, 146, 0.15);
+  border: 1px solid #e2e8f0;
+  outline: none;
+}
+
+/* ===== Dropdown Item ===== */
+.react-international-phone-country-selector-dropdown__list-item {
+  border-radius: 12px;
+  padding: 8px 10px;
+  font-size: 14px;
+}
+
+.react-international-phone-country-selector-dropdown__list-item:hover {
+  background: #f1f5f9;
+}
+
+/* ===== Active Country ===== */
+.react-international-phone-country-selector-dropdown__list-item--active {
+  background: #e0f2fe;
+  color: #0f4c92;
+  font-weight: 500;
+}
+
+/* ===== Search Input ===== */
+.react-international-phone-country-selector-dropdown__search-input {
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  padding: 8px 10px;
+  margin-bottom: 6px;
+}
+
+
 /* @keyframes fadeInUp {
   0% { opacity: 0; transform: translateY(50px); }
   100% { opacity: 1; transform: translateY(0); }

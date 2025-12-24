@@ -1,43 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ExpertsSectionProps } from "@/interfaces/ExpertsSection"
-import Doctorsdata from "./Doctorsdata";
+import DoctorHomeData from "./DoctorHomeData";
 
 export default function ExpertsSection({
     title,
     description,
     button,
+    doctordata
 }: ExpertsSectionProps) {
-    const experts = [
-        {
-            name: "Dr. Rohit Gulati",
-            degree: "MBBS, DA, DNB",
-            experience: "18+ years",
-            subtitle: "Compassionate Experience",
-            image: "/images/doctor.webp",
-        },
-        {
-            name: "Dr. Garima Gupta",
-            degree: "MBBS, DA, FIPM GERMANY",
-            experience: "15+ years",
-            subtitle: "Focused Expertise",
-            image: "/images/doctor.webp",
-        },
-        {
-            name: "Dr. Jyotsna Jain",
-            degree: "MBBS, MD, FIPM, DHM",
-            experience: "17+ years",
-            subtitle: "Dedicated Experience",
-            image: "/images/doctor.webp",
-        },
-        {
-            name: "Dr. Praneet Singh",
-            degree: "MBBS, MD, FIPP, FIAPM",
-            experience: "16+ years",
-            subtitle: "Proven Care",
-            image: "/images/doctor.webp",
-        },
-    ];
     return (
         <section className="px-4 lg:px-6 xl:px-10 2xl:px-24 mt-10 text-white">
             <div className="w-full bg-gradient-to-br from-[#003368] to-[#0052A9] rounded-[40px] lg:rounded-[80px] px-5 xl:px-10 py-10 lg:py-14 xl:py-20">
@@ -47,7 +18,7 @@ export default function ExpertsSection({
                         {description}
                     </p>
                 </div>
-                <Doctorsdata experts={experts} />
+                <DoctorHomeData experts={doctordata} />
                 <div className="flex justify-center mt-6">
                     {button?.url ? (
                         <Link
