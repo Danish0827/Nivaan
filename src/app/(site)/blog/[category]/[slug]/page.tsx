@@ -4,6 +4,8 @@ import he from "he";
 import { notFound } from "next/navigation";
 import TableOfContents from "@/components/TableOfContents";
 import CallbackForm from "@/components/CallbackForm";
+import Breadcrumb from "@/components/Breadcrumb";
+import Link from "next/link";
 
 async function getBlog(slug: string) {
   const res = await fetch(
@@ -33,11 +35,15 @@ export default async function BlogDetailPage({
   return (
     <section className="bg-[#F5FBFF]">
       <div className="px-4 lg:px-24 py-10 lg:grid lg:grid-cols-[1fr_360px] gap-10">
-
-        {/* LEFT CONTENT */}
-        <div>
-          {/* HERO IMAGE (STICKY) */}
-          <div className="pt-20">
+        <div className="pt-20">
+          <Breadcrumb
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Blogs", href: "/blog" },
+              { label: blog.title },
+            ]}
+          />
+          <div>
             <div className="relative overflow-hidden rounded-3xl">
               <Image
                 src={blog.featured_image?.url}
@@ -50,13 +56,13 @@ export default async function BlogDetailPage({
             </div>
 
             {/* CTA */}
-            <div className="mt-6 flex items-center justify-center gap-10 rounded-full bg-[#0F4C92] p-4">
-              <span className="text-white font-semibold">
+            <div className="mt-6 pb-6 lg:pb-4 lg:px-10 text-center lg:flex items-center justify-between gap-10 rounded-full bg-[#0F4C92] p-4">
+              <div className="text-white font-semibold mb-4 lg:mb-0">
                 Find Relief for Your Pain Area
-              </span>
-              <button className="rounded-full bg-[#FF6A39] px-6 py-2 text-white text-sm font-semibold">
+              </div>
+              <Link href='/contact-us' className="rounded-full bg-[#FF6A39] px-6 py-3 text-white text-sm font-semibold">
                 BOOK APPOINTMENT
-              </button>
+              </Link>
             </div>
           </div>
 

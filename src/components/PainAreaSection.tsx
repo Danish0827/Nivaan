@@ -1,5 +1,6 @@
 "use client";
 import { ChevronDown } from "lucide-react";
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 /* ---------------- TYPES ---------------- */
@@ -209,10 +210,16 @@ export default function PainAreaSection() {
                             <button
                                 key={area.key}
                                 onClick={() => setActive(area.key)}
-                                className={`text-sm xl:text-base w-full font-semibold px-8 py-4 rounded-[50px] transition-all flex justify-between items-center 
+                                className={`text-sm xl:text-base w-full font-semibold px-8 py-3 cursor-pointer rounded-[50px] transition-all flex justify-between items-center 
                                 ${active === area.key ? "bg-[#06A1DC21]" : "hover:bg-[#06A1DC21]"}`}
                             >
-                                {area.label} <span>→</span>
+                                {area.label} <Image
+                                              className="group-hover:-rotate-45 w-8 h-8 duration-700 rounded-full p-2"
+                                              src="/images/leftarrow.svg"
+                                              width={20}
+                                              height={20}
+                                              alt="arrow"
+                                            />
                             </button>
                         ))}
                     </div>

@@ -65,7 +65,7 @@ export default function UnderstandPain({
         <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-[9999]">
           <div className="bg-white rounded-2xl p-4 max-w-3xl w-full relative">
             <button
-              className="absolute -top-4 -right-4 bg-white text-black w-10 h-10 rounded-full shadow flex items-center justify-center text-xl"
+              className="cursor-pointer absolute -top-4 -right-4 bg-white text-black w-10 h-10 rounded-full shadow flex items-center justify-center text-xl"
               onClick={() => setIsOpen(false)}
             >
               ✕

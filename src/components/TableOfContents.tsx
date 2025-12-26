@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useLayoutEffect, useState } from "react";
 
 type Heading = {
@@ -66,7 +67,13 @@ export default function TableOfContents({ content }: { content: string }) {
             className="flex w-full items-center justify-between rounded-full px-5 cursor-pointer py-3 text-left text-[#0F4C92] hover:bg-[#06A1DC21]"
           >
             <span className="line-clamp-1 pr-6 text-black">{item.text}</span>
-            <span>→</span>
+            <Image
+              className="group-hover:-rotate-45 w-8 h-8 duration-700 rounded-full p-2"
+              src="/images/leftarrow.svg"
+              width={20}
+              height={20}
+              alt="arrow"
+            />
           </button>
         </li>
       ))}

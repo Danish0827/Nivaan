@@ -39,7 +39,8 @@ export const footerData = [
         items: [
             { label: "About Nivaan", href: "/about" },
             { label: "Doctors", href: "/doctors" },
-            { label: "Careers", href: "/careers" },
+            { label: "Blog", href: "/blog" },
+            { label: "Contact Us", href: "/contact-us" },
             { label: "Privacy Policy", href: "/privacy-policy" },
             { label: "Terms & Conditions", href: "/terms" },
         ],

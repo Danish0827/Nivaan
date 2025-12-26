@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Header() {
   return (
-    <header className="w-full fixed top-0 left-0 z-50 bg-gradient-to-t from-[#EEF8FD]/0 to-[#ffffff] pt-2 pb-20 w-full">
+    <header className="w-full fixed top-0 left-0 z-50 bg-gradient-to-t from-[#EEF8FD]/0 to-[#ffffff] pt-2 pb- w-full">
       <div className="xl:px-24 flex items-center justify-between py-4 px-4 lg:px-6 w-full">
         <div className=" gap-2 cursor-pointer select-none w-fit">
           <img

@@ -5,7 +5,7 @@ import { footerData } from "@/data/footer";
 
 export default function NivaanFooter() {
     return (
-        <footer className="bg-[#D4F1FF] w-full pt-16 pb-6 relative overflow-hidden -z-10">
+        <footer className="bg-[#D4F1FF] w-full pt-16 pb-6 relative overflow-hidden ">
             <Image
                 width={1000}
                 height={1000}
