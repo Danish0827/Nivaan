@@ -37,12 +37,14 @@ export default function ProblemAwareness({
                 dangerouslySetInnerHTML={{ __html: description }}
               />
             )}
+            {buttonText &&
            <button
             // onClick={onCTAClick}
             className="inline-block rounded-full bg-orange-500 px-8 py-3 text-white font-semibold hover:bg-orange-600 transition"
           >
               {buttonText}
             </button>
+}
           </div>
         </div>
       </div>

@@ -57,10 +57,12 @@ export default function TargetAudience({ data }: Props) {
           </div>
         </div>
         {/* CTA */}
+        {data?.button_text &&
             <button className="block mx-auto rounded-full bg-orange-500 px-8 py-3 text-white font-semibold hover:bg-orange-600 transition">
               {data?.button_text ||
                 "Consult a Pain Specialist at Nivaan"}
             </button>
+}
       </div>
     </section>
   );

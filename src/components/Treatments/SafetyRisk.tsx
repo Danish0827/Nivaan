@@ -45,12 +45,13 @@ const SafetyRisk: React.FC<SafetyRiskProps> = ({
               __html: data.cta_description
             }}
           />
-
+{data.cta_button_name &&
           <button
             // onClick={onCTAClick}
            className="inline-block rounded-full bg-orange-500 px-8 py-3 text-white font-semibold hover:bg-orange-600 transition">
             {data.cta_button_name}
           </button>
+}
         </div>
       </div>
     </section>

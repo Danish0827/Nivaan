@@ -83,12 +83,13 @@ export default function HowItWorks({ data }: HowItWorksProps) {
 
                 </div>
                 <div className="mt-10 text-center">
-                    <Link
-                        href="/contact"
+                    {data.how_button_name &&
+                    <button
                         className="inline-block rounded-full bg-orange-500 px-8 py-3 text-white font-semibold hover:bg-orange-600 transition"
                     >
                         {data.how_button_name}
-                    </Link>
+                    </button>
+}
                 </div>
             </div>
         </section>

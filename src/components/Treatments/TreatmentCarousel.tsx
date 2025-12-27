@@ -78,10 +78,11 @@ export default function TreatmentCarousel({ data }: Props) {
               __html: data.treatment_after_description,
             }}
           />
-
+{data.treatment_button_name &&
           <button className="inline-flex items-center justify-center rounded-full bg-[#F36B2B] px-8 py-3 text-sm font-semibold text-white hover:bg-[#d95f26] transition">
             {data.treatment_button_name}
           </button>
+}
         </div>
       </div>
     </section>
