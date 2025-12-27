@@ -19,7 +19,7 @@ const SafetyRisk: React.FC<SafetyRiskProps> = ({
     <section className="w-full bg-white overview-section">
       {/* Safety Content */}
       <div className="container mr-auto">
-        
+
         {/* Description (HTML from API) */}
         <div
           className="prose prose-sm md:prose-base max-w-none text-gray-700
@@ -34,8 +34,14 @@ const SafetyRisk: React.FC<SafetyRiskProps> = ({
       </div>
 
       {/* CTA Section */}
-      <div style={{background:'images/cta.webp'}} className="w-full bg-blue-50 py-10 overview-section">
-        <div className=" px-4 text-center">
+      <div style={{
+        backgroundImage: "url('/images/cta.webp')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }} className="w-full bg-blue-50 py-10 overview-section relative rounded-[40px]">
+        <div className="absolute inset-0 bg-gradient-to-l from-[#eaf9ff] to-[#eaf9ffb7] rounded-[40px]"></div>
+        <div className="relative z-10  px-4 text-center">
           <h2 className="text-xl lg:text-2xl xl:text-4xl text-[#0852A0] font-bold mt-5 mb-3">
             {data.cta_title}
           </h2>
@@ -45,13 +51,13 @@ const SafetyRisk: React.FC<SafetyRiskProps> = ({
               __html: data.cta_description
             }}
           />
-{data.cta_button_name &&
-          <button
-            // onClick={onCTAClick}
-           className="inline-block rounded-full bg-orange-500 px-8 py-3 text-white font-semibold hover:bg-orange-600 transition">
-            {data.cta_button_name}
-          </button>
-}
+          {data.cta_button_name &&
+            <button
+              // onClick={onCTAClick}
+              className="inline-block cursor-pointer rounded-full bg-orange-500 px-8 py-3 text-white font-semibold hover:bg-orange-600 transition">
+              {data.cta_button_name}
+            </button>
+          }
         </div>
       </div>
     </section>

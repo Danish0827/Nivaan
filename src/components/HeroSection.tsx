@@ -49,7 +49,7 @@ export function HeroSection({
         src="/images/watermark.webp"
         className="absolute top-60 left-0 w-[800px] pointer-events-none z-30"
       />
-        <div className="relative mt-2 lg:mt-0 pt-6 pb-10 bg-gradient-to-b lg:bg-none from-[#fff] to-transparent  px-4 lg:pl-8 lg:pr-3 2xl:pl-16 2xl:pr-5 lg:pt-40 lg:pb-10 xl:pt-28 xl:pb-20 2xl:pt-0 2xl:pb-10 order-2 lg:order-1">
+        <div className="relative mt-2 lg:mt-0 pt-6 pb-10 bg-gradient-to-b lg:bg-none from-white to-transparent  px-4 lg:pl-8 lg:pr-3 2xl:pl-16 2xl:pr-5 lg:pt-40 lg:pb-10 xl:pt-28 xl:pb-20 2xl:pt-0 2xl:pb-10 order-2 lg:order-1">
           <h1 className="text-[32px] lg:text-4xl xl:text-5xl 2xl:text-6xl font-semibold text-blue-900 leading-tight">
             {parsedTitle}
           </h1>

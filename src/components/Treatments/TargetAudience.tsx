@@ -11,7 +11,7 @@ interface Props {
       alt?: string;
     };
     target_description_with_image?: string;
-    button_text?: string;
+    target_button_name?: string;
   };
 }
 
@@ -57,9 +57,9 @@ export default function TargetAudience({ data }: Props) {
           </div>
         </div>
         {/* CTA */}
-        {data?.button_text &&
+        {data?.target_button_name &&
             <button className="block mx-auto rounded-full bg-orange-500 px-8 py-3 text-white font-semibold hover:bg-orange-600 transition">
-              {data?.button_text ||
+              {data?.target_button_name ||
                 "Consult a Pain Specialist at Nivaan"}
             </button>
 }
