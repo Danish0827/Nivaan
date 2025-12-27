@@ -33,7 +33,8 @@ export default function HowItWorks({ data }: HowItWorksProps) {
                 <div className="grid grid-cols-1 xl:grid-cols-2 gap-10 lg:gap-16 xl:gap-8 2xl:gap-16 items-start">
                     <div className="space-y-8 relative">
                         <div className="absolute h-[400px] md:top-10 xl:h-[550px] 2xl:h-[400px] top-5 bg-[#284599] w-0.5 left-10"></div>
-                        {data.how_list_steps.map((step, index) => (
+                        {data.how_list_steps &&
+                        data.how_list_steps?.map((step, index) => (
                             <div key={index} className="flex gap-5 items-start">
                                 {/* Icon + Line */}
                                 <div className="relative flex flex-col items-center">
@@ -67,6 +68,7 @@ export default function HowItWorks({ data }: HowItWorksProps) {
                     {/* RIGHT IMAGE (STICKY) */}
                     <div className="relative lg:sticky lg:top-24">
                         <div className="rounded-3xl overflow-hidden shadow-lg">
+                            {data.how_image &&
                             <Image
                                 src={data.how_image.url}
                                 alt={data.how_image.alt}
@@ -75,6 +77,7 @@ export default function HowItWorks({ data }: HowItWorksProps) {
                                 className="w-full h-auto 2xl:h-[600px] object-cover"
                                 priority
                             />
+}
                         </div>
                     </div>
 

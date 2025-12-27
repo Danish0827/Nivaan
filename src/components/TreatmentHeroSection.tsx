@@ -67,6 +67,7 @@ export function TreatmentHeroSection({
                         </button>
                     </div>
                     <div className="relative flex justify-center order-1 lg:order-2 lg:py-10">
+                        {image &&
                         <Image
                             src={image?.url}
                             className="rounded-[50px] lg:w-4/5 object-contain drop-shadow-xl"
@@ -74,6 +75,7 @@ export function TreatmentHeroSection({
                             width={1000}
                             height={1000}
                         />
+}
                     </div>
                 </div>
             </div>

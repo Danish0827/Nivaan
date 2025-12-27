@@ -45,7 +45,7 @@ const RecoveryTimeline = ({ data }: RecoveryTimelineProps) => {
                     }}
                 />
                 <div className="space-y-5 pb-10">
-                    {data.recovery_boxs_lists?.map((item, index) => (
+                    {data.recovery_boxs_lists && data.recovery_boxs_lists?.map((item, index) => (
                         <div className="bg-white border rounded-[40px] shadow-xs px-6 py-6 lg:px-8">
                             <div key={index} className="flex gap-5 items-start">
 
@@ -93,7 +93,7 @@ const RecoveryTimeline = ({ data }: RecoveryTimelineProps) => {
                             <div className="absolute left-3 top-6 bottom-0 w-[2px] h-[420px] 2xl:h-[370px] bg-blue-500" />
 
                             {/* Steps */}
-                            {data.recovery_lists_step.map((step, index) => (
+                            {data.recovery_lists_step && data.recovery_lists_step.map((step, index) => (
                                 <div key={index} className="pl-4 relative mb-8 last:mb-0">
                                     {/* Dot */}
                                     <span className="absolute -left-5 top-5 w-4 h-4 rounded-full bg-blue-600" />

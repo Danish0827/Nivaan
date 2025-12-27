@@ -372,19 +372,26 @@ section.relative.home-main-section nav ol li span {
     text-transform: uppercase;
 }
 
-.SafetyDescription ul {
+.SafetyDescription ul,
+.targetDescription ul {
   padding-left: 1.5rem; /* pl-6 */
   padding-bottom: 0.5rem; /* pb-2 */
   list-style-type: disc;
 }
 
-.SafetyDescription ul li {
+.SafetyDescription ul li,
+.targetDescription ul li {
   margin-bottom: 0.5rem; /* space-y-2 */
   /* font-size: 1.2rem; */
   font-weight: 500;
 }
 
-.SafetyDescription ul li::marker {
+.SafetyDescription ul li::marker,
+.targetDescription ul li::marker{
   color: #F36B2B; /* text-orange-500 */
   font-size: 1.5rem; /* base */
+}
+
+.targetDescription h3{
+  font-weight: 700;
 }

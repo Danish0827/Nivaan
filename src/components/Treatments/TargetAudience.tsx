@@ -10,8 +10,7 @@ interface Props {
       url: string;
       alt?: string;
     };
-    symptoms_title?: string;
-    symptoms?: string[];
+    target_description_with_image?: string;
     button_text?: string;
   };
 }
@@ -32,6 +31,7 @@ export default function TargetAudience({ data }: Props) {
           {/* Image */}
           <div className="w-full">
             <div className="relative rounded-[40px] overflow-hidden">
+              {data?.target_image &&
               <Image
                 src={
                   data?.target_image?.url ||
@@ -42,34 +42,18 @@ export default function TargetAudience({ data }: Props) {
                 height={600}
                 className="w-full h-auto object-cover"
               />
+}
             </div>
           </div>
 
           {/* Symptoms */}
           <div>
-            <h3 className="text-lg font-semibold text-[#0F2A44] mb-5">
-              {data?.symptoms_title ||
-                "Symptoms And Conditions We Treat"}
-            </h3>
-
-            <ul className="space-y-4">
-              {(data?.symptoms || [
-                "Patellar Tendinopathy or 'Jumper's Knee' that limits sports performance.",
-                "Mechanical pain triggered by climbing stairs, squatting, or running.",
-                "Early Osteoarthritis causing morning stiffness or aching.",
-                "Recurring swelling or a feeling of tightness after activity.",
-                "Persistent pain that returns despite rest or previous medications.",
-              ]).map((item, index) => (
-                <li key={index} className="flex gap-3 items-start">
-                  <span className="mt-1 flex h-5 w-5 items-center justify-center rounded-full bg-[#F36B2B] text-white text-xs font-bold">
-                    ✓
-                  </span>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {item}
-                  </p>
-                </li>
-              ))}
-            </ul>            
+           
+            {data?.target_description_with_image && (
+          <div className="text-gray-700 text-lg targetDescription lg:text-sm xl:text-base 2xl:text-xl leading-relaxed font-mono space-y-4">
+            {parse(data?.target_description_with_image)}
+          </div>
+        )}
           </div>
         </div>
         {/* CTA */}

@@ -23,7 +23,7 @@ export default function FaqSection({ faqs = [] }: FaqSectionProps) {
     <section className="pt-5 overview-section">
       <div className="container mr-auto">
         <div className="rounded-3xl border border-gray-200 overflow-hidden bg-white">          
-          {faqs.map((faq, index) => {
+          {faqs && faqs.map((faq, index) => {
             const isOpen = openIndex === index;
 
             return (

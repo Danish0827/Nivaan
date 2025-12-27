@@ -25,7 +25,7 @@ export default function WhyNivaan({ data }: WhyNivaanProps) {
 
   return (
     <section className="bg-white overview-section">
-      <div className="container mr-auto">
+      <div className="container mx-auto">
         
         {/* Header */}
         <div className="my-5">
@@ -48,7 +48,7 @@ export default function WhyNivaan({ data }: WhyNivaanProps) {
 
           {/* List */}
           <div className="space-y-8">
-            {data.why_boxs_lists?.map((item, index) => (
+            {data.why_boxs_lists && data.why_boxs_lists?.map((item, index) => (
               <div key={index} className="flex gap-5 items-start">
                 
                 {/* Icon */}
