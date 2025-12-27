@@ -58,9 +58,8 @@ export default function TargetAudience({ data }: Props) {
         </div>
         {/* CTA */}
         {data?.target_button_name &&
-            <button className="block mx-auto rounded-full bg-orange-500 px-8 py-3 text-white font-semibold hover:bg-orange-600 transition">
-              {data?.target_button_name ||
-                "Consult a Pain Specialist at Nivaan"}
+            <button className="block mx-auto cursor-pointer rounded-full bg-orange-500 px-8 py-3 text-white font-semibold hover:bg-orange-600 transition">
+              {data?.target_button_name}
             </button>
 }
       </div>

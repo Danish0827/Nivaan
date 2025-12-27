@@ -52,9 +52,11 @@ const TreatmentStatsBar: React.FC<StatsBarProps> = ({ stats }) => {
         return (
           <div key={index} className="relative lg:flex-1 items-center text-left px-4">
             <div className="text-center lg:text-left lg:flex items-center justify-center gap-3 mt-5">
+              {item.number &&
             <h2 className="text-3xl lg:text-2xl xl:text-3xl 2xl:text-[38px] font-bold text-white pb-2 lg:pb-0">
               {animate ? <Counter end={value} suffix={suffix} /> : "0"}
             </h2>
+      }
             <p className="text-base lg:text-sm xl:text-base 2xl:text-xl uppercase font-semibold text-[#06A1DC] tracking-wide">
               {label}
             </p>

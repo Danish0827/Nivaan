@@ -46,7 +46,7 @@ export function TreatmentHeroSection({
                 src="/images/watermark.webp"
                 className="absolute top-20 left-0 w-[700px] pointer-events-none z-20"
             />
-            <div className=" pt-20 px-4 lg:px-24">
+            <div className=" pt-20 px-4 lg:px-10 xl:px-16 2xl:px-24">
                 <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-10 lg:gap-16 py-12 lg:py-10">
                     <div className="text-center lg:text-left flex flex-col justify-center order-2 lg:order-1">
                         <Breadcrumb
@@ -70,7 +70,7 @@ export function TreatmentHeroSection({
                         {image &&
                         <Image
                             src={image?.url}
-                            className="rounded-[50px] lg:w-4/5 object-contain drop-shadow-xl"
+                            className="rounded-[50px] 2xl:w-4/5 object-contain drop-shadow-xl"
                             alt={image?.alt}
                             width={1000}
                             height={1000}

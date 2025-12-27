@@ -64,7 +64,7 @@ export default function TreatmentSection({ data }: { data: any }) {
     }, [sections]);
     return (
         <div className="min-h-screen bg-white relative z-30 font-mono">
-            <div className="px-4 lg:px-7 xl:px-12 2xl:px-24 md:flex flex-row-reverse gap-6 xl:gap-10 py-16">
+            <div className="px-4 lg:px-7 xl:px-7 2xl:px-24 md:flex flex-row-reverse gap-6 lg:gap-6 2xl:gap-10 py-16">
                 {/* Content */}
                 <main className="flex-1 space-y-28 2xl:space-y-40">
                     {/* Problem */}
@@ -107,9 +107,9 @@ export default function TreatmentSection({ data }: { data: any }) {
                                 title={data?.treatment_title}
                             />
 
+                        <TreatmentCarousel data={data} />
                         </section>
                     }
-                    {/* <TreatmentCarousel data={data} /> */}
                     <section id="target" className="scroll-mt-32">
                         <SectionHeader
                             subtitle={data?.target_subtitle}

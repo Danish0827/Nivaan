@@ -395,3 +395,40 @@ section.relative.home-main-section nav ol li span {
 .targetDescription h3{
   font-weight: 700;
 }
+@media (min-width: 768px) {
+  .swiper-wrapper {
+    width: 320px !important;
+  }
+}
+@media (min-width: 1024px) {
+  .swiper-wrapper {
+    width: 650px !important;
+  }
+}
+@media (min-width: 1280px) {
+  .swiper-wrapper {
+    width: 880px !important;
+  }
+}
+
+.cta-treatment-section h3 {
+  font-size: 1.25rem; /* text-xl */
+  font-weight: 700; /* font-bold */
+  color: #0852A0;
+  margin-top: 1.25rem; /* mt-5 */
+  margin-bottom: 0.5rem; /* mb-2 */
+}
+
+/* lg:text-2xl */
+@media (min-width: 1024px) {
+  .cta-treatment-section h3 {
+    font-size: 1.5rem;
+  }
+}
+
+/* xl:text-4xl */
+@media (min-width: 1280px) {
+  .cta-treatment-section h3 {
+    font-size: 2.25rem;
+  }
+}
