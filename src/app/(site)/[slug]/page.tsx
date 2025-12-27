@@ -4,11 +4,11 @@ import TreatmentStatsBar from '@/components/TreatmentStatsBar';
 import React from 'react'
 
 const treatmentpage = async ({params}:any) => {
-    const slug = params?.slug
+    const slug = params.slug
     const res = await fetch(
         `https://www.hclient.in/nivaan/wp-json/site/v1/treatments/${slug}`,
         {
-            next: { revalidate: 60 }, 
+            next: { revalidate: 60 }, // IMPORTANT
         }
     );
 

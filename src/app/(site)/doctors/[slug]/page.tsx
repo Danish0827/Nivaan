@@ -1,22 +1,34 @@
 import DoctorProfile from "@/components/DoctorProfile";
 
-async function getDoctor(slug: string) {
+export default async function DoctorPage({  params}: any) {
+  const { slug } = params;
+
+  if (!slug) return <p>Doctor slug missing</p>;
+
   const res = await fetch(
     `https://hclient.in/nivaan/wp-json/site/v1/doctors/${slug}`,
-    { cache: "no-store" }
+    {
+      cache: "no-store",
+      headers: {
+        Accept: "application/json",
+        "User-Agent": "Mozilla/5.0", // prevents server blocking
+      },
+    }
   );
 
-  return res.json();
-}
+  if (!res.ok) {
+    console.error("Doctor API failed:", res.status);
+    return <p>Doctor not found</p>;
+  }
 
-export default async function DoctorPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
+  const contentType = res.headers.get("content-type");
+  if (!contentType?.includes("application/json")) {
+    const text = await res.text();
+    console.error("Doctor API returned HTML instead of JSON:", text);
+    return <p>Invalid API response</p>;
+  }
 
-  const data = await getDoctor(slug);
+  const data = await res.json();
 
   return <DoctorProfile data={data} />;
 }
