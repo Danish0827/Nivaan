@@ -1,0 +1,201 @@
+"use client";
+
+import React, { useEffect, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { SectionHeader } from "./SectionHeader";
+import CallbackForm from "../CallbackForm";
+import ProblemAwareness from "./ProblemAwareness";
+import OverviewSection from "./OverviewSection";
+import TargetAudience from "./TargetAudience";
+import HowItWorks from "./HowItWorks";
+import TreatmentCarousel from "./TreatmentCarousel";
+import Benefits from "./Benefits";
+import FaqSection from "./FaqSection";
+import WhyNivaan from "./WhyNivaan";
+import RecoveryTimeline from "./RecoveryTimeline";
+import SafetyRisk from "./SafetyRisk";
+
+interface SectionItem {
+    id: string;
+    label: string;
+}
+export default function TreatmentSection({ data }: { data: any }) {
+    const [activeSection, setActiveSection] = useState<string>("problem");
+    const sections: SectionItem[] = [
+        { id: "problem", label: data?.problem_subtitle },
+        { id: "overview", label: data?.overview_subtitle },
+        { id: "treatment", label: data?.treatment_subtitle },
+        { id: "target", label: data?.target_subtitle },
+        { id: "how", label: data?.how_subtitle },
+        { id: "benefits", label: data?.benefits_subtitle },
+        { id: "why", label: data?.why_subtitle },
+        { id: "recovery", label: data?.recovery_subtitle },
+        { id: "safety", label: data?.safety_subtitle },
+        { id: "faqs", label: data?.faqs_subtitle },
+    ].filter(Boolean);
+    useEffect(() => {
+        if (!sections.length) return;
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setActiveSection(entry.target.id);
+                    }
+                });
+            },
+            {
+                threshold: 0.3,
+                rootMargin: "-20% 0px -40% 0px",
+            }
+        );
+
+        sections.forEach(({ id }) => {
+            const el = document.getElementById(id);
+            if (el) observer.observe(el);
+        });
+
+        return () => observer.disconnect();
+    }, [sections]);    
+    return (
+        <div className="min-h-screen bg-white relative z-30 font-mono">
+            <div className="px-4 lg:px-7 xl:px-12 2xl:px-24 md:flex flex-row-reverse gap-6 xl:gap-10 py-16">                
+                {/* Content */}
+                <main className="flex-1 space-y-28 2xl:space-y-40">
+                    {/* Problem */}
+                    <section id="problem" className="scroll-mt-28">
+                        <SectionHeader
+                            subtitle={data?.problem_subtitle}
+                            title={data?.problem_title}
+                            midtitle={data?.problem_after_title_text}
+                        />
+                        <ProblemAwareness
+                            subtitle={data?.problem_subtitle}
+                            title={data?.problem_title}
+                            description={data?.problem_description}
+                            image={data?.problem_image?.url}
+                            buttonText={data?.problem_button_name}
+                        />
+                    </section>
+                    {/* Overview */}
+                    <section id="overview" className="scroll-mt-32">
+                        <SectionHeader
+                            subtitle={data?.overview_subtitle}
+                            title={data?.overview_title}
+                        />
+                        <OverviewSection
+                            description={data?.overview_description}
+                            featuresHtml={data?.overview_description_with_image}
+                            image={data?.overview__image?.url}
+                            afterDescription={data?.overview_after_description}
+                        />
+                    </section>
+
+                    {/* Treatment (sample – same pattern for others) */}
+                    <section id="treatment" className="scroll-mt-32">
+                        <SectionHeader
+                            subtitle={data?.treatment_subtitle}
+                            title={data?.treatment_title}
+                        />
+                        {/* <TreatmentCarousel data={data} /> */}
+                    </section>
+
+                    <section id="target" className="scroll-mt-32">
+                        <SectionHeader
+                            subtitle={data?.target_subtitle}
+                            title={data?.target_title}
+                        />
+                        <TargetAudience data={data} />
+
+                    </section>
+
+                    <section id="how" className="scroll-mt-32">
+                        <SectionHeader
+                            subtitle={data?.how_subtitle}
+                            title={data?.how_title}
+                        />
+                        <HowItWorks data={data} />;
+                    </section>
+
+                    <section id="benefits" className="scroll-mt-32">
+                        <SectionHeader
+                            subtitle={data?.benefits_subtitle}
+                            title={data?.benefits_title}
+                        />
+                        <Benefits
+                            description={data?.benefits_description}
+                            featuresHtml={data?.benefits_description_with_image}
+                            image={data?.benefits_image?.url}
+                        />
+                    </section>
+                    <section id="why" className="scroll-mt-32">
+                        <SectionHeader
+                            subtitle={data?.why_subtitle}
+                            title={data?.why_title}
+                        />
+                        <WhyNivaan data={data} />;
+                    </section>
+
+                    <section id="recovery" className="scroll-mt-32">
+                        <SectionHeader
+                            subtitle={data?.recovery_subtitle}
+                            title={data?.recovery_title}
+                        />
+                        <RecoveryTimeline data={data} />
+                    </section>
+
+                    <section id="safety" className="scroll-mt-32">
+                        <SectionHeader
+                            subtitle={data?.safety_subtitle}
+                            title={data?.safety_title}
+                        />
+                        <SafetyRisk
+                            data={data}
+                            />
+                    </section>
+                    <section id="faqs" className="scroll-mt-32">
+                        <SectionHeader
+                            subtitle={data?.faqs_subtitle}
+                            title={data?.faqs_title}
+                            midtitle={data?.faqs_description}
+                        />
+                        <FaqSection faqs={data.faqs} />
+                    </section>
+                </main>
+                {/* Sidebar */}
+                <aside className="w-full md:w-72 xl:w-80 2xl:w-96 md:sticky top-28 h-fit font-sans">
+                    <div className="bg-[#EEF8FD] rounded-3xl p-6">
+                        <h2 className="font-bold text-2xl mb-6 text-[#0852A0] text-center ">
+                            {data?.treatment_types?.title} Treatments
+                        </h2>
+                        <ul className="space-y-1">
+                            {sections.map((s) => (
+                                <li key={s.id}>
+                                    <Link
+                                        href={`#${s.id}`}
+                                        className={`flex items-center justify-between px-4 py-3 rounded-full transition group
+                                        ${activeSection === s.id
+                                                ? "bg-[#DDF1FB] font-semibold text-black"
+                                                : "text-gray-600 hover:bg-[#DDF1FB]"
+                                            }`}
+                                    >
+                                        {s.label}
+                                        <Image
+                                            className={`group-hover:opacity-100 w-8 h-8 duration-500 rounded-full p-2 ${activeSection === s.id ? "opacity-100" : "opacity-0"}`}
+                                            src="/images/leftarrow.svg"
+                                            width={20}
+                                            height={20}
+                                            alt="arrow"
+                                        />
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                    <CallbackForm />
+                </aside>
+            </div>
+        </div>
+    );
+}

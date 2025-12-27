@@ -11,8 +11,8 @@ export default function Breadcrumb({
   items: BreadcrumbItem[];
 }) {
   return (
-    <nav aria-label="Breadcrumb" className="mb-4 text-sm px-3">
-      <ol className="flex flex-wrap items-center gap-1 text-gray-500">
+    <nav aria-label="Breadcrumb" className="mb-4 text-sm px-3 w-fit py-1">
+      <ol className="flex flex-wrap items-center gap-1 text-gray-500 ">
         {items.map((item, index) => {
           const isLast = index === items.length - 1;
 
@@ -29,7 +29,7 @@ export default function Breadcrumb({
                   <span className="mx-1">/</span>
                 </>
               ) : (
-                <span className="text-gray-700 font-medium">
+                <span className="text-gray-700 font-medium line-clamp-1">
                   {item.label}
                 </span>
               )}

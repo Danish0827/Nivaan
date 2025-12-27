@@ -9,31 +9,23 @@ export const countries = [
   { name: "Australia", code: "+61", flag: "🇦🇺" },
   { name: "Austria", code: "+43", flag: "🇦🇹" },
   { name: "Azerbaijan", code: "+994", flag: "🇦🇿" },
-
   { name: "Bangladesh", code: "+880", flag: "🇧🇩" },
   { name: "Belgium", code: "+32", flag: "🇧🇪" },
   { name: "Brazil", code: "+55", flag: "🇧🇷" },
   { name: "Bulgaria", code: "+359", flag: "🇧🇬" },
-
   { name: "Canada", code: "+1", flag: "🇨🇦" },
   { name: "China", code: "+86", flag: "🇨🇳" },
   { name: "Colombia", code: "+57", flag: "🇨🇴" },
   { name: "Croatia", code: "+385", flag: "🇭🇷" },
-
   { name: "Denmark", code: "+45", flag: "🇩🇰" },
-
   { name: "Egypt", code: "+20", flag: "🇪🇬" },
   { name: "Estonia", code: "+372", flag: "🇪🇪" },
-
   { name: "Finland", code: "+358", flag: "🇫🇮" },
   { name: "France", code: "+33", flag: "🇫🇷" },
-
   { name: "Germany", code: "+49", flag: "🇩🇪" },
   { name: "Greece", code: "+30", flag: "🇬🇷" },
-
   { name: "Hong Kong", code: "+852", flag: "🇭🇰" },
   { name: "Hungary", code: "+36", flag: "🇭🇺" },
-
   { name: "India", code: "+91", flag: "🇮🇳" },
   { name: "Indonesia", code: "+62", flag: "🇮🇩" },
   { name: "Ireland", code: "+353", flag: "🇮🇪" },
