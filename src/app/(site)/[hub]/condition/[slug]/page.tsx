@@ -38,7 +38,8 @@ const conditionpage = async ({ params }: any) => {
                 button={acf?.banner_button_name}
                 image={data?.featured_image}
             />
-            <ConditionStatsBar stats={acf?.banner_boxs} />
+            {!acf?.banner_boxs == false &&
+            <ConditionStatsBar stats={acf?.banner_boxs} />}
             <ConditionSection data={acf} />
         </>
     )

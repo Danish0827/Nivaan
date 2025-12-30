@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { ChevronDown, MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import RequestCallbackModal from "@/components/RequestCallbackModal"
 
 /* ================= TYPES ================= */
 
@@ -57,29 +58,29 @@ export default function Header() {
       item.title === "Our Specialists" ||
       item.title === "Pain Management"
   );
-  if (loading) {
-    return (
-      <div className="absolute top-full left-0 mt-3 w-[720px] bg-[#EAF6FB] rounded-2xl shadow-xl p-6 flex gap-6">
-        <div className="w-1/3 bg-white rounded-xl p-4 space-y-3">
-          {[...Array(5)].map((_, i) => (
-            <div
-              key={i}
-              className="h-10 rounded-lg bg-orange-900 animate-pulse"
-            />
-          ))}
-        </div>
+  // if (loading) {
+  //   return (
+  //     <div className="absolute top-full left-0 mt-3 w-[720px] bg-[#EAF6FB] rounded-2xl shadow-xl p-6 flex gap-6">
+  //       <div className="w-1/3 bg-white rounded-xl p-4 space-y-3">
+  //         {[...Array(5)].map((_, i) => (
+  //           <div
+  //             key={i}
+  //             className="h-10 rounded-lg bg-orange-900 animate-pulse"
+  //           />
+  //         ))}
+  //       </div>
 
-        <div className="w-2/3 bg-white rounded-xl p-4 space-y-3">
-          {[...Array(6)].map((_, i) => (
-            <div
-              key={i}
-              className="h-4 rounded bg-gray-200 animate-pulse"
-            />
-          ))}
-        </div>
-      </div>
-    );
-  }
+  //       <div className="w-2/3 bg-white rounded-xl p-4 space-y-3">
+  //         {[...Array(6)].map((_, i) => (
+  //           <div
+  //             key={i}
+  //             className="h-4 rounded bg-gray-200 animate-pulse"
+  //           />
+  //         ))}
+  //       </div>
+  //     </div>
+  //   );
+  // }
 
   return (
     <header className="fixed top-0 left-0 z-50 w-full bg-gradient-to-t from-[#EEF8FD]/0 font-sans to-white">
@@ -156,9 +157,10 @@ export default function Header() {
         </nav>
 
         {/* CTA */}
-        <button className="hidden lg:block bg-gradient-to-r from-[#EC6724] to-[#F05432] text-white font-semibold px-6 py-3 rounded-full shadow">
+        {/* <button className="hidden hover:scale-105 duration-500 cursor-pointer lg:block bg-gradient-to-r hover:from-[#EC6724]/80 hover:to-[#F05432]/80 from-[#EC6724] to-[#F05432] text-white font-semibold px-6 py-3 rounded-full shadow">
           BOOK APPOINTMENT
-        </button>
+        </button> */}
+        <RequestCallbackModal buttonText="BOOK APPOINTMENT" />
 
         {/* MOBILE */}
         <button className="lg:hidden flex items-center gap-2 bg-white text-[#F05432] font-semibold px-8 py-3 rounded-full shadow">
@@ -252,12 +254,12 @@ function PillGridDropdown({
             {title}
           </h4>
 
-          <div className="grid grid-cols-2 gap-x-10 gap-y-5 text-base">
+          <div className="grid grid-cols-2 gap-x-10 gap-y-4 text-base">
             {data.map((item) => (
               <Link
                 key={item.id}
                 href={item.url || "#"}
-                className="hover:text-[#06A1DC] font-normal transition"
+                className="hover:text-[#06A1DC] capitalize font-normal transition"
               >
                 {item.title}
               </Link>
@@ -290,7 +292,7 @@ function PillGridDropdownLocation({
                   <Link
                     key={item.id}
                     href={item.url}
-                    className="hover:text-[#06A1DC] font-sans font-normal text-black transition"
+                    className="hover:text-[#06A1DC] capitalize font-sans font-normal text-black transition"
                   >
                     {item.title}
                   </Link>}

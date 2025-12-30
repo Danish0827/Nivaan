@@ -16,7 +16,6 @@ export default async function DoctorPage({  params}: any) {
       },
     } 
   );
-  console.log(res);
   
 
   if (!res.ok) {

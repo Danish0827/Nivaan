@@ -42,7 +42,7 @@ export const footerData = [
             { label: "Blog", href: "/blog" },
             { label: "Contact Us", href: "/contact-us" },
             { label: "Privacy Policy", href: "/privacy-policy" },
-            { label: "Terms & Conditions", href: "/terms" },
+            { label: "Terms & Conditions", href: "/term-and-conditions" },
         ],
     },
 ];

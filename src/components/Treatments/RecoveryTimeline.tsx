@@ -46,8 +46,8 @@ const RecoveryTimeline = ({ data }: RecoveryTimelineProps) => {
                 />
                 <div className="space-y-5 pb-10">
                     {data.recovery_boxs_lists && data.recovery_boxs_lists?.map((item, index) => (
-                        <div className="bg-white border rounded-[40px] shadow-xs px-6 py-6 lg:px-8">
-                            <div key={index} className="flex gap-5 items-start">
+                        <div key={index} className="bg-white border rounded-[40px] shadow-xs px-6 py-6 lg:px-8">
+                            <div  className="flex gap-5 items-start">
 
                                 {/* Icon */}
                                 <div className="w-20 h-20 rounded-full bg-[#284599] flex items-center justify-center shrink-0">

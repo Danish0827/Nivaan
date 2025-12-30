@@ -43,37 +43,6 @@ const doctor = async () => {
     console.error("JSON parse failed");
     return null;
   }
-const experts = [
-        {
-            name: "Dr. Rohit Gulati",
-            degree: "MBBS, DA, DNB",
-            experience: "18+ years",
-            subtitle: "Compassionate Experience",
-            image: "/images/doctor.webp",
-        },
-        {
-            name: "Dr. Garima Gupta",
-            degree: "MBBS, DA, FIPM GERMANY",
-            experience: "15+ years",
-            subtitle: "Focused Expertise",
-            image: "/images/doctor.webp",
-        },
-        {
-            name: "Dr. Jyotsna Jain",
-            degree: "MBBS, MD, FIPM, DHM",
-            experience: "17+ years",
-            subtitle: "Dedicated Experience",
-            image: "/images/doctor.webp",
-        },
-        {
-            name: "Dr. Praneet Singh",
-            degree: "MBBS, MD, FIPP, FIAPM",
-            experience: "16+ years",
-            subtitle: "Proven Care",
-            image: "/images/doctor.webp",
-        },
-    ];
- 
   return (
     <>
     <DoctorHeroSection

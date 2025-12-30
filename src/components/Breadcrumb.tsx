@@ -15,7 +15,6 @@ export default function Breadcrumb({
       <ol className="flex flex-wrap items-center gap-1 text-gray-500 ">
         {items.map((item, index) => {
           const isLast = index === items.length - 1;
-
           return (
             <li key={index} className="flex items-center gap-1">
               {!isLast ? (
@@ -29,7 +28,7 @@ export default function Breadcrumb({
                   <span className="mx-1">/</span>
                 </>
               ) : (
-                <span className="text-gray-700 font-medium line-clamp-1">
+                <span className="text-gray-700 font-normal line-clamp-1">
                   {item.label}
                 </span>
               )}
