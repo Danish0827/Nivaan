@@ -3,8 +3,6 @@ import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
-/* ---------------- TYPES ---------------- */
-
 type PainKeys = keyof typeof CONTENT;
 type ScreenSize = "lg" | "xl";
 
@@ -12,8 +10,6 @@ interface PainArea {
     key: PainKeys;
     label: string;
 }
-
-/* ---------------- DATA ---------------- */
 
 const PAIN_AREAS: PainArea[] = [
     { key: "face", label: "Face/Head" },
@@ -258,16 +254,16 @@ export default function PainAreaSection() {
                     {CONTENT[activeKey].items.map((item) => (
                         <li
                             key={item}
-                            className="underline underline-offset-[6px] cursor-pointer text-black text-lg"
+                            className="text-black text-lg"
                         >
                             {item}
                         </li>
                     ))}
                 </ul>
 
-                    <button className="bg-gradient-to-r from-orange-500 to-orange-600 text-white mt-4 px-7 py-3.5 cursor-pointer rounded-full shadow-md hover:scale-105 duration-500">
+                    {/* <button className="bg-gradient-to-r from-orange-500 to-orange-600 text-white mt-4 px-7 py-3.5 cursor-pointer rounded-full shadow-md hover:scale-105 duration-500">
                         LEARN MORE
-                    </button>
+                    </button> */}
                 </div>
 
                 <div className="block mt-10 lg:hidden max-w-fullw-full rounded-[50px] border border-gray-300 overflow-hidden bg-white shadow-sm">

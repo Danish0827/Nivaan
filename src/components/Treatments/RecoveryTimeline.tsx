@@ -85,7 +85,7 @@ const RecoveryTimeline = ({ data }: RecoveryTimelineProps) => {
                 {/* Card Layout */}
                 <div className="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-8 py-4 lg:py-6 lg:pr-6">
                     {/* Timeline Card */}
-                    <div className="bg-white flex border rounded-[40px] shadow-xs p-6 md:p-8 w-full items-center h-full">
+                    <div className="bg-white/90 flex border rounded-[40px] shadow-xs p-6 md:p-8 w-full items-center h-full">
 
 
                         <div className="relative pl-6">

@@ -2,7 +2,6 @@
 
 import { useEffect, useState, useRef } from "react";
 
-// --------------------- Types ---------------------
 interface StatItem {
   counter_numbers?: number | string;
   counter_operator?: string;
@@ -19,7 +18,7 @@ interface CounterProps {
 }
 
 // --------------------- StatsBar Component ---------------------
-const StatsBar: React.FC<StatsBarProps> = ({ stats = [] }) => {
+const StatsBar: React.FC<StatsBarProps> = ({ stats }) => {
   const [animate, setAnimate] = useState(false);
   const ref = useRef<HTMLDivElement | null>(null);
 
@@ -44,11 +43,10 @@ const StatsBar: React.FC<StatsBarProps> = ({ stats = [] }) => {
       ref={ref}
       className="w-full hidden lg:flex flex-wrap md:flex-nowrap justify-center lg:justify-between items-start gap-8 py-10 pb-20 bg-[#fff] lg:px-10 xl:px-14 2xl:px-20"
     >
-      {stats.map((item, index) => {
+      {stats?.map((item, index) => {
         const value = Number(
           String(item.counter_numbers || "0").replace(/,/g, "")
         );
-
         const suffix = item.counter_operator || "";
         const label = item.counter_text || "";
 
@@ -74,6 +72,12 @@ const StatsBar: React.FC<StatsBarProps> = ({ stats = [] }) => {
 export const Counter: React.FC<CounterProps> = ({ end, suffix = "" }) => {
   const [count, setCount] = useState(0);
 
+  // detect decimal places (4.8 → 1, 36 → 0)
+  const decimalPlaces =
+    end.toString().includes(".")
+      ? end.toString().split(".")[1].length
+      : 0;
+
   useEffect(() => {
     let start = 0;
     const duration = 1600;
@@ -95,10 +99,14 @@ export const Counter: React.FC<CounterProps> = ({ end, suffix = "" }) => {
 
   return (
     <>
-      {Math.floor(count).toLocaleString()}
+      {count.toLocaleString(undefined, {
+        minimumFractionDigits: decimalPlaces,
+        maximumFractionDigits: decimalPlaces,
+      })}
       {suffix}
     </>
   );
 };
+
 
 export default StatsBar;

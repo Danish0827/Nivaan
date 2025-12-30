@@ -57,10 +57,10 @@ export function HeroSection({
             {parsedDescription}
           </p>
           <div className="flex items-center gap-4 mt-6 2xl:mt-12 flex-wrap">
-            <button className="bg-gradient-to-r w-full lg:w-fit from-orange-500 to-orange-600 text-white px-4 py-4 2xl:px-7 2xl:py-4 rounded-full font-semibold shadow-md hover:scale-105 duration-500 cursor-pointer">
+            <button className="bg-gradient-to-r uppercase w-full lg:w-fit from-orange-500 to-orange-600 text-white px-4 py-4 2xl:px-7 2xl:py-4 rounded-full font-semibold shadow-md hover:scale-105 duration-500 cursor-pointer">
               {primaryBtn.title}
             </button>
-            <button className="border-2 w-full lg:w-fit border-orange-500 text-orange-600 bg-white px-4 py-1.5 2xl:px-6 2xl:py-2 rounded-full font-semibold flex justify-between items-center gap-3 hover:scale-105 duration-500 cursor-pointer">
+            <button className="border-2 w-full uppercase lg:w-fit border-orange-500 text-orange-600 bg-white px-4 py-1.5 2xl:px-6 2xl:py-2 rounded-full font-semibold flex justify-between items-center gap-3 hover:scale-105 duration-500 cursor-pointer">
               {secondaryBtn.title}
               <Image
                 className="group-hover:-rotate-45 w-10 h-10 duration-700 bg-orange-600 rounded-full p-3"

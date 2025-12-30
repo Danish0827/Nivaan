@@ -46,7 +46,7 @@ const SafetyRisk: React.FC<SafetyRiskProps> = ({
             {data.cta_title}
           </h2>
           <div
-            className="text-gray-700 mb-8 prose prose-sm md:prose-base max-w-none mx-auto space-y-2 px-6"
+            className="text-gray-900 mb-8 prose prose-sm md:prose-base max-w-none mx-auto space-y-2 px-6"
             dangerouslySetInnerHTML={{
               __html: data.cta_description
             }}

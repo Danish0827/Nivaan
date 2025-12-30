@@ -1,9 +1,10 @@
 import { TreatmentHeroSection } from '@/components/TreatmentHeroSection'
 import TreatmentSection from '@/components/Treatments/TreatmentSection';
 import TreatmentStatsBar from '@/components/TreatmentStatsBar';
+import { notFound } from 'next/navigation';
 import React from 'react'
 
-const treatmentpage = async ({params}:any) => {
+const hubpage = async ({params}:any) => {
     const slug = params.slug
     const res = await fetch(
         `https://www.hclient.in/nivaan/wp-json/site/v1/treatments/${slug}`,
@@ -11,7 +12,9 @@ const treatmentpage = async ({params}:any) => {
             next: { revalidate: 60 }, // IMPORTANT
         }
     );
-
+    if (res.status === 404) {
+        notFound();
+    }
     if (!res.ok) {
         console.error("API failed", res.status);
         return null;
@@ -30,7 +33,7 @@ const treatmentpage = async ({params}:any) => {
         <>
             <TreatmentHeroSection
                 breadcrumbTitle={acf?.treatment_types}
-                breadcrumbSub={data.title}
+                breadcrumbSub={data?.title}
                 title={acf?.banner_title}
                 description={acf?.banner_description}
                 button={acf?.banner_button_name}
@@ -42,4 +45,4 @@ const treatmentpage = async ({params}:any) => {
     )
 }
 
-export default treatmentpage
+export default hubpage

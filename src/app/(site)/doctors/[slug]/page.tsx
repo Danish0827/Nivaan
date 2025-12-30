@@ -1,7 +1,7 @@
 import DoctorProfile from "@/components/DoctorProfile";
 
 export default async function DoctorPage({  params}: any) {
-  const { slug } = params;
+  const slug = params.slug
 
   if (!slug) return <p>Doctor slug missing</p>;
 
@@ -10,11 +10,14 @@ export default async function DoctorPage({  params}: any) {
     {
       cache: "no-store",
       headers: {
-        Accept: "application/json",
-        "User-Agent": "Mozilla/5.0", // prevents server blocking
+       Accept: "*/*",
+      "User-Agent":
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
       },
-    }
+    } 
   );
+  console.log(res);
+  
 
   if (!res.ok) {
     console.error("Doctor API failed:", res.status);

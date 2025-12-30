@@ -1,37 +1,48 @@
 "use client";
-
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { SectionHeader } from "./SectionHeader";
+import { SectionHeader } from "../Treatments/SectionHeader";
 import CallbackForm from "../CallbackForm";
-import ProblemAwareness from "./ProblemAwareness";
 import OverviewSection from "./OverviewSection";
-import TargetAudience from "./TargetAudience";
-import HowItWorks from "./HowItWorks";
-import TreatmentCarousel from "./TreatmentCarousel";
-import Benefits from "./Benefits";
-import FaqSection from "./FaqSection";
-import WhyNivaan from "./WhyNivaan";
-import RecoveryTimeline from "./RecoveryTimeline";
-import SafetyRisk from "./SafetyRisk";
+import ShoulderJoint from "./ShoulderJoint";
+// import ProblemAwareness from "./ProblemAwareness";
+// import OverviewSection from "./OverviewSection";
+// import TargetAudience from "./TargetAudience";
+// import HowItWorks from "./HowItWorks";
+// import Benefits from "./Benefits";
+import FaqSection from "@/components/Treatments/FaqSection";
+import ConditionCarousel from "./ConditionCarousel";
+import DiagnosisCarousel from "./CausesCarousel";
+import CausesCarousel from "./CausesCarousel";
+import StagesSection from "./StagesSection";
+import Stages from "./StagesSection";
+import Symptoms from "./Symptoms";
+import Diagnosis from "./Diagnosis";
+import Approach from "./Approach";
+import ConditionTreatment from "./ConditionTreatment";
+import WhenToConsult from "./WhenToConsult";
+// import WhyNivaan from "./WhyNivaan";
+// import RecoveryTimeline from "./RecoveryTimeline";
+// import SafetyRisk from "./SafetyRisk";
 
 interface SectionItem {
     id: string;
     label: string;
 }
-export default function TreatmentSection({ data }: { data: any }) {
+export default function ConditionSection({ data }: { data: any }) {
     const [activeSection, setActiveSection] = useState<string>("problem");
     const sections: SectionItem[] = [
-        { id: "problem", label: data?.problem_subtitle },
         { id: "overview", label: data?.overview_subtitle },
-        { id: "treatment", label: data?.treatment_subtitle },
-        { id: "target", label: data?.target_subtitle },
-        { id: "how", label: data?.how_subtitle },
-        { id: "benefits", label: data?.benefits_subtitle },
-        { id: "why", label: data?.why_subtitle },
+        { id: "joint", label: data?.joint_subtitle },
+        { id: "stages", label: data?.stages_subtitle },
+        { id: "symptoms", label: data?.symptoms_subtitle },
+        { id: "causes", label: data?.causes_subtitle },
+        { id: "diagnosis", label: data?.diagnosis_subtitle },
+        { id: "treatments", label: data?.treatments_subtitle },
         { id: "recovery", label: data?.recovery_subtitle },
-        { id: "safety", label: data?.safety_subtitle },
+        { id: "when", label: data?.when_subtitle },
+        { id: "approach", label: data?.approach_subtitle },
         { id: "faqs", label: data?.faqs_subtitle },
     ].filter(
         (section): section is SectionItem =>
@@ -68,110 +79,122 @@ export default function TreatmentSection({ data }: { data: any }) {
                 {/* Content */}
                 <main className="flex-1 space-y-28 2xl:space-y-40">
                     {/* Problem */}
-                    {data?.problem_subtitle &&
-                        <section id="problem" className="scroll-mt-28">
-                            <SectionHeader
-                                subtitle={data?.problem_subtitle}
-                                title={data?.problem_title}
-                                midtitle={data?.problem_after_title_text}
-                            />
-                            <ProblemAwareness
-                                subtitle={data?.problem_subtitle}
-                                title={data?.problem_title}
-                                description={data?.problem_description}
-                                image={data?.problem_image?.url}
-                                buttonText={data?.problem_button_name}
-                            />
-                        </section>
-                    }
-                    {/* Overview */}
                     {data?.overview_subtitle &&
-                        <section id="overview" className="scroll-mt-32">
+                        <section id="overview" className="scroll-mt-28">
                             <SectionHeader
                                 subtitle={data?.overview_subtitle}
                                 title={data?.overview_title}
                             />
                             <OverviewSection
-                                description={data?.overview_description}
-                                featuresHtml={data?.overview_description_with_image}
-                                image={data?.overview__image?.url}
-                                afterDescription={data?.overview_after_description}
+                                data={data}
                             />
                         </section>
                     }
-                    {data?.treatment_subtitle &&
-
-                        <section id="treatment" className="scroll-mt-32">
+                    {data?.joint_subtitle &&
+                        <section id="joint" className="scroll-mt-32">
                             <SectionHeader
-                                subtitle={data?.treatment_subtitle}
-                                title={data?.treatment_title}
+                                subtitle={data?.joint_subtitle}
+                                title={data?.joint_title}
                             />
-
-                        <TreatmentCarousel data={data} />
+                            <ShoulderJoint jointDescription={data?.joint_description} />
                         </section>
                     }
-                    <section id="target" className="scroll-mt-32">
-                        <SectionHeader
-                            subtitle={data?.target_subtitle}
-                            title={data?.target_title}
-                        />
-                        <TargetAudience data={data} />
 
-                    </section>
-
-                    {data?.how_subtitle &&
-                        <section id="how" className="scroll-mt-32">
+                    {data?.stages_subtitle &&
+                        <section id="stages" className="scroll-mt-32">
                             <SectionHeader
-                                subtitle={data?.how_subtitle}
-                                title={data?.how_title}
+                                subtitle={data?.stages_subtitle}
+                                title={data?.stages_title}
                             />
-                            <HowItWorks data={data} />
+                            <Stages
+                                stages_description={data.stages_description}
+                                stages_lists={data.stages_lists}
+                                stages_image={data.stages_image}
+                                stages_2nd_description={data.stages_2nd_description}
+                            />
                         </section>
                     }
 
-                    {data?.benefits_subtitle &&
-                        <section id="benefits" className="scroll-mt-32">
+                    {data?.symptoms_subtitle &&
+                        <section id="symptoms" className="scroll-mt-32">
                             <SectionHeader
-                                subtitle={data?.benefits_subtitle}
-                                title={data?.benefits_title}
+                                subtitle={data?.symptoms_subtitle}
+                                title={data?.symptoms_title}
                             />
-                            <Benefits
-                                description={data?.benefits_description}
-                                featuresHtml={data?.benefits_description_with_image}
-                                image={data?.benefits_image?.url}
+                            <Symptoms symptoms_description={data.symptoms_description} symptoms_image={data.symptoms_image} symptoms_2nd_description={data.symptoms_2nd_description} />
+                        </section>
+                    }
+
+                    {data?.causes_subtitle &&
+                        <section id="causes" className="scroll-mt-32">
+                            <SectionHeader
+                                subtitle={data?.causes_subtitle}
+                                title={data?.causes_title}
+                            />
+                            <CausesCarousel
+                                data={data}
                             />
                         </section>
                     }
-                    {data?.why_subtitle &&
-                        <section id="why" className="scroll-mt-32">
+
+                    {data?.diagnosis_subtitle &&
+                        <section id="diagnosis" className="scroll-mt-32">
                             <SectionHeader
-                                subtitle={data?.why_subtitle}
-                                title={data?.why_title}
+                                subtitle={data?.diagnosis_subtitle}
+                                title={data?.diagnosis_title}
                             />
-                            <WhyNivaan data={data} />
+                            <Diagnosis
+                                data={data}
+                            />
                         </section>
                     }
+                    {data?.treatments_subtitle &&
+                        <section id="treatments" className="scroll-mt-32">
+                            <SectionHeader
+                                subtitle={data?.treatments_subtitle}
+                                title={data?.treatments_title}
+                            />
+                            <ConditionTreatment data={data} />
+                        </section>
+                    }
+
                     {data?.recovery_subtitle &&
                         <section id="recovery" className="scroll-mt-32">
                             <SectionHeader
                                 subtitle={data?.recovery_subtitle}
                                 title={data?.recovery_title}
                             />
-                            <RecoveryTimeline data={data} />
+                            <ConditionCarousel data={data} />
                         </section>
                     }
 
-                    {data?.safety_subtitle &&
-                        <section id="safety" className="scroll-mt-32">
+                    {data?.when_subtitle &&
+                        <section id="when" className="scroll-mt-32">
                             <SectionHeader
-                                subtitle={data?.safety_subtitle}
-                                title={data?.safety_title}
+                                subtitle={data?.when_subtitle}
+                                title={data?.when_title}
                             />
-                            <SafetyRisk
+
+                            <WhenToConsult
+                                featuresHtml={data?.when_description}
+                                image={data?.when_image?.url}
+                                buttonbottom={data?.when_button_name}
+                            />
+                        </section>
+                    }
+
+                    {data?.approach_subtitle &&
+                        <section id="approach" className="scroll-mt-32">
+                            <SectionHeader
+                                subtitle={data?.approach_subtitle}
+                                title={data?.approach_title}
+                            />
+                            <Approach
                                 data={data}
                             />
                         </section>
                     }
+
                     {data?.faqs_subtitle &&
                         <section id="faqs" className="scroll-mt-32">
                             <SectionHeader

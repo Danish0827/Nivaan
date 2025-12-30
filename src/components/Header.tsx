@@ -12,8 +12,12 @@ interface MenuItem {
   title: string;
   url?: string;
   target?: string;
+  icon?: {
+    url: string;
+  };
   children?: MenuItem[];
 }
+
 
 const LOCATION_MENU = {
   title: "CLINICS",
@@ -78,8 +82,8 @@ export default function Header() {
   }
 
   return (
-    <header className="fixed top-0 left-0 z-50 w-full bg-gradient-to-t from-[#EEF8FD]/0 to-white">
-      <div className="xl:px-24 flex items-center justify-between py-4 px-4 lg:px-6">
+    <header className="fixed top-0 left-0 z-50 w-full bg-gradient-to-t from-[#EEF8FD]/0 font-sans to-white">
+      <div className="xl:px-10 2xl:px-24 flex items-center justify-between py-4 px-4 lg:px-6">
 
         {/* LOGO */}
         <Link href="/">
@@ -87,18 +91,18 @@ export default function Header() {
         </Link>
 
         {/* CENTER NAV */}
-        <nav className="hidden lg:flex items-center gap-6 text-xs xl:text-sm font-medium">
-          <div className="bg-white flex items-center gap-6  rounded-full text-black shadow-lg px-8">
+        <nav className="hidden lg:flex items-center gap-6 py-2 text-xs xl:text-sm font-medium">
+          <div className="bg-white flex items-center gap-2 font-normal rounded-full text-black shadow-lg px-3">
 
             {!loading &&
               centerMenus.map((item) => (
                 <div
                   key={item.id}
-                  className="relative"
+                  className="relative uppercase"
                   onMouseEnter={() => setOpenMenu(item.title)}
                   onMouseLeave={() => setOpenMenu(null)}
                 >
-                  <div className="flex text- items-center gap-1 cursor-pointer hover:text-blue-600 py-4 transition">
+                  <div className="flex text- items-center gap-1 cursor-pointer hover:bg-[#EAF6FB] px-5 my-2 py-2 rounded-full transition">
                     {item.title}
                     {item.children && <ChevronDown size={16} />}
                   </div>
@@ -135,8 +139,8 @@ export default function Header() {
             onMouseLeave={() => setOpen(false)}
           >
             {/* Button */}
-            <div className="flex shadow-lg items-center gap-1 text-black bg-white px-6 py-4 rounded-full cursor-pointer hover:shadow-lg transition">
-              <MapPin size={16} />
+            <div className="flex shadow-lg font-normal items-center gap-1 text-black bg-white px-6 py-4 rounded-full cursor-pointer hover:shadow-lg transition">
+              <MapPin className="text-[#06A1DC]" size={16} />
               LOCATION
               <ChevronDown size={16} />
             </div>
@@ -186,20 +190,22 @@ function ConditionsDropdown({
   /* ================= ACTUAL MENU ================= */
   return (
     <div className="absolute top-full left-0 pt-3 w-[750px]">
-      <div className="bg-[#EAF6FB] rounded-2xl shadow-xl p-6 flex gap-6">
+      <div className="bg-[#EAF6FB] border-white border rounded-2xl shadow-xl p-6 flex gap-6">
         {/* LEFT SIDE */}
-        <div className="w-1/3 bg-white rounded-xl p-4 space-y-2">
+        <div className="w-1/3 bg-white rounded-4xl p-3 space-y-1">
           {data.map((item) => (
             <Link
               key={item.id}
               href={item.url || "#"}
               onMouseEnter={() => setActive(item)}
-              className={`block px-6 py-3 rounded-2xl cursor-pointer text-sm transition
+              className={`flex items-center gap-2 px-3 py-2 rounded-3xl cursor-pointer transition font-medium
               ${active.id === item.id
-                  ? "bg-[#EAF6FB] text-[#284599] font-semibold"
+                  ? "bg-[#EAF6FB] text-[#284599]"
                   : "hover:bg-gray-100"
                 }`}
             >
+              {item?.icon?.url &&
+                <Image className="bg-[#284599] p-2.5 rounded-2xl w-12 h-12" src={item.icon.url} alt="" width={50} height={50} />}
               {item.title}
             </Link>
           ))}
@@ -207,7 +213,7 @@ function ConditionsDropdown({
 
         {/* RIGHT SIDE */}
         <div className="w-2/3">
-          <h4 className="text-sm font-semibold text-[#06A1DC] uppercase mb-5">
+          <h4 className="text-sm font-normal text-[#06A1DC] uppercase mb-5">
             Condition
           </h4>
 
@@ -284,7 +290,7 @@ function PillGridDropdownLocation({
                   <Link
                     key={item.id}
                     href={item.url}
-                    className="hover:text-[#06A1DC] font-normal text-black transition"
+                    className="hover:text-[#06A1DC] font-sans font-normal text-black transition"
                   >
                     {item.title}
                   </Link>}

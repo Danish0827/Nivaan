@@ -3,7 +3,7 @@ import he from "he";
 import Image from "next/image";
 import Breadcrumb from "./Breadcrumb";
 
-export function TreatmentHeroSection({
+export function ConditionHeroSection({
     breadcrumbTitle,
     breadcrumbSub,
     title,
@@ -38,6 +38,7 @@ export function TreatmentHeroSection({
             if (domNode.name === "space") return " ";
         },
     });
+    console.log(breadcrumbTitle, "breadcrumbTitle");
 
     return (
         <section style={{ boxShadow: 'rgba(0, 0, 0, 0.05) 0px 10px 60px 0px' }} className="relative home-main-section w-full bg-gradient-to-b from-[#edf8fc] to-[#edf8fc]">
@@ -51,7 +52,8 @@ export function TreatmentHeroSection({
                         <Breadcrumb
                             items={[
                                 { label: "Home", href: "/" },
-                                { label: breadcrumbTitle.title, href: `/${breadcrumbTitle.slug}` },
+                                { label: breadcrumbTitle.title, href: `/${breadcrumbTitle?.slug}` },
+                                { label: "Condition", href: `/${breadcrumbTitle.slug}/condition` },
                                 { label: breadcrumbSub },
                             ]}
                         />
@@ -67,14 +69,14 @@ export function TreatmentHeroSection({
                     </div>
                     <div className="relative flex justify-center order-1 lg:order-2 lg:py-10">
                         {image &&
-                        <Image
-                            src={image?.url}
-                            className="rounded-[50px] 2xl:w-4/5 object-contain drop-shadow-xl"
-                            alt={image?.alt}
-                            width={1000}
-                            height={1000}
-                        />
-}
+                            <Image
+                                src={image?.url}
+                                className="rounded-[50px] 2xl:w-4/5 object-contain drop-shadow-xl"
+                                alt={image?.alt}
+                                width={1000}
+                                height={1000}
+                            />
+                        }
                     </div>
                 </div>
             </div>

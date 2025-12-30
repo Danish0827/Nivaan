@@ -33,7 +33,7 @@ export default function ProblemAwareness({
           <div className="max-w-xl">
             {description && (
               <div
-                className="text-gray-700 text-lg lg:text-sm xl:text-base 2xl:text-xl leading-relaxed font-mono space-y-4 mb-6"
+                className="text-gray-700 text-lg lg:text-sm xl:text-base 2xl:text-lg leading-relaxed font-mono space-y-4 mb-6"
                 dangerouslySetInnerHTML={{ __html: description }}
               />
             )}
