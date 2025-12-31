@@ -194,7 +194,7 @@ export default function PainAreaSection() {
     const activeKey = active ?? "shoulder";
 
     return (
-        <div className="max-w-[1500px] mx-auto px-6 xl:px-10 2xl:px-0 relative -mt-96 lg:mb-10">
+        <div className="max-w-[1500px] mx-auto px-6 xl:px-10 2xl:px-0 relative -mt-96 lg:mb-10 overflow-hidden">
             <div className="w-full p-4 bg-gradient-to-b from-[#0AA2DC] to-[#115CAB] rounded-[60px] shadow-xl grid grid-cols-1 lg:grid-cols-[27%_35%_35%] xl:grid-cols-[27%_34%_35%] 2xl:grid-cols-[27%_33.5%_36%] gap-4 xl:gap-6">
 
                 {/* LEFT MENU */}

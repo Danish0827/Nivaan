@@ -26,7 +26,7 @@ export default function UnderstandPain({
   console.log(videoUrl);
 
   return (
-    <section className={`px-4 lg:px-10 xl:px-14 2xl:px-20 mt-28 -mb-20 ${title == "We Rethink Pain. So You Can Rethink Life."? "py-16" :"bg-[#EEF8FD]"}`}>
+    <section className={`px-4 lg:px-10 xl:px-14 2xl:px-20 mt-28 -mb-20 ${title == "We Rethink Pain. So You Can Rethink Life." ? "py-16" : "bg-[#EEF8FD]"}`}>
       <div className="w-full -top-28 flex flex-col lg:flex-row items-center rounded-[50px] bg-gradient-to-b from-[#0AA2DC] to-[#115CAB] p-3 md:p-5 gap-5 lg:gap-3 xl:gap-5 2xl:gap-10 relative overflow-hidden 2xl:p-10">
         <div className="relative w-full lg:w-1/2 rounded-[35px] overflow-hidden">
           <Image
@@ -34,7 +34,7 @@ export default function UnderstandPain({
             alt="Pain Understanding Visual"
             width={1000}
             height={1000}
-            className={`w-full  mt-0.5 object-cover ${title == "We Rethink Pain. So You Can Rethink Life."? "lg:h-[600px]" :"h-full"}`}
+            className={`w-full  mt-0.5 object-cover ${title == "We Rethink Pain. So You Can Rethink Life." ? "lg:h-[600px]" : "h-full"}`}
           />
           <div
             className="absolute inset-0 flex items-center justify-center cursor-pointer "
@@ -51,19 +51,19 @@ export default function UnderstandPain({
             {parse(description)}
           </div>
           {onButtonClick &&
-          <Link href={onButtonClick}>
-          <button className="bg-gradient-to-r gap-3 flex justify-between items-center w-full lg:w-fit from-orange-600 to-orange-600 text-white px-5 py-2 xl:px-7 2xl:py-2 rounded-full font-medium shadow-md hover:scale-105 duration-500 cursor-pointer">
-            {buttonText}
-            <Image
-              className="group-hover:-rotate-45 w-10 h-10 duration-700 bg-white rounded-full p-3"
-              src="/images/orangearrow.svg"
-              width={20}
-              height={20}
-              alt="arrow"
-            />
-          </button>
-          </Link>
-}
+            <Link href={onButtonClick}>
+              <button id={buttonText} className="bg-gradient-to-r gap-3 flex justify-between items-center w-full lg:w-fit from-orange-600 to-orange-600 text-white px-5 py-2 xl:px-7 2xl:py-2 rounded-full font-medium shadow-md hover:scale-105 duration-500 cursor-pointer">
+                {buttonText}
+                <Image
+                  className="group-hover:-rotate-45 w-10 h-10 duration-700 bg-white rounded-full p-3"
+                  src="/images/orangearrow.svg"
+                  width={20}
+                  height={20}
+                  alt="arrow"
+                />
+              </button>
+            </Link>
+          }
         </div>
       </div>
       {isOpen && (

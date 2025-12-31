@@ -53,7 +53,7 @@ export default async function Home() {
   );
 
   if (!res1.ok) {
-    console.error("API failed", res.status);
+    console.error("API failed", res1.status);
     return null;
   }
 
@@ -64,7 +64,6 @@ export default async function Home() {
     console.error("JSON parse failed");
     return null;
   }
-
   return (
     <>
       <HeroSection

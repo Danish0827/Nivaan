@@ -1,5 +1,5 @@
 "use client";
-
+import parse from "html-react-parser";
 import Image from "next/image";
 
 interface ResultItem {
@@ -43,12 +43,15 @@ export default function ResultsSection({
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               {title}
             </h2>
-            <p className="text-white/90 leading-relaxed mb-6 max-w-xl">
-              {info}
+            <p className="description-wrapper text-white/90 leading-relaxed my-3 xl:my-6 space-y-4 text-base lg:text-base xl:text-xl font-thin">
+              {parse(info)}
             </p>
+            {subtitle &&
             <button className="bg-white text-[#0E63C5] font-semibold rounded-full px-6 py-2 mb-10 transition hover:bg-gray-100">
               {subtitle}
             </button>
+            }
+            {lists &&
             <div className="space-y-8 pb-10">
               {lists.map((item, index) => (
                 <div key={index} className="flex items-start gap-5">
@@ -72,6 +75,7 @@ export default function ResultsSection({
                 </div>
               ))}
             </div>
+            }
           </div>
         </div>
       </div>

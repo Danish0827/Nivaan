@@ -5,11 +5,11 @@ import { notFound } from 'next/navigation';
 import React from 'react'
 
 const hubpage = async ({params}:any) => {
-    const slug = params.slug
+    const slug = params.hub
     const res = await fetch(
-        `https://www.hclient.in/nivaan/wp-json/site/v1/treatments/${slug}`,
+        `https://www.hclient.in/nivaan/wp-json/site/v1/hub/${slug}`,
         {
-            next: { revalidate: 60 }, // IMPORTANT
+            next: { revalidate: 60 },
         }
     );
     if (res.status === 404) {
@@ -23,6 +23,8 @@ const hubpage = async ({params}:any) => {
     let data;
     try {
         data = await res.json();
+        console.log(data);
+        
     } catch (err) {
         console.error("JSON parse failed");
         return null;
@@ -31,7 +33,8 @@ const hubpage = async ({params}:any) => {
     const { acf } = data
     return (
         <>
-            <TreatmentHeroSection
+        <>sdad</>
+            {/* <TreatmentHeroSection
                 breadcrumbTitle={acf?.treatment_types}
                 breadcrumbSub={data?.title}
                 title={acf?.banner_title}
@@ -40,7 +43,7 @@ const hubpage = async ({params}:any) => {
                 image={data?.featured_image}
             />
             <TreatmentStatsBar stats={acf?.banner_numbers} />
-            <TreatmentSection data={acf}/>
+            <TreatmentSection data={acf}/> */}
         </>
     )
 }

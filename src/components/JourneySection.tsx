@@ -21,22 +21,23 @@ interface JourneyData {
     info: string;
     list: JourneyItem[];
     button: { url: string; title: string };
+    behind: string
 }
 
 export default function JourneySection({ journey }: { journey: JourneyData }) {
-     const prevRef = useRef<HTMLButtonElement>(null);
-  const nextRef = useRef<HTMLButtonElement>(null);
-  const swiperRef = useRef<any>(null);
+    const prevRef = useRef<HTMLButtonElement>(null);
+    const nextRef = useRef<HTMLButtonElement>(null);
+    const swiperRef = useRef<any>(null);
 
-  useEffect(() => {
-    if (swiperRef.current && prevRef.current && nextRef.current) {
-      swiperRef.current.params.navigation.prevEl = prevRef.current;
-      swiperRef.current.params.navigation.nextEl = nextRef.current;
-      swiperRef.current.navigation.destroy(); // re-init navigation
-      swiperRef.current.navigation.init();
-      swiperRef.current.navigation.update();
-    }
-  }, []);
+    useEffect(() => {
+        if (swiperRef.current && prevRef.current && nextRef.current) {
+            swiperRef.current.params.navigation.prevEl = prevRef.current;
+            swiperRef.current.params.navigation.nextEl = nextRef.current;
+            swiperRef.current.navigation.destroy(); // re-init navigation
+            swiperRef.current.navigation.init();
+            swiperRef.current.navigation.update();
+        }
+    }, []);
 
     return (
         <section className="pt-10 pb-20 bg-white">
@@ -44,10 +45,11 @@ export default function JourneySection({ journey }: { journey: JourneyData }) {
                 <h2 className="text-3xl md:text-5xl font-bold text-[#004A86]">
                     {journey.title}
                 </h2>
-                <p className="text-black mt-4 max-w-6xl mx-auto leading-relaxed text-lg font-light">
-                    {journey.info}
-                </p>
-
+                {journey.info &&
+                    <p className="text-black mt-4 max-w-6xl mx-auto leading-relaxed text-lg font-light">
+                        {journey.info}
+                    </p>
+                }
                 {/* Desktop Grid */}
                 <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-5 mt-7 lg:mt-14">
                     {journey.list.map((item, index) => (
@@ -61,6 +63,7 @@ export default function JourneySection({ journey }: { journey: JourneyData }) {
                     ))}
                 </div>
 
+
                 {/* Mobile Swiper */}
                 <div className="block md:hidden mt-7 lg:mt-14 relative">
                     <Swiper
@@ -71,7 +74,7 @@ export default function JourneySection({ journey }: { journey: JourneyData }) {
                             delay: 2500,
                             disableOnInteraction: false,
                         }}
-                                onSwiper={(swiper) => (swiperRef.current = swiper)}
+                        onSwiper={(swiper) => (swiperRef.current = swiper)}
 
                         onBeforeInit={(swiper) => {
                             const navigation = swiper.params.navigation
@@ -111,20 +114,30 @@ export default function JourneySection({ journey }: { journey: JourneyData }) {
                 </div>
 
                 {/* Button Link */}
-                <div className="flex justify-center mt-6 lg:mt-10 fade-in-up">
-                    <Link href={journey.button.url}>
-                        <button className="uppercase bg-gradient-to-r gap-3 flex justify-between items-center w-full lg:w-fit from-orange-600 to-orange-600 text-white px-5 py-2 xl:px-7 2xl:py-2 rounded-full font-medium shadow-md hover:scale-105 duration-500 cursor-pointer">
-                            {journey.button.title}
-                            <Image
-                                className="group-hover:-rotate-45 w-10 h-10 duration-700 bg-white rounded-full p-3"
-                                src="/images/orangearrow.svg"
-                                width={20}
-                                height={20}
-                                alt="arrow"
-                            />
-                        </button>
-                    </Link>
-                </div>
+                {journey.button.title &&
+                    <div className="flex justify-center mt-6 lg:mt-10 fade-in-up">
+                        <Link href={journey.button.url}>
+                            <button className="uppercase bg-gradient-to-r gap-3 flex justify-between items-center w-full lg:w-fit from-orange-600 to-orange-600 text-white px-5 py-2 xl:px-7 2xl:py-2 rounded-full font-medium shadow-md hover:scale-105 duration-500 cursor-pointer">
+                                {journey.button.title}
+                                <Image
+                                    className="group-hover:-rotate-45 w-10 h-10 duration-700 bg-white rounded-full p-3"
+                                    src="/images/orangearrow.svg"
+                                    width={20}
+                                    height={20}
+                                    alt="arrow"
+                                />
+                            </button>
+                        </Link>
+                    </div>
+                }
+                {journey.behind &&
+                    <p
+                        // style={{ animationDelay: `${index * 0.2}s` }}
+                        className="text-gray-600 text-sm lg:text-xs xl:text-base mt-2 leading-relaxed font-light py-5 fade-in-up"
+                    >
+                        {journey.behind}
+                    </p>
+                }
             </div>
         </section>
     );
@@ -194,7 +207,7 @@ function JourneyCard({
 
             <h3
                 style={{ animationDelay: `${index * 0.2}s` }}
-                className="font-semibold -mt-14 xl:-mt-12 2xl:-mt-10 text-2xl text-gray-800 line-clamp-2 fade-in-up"
+                className="font-semibold -mt-14 xl:-mt-12 2xl:-mt-10 text-2xl text-gray-800  fade-in-up"
             >
                 {item.title}
             </h3>

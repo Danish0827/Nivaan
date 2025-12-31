@@ -2,6 +2,7 @@ import parse from "html-react-parser";
 import he from "he";
 import Image from "next/image";
 import { HeroSectionProps } from "@/interfaces/hero";
+import Link from "next/link";
 
 export function HeroSection({
   title,
@@ -10,7 +11,7 @@ export function HeroSection({
   secondaryBtn,
   image,
   mobile,
-}: HeroSectionProps) {  
+}: HeroSectionProps) {
   const decodedTitle = he.decode(title);
   const decodedDescription = he.decode(description);
   const parsedTitle = parse(decodedTitle, {
@@ -46,9 +47,9 @@ export function HeroSection({
     <section className="home-main-section bg-gradient-to-t from-[#edf8fc] to-[#edf8fc] relative overflow-hidden w-full ">
       <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-0 items-center overflow-hidden pb-8">
         <img
-        src="/images/watermark.webp"
-        className="absolute top-60 left-0 w-[800px] pointer-events-none z-30"
-      />
+          src="/images/watermark.webp"
+          className="absolute top-60 left-0 w-[800px] pointer-events-none z-30"
+        />
         <div className="relative mt-2 lg:mt-0 pt-6 pb-10 bg-gradient-to-b lg:bg-none from-white to-transparent  px-4 lg:pl-8 lg:pr-3 2xl:pl-16 2xl:pr-5 lg:pt-40 lg:pb-10 xl:pt-28 xl:pb-20 2xl:pt-0 2xl:pb-10 order-2 lg:order-1">
           <h1 className="text-[32px] lg:text-4xl xl:text-5xl 2xl:text-6xl font-semibold text-blue-900 leading-tight">
             {parsedTitle}
@@ -57,19 +58,27 @@ export function HeroSection({
             {parsedDescription}
           </p>
           <div className="flex items-center gap-4 mt-6 2xl:mt-12 flex-wrap">
-            <button className="bg-gradient-to-r uppercase w-full lg:w-fit from-orange-500 to-orange-600 text-white px-4 py-4 2xl:px-7 2xl:py-4 rounded-full font-semibold shadow-md hover:scale-105 duration-500 cursor-pointer">
-              {primaryBtn.title}
-            </button>
-            <button className="border-2 w-full uppercase lg:w-fit border-orange-500 text-orange-600 bg-white px-4 py-1.5 2xl:px-6 2xl:py-2 rounded-full font-semibold flex justify-between items-center gap-3 hover:scale-105 duration-500 cursor-pointer">
-              {secondaryBtn.title}
-              <Image
-                className="group-hover:-rotate-45 w-10 h-10 duration-700 bg-orange-600 rounded-full p-3"
-                src="/images/whitearrow.svg"
-                width={20}
-                height={20}
-                alt="arrow"
-              />
-            </button>
+            {primaryBtn?.url &&
+              <Link href={primaryBtn.url}>
+                <button id={primaryBtn.title} className="bg-gradient-to-r uppercase w-full lg:w-fit from-orange-500 to-orange-600 text-white px-4 py-4 2xl:px-7 2xl:py-4 rounded-full font-semibold shadow-md hover:scale-105 duration-500 cursor-pointer">
+                  {primaryBtn.title}
+                </button>
+              </Link>
+            }
+            {secondaryBtn?.url &&
+              <Link href={secondaryBtn.url}>
+                <button id={secondaryBtn.title} className="border-2 w-full uppercase lg:w-fit border-orange-500 text-orange-600 bg-white px-4 py-1.5 2xl:px-6 2xl:py-2 rounded-full font-semibold flex justify-between items-center gap-3 hover:scale-105 duration-500 cursor-pointer">
+                  {secondaryBtn.title}
+                  <Image
+                    className="group-hover:-rotate-45 w-10 h-10 duration-700 bg-orange-600 rounded-full p-3"
+                    src="/images/whitearrow.svg"
+                    width={20}
+                    height={20}
+                    alt="arrow"
+                  />
+                </button>
+              </Link>
+            }
           </div>
         </div>
         <div className="relative z-20 order-1 lg:order-2">
