@@ -1,5 +1,4 @@
 import parse from "html-react-parser";
-import he from "he";
 import Image from "next/image";
 import Breadcrumb from "./Breadcrumb";
 
@@ -7,20 +6,6 @@ export function PageBreadcrumb({
     title,
     description
 }: any) {
-    const decodedTitle = he.decode(title);
-    const parsedTitle = parse(decodedTitle, {
-        replace: (domNode: any) => {
-            if (domNode.name === "spam") {
-                return (
-                    <span className="text-[#06A1DC] font-bold">
-                        {domNode.children[0]?.data}
-                    </span>
-                );
-            }
-            if (domNode.name === "space") return " ";
-        },
-    });
-
     return (
         <>
             <section className="relative home-main-section w-full bg-gradient-to-b pt-14 overflow-hidden from-[#edf8fc] to-[#edf8fc]">
@@ -38,9 +23,11 @@ export function PageBreadcrumb({
                                 ]}
                             />
                             <h1 className="text-[28px] sm:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-semibold text-blue-900 leading-tight">
-                                {parsedTitle}
+                                {title === "Contact Nivaan" ? description?.contact_title : title}
                             </h1>
-<p>{description}</p>
+                            {description?.contact_description &&
+                             <p className="text-black pt-5 font-thin text-lg max-w-5xl text-center px-3">{parse(description?.contact_description)}</p>
+                            }
                         </div>
                     </div>
                 </div>

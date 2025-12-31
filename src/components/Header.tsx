@@ -134,33 +134,32 @@ export default function Header() {
           </div>
 
           {/* LOCATION */}
-          <div
+          {/* <div
             className="relative"
             onMouseEnter={() => setOpen(true)}
             onMouseLeave={() => setOpen(false)}
           >
-            {/* Button */}
+          
             <div className="flex shadow-lg font-normal items-center gap-1 text-black bg-white px-6 py-4 rounded-full cursor-pointer hover:shadow-lg transition">
               <MapPin className="text-[#06A1DC]" size={16} />
               LOCATION
               <ChevronDown size={16} />
             </div>
 
-            {/* Dropdown */}
             {open && (
               <PillGridDropdownLocation
                 title={LOCATION_MENU.title}
                 data={LOCATION_MENU.items}
               />
             )}
-          </div>
+          </div> */}
         </nav>
 
         {/* CTA */}
         {/* <button className="hidden hover:scale-105 duration-500 cursor-pointer lg:block bg-gradient-to-r hover:from-[#EC6724]/80 hover:to-[#F05432]/80 from-[#EC6724] to-[#F05432] text-white font-semibold px-6 py-3 rounded-full shadow">
           BOOK APPOINTMENT
         </button> */}
-        <RequestCallbackModal buttonText="BOOK APPOINTMENT" />
+        <RequestCallbackModal buttonText="BOOK APPOINTMENT" id="home-book-appointment" />
 
         {/* MOBILE */}
         <button className="lg:hidden flex items-center gap-2 bg-white text-[#F05432] font-semibold px-8 py-3 rounded-full shadow">

@@ -140,10 +140,10 @@ function ReviewSlider({ lists, star }: { lists: Review[]; star: string }) {
       </div>
 
       <div className="flex justify-center gap-4 mt-6">
-        <button onClick={prev} className="cursor-pointer w-10 h-10 rounded-full border border-blue-700 text-blue-700">
+        <button onClick={prev} className="cursor-pointer w-10 h-10 rounded-full border border-blue-700 text-blue-700 hover:bg-blue-700 hover:text-white">
           ←
         </button>
-        <button onClick={next} className="cursor-pointer w-10 h-10 rounded-full bg-blue-700 text-white">
+        <button onClick={next} className="cursor-pointer w-10 h-10 rounded-full border border-blue-700 text-blue-700 hover:bg-blue-700 hover:text-white">
           →
         </button>
       </div>
@@ -196,10 +196,10 @@ function StoriesSlider({ items }: { items: Story[] }) {
         })}
       </div>
       <div className="flex gap-4 justify-center mt-6">
-        <button onClick={prev} className="cursor-pointer w-10 h-10 rounded-full border border-blue-700 text-blue-700">
+        <button onClick={prev} className="cursor-pointer w-10 h-10 rounded-full border border-blue-700 text-blue-700 hover:bg-blue-700 hover:text-white">
           ←
         </button>
-        <button onClick={next} className="cursor-pointer w-10 h-10 rounded-full bg-blue-700 text-white">
+        <button onClick={next} className="cursor-pointer w-10 h-10 rounded-full border border-blue-700 text-blue-700 hover:bg-blue-700 hover:text-white">
           →
         </button>
       </div>

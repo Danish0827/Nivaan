@@ -5,7 +5,6 @@ interface RecoveryStep {
     title: string;
     description: string;
 }
-
 interface RecoveryImage {
     id?: number;
     url: string;
@@ -19,7 +18,6 @@ interface ReBox {
     title: string;
     description: string;
 }
-
 interface RecoveryData {
     recovery_2nd_title: string;
     recovery_2nd_description: string; // HTML string
@@ -32,7 +30,6 @@ interface RecoveryData {
 interface RecoveryTimelineProps {
     data: RecoveryData;
 }
-
 const RecoveryTimeline = ({ data }: RecoveryTimelineProps) => {
     return (
         <section className="w-full bg-white overview-section">
