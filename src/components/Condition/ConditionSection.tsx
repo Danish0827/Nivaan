@@ -6,25 +6,15 @@ import { SectionHeader } from "../Treatments/SectionHeader";
 import CallbackForm from "../CallbackForm";
 import OverviewSection from "./OverviewSection";
 import ShoulderJoint from "./ShoulderJoint";
-// import ProblemAwareness from "./ProblemAwareness";
-// import OverviewSection from "./OverviewSection";
-// import TargetAudience from "./TargetAudience";
-// import HowItWorks from "./HowItWorks";
-// import Benefits from "./Benefits";
 import FaqSection from "@/components/Treatments/FaqSection";
 import ConditionCarousel from "./ConditionCarousel";
-import DiagnosisCarousel from "./CausesCarousel";
 import CausesCarousel from "./CausesCarousel";
-import StagesSection from "./StagesSection";
 import Stages from "./StagesSection";
 import Symptoms from "./Symptoms";
 import Diagnosis from "./Diagnosis";
 import Approach from "./Approach";
 import ConditionTreatment from "./ConditionTreatment";
 import WhenToConsult from "./WhenToConsult";
-// import WhyNivaan from "./WhyNivaan";
-// import RecoveryTimeline from "./RecoveryTimeline";
-// import SafetyRisk from "./SafetyRisk";
 
 interface SectionItem {
     id: string;
@@ -210,7 +200,7 @@ export default function ConditionSection({ data }: { data: any }) {
                 <aside className="w-full md:w-72 xl:w-80 2xl:w-96 md:sticky top-28 h-fit font-sans">
                     <div className="bg-[#EEF8FD] rounded-3xl p-6">
                         <h2 className="font-bold text-2xl mb-6 text-[#0852A0] text-center ">
-                            {data?.treatment_types?.title} Treatments
+                            {data?.condition_type[0]?.title} Condition
                         </h2>
                         <ul className="space-y-1">
                             {sections.map((s) => (

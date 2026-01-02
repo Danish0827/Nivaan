@@ -17,7 +17,13 @@ export interface EvidenceSection {
 export interface NewsSection {
   title: string;
   info: string;
-  logo: ImageMeta;
+  logos: {
+    url: string;
+    image: {
+      url: string;
+      alt: string;
+    };
+  }[];
 }
 
 export interface EvidenceNewsSectionProps {

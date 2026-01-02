@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import parse from "html-react-parser";
+import RequestCallbackModal from "../RequestCallbackModal";
 
 interface Props {
   data?: {
@@ -32,36 +33,36 @@ export default function TargetAudience({ data }: Props) {
           <div className="w-full">
             <div className="relative rounded-[40px] overflow-hidden">
               {data?.target_image &&
-              <Image
-                src={
-                  data?.target_image?.url ||
-                  "https://via.placeholder.com/600x600"
-                }
-                alt={data?.target_image?.alt || "Knee Pain"}
-                width={600}
-                height={600}
-                className="w-full h-auto object-cover"
-              />
-}
+                <Image
+                  src={
+                    data?.target_image?.url ||
+                    "https://via.placeholder.com/600x600"
+                  }
+                  alt={data?.target_image?.alt || "Knee Pain"}
+                  width={600}
+                  height={600}
+                  className="w-full h-auto object-cover"
+                />
+              }
             </div>
           </div>
 
           {/* Symptoms */}
           <div>
-           
+
             {data?.target_description_with_image && (
-          <div className="text-gray-700 text-lg targetDescription lg:text-sm xl:text-base 2xl:text-lg leading-relaxed font-mono space-y-4">
-            {parse(data?.target_description_with_image)}
-          </div>
-        )}
+              <div className="text-gray-700 text-lg lg:text-sm xl:text-base 2xl:text-lg leading-relaxed font-mono space-y-4">
+                {parse(data?.target_description_with_image)}
+              </div>
+            )}
           </div>
         </div>
         {/* CTA */}
         {data?.target_button_name &&
-            <button className="block mx-auto cursor-pointer rounded-full bg-orange-500 px-8 py-3 text-white font-semibold hover:bg-orange-600 transition">
-              {data?.target_button_name}
-            </button>
-}
+          <div className="flex justify-center">
+            <RequestCallbackModal buttonText={data?.target_button_name} id={data?.target_button_name} />
+          </div>
+        }
       </div>
     </section>
   );

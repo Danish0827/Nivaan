@@ -107,18 +107,18 @@ export default function TreatmentSection({ data }: { data: any }) {
                                 title={data?.treatment_title}
                             />
 
-                        <TreatmentCarousel data={data} />
+                            <TreatmentCarousel data={data} />
                         </section>
                     }
-                    <section id="target" className="scroll-mt-32">
-                        <SectionHeader
-                            subtitle={data?.target_subtitle}
-                            title={data?.target_title}
-                        />
-                        <TargetAudience data={data} />
-
-                    </section>
-
+                    {data?.target_subtitle &&
+                        <section id="target" className="scroll-mt-32">
+                            <SectionHeader
+                                subtitle={data?.target_subtitle}
+                                title={data?.target_title}
+                            />
+                            <TargetAudience data={data} />
+                        </section>
+                    }
                     {data?.how_subtitle &&
                         <section id="how" className="scroll-mt-32">
                             <SectionHeader
@@ -128,7 +128,6 @@ export default function TreatmentSection({ data }: { data: any }) {
                             <HowItWorks data={data} />
                         </section>
                     }
-
                     {data?.benefits_subtitle &&
                         <section id="benefits" className="scroll-mt-32">
                             <SectionHeader

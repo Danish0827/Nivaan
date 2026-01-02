@@ -59,18 +59,18 @@ export function HeroSection({
           </p>
           <div className="flex items-center gap-4 mt-6 2xl:mt-12 flex-wrap">
             {primaryBtn?.url &&
-              <Link href={primaryBtn.url}>
-                <button id={primaryBtn.title} className="bg-gradient-to-r uppercase w-full lg:w-fit from-orange-500 to-orange-600 text-white px-4 py-4 2xl:px-7 2xl:py-4 rounded-full font-semibold shadow-md hover:scale-105 duration-500 cursor-pointer">
+              <Link href={primaryBtn.url} className="w-full lg:w-fit">
+                <button id={primaryBtn.title} className="block relative z-30 hover:scale-105 duration-500 cursor-pointer bg-gradient-to-r from-[#EC6724] to-[#F05432] uppercase hover:from-[#EC6724]/80 hover:to-[#F05432]/80 text-white font-normal px-6 py-3 rounded-full shadow">
                   {primaryBtn.title}
                 </button>
               </Link>
             }
             {secondaryBtn?.url &&
-              <Link href={secondaryBtn.url}>
-                <button id={secondaryBtn.title} className="border-2 w-full uppercase lg:w-fit border-orange-500 text-orange-600 bg-white px-4 py-1.5 2xl:px-6 2xl:py-2 rounded-full font-semibold flex justify-between items-center gap-3 hover:scale-105 duration-500 cursor-pointer">
+              <Link href={secondaryBtn.url} className="w-full lg:w-fit">
+                <button id={secondaryBtn.title} className="border-2 w-full uppercase lg:w-fit border-orange-500 text-orange-600 bg-white px-4 py-1.5 2xl:px-6 2xl:py-2 rounded-full font-normal flex justify-between items-center gap-3 hover:scale-105 duration-500 cursor-pointer">
                   {secondaryBtn.title}
                   <Image
-                    className="group-hover:-rotate-45 w-10 h-10 duration-700 bg-orange-600 rounded-full p-3"
+                    className="group-hover:-rotate-45 w-8 h-8 duration-700 bg-orange-600 rounded-full p-2"
                     src="/images/whitearrow.svg"
                     width={20}
                     height={20}

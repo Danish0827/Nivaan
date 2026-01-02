@@ -1,10 +1,10 @@
-import { TreatmentHeroSection } from '@/components/TreatmentHeroSection'
-import TreatmentSection from '@/components/Treatments/TreatmentSection';
-import TreatmentStatsBar from '@/components/TreatmentStatsBar';
+import HubSection from '@/components/Hub/HubSection';
+import { HubHeroSection } from '@/components/HubHeroSection';
+import HubStatsBar from '@/components/HubStatsBar';
 import { notFound } from 'next/navigation';
 import React from 'react'
 
-const hubpage = async ({params}:any) => {
+const hubpage = async ({ params }: any) => {
     const slug = params.hub
     const res = await fetch(
         `https://www.hclient.in/nivaan/wp-json/site/v1/hub/${slug}`,
@@ -23,8 +23,8 @@ const hubpage = async ({params}:any) => {
     let data;
     try {
         data = await res.json();
-        console.log(data);
-        
+        // console.log(data);
+
     } catch (err) {
         console.error("JSON parse failed");
         return null;
@@ -33,17 +33,15 @@ const hubpage = async ({params}:any) => {
     const { acf } = data
     return (
         <>
-        <>sdad</>
-            {/* <TreatmentHeroSection
-                breadcrumbTitle={acf?.treatment_types}
-                breadcrumbSub={data?.title}
+            <HubHeroSection
+                breadcrumbTitle={data?.title}
                 title={acf?.banner_title}
-                description={acf?.banner_description}
-                button={acf?.banner_button_name}
-                image={data?.featured_image}
+                description={acf?.banner_info}
+                button={acf?.banner_button}
+                image={acf?.overview_image}
             />
-            <TreatmentStatsBar stats={acf?.banner_numbers} />
-            <TreatmentSection data={acf}/> */}
+            <HubStatsBar stats={acf?.banner_list} />
+            <HubSection breadcrumbTitle={data?.title} data={acf}/>
         </>
     )
 }

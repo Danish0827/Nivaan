@@ -87,15 +87,15 @@ const RecoveryTimeline = ({ data }: RecoveryTimelineProps) => {
 
                         <div className="relative pl-6">
                             {/* Vertical Line */}
-                            <div className="absolute left-3 top-6 bottom-0 w-0.5 h-[420px] 2xl:h-[370px] bg-blue-500" />
+                            <div className="absolute left-3 top-6 bottom-0 w-0.5 h-[420px] 2xl:h-[370px] bg-[#284599]" />
 
                             {/* Steps */}
                             {data.recovery_lists_step && data.recovery_lists_step.map((step, index) => (
                                 <div key={index} className="pl-4 relative mb-8 last:mb-0">
                                     {/* Dot */}
-                                    <span className="absolute -left-5 top-5 w-4 h-4 rounded-full bg-blue-600" />
+                                    <span className="absolute -left-5 top-5 w-4 h-4 rounded-full bg-[#284599]" />
 
-                                    <p className="text-xs uppercase font-semibold text-blue-500">
+                                    <p className="text-xs uppercase font-semibold text-[#284599]">
                                         {step.subtitle}
                                     </p>
                                     <h4 className="text-lg font-semibold text-gray-900">

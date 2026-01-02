@@ -50,7 +50,7 @@ export default function OverviewSection({ data }: Props) {
                     <div>
 
                         {data?.overview_2nd_description && (
-                            <div className="text-gray-700 text-lg targetDescription lg:text-sm xl:text-base 2xl:text-lg leading-relaxed font-mono space-y-4">
+                            <div className="text-gray-700 text-lg lg:text-sm xl:text-base 2xl:text-lg leading-relaxed font-mono space-y-4">
                                 {parse(data?.overview_2nd_description)}
                             </div>
                         )}

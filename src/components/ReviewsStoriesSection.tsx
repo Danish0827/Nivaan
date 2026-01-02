@@ -93,7 +93,7 @@ export default function ReviewsStoriesSection({ reviews, stories }: Props) {
             <h2 className="text-xl md:text-2xl font-bold text-[#004A86] text-center">
               {stories.title}
             </h2>
-            <p className="text-gray-600 mt-2 mb-6 max-w-2xl xl:pb-3 text-center">{stories.info}</p>
+            <p className="text-gray-600 mt-2 mb-6 max-w-2xl xl:pb-3 text-center font-mono">{stories.info}</p>
 
             <StoriesSlider items={stories.items} />
           </div>

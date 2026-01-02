@@ -1,6 +1,7 @@
 "use client";
 import { EvidenceCardProps, EvidenceNewsSectionProps } from "@/interfaces/EvidenceNewsSection";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function EvidenceNewsSection({ evidence, news }: EvidenceNewsSectionProps) {
   return (
@@ -10,7 +11,7 @@ export default function EvidenceNewsSection({ evidence, news }: EvidenceNewsSect
           <h2 className="text-2xl md:text-3xl font-semibold text-[#004A86] pb-1">
             {evidence.title}
           </h2>
-          <p className="text-gray-600 mt-2 mb-6">{evidence.info}</p>
+          <p className="text-gray-600 mt-2 mb-6 font-mono">{evidence.info}</p>
           <div className="grid sm:grid-cols-2 gap-4 xl:gap-6">
             {evidence.boxs.map((item, index) => (
               <EvidenceCard key={index} item={item} />
@@ -21,15 +22,21 @@ export default function EvidenceNewsSection({ evidence, news }: EvidenceNewsSect
           <h2 className="text-2xl md:text-3xl font-semibold text-[#004A86] pb-1">
             {news.title}
           </h2>
-          <p className="text-gray-600 mt-2 mb-6">{news.info}</p>
-          <div className="w-full">
-            <Image
-              src={news.logo.url}
-              alt={news.logo.title}
-              width={1000}
-              height={1000}
-              className="object-contain w-full transition"
-            />
+          <p className="text-gray-600 mt-2 mb-6 font-mono">{news.info}</p>
+          <div className="flex flex-wrap justify-center gap-5 items-center xl:gap-10">
+            {news.logos.map((img, index) =>
+            <div key={index} className="w-[40%] mb-3">
+              <Link key={index} href={img.url}>
+                <Image
+                  src={img.image.url}
+                  alt={img.image.alt}
+                  width={1000}
+                  height={1000}
+                  className="object-contain mx-auto md:w-4/5 transition brightness-30 hover:brightness-100"
+                />
+              </Link>
+              </div>
+            )}
           </div>
         </div>
       </div>

@@ -2,6 +2,7 @@ import parse from "html-react-parser";
 import he from "he";
 import Image from "next/image";
 import Breadcrumb from "./Breadcrumb";
+import RequestCallbackModal from "./RequestCallbackModal";
 
 export function ConditionHeroSection({
     breadcrumbTitle,
@@ -63,15 +64,15 @@ export function ConditionHeroSection({
                         <p className="my-4 lg:my-6 text-base sm:text-lg lg:text-xl  text-gray-800 leading-relaxed font-normal">
                             {parsedDescription}
                         </p>
-                        <button className="bg-orange-600 relative z-30 w-full lg:w-fit text-white px-4 py-4 2xl:px-7 2xl:py-4 rounded-full font-semibold shadow-md hover:scale-105 duration-500 cursor-pointer">
-                            {button}
-                        </button>
+                        <div className="flex justify-center lg:justify-start">
+                            <RequestCallbackModal buttonText={button} id={button} />
+                        </div>
                     </div>
                     <div className="relative flex justify-center order-1 lg:order-2 lg:py-10">
                         {image &&
                             <Image
                                 src={image?.url}
-                                className="rounded-[50px] 2xl:w-4/5 object-contain drop-shadow-xl"
+                                className="rounded-[40px] 2xl:w-4/5 object-contain drop-shadow-xl "
                                 alt={image?.alt}
                                 width={1000}
                                 height={1000}

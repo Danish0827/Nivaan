@@ -112,30 +112,29 @@ const CONTENT = {
     },
     knee: {
         title: "Knee Pain",
-        desc: "Shoulder pain can limit lifting, reaching, or simple daily movements due to stiffness, tendon injuries, or inflammation. Early treatment helps restore mobility and prevent the pain from becoming long-term.",
+        desc: "Knee pain can result from cartilage wear, ligament strain, or tendon irritation and often worsens with walking, climbing stairs, or standing for long periods. Early evaluation helps prevent further damage and supports long-term recovery.",
         items: [
-            "Frozen Shoulder",
-            "Shoulder Stiffness",
-            "Rotator Cuff Injury",
-            "Shoulder Tendonitis",
-            "Shoulder Impingement",
-            "Shoulder Arthritis",
-            "Shoulder Instability",
-            "Shoulder Bursitis",
+            "Knee osteoarthritis",
+            "Ligament injuries (ACL, PCL, MCL)",
+            "Knee replacement recovery",
+            "Knee pain & stiffness",
+            "Meniscal tears",
+            "Patellar Tendinitis",
+            "Knee joint fractures",
+            "Knee RA",
+            "Chondromalacia patella"
         ],
     },
     ankle: {
         title: "Ankle Pain",
-        desc: "Shoulder pain can limit lifting, reaching, or simple daily movements due to stiffness, tendon injuries, or inflammation. Early treatment helps restore mobility and prevent the pain from becoming long-term.",
+        desc: "Ankle or foot pain commonly comes from sprains, heel conditions, or tendon overload and may make daily walking uncomfortable. With the right treatment, most cases improve quickly and allow you to return to normal movement.",
         items: [
-            "Frozen Shoulder",
-            "Shoulder Stiffness",
-            "Rotator Cuff Injury",
-            "Shoulder Tendonitis",
-            "Shoulder Impingement",
-            "Shoulder Arthritis",
-            "Shoulder Instability",
-            "Shoulder Bursitis",
+            "Heel pain",
+            "Plantar fasciitis",
+            "Ankle sprain pain",
+            "Pain on the side of the foot",
+            "Achilles tendon pain",
+            "Flat foot related pain",
         ],
     },
 };
@@ -304,9 +303,9 @@ export default function PainAreaSection() {
                                                     ))}
                                                 </ul>
 
-                                                <button className="w-full rounded-full bg-orange-500 py-3 text-white font-semibold">
+                                                {/* <button className="w-full rounded-full bg-orange-500 py-3 text-white font-semibold">
                                                     LEARN MORE
-                                                </button>
+                                                </button> */}
                                             </div>
                                         )}
                                     </div>

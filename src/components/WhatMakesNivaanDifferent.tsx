@@ -37,7 +37,7 @@ export default function WhatMakesNivaanDifferent({
         </div>
 
         {/* Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-[30%_67%] gap-8 items-center">
           {/* Left Image */}
           <div className="relative rounded-3xl overflow-hidden h-full shadow-lg">
             <Image
@@ -45,13 +45,13 @@ export default function WhatMakesNivaanDifferent({
               alt={imageAlt}
               width={1000}
               height={1000}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-center"
             />
           </div>
 
           {/* Right Card */}
-          <div className="bg-white rounded-3xl shadow-xl p-6 md:p-10">
-            <h3 className="text-xl md:text-2xl font-semibold text-[#1E3A8A] mb-6">
+          <div className="bg-white rounded-3xl shadow-lg p-6 md:p-10">
+            <h3 className="text-xl md:text-2xl xl:text-3xl font-semibold text-[#1E3A8A] mb-6">
               {sectionTitle}
             </h3>
 
@@ -59,19 +59,20 @@ export default function WhatMakesNivaanDifferent({
               {features.map((item, index) => (
                 <div key={index} className="flex gap-4 items-start">
                   {/* Icon */}
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#1E3A8A] flex items-center justify-center">
+                  <div className="flex-shrink-0 w-20 h-20 rounded-full bg-[#1E3A8A] flex items-center justify-center">
                     <Image
                       src={item.icon}
                       alt={item.title}
-                      width={24}
-                      height={24}
-                      className="invert"
+                      width={60}
+                      height={60}
+                      style={{filter: 'brightness(100)'}}
+                      className="p-2"
                     />
                   </div>
 
                   {/* Text */}
                   <div>
-                    <h4 className="text-sm md:text-base font-semibold text-gray-900">
+                    <h4 className="text-sm md:text-base lg:text-lg xl:text-xl mb-2 font-semibold text-gray-900">
                       {item.title}
                     </h4>
                     <p className="mt-1 text-sm text-gray-600">

@@ -1,10 +1,11 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { ChevronDown, MapPin } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import RequestCallbackModal from "@/components/RequestCallbackModal"
+import MobileMenuDrawer from "./MobileMenuDrawer";
 
 /* ================= TYPES ================= */
 
@@ -33,24 +34,32 @@ const LOCATION_MENU = {
   ],
 };
 
+interface HeaderProps {
+  menu: MenuItem[];
+}
 
 /* ================= HEADER ================= */
-
-export default function Header() {
-  const [open, setOpen] = useState(false);
+export default function Header({ menu }: HeaderProps) {
+  const [menuOpen, setMenuOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
-  const [menu, setMenu] = useState<MenuItem[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+  // const [menu, setMenu] = useState<MenuItem[]>([]);
+  // const [loading, setLoading] = useState<boolean>(true);
 
-  useEffect(() => {
-    fetch("https://hclient.in/nivaan/wp-json/site/v1/menus/primary_menu")
-      .then((res) => res.json())
-      .then((data) => {
-        setMenu(data.items || []);
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
-  }, []);
+  // useEffect(() => {
+  //   const fetchMenu = async () => {
+  //     try {
+  //       const res = await fetch(
+  //         "https://hclient.in/nivaan/wp-json/site/v1/menus/primary_menu"
+  //       );
+  //       const data = await res.json();
+  //       setMenu(data.items || []);
+  //     } catch (error) {
+  //       console.error("Menu fetch failed", error);      
+  //     }
+  //   };
+
+  //   fetchMenu();
+  // }, []); // 👈 EMPTY dependency = only once
 
   const centerMenus = menu.filter(
     (item) =>
@@ -58,27 +67,22 @@ export default function Header() {
       item.title === "Our Specialists" ||
       item.title === "Pain Management"
   );
+
   // if (loading) {
   //   return (
-  //     <div className="absolute top-full left-0 mt-3 w-[720px] bg-[#EAF6FB] rounded-2xl shadow-xl p-6 flex gap-6">
-  //       <div className="w-1/3 bg-white rounded-xl p-4 space-y-3">
-  //         {[...Array(5)].map((_, i) => (
-  //           <div
-  //             key={i}
-  //             className="h-10 rounded-lg bg-orange-900 animate-pulse"
-  //           />
-  //         ))}
-  //       </div>
+  //     <header className="fixed top-0 left-0 z-50 w-full bg-gradient-to-t from-[#EEF8FD]/0 font-sans to-white">
+  //     <div className="xl:px-10 2xl:px-24 flex items-center justify-between py-4 px-4 lg:px-6">
 
-  //       <div className="w-2/3 bg-white rounded-xl p-4 space-y-3">
-  //         {[...Array(6)].map((_, i) => (
-  //           <div
-  //             key={i}
-  //             className="h-4 rounded bg-gray-200 animate-pulse"
-  //           />
-  //         ))}
-  //       </div>
+  //       {/* LOGO */}
+  //       <Link href="/">
+  //         <img src="/images/logo.svg" alt="Nivaan Logo" className="h-10" />
+  //       </Link>
+
+
+  //       <RequestCallbackModal buttonText="BOOK APPOINTMENT" id="home-book-appointment" />
+
   //     </div>
+  //     </header>
   //   );
   // }
 
@@ -91,11 +95,10 @@ export default function Header() {
           <img src="/images/logo.svg" alt="Nivaan Logo" className="h-10" />
         </Link>
 
-        {/* CENTER NAV */}
         <nav className="hidden lg:flex items-center gap-6 py-2 text-xs xl:text-sm font-medium">
           <div className="bg-white flex items-center gap-2 font-normal rounded-full text-black shadow-lg px-3">
 
-            {!loading &&
+            {
               centerMenus.map((item) => (
                 <div
                   key={item.id}
@@ -114,7 +117,7 @@ export default function Header() {
                     item.children && (
                       <ConditionsDropdown
                         data={item.children}
-                        loading={loading}
+                        // loading={loading}
                       />
 
                     )}
@@ -154,18 +157,24 @@ export default function Header() {
             )}
           </div> */}
         </nav>
-
-        {/* CTA */}
-        {/* <button className="hidden hover:scale-105 duration-500 cursor-pointer lg:block bg-gradient-to-r hover:from-[#EC6724]/80 hover:to-[#F05432]/80 from-[#EC6724] to-[#F05432] text-white font-semibold px-6 py-3 rounded-full shadow">
-          BOOK APPOINTMENT
-        </button> */}
-        <RequestCallbackModal buttonText="BOOK APPOINTMENT" id="home-book-appointment" />
-
+        <div className="hidden lg:block">
+          <RequestCallbackModal buttonText="BOOK APPOINTMENT" id="home-book-appointment" />
+        </div>
         {/* MOBILE */}
-        <button className="lg:hidden flex items-center gap-2 bg-white text-[#F05432] font-semibold px-8 py-3 rounded-full shadow">
+        <button
+          onClick={() => setMenuOpen(true)}
+          className="lg:hidden flex items-center gap-2 bg-white text-[#F05432] font-semibold px-8 py-3 rounded-full shadow"
+        >
           <Image src="/images/menu.svg" alt="menu" width={20} height={20} />
           MENU
         </button>
+
+        {/* DRAWER */}
+        <MobileMenuDrawer
+          isOpen={menuOpen}
+          onClose={() => setMenuOpen(false)}
+          menu={centerMenus}
+        />
       </div>
     </header>
   );
@@ -175,10 +184,8 @@ export default function Header() {
 
 function ConditionsDropdown({
   data,
-  loading,
 }: {
   data: MenuItem[];
-  loading: boolean;
 }) {
   const [active, setActive] = useState<MenuItem | null>(
     data?.length ? data[0] : null
@@ -190,7 +197,7 @@ function ConditionsDropdown({
 
   /* ================= ACTUAL MENU ================= */
   return (
-    <div className="absolute top-full left-0 pt-3 w-[750px]">
+    <div className="absolute top-full left-0 pt-4 w-[750px]">
       <div className="bg-[#EAF6FB] border-white border rounded-2xl shadow-xl p-6 flex gap-6">
         {/* LEFT SIDE */}
         <div className="w-1/3 bg-white rounded-4xl p-3 space-y-1">

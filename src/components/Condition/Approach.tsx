@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import parse from "html-react-parser";
+import RequestCallbackModal from "../RequestCallbackModal";
 
 interface Props {
     approach_description?: string;
@@ -24,7 +25,7 @@ export default function Approach({ data }: ApproachProps) {
                     <div>
 
                         {data?.approach_description && (
-                            <div className="text-gray-700 text-lg targetDescription lg:text-sm xl:text-base 2xl:text-lg leading-relaxed font-mono space-y-4">
+                            <div className="text-gray-700 text-lg lg:text-sm xl:text-base 2xl:text-lg leading-relaxed font-mono space-y-4">
                                 {parse(data?.approach_description)}
                             </div>
                         )}
@@ -55,7 +56,7 @@ export default function Approach({ data }: ApproachProps) {
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
-            }} className="w-full bg-blue-50 py-16 overview-section relative rounded-[40px]">
+            }} className="container mr-auto bg-blue-50 py-16 overview-section relative rounded-[40px]">
                 <div className="absolute inset-0 bg-gradient-to-l from-[#eaf9ff] to-[#eaf9ffb7] rounded-[40px]"></div>
                 <div className="relative z-10  px-4 text-center">
                     <h2 className="text-xl lg:text-2xl xl:text-4xl text-[#0852A0] font-bold mt-5 mb-3">
@@ -68,11 +69,9 @@ export default function Approach({ data }: ApproachProps) {
                         }}
                     />
                     {data.cta_button_name &&
-                        <button
-                            // onClick={onCTAClick}
-                            className="inline-block cursor-pointer rounded-full bg-orange-500 px-8 py-3 text-white font-semibold hover:bg-orange-600 transition">
-                            {data.cta_button_name}
-                        </button>
+                        <div className="flex justify-center">
+                        <RequestCallbackModal buttonText={data.cta_button_name} id={data.cta_button_name} />
+                    </div>
                     }
                 </div>
             </div>

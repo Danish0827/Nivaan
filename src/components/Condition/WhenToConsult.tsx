@@ -1,4 +1,5 @@
 import Image from "next/image";
+import RequestCallbackModal from "../RequestCallbackModal";
 
 interface OverviewSectionProps {
     featureTitle?: string;
@@ -41,9 +42,9 @@ export default function WhenToConsult({
                 </div>
                 {/* Bottom Text */}
                 {buttonbottom &&
-                    <button className="block mx-auto uppercase cursor-pointer rounded-full bg-orange-500 px-8 py-3 text-white font-medium hover:bg-orange-600 transition">
-                        {buttonbottom}
-                    </button>
+                    <div className="flex justify-center">
+                        <RequestCallbackModal buttonText={buttonbottom} id={buttonbottom} />
+                    </div>
                 }
             </div>
         </section>

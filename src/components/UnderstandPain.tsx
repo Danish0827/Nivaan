@@ -52,10 +52,10 @@ export default function UnderstandPain({
           </div>
           {onButtonClick &&
             <Link href={onButtonClick}>
-              <button id={buttonText} className="bg-gradient-to-r gap-3 flex justify-between items-center w-full lg:w-fit from-orange-600 to-orange-600 text-white px-5 py-2 xl:px-7 2xl:py-2 rounded-full font-medium shadow-md hover:scale-105 duration-500 cursor-pointer">
+              <button id={buttonText} className="bg-gradient-to-r uppercase gap-3 flex justify-between items-center w-full lg:w-fit from-orange-600 to-orange-600 text-white px-5 py-2 xl:px-7 2xl:py-2 rounded-full font-normal shadow-md hover:scale-105 duration-500 cursor-pointer">
                 {buttonText}
                 <Image
-                  className="group-hover:-rotate-45 w-10 h-10 duration-700 bg-white rounded-full p-3"
+                  className="group-hover:-rotate-45 w-8 h-8 duration-700 bg-white rounded-full p-2"
                   src="/images/orangearrow.svg"
                   width={20}
                   height={20}

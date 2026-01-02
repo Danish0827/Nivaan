@@ -1,6 +1,7 @@
 import Image from "next/image";
 import parse from "html-react-parser";
 import Link from "next/link";
+import RequestCallbackModal from "../RequestCallbackModal";
 
 interface HowItWorksProps {
     data: {
@@ -84,11 +85,9 @@ export default function HowItWorks({ data }: HowItWorksProps) {
                 </div>
                 <div className="mt-10 text-center">
                     {data.how_button_name &&
-                        <button
-                            className="inline-block cursor-pointer rounded-full bg-orange-500 px-8 py-3 text-white font-semibold hover:bg-orange-600 transition"
-                        >
-                            {data.how_button_name}
-                        </button>
+                        <div className="flex justify-center">
+                            <RequestCallbackModal buttonText={data?.how_button_name} id={data?.how_button_name} />
+                        </div>
                     }
                 </div>
             </div>

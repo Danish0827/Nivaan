@@ -39,13 +39,13 @@ export default function ContactSection({ data }: { data: ContactData }) {
     const LOCATION_MENU = {
         title: "CLINICS",
         items: [
-            { id: 1, title: "Delhi", url: "/clinics/delhi" },
-            { id: 2, title: "Mumbai", url: "/clinics/mumbai" },
-            { id: 3, title: "Lucknow", url: "/clinics/lucknow" },
-            { id: 4, title: "Noida", url: "/clinics/noida" },
-            { id: 5, title: "Ghaziabad", url: "/clinics/ghaziabad" },
-            { id: 6, title: "Faridabad", url: "/clinics/faridabad" },
-            { id: 7, title: "Jaipur", url: "/clinics/jaipur" },
+            { id: 1, title: "Delhi", url: "#" },
+            { id: 2, title: "Mumbai", url: "#" },
+            { id: 3, title: "Lucknow", url: "#" },
+            { id: 4, title: "Noida", url: "#" },
+            { id: 5, title: "Ghaziabad", url: "#" },
+            { id: 6, title: "Faridabad", url: "#" },
+            { id: 7, title: "Jaipur", url: "#" },
         ],
     };
 
@@ -81,7 +81,7 @@ export default function ContactSection({ data }: { data: ContactData }) {
                         <a
                             key={clinic.id}
                             href={clinic.url}
-                            className="hover:text-blue-600 transition-colors"
+                            className="hover:text-[#284599] transition-colors"
                         >
                             {clinic.title}
                             {index < LOCATION_MENU.items.length - 1 && <span className="mx-2">•</span>}

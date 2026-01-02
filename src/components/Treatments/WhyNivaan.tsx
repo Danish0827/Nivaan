@@ -25,7 +25,7 @@ export default function WhyNivaan({ data }: WhyNivaanProps) {
 
   return (
     <section className="bg-white overview-section">
-      <div className="container mx-auto">
+      <div className="container mr-auto">
         
         {/* Header */}
         <div className="my-5">

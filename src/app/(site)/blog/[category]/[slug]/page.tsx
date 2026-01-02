@@ -6,6 +6,7 @@ import TableOfContents from "@/components/TableOfContents";
 import CallbackForm from "@/components/CallbackForm";
 import Breadcrumb from "@/components/Breadcrumb";
 import Link from "next/link";
+import RequestCallbackModal from "@/components/RequestCallbackModal";
 
 async function getBlog(slug: string) {
   const res = await fetch(
@@ -60,9 +61,9 @@ export default async function BlogDetailPage({
               <div className="text-white font-semibold mb-4 lg:mb-0">
                 Find Relief for Your Pain Area
               </div>
-              <Link href='/contact-us' className="rounded-full bg-[#FF6A39] px-6 py-3 text-white text-sm font-semibold">
-                BOOK APPOINTMENT
-              </Link>
+              <div className="flex justify-center">
+                  <RequestCallbackModal buttonText='BOOK APPOINTMENT' id="BOOK APPOINTMENT" />
+                </div>
             </div>
           </div>
 

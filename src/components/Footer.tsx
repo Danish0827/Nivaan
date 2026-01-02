@@ -19,7 +19,7 @@ export default function NivaanFooter() {
                     <div className="lg:w-1/3 xl:w-2/5">
                         <h2 className="text-4xl font-bold text-[#0852A0]">Get The Latest Insights!</h2>
                         <p className="text-gray-700 mt-3 max-w-2xl text-lg">
-                            Join our newsletter for simple tips, clear guidance, and updates directly from our Pain Management Specialists.
+                            Join our newsletter for simple tips, clear guidance, and updates directly from our Interventional Pain Specialists.
                         </p>
                     </div>
                     <ZohoSubscribeForm />
@@ -35,7 +35,7 @@ export default function NivaanFooter() {
                             <ul className="space-y-2 text-gray-700">
                                 {section.items.map((item) => (
                                     <li key={item.label}>
-                                        <Link href={item.href} className="hover:text-blue-500 transition">
+                                        <Link href={item.href} className="hover:text-[#06A1DC] transition">
                                             {item.label}
                                         </Link>
                                     </li>

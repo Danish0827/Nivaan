@@ -131,7 +131,7 @@ const aboutpage = async () => {
                 title="We Rethink Pain. So You Can Rethink Life."
                 description="<p>Pain has a way of quietly taking over your life. How you move. How you work. How you rest. Over time, it begins to shape what you avoid, what you postpone, and what you accept as normal.</p><p>Nivaan exists to change that.</p><p>Nivaan is India’s largest Centre of Excellence for Interventional Pain Management and Regenerative Medicines. At Nivaan, we help people move beyond musculoskeletal pain through evidence-based protocols and structured, non-surgical care. Our focus is not temporary relief. It is understanding the root cause of pain and addressing it with precision, coordination, and continuity.</p><p>Care at Nivaan is designed to be connected, thoughtful, and centred around the individual. Integrated, people-centric pain solution is not an exception here. It is the standard.</p>"
                 buttonText="Take The Next Step"
-                onButtonClick="/contct-us"
+                onButtonClick="/contact-us"
             />
             <ProblemSection
                 title="The Problem We Refuse To Accept"
@@ -165,31 +165,31 @@ const aboutpage = async () => {
                         title: "Integrated Non-Surgical Care",
                         description:
                             "Interventional pain specialists, physiotherapists, psychologists, nutritionists, and care counsellors collaborate under one unified plan.",
-                        icon: "https://www.hclient.in/nivaan/wp-content/uploads/2025/12/precise-diagnosis-icon.svg",
+                        icon: "/images/expert-team.svg",
                     },
                     {
                         title: "Evidence Based Protocols",
                         description:
                             "Structured care pathways designed to deliver measurable improvement, not short-term relief alone.",
-                        icon: "https://www.hclient.in/nivaan/wp-content/uploads/2025/12/precise-diagnosis-icon.svg",
+                        icon: "/images/expert-team.svg",
                     },
                     {
                         title: "36,000+ Patients Treated",
                         description:
                             "Trusted by patients across India who have returned to work, movement, and daily life beyond pain.",
-                        icon: "https://www.hclient.in/nivaan/wp-content/uploads/2025/12/precise-diagnosis-icon.svg",
+                        icon: "/images/expert-team.svg",
                     },
                     {
                         title: "4,000+ Advanced Procedures",
                         description:
                             "Extensive experience in image-guided and advanced non-surgical pain interventions.",
-                        icon: "https://www.hclient.in/nivaan/wp-content/uploads/2025/12/precise-diagnosis-icon.svg",
+                        icon: "/images/expert-team.svg",
                     },
                     {
                         title: "150+ Years of Collective Clinical Expertise",
                         description:
                             "A multidisciplinary team dedicated to evidence-based pain science and patient-centered care.",
-                        icon: "https://www.hclient.in/nivaan/wp-content/uploads/2025/12/precise-diagnosis-icon.svg",
+                        icon: "/images/expert-team.svg",
                     },
                 ]}
             />

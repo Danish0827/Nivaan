@@ -54,40 +54,40 @@ export default function RecoveryTeam({
                             // const isLast = index === roles.length - 1;
 
                             return (
-                                    <div key={index} className="group">
-                                        <Link href={role?.button}>
-                                            <div
-                                                className={` p-5 px-10 lg:py-4 xl:py-8 hover:rounded-[40px]
+                                <div key={index} className="group">
+                                    <Link href={role?.button}>
+                                        <div
+                                            className={` p-5 px-10 lg:py-4 xl:py-8 hover:rounded-[40px]
                                 transition-all duration-300 cursor-pointer
                                 hover:shadow-lg hover:-translate-y-1 hover:bg-[#06A1DC29] hover:border-0   `}
-                                            >
-                                                <div className="flex justify-between">
-                                                    <h3 className="font-semibold text-xl text-black">
-                                                        {role.title}
-                                                    </h3>
+                                        >
+                                            <div className="flex justify-between">
+                                                <h3 className="font-semibold text-xl text-black">
+                                                    {role.title}
+                                                </h3>
 
-                                                    <Image
-                                                        className="group-hover:-rotate-45 duration-700"
-                                                        src="/images/leftarrow.svg"
-                                                        width={23}
-                                                        height={23}
-                                                        alt="arrow"
-                                                    />
-                                                </div>
+                                                <Image
+                                                    className="group-hover:-rotate-45 duration-700"
+                                                    src="/images/leftarrow.svg"
+                                                    width={23}
+                                                    height={23}
+                                                    alt="arrow"
+                                                />
+                                            </div>
 
-                                                <div
-                                                    className="
+                                            <div
+                                                className="
                                                         text-gray-600 text-lg mt-2 leading-relaxed 
                                                         opacity-0 max-h-0 overflow-hidden 
                                                         transition-all duration-300
                                                         group-hover:opacity-100 group-hover:max-h-40
                                                     "
-                                                >
-                                                    {parse(role.info || "")}
-                                                </div>
+                                            >
+                                                {parse(role.info || "")}
                                             </div>
-                                        </Link>
-                                    </div>
+                                        </div>
+                                    </Link>
+                                </div>
                             );
                         })}
                     </div>
@@ -147,35 +147,28 @@ export default function RecoveryTeam({
                             target={button?.target || "_self"}
                             className="w-fit block"
                         >
-                            <button className="uppercase bg-gradient-to-r gap-3 flex justify-between items-center w-full lg:w-fit from-orange-600 to-orange-600 text-white px-5 py-2 xl:px-7 2xl:py-2 rounded-full font-medium shadow-md hover:scale-105 duration-500 cursor-pointer">
+                            <button className="uppercase bg-gradient-to-r gap-3 flex justify-between items-center w-full lg:w-fit from-orange-600 to-orange-600 text-white px-5 py-2 xl:px-7 2xl:py-2 rounded-full font-normal shadow-md hover:scale-105 duration-500 cursor-pointer">
                                 {button?.title}
                                 <Image
-                                    className="group-hover:-rotate-45 w-10 h-10 duration-700 bg-white rounded-full p-3"
-                                    src="/images/orangearrow.svg"
-                                    width={20}
-                                    height={20}
-                                    alt="arrow"
-                                />
+                                                  className="group-hover:-rotate-45 w-8 h-8 duration-700 bg-white rounded-full p-2"
+                                                  src="/images/orangearrow.svg"
+                                                  width={20}
+                                                  height={20}
+                                                  alt="arrow"
+                                                />
                             </button>
                         </Link>
                     </div>
                 </div>
-                <div className="relative flex items-center justify-center lg:order-2 order-1">
-                    {/* <Image
-                        src={image}
-                        alt="Recovery Team Graphic"
-                        width={700}
-                        height={700}
-                        className="object-contain drop-shadow-lg"
-                    /> */}
+                <div className="relative flex items-center justify-center lg:order-2 order-1">                    
                     <video
-            src={image}
-            className="w-full h-full block "
-            autoPlay
-            muted
-            loop
-            playsInline
-          />
+                        src={image}
+                        className="w-full h-full block "
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                    />
                 </div>
             </div>
         </div>

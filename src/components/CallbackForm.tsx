@@ -7,7 +7,7 @@ export default function CallbackForm() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [error, setError] = useState("");
-const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     setError("");
 
     if (!name.trim()) {
@@ -28,35 +28,35 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
       return;
     }
   };
-  
+
   return (
     <div className="mt-5 rounded-3xl lg:rounded-[40px] bg-gradient-to-b from-[#11A0D7] to-[#0F4C92] p-6 text-white">
       <h3 className="mb-4 text-center text-3xl font-semibold">
         Get A Call Back
       </h3>
-      <form  action="https://forms.zohopublic.in/nivaancare/form/NivaanNextjsLandingPageForm2/formperma/XBy9lPuUYW-iiX-2yyXoXGpTLy3Yn4PLb8GjCBllefc/htmlRecords/submit"
-  method="POST"
-  accept-charset="UTF-8"
-  encType="multipart/form-data"
-  onSubmit={handleSubmit}
-  >
-  <input type="hidden" name="utm_source" value=""/>
-  <input type="hidden" name="utm_medium" value=""/>
-  <input type="hidden" name="utm_campaign" value=""/>
-  <input type="hidden" name="utm_term" value=""/>
-  <input type="hidden" name="utm_content" value=""/>
-  <input type="hidden" name="utm_placement" value=""/>
-  <input type="hidden" name="utm_ad_id" value=""/>
-  <input type="hidden" name="utm_adset_id" value=""/>
-  <input type="hidden" name="utm_ad_name" value=""/>
-  <input type="hidden" name="utm_platform" value=""/>
-  <input type="hidden" name="utm_campaign_id" value=""/>
-  <input type="hidden" name="page_url" value=""/>
-  <input type="hidden" name="form_location" value=""/>
-  <input type="hidden" name="gclid" value=""/>
-  <input type="hidden" name="fbclid" value=""/>
-  <input type="hidden" name="SingleLine1" value=""/>
-  <input type="hidden" name="SingleLine10" value=""/>
+      <form action="https://forms.zohopublic.in/nivaancare/form/NivaanNextjsLandingPageForm2/formperma/XBy9lPuUYW-iiX-2yyXoXGpTLy3Yn4PLb8GjCBllefc/htmlRecords/submit"
+        method="POST"
+        acceptCharset="UTF-8"
+        encType="multipart/form-data"
+        onSubmit={handleSubmit}
+      >
+        <input type="hidden" name="utm_source" value="" />
+        <input type="hidden" name="utm_medium" value="" />
+        <input type="hidden" name="utm_campaign" value="" />
+        <input type="hidden" name="utm_term" value="" />
+        <input type="hidden" name="utm_content" value="" />
+        <input type="hidden" name="utm_placement" value="" />
+        <input type="hidden" name="utm_ad_id" value="" />
+        <input type="hidden" name="utm_adset_id" value="" />
+        <input type="hidden" name="utm_ad_name" value="" />
+        <input type="hidden" name="utm_platform" value="" />
+        <input type="hidden" name="utm_campaign_id" value="" />
+        <input type="hidden" name="page_url" value="" />
+        <input type="hidden" name="form_location" value="" />
+        <input type="hidden" name="gclid" value="" />
+        <input type="hidden" name="fbclid" value="" />
+        <input type="hidden" name="SingleLine1" value="" />
+        <input type="hidden" name="SingleLine10" value="" />
         <input
           type="text"
           placeholder="Full Name *"
@@ -68,7 +68,7 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         {error && (
           <p className="mb-2 text-sm text-red-200">{error}</p>
         )}
-          <input
+        <input
           type="number"
           placeholder="Mobile Number *"
           name="PhoneNumber_countrycode"

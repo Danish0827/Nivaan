@@ -5,6 +5,7 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import RequestCallbackModal from "../RequestCallbackModal";
 
 interface Props {
     data: any;
@@ -89,9 +90,9 @@ export default function ConditionTreatment({ data }: Props) {
                     />
                 </div>
                 {data.treatments_button_name &&
-                    <button className="block mx-auto uppercase cursor-pointer rounded-full bg-orange-500 px-8 py-3 text-white font-medium hover:bg-orange-600 transition">
-                        {data.treatments_button_name}
-                    </button>
+                    <div className="flex justify-center">
+                        <RequestCallbackModal buttonText={data.treatments_button_name} id={data.treatments_button_name} />
+                    </div>
                 }
             </div>
         </section>
