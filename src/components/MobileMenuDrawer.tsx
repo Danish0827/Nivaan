@@ -18,7 +18,7 @@ type MenuItem = {
         url: string;
         alt?: string;
     };
-    
+
 };
 
 /* ================= MAIN COMPONENT ================= */
@@ -93,7 +93,7 @@ export default function MobileMenuDrawer({
                             {active === item.id && item.children && (
                                 <div className="pb-4">
                                     {item.title === "Conditions" && (
-                                        <ConditionsList data={item.children} />
+                                        <ConditionsList data={item.children} onClose={onClose} />
                                     )}
 
                                     {item.title === "Our Specialists" && (
@@ -101,7 +101,7 @@ export default function MobileMenuDrawer({
                                     )}
 
                                     {item.title === "Pain Management" && (
-                                        <SimpleList data={item.children} />
+                                        <SimpleList data={item.children} onClose={onClose} />
                                     )}
                                 </div>
                             )}
@@ -116,25 +116,25 @@ export default function MobileMenuDrawer({
                     </p>
 
                     <div className="flex justify-center gap-5 mb-5">
-                            <Link href="https://www.facebook.com/nivaancare/" target="_blank">
-                                <FaFacebookF className="hover:text-blue-800 text-blue-800 transition text-xl" />
-                            </Link>
+                        <Link href="https://www.facebook.com/nivaancare/" target="_blank">
+                            <FaFacebookF className="hover:text-blue-800 text-blue-800 transition text-xl" />
+                        </Link>
 
-                            <Link href="https://instagram.com/nivaancare" target="_blank">
-                                <FaInstagram className="hover:text-pink-600 text-blue-800 transition text-xl" />
-                            </Link>
+                        <Link href="https://instagram.com/nivaancare" target="_blank">
+                            <FaInstagram className="hover:text-pink-600 text-blue-800 transition text-xl" />
+                        </Link>
 
-                            <Link href="https://in.linkedin.com/company/nivaancare" target="_blank">
-                                <FaLinkedinIn className="hover:text-blue-700 text-blue-800 transition text-xl" />
-                            </Link>
+                        <Link href="https://in.linkedin.com/company/nivaancare" target="_blank">
+                            <FaLinkedinIn className="hover:text-blue-700 text-blue-800 transition text-xl" />
+                        </Link>
 
-                            <Link href="https://www.youtube.com/@nivaancare" target="_blank">
-                                <FaYoutube className="hover:text-red-600 text-blue-800 transition text-xl" />
-                            </Link>
+                        <Link href="https://www.youtube.com/@nivaancare" target="_blank">
+                            <FaYoutube className="hover:text-red-600 text-blue-800 transition text-xl" />
+                        </Link>
                     </div>
                     <div className="flex justify-center">
-                    <RequestCallbackModal buttonText="BOOK APPOINTMENT" id="home-book-appointment" />
-</div>
+                        <RequestCallbackModal buttonText="BOOK APPOINTMENT" id="home-book-appointment" />
+                    </div>
                 </div>
             </div>
         </div>
@@ -143,7 +143,14 @@ export default function MobileMenuDrawer({
 
 /* ================= CONDITIONS (2 LEVEL) ================= */
 
-function ConditionsList({ data }: { data: MenuItem[] }) {
+function ConditionsList({
+    data,
+    onClose,
+}: {
+    data: MenuItem[];
+    onClose: () => void;
+}) {
+
     const [open, setOpen] = useState<number | null>(null);
 
     return (
@@ -154,7 +161,7 @@ function ConditionsList({ data }: { data: MenuItem[] }) {
                         onClick={() => setOpen(open === item.id ? null : item.id)}
                         className="w-full flex items-center text-black justify-between py-2 text-sm font-medium"
                     >
-                        <Link href={item.url || "#"}>
+                        <Link href={item.url || "#"} onClick={onClose}>
                             <div className="flex items-center gap-3 ">
                                 {item.icon && (
                                     <Image
@@ -184,6 +191,7 @@ function ConditionsList({ data }: { data: MenuItem[] }) {
                                     <span className="mt-2 h-2 w-2 rounded-full bg-[#F05432]" />
                                     <Link
                                         href={child.url || "#"}
+                                         onClick={onClose}
                                         className="text-sm capitalize text-gray-600"
                                     >
                                         {child.title}
@@ -200,14 +208,14 @@ function ConditionsList({ data }: { data: MenuItem[] }) {
 
 /* ================= DOCTORS ================= */
 
-function DoctorList({ data,onClose }: { data: MenuItem[],onClose: () => void; }) {
+function DoctorList({ data, onClose }: { data: MenuItem[], onClose: () => void; }) {
     return (
         <ul className="space-y-3 pl-2">
             {data.map((item) => (
                 <li key={item.id} className="flex items-start gap-3">
                     <span className="mt-2 h-2 w-2 rounded-full bg-[#F05432]" />
                     <Link
-                    onClick={onClose}
+                        onClick={onClose}
                         href={item.url || "#"}
                         className="text-sm text-black"
                     >
@@ -221,7 +229,13 @@ function DoctorList({ data,onClose }: { data: MenuItem[],onClose: () => void; })
 
 /* ================= SIMPLE LIST ================= */
 
-function SimpleList({ data }: { data: MenuItem[] }) {
+function SimpleList({
+    data,
+    onClose,
+}: {
+    data: MenuItem[];
+    onClose: () => void;
+}) {
     return (
         <ul className="space-y-3 pl-2">
             {data.map((item) => (
@@ -229,6 +243,7 @@ function SimpleList({ data }: { data: MenuItem[] }) {
                     <span className="mt-2 h-2 w-2 rounded-full bg-[#F05432]" />
                     <Link
                         href={item.url || "#"}
+                        onClick={onClose}
                         className="text-sm text-black"
                     >
                         {item.title}
