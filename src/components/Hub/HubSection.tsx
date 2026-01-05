@@ -10,6 +10,17 @@ import OverviewSection from "./OverviewSection";
 import KneePainTypes from "./KneePainTypes";
 import LocationSection from "./LocationSection";
 import Risks from "./Risks";
+import Symptoms from "./Symptoms";
+import CausesSection from "./CausesSection";
+import TreatmentCarousel from "./TreatmentCarousel";
+import RiskSection from "./RiskSection";
+import Redflag from "./Redflag";
+import Diagnosis from "./Diagnosis";
+import PreventionSection from "./PreventionSection";
+import BlogsSection from "./BlogsSection";
+import Specialists from "./Specialists";
+import RecoveryTimeline from "./RecoveryTimeline";
+import Patient from "./Patient";
 
 interface SectionItem {
     id: string;
@@ -32,7 +43,7 @@ export default function HubSection({ breadcrumbTitle, data }: { breadcrumbTitle:
         { id: "prevention", label: data?.prevention_subtitle },
         { id: "specialists", label: data?.specialists_subtitle },
         { id: "patient", label: data?.patient_subtitle },
-        { id: "blogs", label: data?.blogs_subtitle_copy },
+        { id: "blogs", label: data?.blogs_subtitle },
         { id: "faqs", label: data?.faqs_subtitle },
     ].filter(
         (section): section is SectionItem =>
@@ -103,6 +114,105 @@ export default function HubSection({ breadcrumbTitle, data }: { breadcrumbTitle:
                                 title={data?.risks_title}
                             />
                             <Risks data={data} />
+                        </section>
+                    }
+                    {data?.symptoms_subtitle &&
+                        <section id="symptoms" className="scroll-mt-28">
+                            <SectionHeader
+                                subtitle={data?.symptoms_subtitle}
+                                title={data?.symptoms_title}
+                            />
+                            <Symptoms data={data} />
+                        </section>
+                    }
+                    {data?.causes_subtitle &&
+                        <section id="causes" className="scroll-mt-28">
+                            <SectionHeader
+                                subtitle={data?.causes_subtitle}
+                                title={data?.causes_subtitle}
+                            />
+                            <CausesSection data={data} />
+                        </section>
+                    }
+                    {data?.treatment_subtitle &&
+                        <section id="treatment" className="scroll-mt-28">
+                            <SectionHeader
+                                subtitle={data?.treatment_subtitle}
+                                title={data?.treatment_title}
+                            />
+                            <TreatmentCarousel data={data} />
+                        </section>
+                    }
+                    {data?.risk_subtitle &&
+                        <section id="risk" className="scroll-mt-28">
+                            <SectionHeader
+                                subtitle={data?.risk_subtitle}
+                                title={data?.risk_title}
+                            />
+                            <RiskSection data={data} />
+                        </section>
+                    }
+                    {data?.red_subtitle &&
+                        <section id="red" className="scroll-mt-28">
+                            <SectionHeader
+                                subtitle={data?.red_subtitle}
+                                title={data?.red_title}
+                            />
+                            <Redflag data={data} />
+                        </section>
+                    }
+                    {data?.diagnosis_subtitle &&
+                        <section id="diagnosis" className="scroll-mt-28">
+                            <SectionHeader
+                                subtitle={data?.diagnosis_subtitle}
+                                title={data?.diagnosis_title}
+                            />
+                            <Diagnosis data={data} />
+                        </section>
+                    }
+                    {data?.recovery_subtitle &&
+                        <section id="recovery" className="scroll-mt-28">
+                            <SectionHeader
+                                subtitle={data?.recovery_subtitle}
+                                title={data?.recovery_title}
+                            />
+                            <RecoveryTimeline data={data} />
+                        </section>
+                    }
+                    {data?.prevention_subtitle &&
+                        <section id="prevention" className="scroll-mt-28">
+                            <SectionHeader
+                                subtitle={data?.prevention_subtitle}
+                                title={data?.prevention_title}
+                            />
+                            <PreventionSection data={data} />
+                        </section>
+                    }
+                    {data?.specialists_subtitle &&
+                        <section id="specialists" className="scroll-mt-28">
+                            <SectionHeader
+                                subtitle={data?.specialists_subtitle}
+                                title={data?.specialists_title}
+                            />
+                            <Specialists data={data} />
+                        </section>
+                    }
+                    {data?.patient_subtitle &&
+                        <section id="patient" className="scroll-mt-28">
+                            <SectionHeader
+                                subtitle={data?.patient_subtitle}
+                                title={data?.patient_title}
+                            />
+                            <Patient data={data} />
+                        </section>
+                    }
+                    {data?.blogs_subtitle &&
+                        <section id="blogs" className="scroll-mt-32">
+                            <SectionHeader
+                                subtitle={data?.blogs_subtitle}
+                                title={data?.blogs_title}
+                            />
+                            <BlogsSection data={data} />
                         </section>
                     }
                     {data?.faqs_subtitle &&

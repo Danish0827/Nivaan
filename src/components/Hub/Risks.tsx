@@ -25,7 +25,7 @@ export default function Risks({ data }: any) {
                                         data?.risks_boxs[0].image.url ||
                                         "https://via.placeholder.com/600x600"
                                     }
-                                    alt={data?.overview_image?.alt || ""}
+                                    alt={data?.risks_boxs[0].image.alt || ""}
                                     width={600}
                                     height={600}
                                     className="w-full h-auto object-cover"

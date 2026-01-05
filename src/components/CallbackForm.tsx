@@ -31,7 +31,7 @@ export default function CallbackForm() {
 
   return (
     <div className="mt-5 rounded-3xl lg:rounded-[40px] bg-gradient-to-b from-[#11A0D7] to-[#0F4C92] p-6 text-white">
-      <h3 className="mb-4 text-center text-3xl font-semibold">
+      <h3 className="mb-4 text-center text-3xl lg:text-2xl xl:text-3xl font-semibold">
         Get A Call Back
       </h3>
       <form action="https://forms.zohopublic.in/nivaancare/form/NivaanNextjsLandingPageForm2/formperma/XBy9lPuUYW-iiX-2yyXoXGpTLy3Yn4PLb8GjCBllefc/htmlRecords/submit"

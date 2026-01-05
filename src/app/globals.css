@@ -338,7 +338,26 @@ section.relative.home-main-section nav ol li span {
   color: #284599;
   font-weight: 500;
   margin-top: 8px;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
+}
+.hub-specialist-heading h3 {
+  font-size: 18px;    
+  font-family: var(--font-montserrat);
+  color: #284599;
+  font-weight: 600;
+  margin-top: 8px;
+  margin-bottom: 12px;
+}
+
+.hub-symptom h3,
+.hub-symptoms h4 {
+  font-size: 12px;    
+  font-family: var(--font-montserrat);
+  text-transform: uppercase;
+  color: #06A1DC;
+  font-weight: 500;
+  margin-top: 0px;
+  margin-bottom: 6px;
 }
 
 /* Desktop */
@@ -346,14 +365,24 @@ section.relative.home-main-section nav ol li span {
   .overview-section h3 {
     font-size: 22px;        
   }
+  .hub-specialist-heading h3 {
+    font-size: 24px;        
+  }
   .overview-list h4 {
     font-size: 22px; 
+  }
+  .hub-symptom h3 {
+    font-size: 14px;        
+  }
+  .hub-symptoms h4 {
+    font-size: 14px;  
   }
 }
 
 .SafetyDescription ,
 .targetDescription,
-.LotnDenbsList {
+.LotnDenbsList,
+.DiagnosisBoxs {
   padding: 20px 0;
   display: grid;
   grid-template-columns: 1fr;
@@ -364,11 +393,11 @@ section.relative.home-main-section nav ol li span {
 @media (min-width: 1024px) {
   .SafetyDescription ,
   .targetDescription,
-  .LotnDenbsList {
+  .LotnDenbsList,
+  .DiagnosisBoxs {
     grid-template-columns: 1fr 1fr;
   }
 }
-
 
 .SafetyDescription h4,
 .targetDescription h4,
@@ -393,7 +422,7 @@ section.relative.home-main-section nav ol li span {
 .symptoms-content ul li {
   margin-bottom: 0.5rem; /* space-y-2 */
   /* font-size: 1.2rem; */
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .SafetyDescription ul li::marker,

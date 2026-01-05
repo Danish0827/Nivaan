@@ -47,7 +47,7 @@ export default function OverviewSection({ data }: Props) {
                     </div>
 
                     {/* Symptoms */}
-                    <div>
+                    <div className="symptoms-content">
 
                         {data?.overview_2nd_description && (
                             <div className="text-gray-700 text-lg lg:text-sm xl:text-base 2xl:text-lg leading-relaxed font-mono space-y-4">
