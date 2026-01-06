@@ -6,8 +6,9 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { useState } from "react";
 import RequestCallbackModal from "../RequestCallbackModal";
+import Link from "next/link";
+import { IoArrowForward } from "react-icons/io5";
 
 interface Props {
     data: any;
@@ -73,12 +74,20 @@ export default function CausesSection({ data }: Props) {
                                                         />
                                                     </div>
                                                 )}
+                                                {box.link == "" ? (
+                                                    <h3 className="text-lg font-semibold text-[#0F2A44] ">
+                                                        {box.title}
+                                                    </h3>
+                                                ) : (
+                                                    <Link className="flex justify-between items-center " href={box.link || ""}>
+                                                        <h3 className="text-lg font-semibold text-[#0F2A44]">
+                                                            {box.title}
+                                                        </h3>
+                                                        <IoArrowForward  className="text-black text-2xl -rotate-45"/>
 
-                                                <h3 className="text-lg font-semibold text-[#0F2A44]">
-                                                    {box.title}
-                                                </h3>
-
-                                                <p className="text-xs font-semibold text-[#06A1DC] uppercase mb-3">
+                                                    </Link>
+                                                )}
+                                                <p className="text-xs font-semibold text-[#06A1DC] uppercase my-3">
                                                     {box.subtitle}
                                                 </p>
 
@@ -99,8 +108,17 @@ export default function CausesSection({ data }: Props) {
                     );
                 })}
 
-                <div className="grid grid-cols-1 xl:grid-cols-[40%_60%] overview-section gap-10 pt-10 items-start">
-                    <div className="w-full">
+                <div className="grid grid-cols-1 xl:grid-cols-[50%_40%] justify-center overview-section gap-10 pt-10 items-start">
+                   
+
+                    <div>
+                        {data?.causes_2nd_description && (
+                            <div className="text-gray-700 hub-symptoms text-lg lg:text-sm xl:text-base 2xl:text-lg leading-relaxed font-mono space-y-1">
+                                {parse(data?.causes_2nd_description)}
+                            </div>
+                        )}
+                    </div>
+                     <div className="w-full">
                         <div className="relative rounded-[40px] overflow-hidden">
                             {data?.causes_image &&
                                 <Image
@@ -113,14 +131,6 @@ export default function CausesSection({ data }: Props) {
                                 />
                             }
                         </div>
-                    </div>
-
-                    <div>
-                        {data?.causes_2nd_description && (
-                            <div className="text-gray-700 hub-symptoms text-lg lg:text-sm xl:text-base 2xl:text-lg leading-relaxed font-mono space-y-1">
-                                {parse(data?.causes_2nd_description)}
-                            </div>
-                        )}
                     </div>
                 </div>
 

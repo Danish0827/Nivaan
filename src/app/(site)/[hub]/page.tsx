@@ -38,7 +38,7 @@ const hubpage = async ({ params }: any) => {
                 title={acf?.banner_title}
                 description={acf?.banner_info}
                 button={acf?.banner_button}
-                image={acf?.overview_image}
+                image={data?.featured_image}
             />
             <HubStatsBar stats={acf?.banner_list} />
             <HubSection breadcrumbTitle={data?.title} data={acf}/>

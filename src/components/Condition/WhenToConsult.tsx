@@ -14,7 +14,7 @@ export default function WhenToConsult({
     buttonbottom,
 }: OverviewSectionProps) {
     return (
-        <section className="bg-white overview-section">
+        <section className="bg-white ">
             <div className="container mr-auto space-y-10 py-7">
                 {/* Gradient Box */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 overflow-hidden rounded-[36px]">

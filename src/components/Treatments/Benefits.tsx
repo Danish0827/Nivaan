@@ -16,10 +16,10 @@ export default function Benefits({
   image
 }: OverviewSectionProps) {
   return (
-    <section className="bg-white overview-section">
+    <section className="bg-white">
       <div className="container mr-auto space-y-10">
         {/* Top Content */}
-        <div className="space-y-4"> 
+        <div className="space-y-4 overview-section"> 
           {description && (
             <div
               className="text-gray-700 text-base xl:text-lg font-mono space-y-4"

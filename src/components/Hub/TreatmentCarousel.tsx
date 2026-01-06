@@ -7,6 +7,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import RequestCallbackModal from "../RequestCallbackModal";
+import Link from "next/link";
+import { IoArrowForward } from "react-icons/io5";
 
 interface Props {
     data: any;
@@ -23,12 +25,6 @@ export default function TreatmentCarousel({ data }: Props) {
                     <div
                         className="mt-4 text-gray-600 "
                         dangerouslySetInnerHTML={{ __html: data.treatment_subdescription }}
-                    />
-                </div>
-                <div>
-                    <div
-                        className="mt-4 text-gray-600"
-                        dangerouslySetInnerHTML={{ __html: data.causes_description }}
                     />
                 </div>
 
@@ -163,9 +159,19 @@ export default function TreatmentCarousel({ data }: Props) {
                                             </div>
                                         )}
 
-                                        <h3 className="text-lg font-semibold text-[#0F2A44]">
-                                            {box.title}
-                                        </h3>
+                                        {box.link == "" ? (
+                                            <h3 className="text-lg font-semibold text-[#0F2A44] ">
+                                                {box.title}
+                                            </h3>
+                                        ) : (
+                                            <Link className="flex justify-between items-center " href={box.link || ""}>
+                                                <h3 className="text-lg font-semibold text-[#0F2A44]">
+                                                    {box.title}
+                                                </h3>
+                                                <IoArrowForward className="text-black text-2xl -rotate-45" />
+
+                                            </Link>
+                                        )}
 
                                         {/* <p className="text-xs font-semibold text-[#06A1DC] uppercase mb-3">
                                                     {box.subtitle}
@@ -228,7 +234,7 @@ export default function TreatmentCarousel({ data }: Props) {
                                 </div>
                             </div>
 
-                            
+
                         </div>
                     );
                 })}

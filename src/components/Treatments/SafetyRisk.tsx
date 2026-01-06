@@ -21,7 +21,6 @@ const SafetyRisk: React.FC<SafetyRiskProps> = ({
       {/* Safety Content */}
       <div className="container mr-auto">
 
-        {/* Description (HTML from API) */}
         <div
           className="prose prose-sm md:prose-base max-w-none text-gray-700
             prose-h3:text-lg prose-h3:text-blue-600

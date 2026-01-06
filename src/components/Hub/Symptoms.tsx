@@ -82,13 +82,13 @@ export default function Symptoms({ data }: Props) {
                     {/* Image */}
                     <div className="w-full">
                         <div className="relative rounded-[40px] overflow-hidden">
-                            {data?.overview_image &&
+                            {data?.symptoms_image &&
                                 <Image
                                     src={
-                                        data?.overview_image?.url ||
+                                        data?.symptoms_image?.url ||
                                         "https://via.placeholder.com/600x600"
                                     }
-                                    alt={data?.overview_image?.alt || ""}
+                                    alt={data?.symptoms_image?.alt || ""}
                                     width={600}
                                     height={600}
                                     className="w-full h-auto object-cover"

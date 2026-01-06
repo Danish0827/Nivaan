@@ -43,22 +43,22 @@ export default function ConditionCarousel({ data }: Props) {
                     }}
                 >
                     {data.recovery_boxs.map((item: any, index: number) => {
-                        const isExpanded = expandedId === index; 
+                        const isExpanded = expandedId === index;
 
                         return (
                             <SwiperSlide key={index}>
                                 <div className="w-full h-full bg-white rounded-3xl border shadow-lg p-5 flex flex-col my-10">
 
-                                    {/* Image */}
-                                    <div className="rounded-2xl overflow-hidden mb-5">
-                                        <Image
-                                            src={item.image.url}
-                                            alt={item.image.alt || item.title}
-                                            width={400}
-                                            height={260}
-                                            className="w-full h-[220px] object-cover"
-                                        />
-                                    </div>
+                                    {item.image &&
+                                        <div className="rounded-2xl overflow-hidden mb-5">
+                                            <Image
+                                                src={item.image.url}
+                                                alt={item.image.alt || item.title}
+                                                width={400}
+                                                height={260}
+                                                className="w-full h-[220px] object-cover"
+                                            />
+                                        </div>}
 
                                     {/* Content */}
                                     <h3 className="text-lg font-semibold text-[#0F2A44] mb-1">
@@ -100,7 +100,7 @@ export default function ConditionCarousel({ data }: Props) {
                         dangerouslySetInnerHTML={{
                             __html: data.recovery_2nd_description,
                         }}
-                    />                   
+                    />
                 </div>
             </div>
         </section>

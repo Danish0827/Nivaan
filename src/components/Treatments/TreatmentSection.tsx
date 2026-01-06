@@ -30,7 +30,7 @@ export default function TreatmentSection({ data }: { data: any }) {
         { id: "how", label: data?.how_subtitle },
         { id: "benefits", label: data?.benefits_subtitle },
         { id: "why", label: data?.why_subtitle },
-        { id: "recovery", label: data?.recovery_subtitle },
+        { id: "recoverys", label: data?.recovery_subtitle },
         { id: "safety", label: data?.safety_subtitle },
         { id: "faqs", label: data?.faqs_subtitle },
     ].filter(
@@ -39,29 +39,30 @@ export default function TreatmentSection({ data }: { data: any }) {
     );
 
     useEffect(() => {
-        if (!sections.length) return;
+  if (!sections.length) return;
 
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        setActiveSection(entry.target.id);
-                    }
-                });
-            },
-            {
-                threshold: 0.3,
-                rootMargin: "-20% 0px -40% 0px",
-            }
-        );
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    },
+    {
+      threshold: 0.3, // previously 0.3, lower means section considered visible earlier
+      rootMargin: "-10% 0px -10% 0px", // smaller negative margin
+    }
+  );
 
-        sections.forEach(({ id }) => {
-            const el = document.getElementById(id);
-            if (el) observer.observe(el);
-        });
+  sections.forEach(({ id }) => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
 
-        return () => observer.disconnect();
-    }, [sections]);
+  return () => observer.disconnect();
+}, [sections]);
+
     return (
         <div className="min-h-screen bg-white relative z-30 font-mono">
             <div className="px-4 lg:px-7 xl:px-7 2xl:px-24 md:flex flex-row-reverse gap-6 lg:gap-6 2xl:gap-10 py-16">
@@ -151,7 +152,7 @@ export default function TreatmentSection({ data }: { data: any }) {
                         </section>
                     }
                     {data?.recovery_subtitle &&
-                        <section id="recovery" className="scroll-mt-32">
+                        <section id="recoverys" className="scroll-mt-32">
                             <SectionHeader
                                 subtitle={data?.recovery_subtitle}
                                 title={data?.recovery_title}

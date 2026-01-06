@@ -46,6 +46,7 @@ export default function CausesCarousel({ data }: Props) {
                                 <div className="w-full h-full bg-white rounded-3xl border shadow-lg p-5 flex flex-col my-10">
 
                                     {/* Image */}
+                                    {item.image &&
                                     <div className="rounded-2xl overflow-hidden mb-5">
                                         <Image
                                             src={item.image.url}
@@ -54,7 +55,7 @@ export default function CausesCarousel({ data }: Props) {
                                             height={260}
                                             className="w-full h-[220px] object-cover"
                                         />
-                                    </div>
+                                    </div>}
 
                                     {/* Content */}
                                     <h3 className="text-lg font-semibold text-[#0F2A44] ">

@@ -59,12 +59,11 @@ export default function Diagnosis({ data }: Props) {
                     <h3 className="text-lg lg:text-2xl 2xl:text-3xl font-bold text-[#284599] mb-4">
                         {data.diagnosis_2nd_title}
                     </h3>
-                    {data?.red_2nd_description && (
+                    {data?.diagnosis_2nd_description && (
                         <div className="text-gray-700 hub-symptoms text-lg lg:text-sm xl:text-base 2xl:text-lg leading-relaxed font-mono space-y-4">
                             {parse(data?.diagnosis_2nd_description)}
                         </div>
                     )}
-
                 </div>
             </div>
             {data.diagnosis_button_name &&

@@ -33,7 +33,7 @@ const RecoveryTimeline = ({ data }: RecoveryTimelineProps) => {
                 </h2> */}
 
                 {/* Card Layout */}
-                <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-8 py-4 lg:py-6 lg:pr-6">
+                <div className="grid grid-cols-1 xl:grid-cols-[40%_60%] gap-8 py-4 lg:py-6 lg:pr-6">
                     {/* Image */}
                     <div className="w-full rounded-[40px] shadow-xs">
                         <img
@@ -43,10 +43,8 @@ const RecoveryTimeline = ({ data }: RecoveryTimelineProps) => {
                         />
                     </div>
                     {/* Timeline Card */}
-                    <div className="bg-white/90 flex border rounded-[40px] shadow-xs p-6 md:p-8 w-full items-center h-full">
-
-
-                        <div className="relative pl-6">
+                    <div className="bg-white/90 flex border rounded-[40px] shadow-xs p-5 md:p-8 w-full items-center h-full">
+                        <div className="relative lg:pl-6">
                             {/* Vertical Line */}
                             {/* <div className="absolute left-6 top-6 bottom-0 w-0.5 h-[420px] 2xl:h-[400px] bg-[#284599]" /> */}
 
@@ -55,11 +53,12 @@ const RecoveryTimeline = ({ data }: RecoveryTimelineProps) => {
                                 data.recovery_phase_lists?.map((step: any, index: any) => (
                                     <div key={index} className="flex gap-5 items-start ">
                                         {/* Icon + Line */}
+                                        {step.icon &&
                                         <div className="relative flex flex-col items-center">
                                             <div className="w-20 h-20 rounded-full bg-[#284599] flex items-center justify-center">
                                                 <Image
-                                                    src={step.icon.url}
-                                                    alt={step.icon.alt}
+                                                    src={step.icon.url || ""}
+                                                    alt={step.icon.alt || ""}
                                                     width={50}
                                                     height={50}
                                                 />
@@ -68,6 +67,7 @@ const RecoveryTimeline = ({ data }: RecoveryTimelineProps) => {
                                                 <div className="w-0.5 h-full bg-blue-200 mt-2" />
                                             )}
                                         </div>
+}
                                         <div className="pb-10">
                                             <p className="text-sm font-semibold text-[#06A1DC] mb-1">
                                                 PHASE {index + 1}
@@ -75,9 +75,9 @@ const RecoveryTimeline = ({ data }: RecoveryTimelineProps) => {
                                             <h3 className="text-lg font-semibold text-black mb-2">
                                                 {step.title}
                                             </h3>
-                                            <p className="text-black symptoms-content">
+                                            <div className="text-black symptoms-content">
                                                 {parse(step.description)}
-                                            </p>
+                                            </div>
                                         </div>
                                     </div>
                                 ))}
@@ -101,7 +101,7 @@ const RecoveryTimeline = ({ data }: RecoveryTimelineProps) => {
                                         key={index}
                                         onClick={() => setActiveTab(index)}
                                         className={`flex-1 py-4 text-xs font-semibold uppercase tracking-wide
-              ${activeTab === index
+                                            ${activeTab === index
                                                 ? "text-[#00A3E0] border-b-2 border-[#00A3E0]"
                                                 : "text-gray-400"
                                             }`}
@@ -128,7 +128,7 @@ const RecoveryTimeline = ({ data }: RecoveryTimelineProps) => {
                         {/* ===== DESKTOP TABLE ===== */}
                         <div className="hidden md:block">
                             {/* TABLE HEAD */}
-                            <div className="grid grid-cols-2 text-center bg-[#F3FAFF]">
+                            <div className="grid grid-cols-2 text-center border-[#00A3E0] bg-[#F3FAFF] border-b">
                                 {data.recovery_table.map((col: any, index: number) => (
                                     <div
                                         key={index}

@@ -30,7 +30,10 @@ interface RecoveryData {
 interface RecoveryTimelineProps {
     data: RecoveryData;
 }
-const RecoveryTimeline = ({ data }: RecoveryTimelineProps) => {
+
+const RecoveryTimeline: React.FC<RecoveryTimelineProps> = ({
+    data
+}) => {
     return (
         <section className="w-full bg-white overview-section">
             <div className="container mr-auto">
@@ -44,7 +47,7 @@ const RecoveryTimeline = ({ data }: RecoveryTimelineProps) => {
                 <div className="space-y-5 pb-10">
                     {data.recovery_boxs_lists && data.recovery_boxs_lists?.map((item, index) => (
                         <div key={index} className="bg-white border rounded-[40px] shadow-xs px-6 py-6 lg:px-8">
-                            <div  className="flex gap-5 items-start">
+                            <div className="flex gap-5 items-start">
 
                                 {/* Icon */}
                                 <div className="w-20 h-20 rounded-full bg-[#284599] flex items-center justify-center shrink-0">
@@ -61,7 +64,7 @@ const RecoveryTimeline = ({ data }: RecoveryTimelineProps) => {
                                     <h4 className="text-base lg:text-xl font-bold text-black mb-1">
                                         {item.title}
                                     </h4>
-                                    <p className="text-gray-600 leading-relaxed">
+                                    <p className="text-gray-600 ">
                                         {item.description}
                                     </p>
                                 </div>

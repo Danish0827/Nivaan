@@ -26,7 +26,7 @@ interface SectionItem {
     id: string;
     label: string;
 }
-export default function HubSection({ breadcrumbTitle, data }: { breadcrumbTitle: string, data: any }) {
+export default function HubSection({ breadcrumbTitle, data }: { breadcrumbTitle: any, data: any }) {
     const [activeSection, setActiveSection] = useState<string>("problem");
     const sections: SectionItem[] = [
         { id: "overview", label: data?.overview_subtitle },
@@ -51,28 +51,28 @@ export default function HubSection({ breadcrumbTitle, data }: { breadcrumbTitle:
     );
 
     useEffect(() => {
-        if (!sections.length) return;
-
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        setActiveSection(entry.target.id);
-                    }
-                });
-            },
-            {
-                threshold: 0.3,
-                rootMargin: "-20% 0px -40% 0px",
+      if (!sections.length) return;
+    
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setActiveSection(entry.target.id);
             }
-        );
-
-        sections.forEach(({ id }) => {
-            const el = document.getElementById(id);
-            if (el) observer.observe(el);
-        });
-
-        return () => observer.disconnect();
+          });
+        },
+        {
+          threshold: 0.2, // previously 0.3, lower means section considered visible earlier
+          rootMargin: "-15% 0px -10% 0px", // smaller negative margin
+        }
+      );
+    
+      sections.forEach(({ id }) => {
+        const el = document.getElementById(id);
+        if (el) observer.observe(el);
+      });
+    
+      return () => observer.disconnect();
     }, [sections]);
     return (
         <div className="min-h-screen bg-white relative z-30 font-mono">
@@ -104,7 +104,7 @@ export default function HubSection({ breadcrumbTitle, data }: { breadcrumbTitle:
                                 subtitle={data?.location_subtitle}
                                 title={data?.location_title}
                             />
-                            <LocationSection symptoms_description={data.location_description} symptoms_image={data.symptoms_image} location_description_boxs={data.location_description_boxs} />
+                            <LocationSection symptoms_description={data.location_description} symptoms_image={data.location_image} location_description_boxs={data.location_description_boxs} />
                         </section>
                     }
                     {data?.risks_subtitle &&
