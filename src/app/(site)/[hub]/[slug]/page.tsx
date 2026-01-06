@@ -1,50 +1,67 @@
-import { TreatmentHeroSection } from '@/components/TreatmentHeroSection'
-import TreatmentSection from '@/components/Treatments/TreatmentSection';
-import TreatmentStatsBar from '@/components/TreatmentStatsBar';
 import { notFound } from 'next/navigation';
-import React from 'react'
+import React from 'react';
 
-const treatmentpage = async ({params}:any) => {
-    const slug = params.slug
-    const res = await fetch(
-        `https://www.hclient.in/nivaan/wp-json/site/v1/treatments/${slug}`,
-        {
-            next: { revalidate: 60 }, // IMPORTANT
-        }
-    );
-    console.log(res.status,"res.status");
-    
-    if (res.status === 404) {
-        notFound();
-    }
-    if (!res.ok) {
-        console.error("API failed", res.status);
-        return null;
-    }
+const DynamicLocationPage = async ({ params }: any) => {
+  const slug = params.hub;
 
-    let data;
+  let data: any = null;
+  let type: 'targeting' | 'optimization' | null = null;
+
+  // First try hub API
+  try {
+    const tarRes = await fetch(`https://hclient.in/nivaan//wp-json/site/v1/local-targeting/${slug}`, {
+      next: { revalidate: 60 },
+    });
+      console.log(tarRes,"data");
+
+    if (tarRes.ok) {
+      data = await tarRes.json();
+    //   console.log(data,"data");
+      
+      type = 'targeting';
+    }
+  } catch (err) {
+    console.error("Hub API failed", err);
+  }
+
+  // If hub not found, try location API
+  if (!data) {
     try {
-        data = await res.json();
+      const optRes = await fetch(`https://hclient.in/nivaan//wp-json/site/v1/local-optimization/${slug}`, {
+        next: { revalidate: 60 },
+      });
+
+      if (optRes.ok) {
+        data = await optRes.json();
+        type = 'optimization';
+      }
     } catch (err) {
-        console.error("JSON parse failed");
-        return null;
+      console.error("Location API failed", err);
     }
+  }
 
-    const { acf } = data
-    return (
+  if (!data || !type) {
+    notFound();
+  }
+
+  const acf = data?.acf;
+
+  return (
+    <>
+      {type === 'targeting' && (
         <>
-            <TreatmentHeroSection
-                breadcrumbTitle={acf?.treatment_types}
-                breadcrumbSub={data?.title}
-                title={acf?.banner_title}
-                description={acf?.banner_description}
-                button={acf?.banner_button_name}
-                image={data?.featured_image}
-            />
-            <TreatmentStatsBar stats={acf?.banner_numbers} />
-            <TreatmentSection data={acf}/>
+         fdsf
         </>
-    )
-}
+      )}
 
-export default treatmentpage
+      {type === 'optimization' && (
+        <>
+        dasfdsadsa
+        f
+        </>
+      )}
+    </>
+  );
+};
+
+export default DynamicLocationPage;

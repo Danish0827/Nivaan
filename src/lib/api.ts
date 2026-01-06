@@ -21,3 +21,17 @@ export async function getBlogCategories() {
   });
   return res.json();
 }
+
+export async function getTreatment() {
+  const res = await fetch(`${BASE_URL}/treatments`, {
+    next: { revalidate: 60 },
+  });
+  return res.json();
+}
+
+export async function getContition() {
+  const res = await fetch(`${BASE_URL}/conditions`, {
+    next: { revalidate: 60 },
+  });
+  return res.json();
+}

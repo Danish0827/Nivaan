@@ -4,9 +4,8 @@ import Image from "next/image";
 import Breadcrumb from "./Breadcrumb";
 import RequestCallbackModal from "./RequestCallbackModal";
 
-export function TreatmentHeroSection({
+export function LocationHeroSection({
     breadcrumbTitle,
-    breadcrumbSub,
     title,
     description,
     button,
@@ -26,6 +25,7 @@ export function TreatmentHeroSection({
             if (domNode.name === "space") return " ";
         },
     });
+
     const parsedDescription = parse(decodedDescription, {
         replace: (domNode: any) => {
             if (domNode.name === "spam") {
@@ -38,6 +38,7 @@ export function TreatmentHeroSection({
             if (domNode.name === "space") return " ";
         },
     });
+
     return (
         <section style={{ boxShadow: 'rgba(0, 0, 0, 0.05) 0px 10px 60px 0px' }} className="relative home-main-section w-full bg-gradient-to-b from-[#edf8fc] to-[#edf8fc]">
             <img
@@ -50,9 +51,7 @@ export function TreatmentHeroSection({
                         <Breadcrumb
                             items={[
                                 { label: "Home", href: "/" },
-                                { label: breadcrumbTitle.title, href: `/${breadcrumbTitle.slug}` },
-                                { label: "Treatment", href: `/${breadcrumbTitle.slug}/treatment` },
-                                { label: breadcrumbSub },
+                                { label: breadcrumbTitle },
                             ]}
                         />
                         <h1 className="text-[28px] sm:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-semibold text-blue-900 leading-tight">
@@ -71,7 +70,7 @@ export function TreatmentHeroSection({
                         {image &&
                             <Image
                                 src={image?.url}
-                                className="rounded-[40px] 2xl:w-4/5 object-contain drop-shadow-xl"
+                                className=" 2xl:w-4/5 object-contain drop-shadow-xl rounded-[40px]"
                                 alt={image?.alt}
                                 width={1000}
                                 height={1000}

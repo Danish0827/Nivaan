@@ -12,10 +12,10 @@ export const footerData = [
     {
         title: "TREATMENT",
         items: [
-            { label: "Non-Surgical Back Pain Treatment", href: "/back-pain/non-surgical-back-pain-treatment-image-guided-advanced-procedures" },
-            { label: "Non-Surgical Neck Pain Treatment", href: "/neck-pain/non-surgical-neck-pain" },
-            { label: "Non-Surgical Shoulder Pain Treatment", href: "/shoulder-pain/non-surgical-shoulder-pain-treatment" },
-            { label: "Non-Surgical Knee Pain Treatment", href: "/knee-pain/non-surgical-treatment" },
+            { label: "Non-Surgical Back Pain Treatment", href: "/back-pain/treatment/non-surgical-back-pain-treatment-image-guided-advanced-procedures" },
+            { label: "Non-Surgical Neck Pain Treatment", href: "/neck-pain/treatment/non-surgical-neck-pain" },
+            { label: "Non-Surgical Shoulder Pain Treatment", href: "/shoulder-pain/treatment/non-surgical-shoulder-pain-treatment" },
+            { label: "Non-Surgical Knee Pain Treatment", href: "/knee-pain/treatment/non-surgical-treatment" },
             // { label: "Radio frequency Ablation", href: "/treatments/rfa" },
             // { label: "Neuromodulation", href: "/treatments/neuromodulation" },
             // { label: "Peripheral Nerve Stimulation", href: "/treatments/pns" },
