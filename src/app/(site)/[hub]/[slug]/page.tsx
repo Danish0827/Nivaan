@@ -1,3 +1,5 @@
+import LocationOptimizationSection from '@/components/Location/LocationOptimizationSection';
+import LocationTargetingSection from '@/components/Location/LocationTargetingSection';
 import { LocationHeroSection } from '@/components/LocationHeroSection';
 import LocationStatsBar from '@/components/LocationStatsBar';
 import { notFound } from 'next/navigation';
@@ -66,7 +68,7 @@ const DynamicLocationPage = async ({ params }: any) => {
             image={data?.featured_image}
           />
           <LocationStatsBar stats={acf?.banner_numbers} />
-          {/*   <LocationStatsBar data={acf}/> */}
+          <LocationTargetingSection data={acf}/>
         </>
       )}
 
@@ -82,6 +84,7 @@ const DynamicLocationPage = async ({ params }: any) => {
             image={data?.featured_image}
           />
           <LocationStatsBar stats={acf?.banner_numbers} />
+          {/* <LocationOptimizationSection data={acf}/> */}
         </>
       )}
     </>

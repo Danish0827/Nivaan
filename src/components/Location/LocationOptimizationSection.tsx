@@ -1,9 +1,126 @@
-import React from 'react'
+"use client";
 
-const LocationOptimizationSection = () => {
-  return (
-    <div>LocationOptimizationSection</div>
-  )
+import React, { useEffect, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { SectionHeader } from "../Treatments/SectionHeader";
+import FaqSection from "../Treatments/FaqSection";
+import CallbackForm from "../CallbackForm";
+
+interface SectionItem {
+    id: string;
+    label: string;
 }
+export default function LocationOptimizationSection({ data }: { data: any }) {
+    const [activeSection, setActiveSection] = useState<string>("problem");
+    const sections: SectionItem[] = [
+        { id: "problem", label: data?.problem_subtitle },
+        { id: "overview", label: data?.overview_subtitle },
+        { id: "treatment", label: data?.treatment_subtitle },
+        { id: "target", label: data?.target_subtitle },
+        { id: "how", label: data?.how_subtitle },
+        { id: "benefits", label: data?.benefits_subtitle },
+        { id: "why", label: data?.why_subtitle },
+        { id: "recoverys", label: data?.recovery_subtitle },
+        { id: "safety", label: data?.safety_subtitle },
+        { id: "faqs", label: data?.faqs_subtitle },
+    ].filter(
+        (section): section is SectionItem =>
+            typeof section.label === "string" && section.label.trim() !== ""
+    );
 
-export default LocationOptimizationSection
+    useEffect(() => {
+  if (!sections.length) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    },
+    {
+      threshold: 0.3, // previously 0.3, lower means section considered visible earlier
+      rootMargin: "-10% 0px -10% 0px", // smaller negative margin
+    }
+  );
+
+  sections.forEach(({ id }) => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+
+  return () => observer.disconnect();
+}, [sections]);
+
+    return (
+        <div className="min-h-screen bg-white relative z-30 font-mono">
+            <div className="px-4 lg:px-7 xl:px-7 2xl:px-24 md:flex flex-row-reverse gap-6 lg:gap-6 2xl:gap-10 py-16">
+                {/* Content */}
+                <main className="flex-1 space-y-28 2xl:space-y-40">
+                    {/* Problem */}
+                    {data?.problem_subtitle &&
+                        <section id="problem" className="scroll-mt-28">
+                            <SectionHeader
+                                subtitle={data?.problem_subtitle}
+                                title={data?.problem_title}
+                                midtitle={data?.problem_after_title_text}
+                            />
+                            {/* <ProblemAwareness
+                                subtitle={data?.problem_subtitle}
+                                title={data?.problem_title}
+                                description={data?.problem_description}
+                                image={data?.problem_image?.url}
+                                buttonText={data?.problem_button_name}
+                            /> */}
+                        </section>
+                    }
+                  
+                    {data?.faqs_subtitle &&
+                        <section id="faqs" className="scroll-mt-32">
+                            <SectionHeader
+                                subtitle={data?.faqs_subtitle}
+                                title={data?.faqs_title}
+                                midtitle={data?.faqs_description}
+                            />
+                            <FaqSection faqs={data.faqs} />
+                        </section>
+                    }
+                </main>
+                {/* Sidebar */}
+                <aside className="w-full md:w-72 xl:w-80 2xl:w-96 md:sticky top-28 h-fit font-sans">
+                    <div className="bg-[#EEF8FD] rounded-3xl p-6">
+                        <h2 className="font-bold text-2xl mb-6 text-[#0852A0] text-center ">
+                            {data?.treatment_types?.title} Treatments
+                        </h2>
+                        <ul className="space-y-1">
+                            {sections.map((s) => (
+                                <li key={s.id}>
+                                    <Link
+                                        href={`#${s.id}`}
+                                        className={`flex items-center justify-between px-4 py-3 rounded-full transition group
+                                        ${activeSection === s.id
+                                                ? "bg-[#DDF1FB] font-semibold text-black"
+                                                : "text-gray-600 hover:bg-[#DDF1FB]"
+                                            }`}
+                                    >
+                                        {s.label}
+                                        <Image
+                                            className={`group-hover:opacity-100 w-8 h-8 duration-500 rounded-full p-2 ${activeSection === s.id ? "opacity-100" : "opacity-0"}`}
+                                            src="/images/leftarrow.svg"
+                                            width={20}
+                                            height={20}
+                                            alt="arrow"
+                                        />
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                    <CallbackForm />
+                </aside>
+            </div>
+        </div>
+    );
+}

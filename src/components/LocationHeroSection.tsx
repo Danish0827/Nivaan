@@ -28,8 +28,7 @@ export function LocationHeroSection({
             }
             if (domNode.name === "space") return " ";
         },
-    });
-    
+    });    
 
     const parsedDescription = parse(decodedDescription, {
         replace: (domNode: any) => {
