@@ -45,7 +45,7 @@ export function LocationHeroSection({
     });
 
     return (
-        <section style={{ boxShadow: 'rgba(0, 0, 0, 0.05) 0px 10px 60px 0px' }} className="relative home-main-section w-full bg-gradient-to-b from-[#edf8fc] to-[#edf8fc]">
+        <section style={{ boxShadow: 'rgba(0, 0, 0, 0.05) 0px 10px 60px 0px' }} className="relative home-main-section location-main-section w-full bg-gradient-to-b from-[#edf8fc] to-[#edf8fc]">
             <img
                 src="/images/watermark.webp"
                 className="absolute top-20 left-0 w-[700px] pointer-events-none z-20"

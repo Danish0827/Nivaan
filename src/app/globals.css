@@ -71,20 +71,20 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active
     margin-bottom: 15px;
 }
 .single-doctor-style ul {
-  padding-left: 1.5rem; /* pl-6 */
-  padding-bottom: 0.5rem; /* pb-2 */
+  padding-left: 1.5rem; 
+  padding-bottom: 0.5rem; 
   list-style-type: disc;
 }
 
 .single-doctor-style ul li {
-  margin-bottom: 0.5rem; /* space-y-2 */
+  margin-bottom: 0.5rem; 
   font-size: 1.2rem;
   font-weight: 500;
 }
 
 .single-doctor-style ul li::marker {
-  color: #F36B2B; /* text-orange-500 */
-  font-size: 1.5rem; /* base */
+  color: #F36B2B;
+  font-size: 1.5rem;
 }
 
 .blog-content-section {
@@ -512,6 +512,11 @@ p {
 /* 2XL Screens (≥ 1536px → 2xl) */
 @media (min-width: 1536px) {
   p {
-    font-size: 18px; /* Tailwind text-lg */
+    font-size: 18px; 
   }
+}
+
+.location-main-section h3{
+  font-weight: 600;
+  margin-bottom: 15px;
 }

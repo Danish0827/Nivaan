@@ -227,9 +227,9 @@ function PillGridDropdown({
           </h4>
 
           <div className="grid grid-cols-2 gap-x-10 gap-y-4 text-base">
-            {data.map((item) => (
+            {data.map((item,index) => (
               <Link
-                key={item.id}
+                key={index}
                 href={item.url || "#"}
                 className="hover:text-[#06A1DC] capitalize font-normal transition"
               >
