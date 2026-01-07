@@ -14,7 +14,7 @@ interface Props {
 
 export default function TreatmentCarousel({ data }: Props) {
   if (!data?.treatment_boxs?.length) return null;
-  const [expandedId, setExpandedId] = useState<number | null>(null);
+ 
 
   return (
     <section className="bg-white w-full overview-section">
@@ -44,8 +44,6 @@ export default function TreatmentCarousel({ data }: Props) {
           }}
         >
           {data.treatment_boxs.map((item: any, index: number) => {
-            const isExpanded = expandedId === index; // ya item.id
-
             return (
               <SwiperSlide key={index}>
                 <div className="w-full h-full bg-white rounded-3xl border shadow-lg p-5 flex flex-col my-10">
@@ -73,19 +71,11 @@ export default function TreatmentCarousel({ data }: Props) {
                   {/* Description */}
                   <div>
                     <div
-                      className={`text-sm text-gray-600 leading-relaxed ${!isExpanded ? "line-clamp-4" : ""
-                        }`}
+                      className={`text-sm text-gray-600 leading-relaxed`}
                       dangerouslySetInnerHTML={{ __html: item.description }}
                     />
 
-                    <button
-                      onClick={() =>
-                        setExpandedId(isExpanded ? null : index)
-                      }
-                      className="mt-2 text-sm font-semibold text-[#0852A0] hover:underline"
-                    >
-                      {isExpanded ? "Read less" : "Read more"}
-                    </button>
+                    
                   </div>
                 </div>
               </SwiperSlide>

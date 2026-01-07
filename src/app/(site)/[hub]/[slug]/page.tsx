@@ -14,29 +14,32 @@ const DynamicLocationPage = async ({ params }: any) => {
     const tarRes = await fetch(`https://hclient.in/nivaan/wp-json/site/v1/local-targeting/${slug}`, {
       next: { revalidate: 60 },
     });
-    
+
     if (tarRes.ok) {
-      data = await tarRes.json();
-        console.log(data,"data");
-      
-      type = 'targeting';
+      const tarData = await tarRes.json();
+      // Check if the API returned real data
+      if (!tarData.error) {
+        data = tarData;
+        type = 'targeting';
+      }
     }
   } catch (err) {
     console.error("Hub API failed", err);
   }
-  console.log(data, "data danish");
-  
-  // If hub not found, try location API
+
+  // If hub not found or returned error, try location API
   if (!data) {
     try {
       const optRes = await fetch(`https://hclient.in/nivaan/wp-json/site/v1/local-optimization/${slug}`, {
         next: { revalidate: 60 },
       });
-      
-      console.log(optRes, "ajlaf optima danish dsadsa");
+
       if (optRes.ok) {
-        data = await optRes.json();
-        type = 'optimization';
+        const optData = await optRes.json();
+        if (!optData.error) {
+          data = optData;
+          type = 'optimization';
+        }
       }
     } catch (err) {
       console.error("Location API failed", err);
@@ -46,7 +49,6 @@ const DynamicLocationPage = async ({ params }: any) => {
   if (!data || !type) {
     notFound();
   }
-  console.log(data, "data danish dsadsa");
 
   const acf = data?.acf;
 

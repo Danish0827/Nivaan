@@ -41,7 +41,7 @@ export default function HowItWorks({ data }: HowItWorksProps) {
                                     <div className="relative flex flex-col items-center">
                                         {step.how_icons &&
                                         <div className="w-20 h-20 rounded-full bg-[#284599] flex items-center justify-center">
-                                            <div className="absolute h-[550px] lg:h-[400px] md:top-10 xl:h-[550px] 2xl:h-[400px] top-6 bg-[#284599] w-0.5 left-10"></div>
+                                            {/* <div className="absolute h-[550px] lg:h-[400px] md:top-10 xl:h-[550px] 2xl:h-[400px] top-6 bg-[#284599] w-0.5 left-10"></div> */}
                                             <Image
                                                 src={step.how_icons.url}
                                                 alt={step.how_icons.alt}

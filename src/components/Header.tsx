@@ -258,8 +258,8 @@ function PillGridDropdownLocation({
             {title}
           </h4>
           <div className="space-y-4 text-black text-base">
-            {data.map((item) => (
-              <div className="text-black">
+            {data.map((item,index) => (
+              <div key={index} className="text-black">
                 {item.url &&
                   <Link
                     key={item.id}

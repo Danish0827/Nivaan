@@ -13,7 +13,7 @@ interface Props {
 
 export default function ConditionCarousel({ data }: Props) {
     // if (!data?.recovery_boxs?.length) return null;
-    const [expandedId, setExpandedId] = useState<number | null>(null);
+    // const [expandedId, setExpandedId] = useState<number | null>(null);
 
     return (
         <section className="bg-white w-full overview-section">
@@ -43,7 +43,7 @@ export default function ConditionCarousel({ data }: Props) {
                     }}
                 >
                     {data.recovery_boxs.map((item: any, index: number) => {
-                        const isExpanded = expandedId === index;
+                        // const isExpanded = expandedId === index;
 
                         return (
                             <SwiperSlide key={index}>
@@ -72,19 +72,19 @@ export default function ConditionCarousel({ data }: Props) {
                                     {/* Description */}
                                     <div>
                                         <div
-                                            className={`text-sm text-gray-600 leading-relaxed ${!isExpanded ? "line-clamp-4" : ""
-                                                }`}
+                                            className={`text-sm text-gray-600 leading-relaxed `}
                                             dangerouslySetInnerHTML={{ __html: item.description }}
                                         />
-
-                                        <button
+{/* ${!isExpanded ? "line-clamp-4" : "" */}
+                                                
+                                        {/* <button
                                             onClick={() =>
                                                 setExpandedId(isExpanded ? null : index)
                                             }
                                             className="mt-2 text-sm font-semibold text-[#0852A0] hover:underline"
                                         >
                                             {isExpanded ? "Read less" : "Read more"}
-                                        </button>
+                                        </button> */}
                                     </div>
                                 </div>
                             </SwiperSlide>
