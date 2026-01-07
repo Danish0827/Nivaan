@@ -33,20 +33,22 @@ export default function HowItWorks({ data }: HowItWorksProps) {
                 </div>
                 <div className="grid grid-cols-1 xl:grid-cols-2 gap-10 lg:gap-16 xl:gap-8 2xl:gap-16 items-start">
                     <div className="space-y-8 relative">
-                        <div className="absolute h-[550px] lg:h-[400px] md:top-10 xl:h-[550px] 2xl:h-[400px] top-6 bg-[#284599] w-0.5 left-10"></div>
+                        
                         {data.how_list_steps &&
                             data.how_list_steps?.map((step, index) => (
                                 <div key={index} className="flex gap-5 items-start">
                                     {/* Icon + Line */}
                                     <div className="relative flex flex-col items-center">
+                                        {step.how_icons &&
                                         <div className="w-20 h-20 rounded-full bg-[#284599] flex items-center justify-center">
+                                            <div className="absolute h-[550px] lg:h-[400px] md:top-10 xl:h-[550px] 2xl:h-[400px] top-6 bg-[#284599] w-0.5 left-10"></div>
                                             <Image
                                                 src={step.how_icons.url}
                                                 alt={step.how_icons.alt}
                                                 width={50}
                                                 height={50}
                                             />
-                                        </div>
+                                        </div>}
                                         {index !== data.how_list_steps.length - 1 && (
                                             <div className="w-0.5 h-full bg-blue-200 mt-2" />
                                         )}

@@ -25,7 +25,10 @@ export default function ExpertsSection({
                             href={button?.url}
                             className="block w-fit"
                         >
-                            <button className="text-sm lg:text-base uppercase bg-gradient-to-r gap-3 flex justify-between items-center w-full lg:w-fit from-orange-600 to-orange-600 text-white px-3 md:px-5 py-2 xl:px-7 2xl:py-2 rounded-full font-medium shadow-md hover:scale-105 duration-500 cursor-pointer">
+                            <button className="flex gap-4 items-center relative z-30 hover:scale-105 duration-500 cursor-pointer
+        bg-gradient-to-r from-[#EC6724] to-[#F05432] uppercase
+        hover:from-[#EC6724]/80 hover:to-[#F05432]/80
+        text-white font-normal px-6 py-2 rounded-full shadow">
                                 {button?.title}
                                 <Image
                                     className="group-hover:-rotate-45 w-10 h-10 duration-700 bg-white rounded-full p-3"

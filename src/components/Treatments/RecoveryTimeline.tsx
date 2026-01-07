@@ -49,7 +49,7 @@ const RecoveryTimeline: React.FC<RecoveryTimelineProps> = ({
                         <div key={index} className="bg-white border rounded-[40px] shadow-xs px-6 py-6 lg:px-8">
                             <div className="flex gap-5 items-start">
 
-                                {/* Icon */}
+                                {item.icon &&
                                 <div className="w-20 h-20 rounded-full bg-[#284599] flex items-center justify-center shrink-0">
                                     <Image
                                         src={item.icon.url}
@@ -57,7 +57,7 @@ const RecoveryTimeline: React.FC<RecoveryTimelineProps> = ({
                                         width={50}
                                         height={50}
                                     />
-                                </div>
+                                </div>}
 
                                 {/* Content */}
                                 <div>
@@ -90,7 +90,7 @@ const RecoveryTimeline: React.FC<RecoveryTimelineProps> = ({
 
                         <div className="relative pl-6">
                             {/* Vertical Line */}
-                            <div className="absolute left-3 top-6 bottom-0 w-0.5 h-[420px] 2xl:h-[370px] bg-[#284599]" />
+                            {/* <div className="absolute left-3 top-6 bottom-0 w-0.5 h-[420px] 2xl:h-[370px] bg-[#284599]" /> */}
 
                             {/* Steps */}
                             {data.recovery_lists_step && data.recovery_lists_step.map((step, index) => (

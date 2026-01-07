@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import RequestCallbackModal from "@/components/RequestCallbackModal"
@@ -24,13 +24,14 @@ interface MenuItem {
 const LOCATION_MENU = {
   title: "CLINICS",
   items: [
-    { id: 1, title: "Delhi", url: "/clinics/delhi" },
-    { id: 2, title: "Mumbai", url: "/clinics/mumbai" },
-    { id: 3, title: "Lucknow", url: "/clinics/lucknow" },
-    { id: 4, title: "Noida", url: "/clinics/noida" },
-    { id: 5, title: "Ghaziabad", url: "/clinics/ghaziabad" },
-    { id: 6, title: "Faridabad", url: "/clinics/faridabad" },
-    { id: 7, title: "Jaipur", url: "/clinics/jaipur" },
+    { id: 1, title: "Delhi", url: "/delhi" },
+    { id: 2, title: "Mumbai", url: "/mumbai" },
+    { id: 3, title: "Lucknow", url: "/lucknow" },
+    { id: 4, title: "Noida", url: "/noida" },
+    { id: 5, title: "Ghaziabad", url: "/ghaziabad" },
+    { id: 6, title: "Faridabad", url: "/faridabad" },
+    { id: 7, title: "Jaipur", url: "/jaipur" },
+    { id: 8, title: "Gurugram", url: "/gurugram" },
   ],
 };
 
@@ -42,24 +43,7 @@ interface HeaderProps {
 export default function Header({ menu }: HeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
-  // const [menu, setMenu] = useState<MenuItem[]>([]);
-  // const [loading, setLoading] = useState<boolean>(true);
-
-  // useEffect(() => {
-  //   const fetchMenu = async () => {
-  //     try {
-  //       const res = await fetch(
-  //         "https://hclient.in/nivaan/wp-json/site/v1/menus/primary_menu"
-  //       );
-  //       const data = await res.json();
-  //       setMenu(data.items || []);
-  //     } catch (error) {
-  //       console.error("Menu fetch failed", error);      
-  //     }
-  //   };
-
-  //   fetchMenu();
-  // }, []); // 👈 EMPTY dependency = only once
+  const [open, setOpen] = useState<boolean | null>(null);
 
   const centerMenus = menu.filter(
     (item) =>
@@ -68,31 +52,13 @@ export default function Header({ menu }: HeaderProps) {
       item.title === "Pain Management"
   );
 
-  // if (loading) {
-  //   return (
-  //     <header className="fixed top-0 left-0 z-50 w-full bg-gradient-to-t from-[#EEF8FD]/0 font-sans to-white">
-  //     <div className="xl:px-10 2xl:px-24 flex items-center justify-between py-4 px-4 lg:px-6">
-
-  //       {/* LOGO */}
-  //       <Link href="/">
-  //         <img src="/images/logo.svg" alt="Nivaan Logo" className="h-10" />
-  //       </Link>
-
-
-  //       <RequestCallbackModal buttonText="BOOK APPOINTMENT" id="home-book-appointment" />
-
-  //     </div>
-  //     </header>
-  //   );
-  // }
-
   return (
     <header className="fixed top-0 left-0 z-50 w-full bg-gradient-to-t from-[#EEF8FD]/0 font-sans to-white">
       <div className="xl:px-10 2xl:px-24 flex items-center justify-between py-4 px-4 lg:px-6">
 
         {/* LOGO */}
         <Link href="/">
-          <img src="/images/logo.svg" alt="Nivaan Logo" className="h-10" />
+          <Image src="/images/logo.svg" alt="Nivaan Logo" width={200} height={40} className="h-10" />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-6 py-2 text-xs xl:text-sm font-medium">
@@ -137,7 +103,7 @@ export default function Header({ menu }: HeaderProps) {
           </div>
 
           {/* LOCATION */}
-          {/* <div
+          <div
             className="relative"
             onMouseEnter={() => setOpen(true)}
             onMouseLeave={() => setOpen(false)}
@@ -155,7 +121,7 @@ export default function Header({ menu }: HeaderProps) {
                 data={LOCATION_MENU.items}
               />
             )}
-          </div> */}
+          </div>
         </nav>
         <div className="hidden lg:block">
           <RequestCallbackModal buttonText="BOOK APPOINTMENT" id="home-book-appointment" />

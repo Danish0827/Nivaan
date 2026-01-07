@@ -29,8 +29,22 @@ export async function getTreatment() {
   return res.json();
 }
 
-export async function getContition() {
-  const res = await fetch(`${BASE_URL}/conditions`, {
+export async function getContition(hub:string) {
+  const res = await fetch(`${BASE_URL}/conditions?condition_type=${hub}`, {
+    next: { revalidate: 60 },
+  });
+  return res.json();
+}
+
+export async function getTreatments(hub:string) {
+  const res = await fetch(`${BASE_URL}/treatments?treatment_types=${hub}`, {
+    next: { revalidate: 60 },
+  });
+  return res.json();
+}
+
+export async function getHeader() {
+  const res = await fetch(`${BASE_URL}/menus/primary_menu`, {
     next: { revalidate: 60 },
   });
   return res.json();

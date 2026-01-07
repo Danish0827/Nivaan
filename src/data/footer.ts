@@ -2,10 +2,10 @@ export const footerData = [
     {
         title: "CONDITIONS",
         items: [
-            { label: "Back Pain", href: "/back-pain" },
-            { label: "Neck Pain", href: "/neck-pain" },
-            { label: "Shoulder Pain", href: "/shoulder-pain" },
-            { label: "Knee Pain", href: "/knee-pain" },
+            { label: "Back Pain", href: "/back-pain/condition" },
+            { label: "Neck Pain", href: "/neck-pain/condition" },
+            { label: "Shoulder Pain", href: "/shoulder-pain/condition" },
+            { label: "Knee Pain", href: "/knee-pain/condition" },
             // { label: "Others", href: "/conditions/others" },
         ],
     },
@@ -16,24 +16,26 @@ export const footerData = [
             { label: "Non-Surgical Neck Pain Treatment", href: "/neck-pain/treatment/non-surgical-neck-pain" },
             { label: "Non-Surgical Shoulder Pain Treatment", href: "/shoulder-pain/treatment/non-surgical-shoulder-pain-treatment" },
             { label: "Non-Surgical Knee Pain Treatment", href: "/knee-pain/treatment/non-surgical-treatment" },
+            // { label: "All Treatment", href: "/knee-pain/treatment/non-surgical-treatment" },
             // { label: "Radio frequency Ablation", href: "/treatments/rfa" },
             // { label: "Neuromodulation", href: "/treatments/neuromodulation" },
             // { label: "Peripheral Nerve Stimulation", href: "/treatments/pns" },
             // { label: "Sympathetic Nerve Block", href: "/treatments/snb" },
         ],
     },
-    // {
-    //     title: "CLINICS",
-    //     items: [
-    //         { label: "Delhi", href: "#" },
-    //         { label: "Mumbai", href: "#" },
-    //         { label: "Lucknow", href: "#" },
-    //         { label: "Noida", href: "#" },
-    //         { label: "Ghaziabad", href: "#" },
-    //         { label: "Faridabad", href: "#" },
-    //         { label: "Jaipur", href: "#" },
-    //     ],
-    // },
+    {
+        title: "CLINICS",
+        items: [
+            { label: "Delhi", href: "/delhi" },
+            { label: "Mumbai", href: "/mumbai" },
+            { label: "Lucknow", href: "/lucknow" },
+            { label: "Noida", href: "/noida" },
+            { label: "Ghaziabad", href: "/ghaziabad" },
+            { label: "Faridabad", href: "/faridabad" },
+            { label: "Jaipur", href: "/jaipur" },
+            { label: "Gurugram", href: "/gurugram" },
+        ],
+    },
     {
         title: "QUICK LINKS",
         items: [
