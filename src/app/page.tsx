@@ -101,7 +101,7 @@ export default async function Home() {
         lists={results.lists}
       />
       <JourneySection journey={journey} />
-      <ExpertsSection title={experts.title} description={experts.info} button={experts.button} doctordata={data1?.data}/>
+      <ExpertsSection title={experts.title} description={experts.info} button={experts.button} doctordata={data1?.data} />
       <EvidenceNewsSection evidence={evidence} news={news} />
       <ReviewsStoriesSection
         reviews={reviews}

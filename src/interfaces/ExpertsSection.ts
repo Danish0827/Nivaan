@@ -5,7 +5,7 @@ export interface Button {
 export interface Doctor {
   title: string;
   slug:string;
-  featured_image: {url:string};
+  featured_image: {url:string,alt:string};
   qualification:string;
   experience: string;
   place: string;
