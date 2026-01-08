@@ -15,7 +15,7 @@ interface Props {
 
 export default function Diagnosis({ data }: Props) {
     return (
-        <section className="w-full bg-white overview-section">
+        <section className="w-full bg-white py-2 overview-section">
             <div className="container mr-auto">
                 {/* Top Heading */}
                 {data?.diagnosis_description && (
@@ -45,7 +45,7 @@ export default function Diagnosis({ data }: Props) {
                     </div>
 
                     {/* Symptoms */}
-                    <div>
+                    <div className="overview-list">
 
                         {data?.diagnosis_2nd_description && (
                             <div className="text-gray-700 text-lg lg:text-sm xl:text-base 2xl:text-lg leading-relaxed font-mono space-y-4">

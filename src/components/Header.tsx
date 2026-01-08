@@ -21,7 +21,7 @@ interface MenuItem {
 }
 
 
-const LOCATION_MENU = {
+export const LOCATION_MENU = {
   title: "CLINICS",
   items: [
     { id: 1, title: "Delhi", url: "/delhi" },
@@ -53,15 +53,15 @@ export default function Header({ menu }: HeaderProps) {
   );
 
   return (
-    <header className="fixed top-0 left-0 z-50 w-full bg-gradient-to-t from-[#EEF8FD]/0 font-sans to-white">
-      <div className="xl:px-10 2xl:px-24 flex items-center justify-between py-4 px-4 lg:px-6">
+    <header className="fixed top-0 left-0 z-40 w-full bg-gradient-to-t from-[#EEF8FD]/0 font-sans to-white">
+      <div className="xl:px-10 2xl:px-24 flex items-center justify-between py-4 px-4">
 
         {/* LOGO */}
         <Link href="/">
-          <Image src="/images/logo.svg" alt="Nivaan Logo" width={200} height={40} className="h-10" />
+          <Image src="/images/logo.svg" alt="Nivaan Logo" width={170} height={40} className="h-10" />
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-6 py-2 text-xs xl:text-sm font-medium">
+        <nav className="hidden lg:flex items-center gap-6 lg:gap-3 xl:gap-6 py-2 text-xs xl:text-sm font-medium">
           <div className="bg-white flex items-center gap-2 font-normal rounded-full text-black shadow-lg px-3">
 
             {
@@ -72,7 +72,7 @@ export default function Header({ menu }: HeaderProps) {
                   onMouseEnter={() => setOpenMenu(item.title)}
                   onMouseLeave={() => setOpenMenu(null)}
                 >
-                  <div className="flex text- items-center gap-1 cursor-pointer hover:bg-[#EAF6FB] px-5 my-2 py-2 rounded-full transition">
+                  <div className="flex text- items-center gap-1 cursor-pointer hover:bg-[#EAF6FB] px-5 lg:px-2 xl:px-5 my-2 py-2 rounded-full transition">
                     {item.title}
                     {item.children && <ChevronDown size={16} />}
                   </div>

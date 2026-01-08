@@ -5,14 +5,13 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import RequestCallbackModal from "../RequestCallbackModal";
+import Link from "next/link";
 
 interface Props {
     data: any;
 }
 
 export default function SpecialistsSection({ data }: Props) {
-    if (!data?.clinic_boxs?.length) return null;
 
 
     return (
@@ -27,9 +26,10 @@ export default function SpecialistsSection({ data }: Props) {
                 </div>}
 
                 {/* Swiper */}
+                <div className="py-16">
                 <Swiper
                     modules={[Navigation, Pagination, Autoplay]}
-                    spaceBetween={24}
+                    spaceBetween={30}
                     loop={true}
                     autoplay={{
                         delay: 3000,
@@ -42,53 +42,52 @@ export default function SpecialistsSection({ data }: Props) {
                         1400: { slidesPerView: 3 },
                     }}
                 >
-                    {data.clinic_boxs.map((item: any, index: number) => {
+                    {data.select_specialist.map((item: any, index: number) => {
                         return (
                             <SwiperSlide key={index}>
-                                <div className="w-full h-full bg-white rounded-4xl border shadow-lg p-4 flex flex-col my-10">
-
-                                    {/* Image */}
-                                    <div className="rounded-3xl overflow-hidden mb-5">
-                                        <Image
-                                            src={item.image.url}
-                                            alt={item.image.alt || item.title}
-                                            width={400}
-                                            height={260}
-                                            className="w-full h-[220px] object-cover"
-                                        />
-                                    </div>
-
-                                    {/* Content */}
-                                    <h3 className="text-lg font-semibold text-[#0F2A44] mb-5">
-                                        {item.title}
-                                    </h3>
-
-                                    <span className="text-sm font-normal text-black flex items-start gap-1.5 mb-3">
-                                        <Image
-                                            className="group-hover:-rotate-45 w-6 h-6 duration-700 p-1"
-                                            src="/images/location.svg"
-                                            width={20}
-                                            height={20}
-                                            alt="arrow"
-                                        /> {item.location_address}
-                                    </span>
-
-                                    {/* Description */}
-                                    <span className="text-sm font-normal text-black flex items-center gap-1.5 mb-3">
-                                        <Image
-                                            className="group-hover:-rotate-45 w-6 h-6 duration-700 p-1"
-                                            src="/images/doctor.svg"
-                                            width={20}
-                                            height={20}
-                                            alt="arrow"
-                                        /> {item.dr_name}
+                                 <Link
+                        href={`/doctors/${item.slug}`}
+                        className="group"
+                    >
+                        <div className="rounded-3xl text-left text-[#003B73] overflow-hidden">
+                            <div className="relative pt-5 mb-6 overflow-hidden rounded-[50px] group-hover:-mt-5 duration-500">
+                                <Image
+                                    src={item?.featured_image?.url}
+                                    alt={item?.featured_image?.alt}
+                                    width={1000}
+                                    height={1000}
+                                    className="rounded-xl object-cover w-full transition-transform duration-500 "
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#003B73] via-[#003B73]/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                <div className="absolute inset-0 flex items-end mb-10 justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <span className="text-white text-sm xl:text-base font-semibold border border-white px-5 py-2 rounded-full backdrop-blur-sm">
+                                        View Profile
                                     </span>
                                 </div>
+                            </div>
+                            <div className="px-6">
+                                <h3 className="text-lg md:text-xl xl:text-2xl font-medium text-[#0852A0] mb-2">
+                                    {item?.title}
+                                </h3>
+                                <p className="text-[11px] md:text-xs xl:text-sm text-[#06A1DC] mt-1 ">
+                                    {item.qualification}
+                                </p>
+                                {/* <p className="text-sm md:text-base font-normal text-black mt-2 mb-1">
+                                    <span className="font-bold">{item.experience}+ years</span> Experience
+                                </p>
+                                <p className="text-sm font-light text-black">
+                                    {item.place}
+                                </p> */}
+                            </div>
+
+                        </div>
+                    </Link>
                             </SwiperSlide>
                         );
                     })}
 
                 </Swiper>
+                </div>
 
                 {data.specialists_2nd_description &&<div className="overview-section">
                     <div

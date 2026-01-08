@@ -84,7 +84,7 @@ const DynamicLocationPage = async ({ params }: any) => {
             image={data?.featured_image}
           />
           <LocationStatsBar stats={acf?.banner_numbers} />
-          {/* <LocationOptimizationSection data={acf}/> */}
+          <LocationOptimizationSection data={acf}/>
         </>
       )}
     </>

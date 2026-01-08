@@ -22,7 +22,7 @@ export default function DoctorProfile({ data }: DoctorProfileProps) {
   } = data;
 
   return (
-    <section className="bg-[#F5FBFF] mt-10 py-10 lg:py-20 relative z-20">
+    <section className="bg-[#F5FBFF] mt-10 py-10 lg:py-20 relative ">
       <div className="px-4 pt-10 lg:px-10 xl:px-24">
         <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] 2xl:grid-cols-[450px_1fr] gap-8 lg:gap-12">
 

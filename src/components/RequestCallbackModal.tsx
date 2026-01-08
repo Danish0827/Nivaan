@@ -36,7 +36,7 @@ const RequestCallbackModal = ({ buttonText, id }: any) => {
       <button
         onClick={() => setOpen(true)}
         id={id}
-        className="block relative z-30 hover:scale-105 duration-500 cursor-pointer
+        className="block text-sm md:text-base relative z-40 hover:scale-105 duration-500 cursor-pointer
         bg-gradient-to-r from-[#EC6724] to-[#F05432] uppercase
         hover:from-[#EC6724]/80 hover:to-[#F05432]/80
         text-white font-normal px-6 py-3 rounded-full shadow"
@@ -47,7 +47,7 @@ const RequestCallbackModal = ({ buttonText, id }: any) => {
       {/* Modal */}
       {open && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 overflow-y-auto"
+          className="fixed inset-0 z-99999 flex items-center justify-center bg-black/80 overflow-y-auto"
           onClick={() => setOpen(false)} // click outside closes
         >
           <div

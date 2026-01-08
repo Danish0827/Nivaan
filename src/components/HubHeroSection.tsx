@@ -47,7 +47,7 @@ export function HubHeroSection({
             />
             <div className=" pt-20 px-4 lg:px-10 xl:px-16 2xl:px-24">
                 <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-10 lg:gap-16 py-12 lg:py-10">
-                    <div className="text-center lg:text-left flex flex-col justify-center order-2 lg:order-1">
+                    <div className="text-left flex flex-col justify-center order-2 lg:order-1">
                         <Breadcrumb
                             items={[
                                 { label: "Home", href: "/" },

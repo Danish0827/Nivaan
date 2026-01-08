@@ -20,7 +20,7 @@ const Doctorsdata: React.FC<DoctorsDataProps> = ({ experts }) => {
                             <div className="relative pt-5 mb-6 overflow-hidden rounded-[50px] group-hover:-mt-5 duration-500">
                                 <Image
                                     src={item?.featured_image?.url}
-                                    alt={item?.title}
+                                    alt={item?.featured_image?.alt}
                                     width={1000}
                                     height={1000}
                                     className="rounded-xl object-cover w-full transition-transform duration-500 "

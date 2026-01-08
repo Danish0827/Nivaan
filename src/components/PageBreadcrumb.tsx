@@ -26,7 +26,7 @@ export function PageBreadcrumb({
                                 {title === "Contact Nivaan" ? description?.contact_title : title}
                             </h1>
                             {description?.contact_description &&
-                             <p className="text-black pt-5 font-thin text-lg max-w-5xl text-center px-3">{parse(description?.contact_description)}</p>
+                             <div className="text-black pt-5 font-thin text-lg max-w-5xl text-center px-3">{parse(description?.contact_description)}</div>
                             }
                         </div>
                     </div>

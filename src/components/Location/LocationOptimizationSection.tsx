@@ -6,6 +6,15 @@ import Link from "next/link";
 import { SectionHeader } from "../Treatments/SectionHeader";
 import FaqSection from "../Treatments/FaqSection";
 import CallbackForm from "../CallbackForm";
+import SpecialistsSection from "./SpecialistsSection";
+import Symptoms from "./Symptoms";
+import Patient from "./Patient";
+import CTA from "./CTA";
+import WhenToConsult from "./WhenToConsult";
+import ApprochSection from "./ApprochSection";
+import EvaluationSection from "./EvaluationSection";
+import WhyNivaan from "./WhyNivaan";
+import WhyNivaanOptimization from "./WhyNivaanOptimization";
 
 interface SectionItem {
     id: string;
@@ -14,15 +23,13 @@ interface SectionItem {
 export default function LocationOptimizationSection({ data }: { data: any }) {
     const [activeSection, setActiveSection] = useState<string>("problem");
     const sections: SectionItem[] = [
-        { id: "problem", label: data?.problem_subtitle },
-        { id: "overview", label: data?.overview_subtitle },
-        { id: "treatment", label: data?.treatment_subtitle },
-        { id: "target", label: data?.target_subtitle },
-        { id: "how", label: data?.how_subtitle },
-        { id: "benefits", label: data?.benefits_subtitle },
+        { id: "specialists", label: data?.specialists_subtitle },
+        { id: "when", label: data?.when_subtitle },
+        { id: "symptoms", label: data?.symptoms_subtitle },
+        { id: "evaluation", label: data?.evaluation_subtitle },
+        { id: "approach", label: data?.approach_subtitle },
         { id: "why", label: data?.why_subtitle },
-        { id: "recoverys", label: data?.recovery_subtitle },
-        { id: "safety", label: data?.safety_subtitle },
+        { id: "patient", label: data?.patient_subtitle },
         { id: "faqs", label: data?.faqs_subtitle },
     ].filter(
         (section): section is SectionItem =>
@@ -30,29 +37,29 @@ export default function LocationOptimizationSection({ data }: { data: any }) {
     );
 
     useEffect(() => {
-  if (!sections.length) return;
+        if (!sections.length) return;
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-        }
-      });
-    },
-    {
-      threshold: 0.3, // previously 0.3, lower means section considered visible earlier
-      rootMargin: "-10% 0px -10% 0px", // smaller negative margin
-    }
-  );
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setActiveSection(entry.target.id);
+                    }
+                });
+            },
+            {
+                threshold: 0.3, // previously 0.3, lower means section considered visible earlier
+                rootMargin: "-10% 0px -10% 0px", // smaller negative margin
+            }
+        );
 
-  sections.forEach(({ id }) => {
-    const el = document.getElementById(id);
-    if (el) observer.observe(el);
-  });
+        sections.forEach(({ id }) => {
+            const el = document.getElementById(id);
+            if (el) observer.observe(el);
+        });
 
-  return () => observer.disconnect();
-}, [sections]);
+        return () => observer.disconnect();
+    }, [sections]);
 
     return (
         <div className="min-h-screen bg-white relative z-30 font-mono">
@@ -60,23 +67,86 @@ export default function LocationOptimizationSection({ data }: { data: any }) {
                 {/* Content */}
                 <main className="flex-1 space-y-28 2xl:space-y-40">
                     {/* Problem */}
-                    {data?.problem_subtitle &&
-                        <section id="problem" className="scroll-mt-28">
+                    {data?.specialists_subtitle &&
+                        <section id="specialists" className="scroll-mt-28">
                             <SectionHeader
-                                subtitle={data?.problem_subtitle}
-                                title={data?.problem_title}
-                                midtitle={data?.problem_after_title_text}
+                                subtitle={data?.specialists_subtitle}
+                                title={data?.specialists_title}
                             />
-                            {/* <ProblemAwareness
-                                subtitle={data?.problem_subtitle}
-                                title={data?.problem_title}
-                                description={data?.problem_description}
-                                image={data?.problem_image?.url}
-                                buttonText={data?.problem_button_name}
-                            /> */}
+                            <SpecialistsSection data={data} />
                         </section>
                     }
-                  
+                    {data?.when_subtitle &&
+                        <section id="when" className="scroll-mt-28">
+                            <SectionHeader
+                                subtitle={data?.when_subtitle}
+                                title={data?.when_title}
+                            />
+                            <WhenToConsult
+                                featuresHtml={data?.when_description}
+                                featuresHtml2={data?.when_3th_description}
+                                mainfeaturesHtml={data?.when_2nd_description}
+                                image={data?.when_image?.url}
+                                buttonbottom={data?.when_button_name}
+                            />
+                        </section>
+                    }
+                    {data?.symptoms_subtitle &&
+                        <section id="symptoms" className="scroll-mt-28">
+                            <SectionHeader
+                                subtitle={data?.symptoms_subtitle}
+                                title={data?.symptoms_title}
+                            />
+                            <Symptoms data={data} />
+                        </section>
+                    }
+                    {data?.evaluation_subtitle &&
+                        <section id="evaluation" className="scroll-mt-32">
+                            <SectionHeader
+                                subtitle={data?.evaluation_subtitle}
+                                title={data?.evaluation_title}
+                            />
+
+                            <EvaluationSection data={data} />
+                        </section>
+                    }
+                    {data?.approach_subtitle &&
+                        <section id="approach" className="scroll-mt-32">
+                            <SectionHeader
+                                subtitle={data?.approach_subtitle}
+                                title={data?.approach_title}
+                            />
+
+                             <ApprochSection
+                                featuresHtml={data?.approach_description}
+                                featuresHtml2={data?.approach_3th_description}
+                                mainfeaturesHtml={data?.approach_2nd_description}
+                                image={data?.approach_image?.url}
+                            />
+                        </section>
+                    }
+                    {data?.why_subtitle &&
+                        <section id="why" className="scroll-mt-32">
+                            <SectionHeader
+                                subtitle={data?.why_subtitle}
+                                title={data?.why_title}
+                            />
+
+                            <WhyNivaanOptimization
+                                data={data}
+                            />
+                        </section>
+                    }
+                    {data?.patient_subtitle &&
+                        <section id="patient" className="scroll-mt-28">
+                            <SectionHeader
+                                subtitle={data?.patient_subtitle}
+                                title={data?.patient_title}
+                            />
+                            <Patient data={data} />
+                            <CTA data={data} />
+                        </section>
+                    }
                     {data?.faqs_subtitle &&
                         <section id="faqs" className="scroll-mt-32">
                             <SectionHeader

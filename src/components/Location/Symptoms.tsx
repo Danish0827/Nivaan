@@ -4,25 +4,24 @@ import parse from "html-react-parser";
 
 interface Props {
     data?: {
-        title?: string;
-        overview_description?: string;
-        overview_image?: {
+        symptoms_description?: string;
+        symptoms_image?: {
             url: string;
             alt?: string;
         };
-        overview_2nd_description?: string;
-        target_button_name?: string;
+        symptoms_2nd_description?: string;
+        symptoms_3th_description?: string;
     };
 }
 
-export default function OverviewSection({ data }: Props) {
+export default function Symptoms({ data }: Props) {
     return (
-        <section className="w-full bg-white overview-section">
+        <section className="w-full bg-white overview-section ">
             <div className="container mr-auto">
                 {/* Top Heading */}
-                {data?.overview_description && (
+                {data?.symptoms_description && (
                     <div className="text-gray-700 text-lg lg:text-sm xl:text-base 2xl:text-lg leading-relaxed font-mono space-y-4">
-                        {parse(data?.overview_description)}
+                        {parse(data?.symptoms_description)}
                     </div>
                 )}
 
@@ -31,13 +30,13 @@ export default function OverviewSection({ data }: Props) {
                     {/* Image */}
                     <div className="w-full">
                         <div className="relative rounded-[40px] overflow-hidden">
-                            {data?.overview_image &&
+                            {data?.symptoms_image &&
                                 <Image
                                     src={
-                                        data?.overview_image?.url ||
+                                        data?.symptoms_image?.url ||
                                         "https://via.placeholder.com/600x600"
                                     }
-                                    alt={data?.overview_image?.alt || ""}
+                                    alt={data?.symptoms_image?.alt || ""}
                                     width={600}
                                     height={600}
                                     className="w-full h-auto object-cover"
@@ -49,20 +48,21 @@ export default function OverviewSection({ data }: Props) {
                     {/* Symptoms */}
                     <div className="overview-list">
 
-                        {data?.overview_2nd_description && (
-                            <div className="text-gray-700 text-lg lg:text-sm xl:text-base 2xl:text-lg leading-relaxed font-mono space-y-4">
-                                {parse(data?.overview_2nd_description)}
+                        {data?.symptoms_2nd_description && (
+                            <div className="text-gray-700 text-lg lg:text-sm xl:text-base 2xl:text-lg leading-relaxed font-bold font-mono space-y-4">
+                                {parse(data?.symptoms_2nd_description)}
                             </div>
                         )}
                     </div>
                 </div>
                 {/* CTA */}
-                {/* {data?.target_button_name &&
-                    <button className="block mx-auto cursor-pointer rounded-full bg-orange-500 px-8 py-3 text-white font-semibold hover:bg-orange-600 transition">
-                        {data?.target_button_name}
-                    </button>
-                } */}
+                {data?.symptoms_3th_description && (
+                    <div className="text-gray-700 text-lg lg:text-sm xl:text-base 2xl:text-lg leading-relaxed font-mono space-y-4">
+                        {parse(data?.symptoms_3th_description)}
+                    </div>
+                )}
             </div>
         </section>
     );
 }
+ 

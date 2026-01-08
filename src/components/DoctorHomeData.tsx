@@ -50,7 +50,7 @@ const DoctorHomeData: React.FC<DoctorsDataProps> = ({ experts }) => {
                                 <div className="mb-6">
                                     <Image
                                         src={item.featured_image.url}
-                                        alt={item.title}
+                                        alt={item?.featured_image?.alt}
                                         width={600}
                                         height={500}
                                         className="rounded-xl object-cover w-full"

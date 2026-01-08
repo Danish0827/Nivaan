@@ -92,7 +92,7 @@ export default function ContactSection({ data }: { data: ContactData }) {
 
             {/* Right Form Section */}
             <div className="mx-0">
-                <ContactForm title={form_title} description={parse(form_description)} />
+                <ContactForm title={form_title} description={form_description} />
             </div>
         </section>
     );

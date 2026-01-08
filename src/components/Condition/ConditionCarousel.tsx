@@ -16,10 +16,10 @@ export default function ConditionCarousel({ data }: Props) {
     // const [expandedId, setExpandedId] = useState<number | null>(null);
 
     return (
-        <section className="bg-white w-full overview-section">
+        <section className="bg-white w-full ">
             <div className="container mr-auto">
                 {/* Heading */}
-                <div className="">
+                <div className="overview-section">
                     <div
                         className="text-gray-700 text-base xl:text-lg font-mono space-y-4 mt-4"
                         dangerouslySetInnerHTML={{ __html: data.recovery_description }}
@@ -61,11 +61,11 @@ export default function ConditionCarousel({ data }: Props) {
                                         </div>}
 
                                     {/* Content */}
-                                    <h3 className="text-lg font-semibold text-[#0F2A44] mb-1">
+                                    <h3 className="text-lg xl:text-xl font-bold mb-3 text-[#0F2A44] ">
                                         {item.title}
                                     </h3>
 
-                                    <p className="text-xs font-semibold text-blue-600 uppercase mb-3">
+                                    <p className="font-semibold text-blue-600 uppercase mb-3">
                                         {item.subtitle}
                                     </p>
 
@@ -94,7 +94,7 @@ export default function ConditionCarousel({ data }: Props) {
                 </Swiper>
 
                 {/* Bottom CTA */}
-                <div className=" cta-treatment-section mt-5">
+                <div className="overview-section cta-treatment-section mt-5">
                     <div
                         className="text-gray-700 text-base xl:text-lg font-mono space-y-4 mb-10"
                         dangerouslySetInnerHTML={{

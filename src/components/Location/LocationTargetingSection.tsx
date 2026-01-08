@@ -8,6 +8,13 @@ import FaqSection from "../Treatments/FaqSection";
 import CallbackForm from "../CallbackForm";
 import ClinicSection from "./ClinicSection";
 import SpecialistsSection from "./SpecialistsSection";
+import Symptoms from "./Symptoms";
+import ConditionSection from "./ConditionSection";
+import WhyNivaan from "./WhyNivaan";
+import TreatmentSection from "./TreatmentSection";
+import RecoveryTimeline from "./RecoveryTimeline";
+import Patient from "./Patient";
+import OtherConditionSection from "./OtherConditionSection";
 
 interface SectionItem {
   id: string;
@@ -44,7 +51,7 @@ export default function LocationTargetingSection({ data }: { data: any }) {
       },
       {
         threshold: 0.3, // previously 0.3, lower means section considered visible earlier
-        rootMargin: "-10% 0px -10% 0px", // smaller negative margin
+        rootMargin: "-15% 0px -15% 0px", // smaller negative margin
       }
     );
 
@@ -61,7 +68,6 @@ export default function LocationTargetingSection({ data }: { data: any }) {
       <div className="px-4 lg:px-7 xl:px-7 2xl:px-24 md:flex flex-row-reverse gap-6 lg:gap-6 2xl:gap-10 py-16">
         {/* Content */}
         <main className="flex-1 space-y-28 2xl:space-y-40">
-          {/* Problem */}
           {data?.clinic_subtitle &&
             <section id="clinic" className="scroll-mt-28">
               <SectionHeader
@@ -86,6 +92,7 @@ export default function LocationTargetingSection({ data }: { data: any }) {
                 subtitle={data?.symptoms_subtitle}
                 title={data?.symptoms_title}
               />
+              <Symptoms data={data} />              
             </section>
           }
           {data?.why_subtitle &&
@@ -94,6 +101,7 @@ export default function LocationTargetingSection({ data }: { data: any }) {
                 subtitle={data?.why_subtitle}
                 title={data?.why_title}
               />
+              <WhyNivaan data={data} />
             </section>
           }
           {data?.conditions_subtitle &&
@@ -102,6 +110,7 @@ export default function LocationTargetingSection({ data }: { data: any }) {
                 subtitle={data?.conditions_subtitle}
                 title={data?.conditions_title}
               />
+               <ConditionSection data={data} />
             </section>
           }
           {data?.treatments_title &&
@@ -110,6 +119,7 @@ export default function LocationTargetingSection({ data }: { data: any }) {
                 subtitle={data?.treatments_subtitle}
                 title={data?.treatments_title}
               />
+              <TreatmentSection data={data} />
             </section>
           }
           {data?.recovery_subtitle &&
@@ -118,6 +128,7 @@ export default function LocationTargetingSection({ data }: { data: any }) {
                 subtitle={data?.recovery_subtitle}
                 title={data?.recovery_title}
               />
+              <RecoveryTimeline data={data} />
             </section>
           }
           {data?.patient_subtitle &&
@@ -126,6 +137,7 @@ export default function LocationTargetingSection({ data }: { data: any }) {
                 subtitle={data?.patient_subtitle}
                 title={data?.patient_title}
               />
+              <Patient data={data} />
             </section>
           }
           {data?.other_subtitle &&
@@ -134,6 +146,7 @@ export default function LocationTargetingSection({ data }: { data: any }) {
                 subtitle={data?.other_subtitle}
                 title={data?.other_title}
               />
+              <OtherConditionSection data={data}/>
             </section>
           }
           {data?.faqs_subtitle &&

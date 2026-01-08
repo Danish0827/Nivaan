@@ -297,7 +297,7 @@ section.relative.home-main-section nav ol li span {
 .overview-list h4 {
   font-size: 18px;    
   font-family: var(--font-montserrat);
-  color: #fff;
+  /* color: #fff; */
   text-transform: capitalize;
   font-weight: 500;
   margin-top: 8px;
@@ -305,7 +305,7 @@ section.relative.home-main-section nav ol li span {
 }
 .overview-list ul {
   display: flex;
-  font-weight: 200;
+  font-weight: 400;
   flex-direction: column;
   gap: 16px;
 }
@@ -323,8 +323,8 @@ section.relative.home-main-section nav ol li span {
   width: 22px;
   height: 22px;
   border-radius: 9999px;
-  background: white;
-  color: #0b5aa5;
+  background: #F05432;
+  color: #ffffff;
   font-weight: bold;
   display: flex;
   align-items: center;
@@ -410,9 +410,9 @@ section.relative.home-main-section nav ol li span {
 .SafetyDescription ul,
 .targetDescription ul,
 .LotnDenbsList ul,
-.symptoms-content ul,
-.overview-section ul {
+.symptoms-content ul{
   padding-left: 1.5rem; /* pl-6 */
+  padding-top: 0.5rem; /* pb-2 */
   padding-bottom: 0.5rem; /* pb-2 */
   list-style-type: disc;
 }
@@ -420,9 +420,8 @@ section.relative.home-main-section nav ol li span {
 .SafetyDescription ul li,
 .targetDescription ul li,
 .LotnDenbsList ul li,
-.symptoms-content ul li,
-.overview-section ul {
-  margin-bottom: 0.5rem; /* space-y-2 */
+.symptoms-content ul li {
+  /* margin-bottom: 0.5rem; */
   /* font-size: 1.2rem; */
   font-weight: 400;
 }
@@ -430,10 +429,10 @@ section.relative.home-main-section nav ol li span {
 .SafetyDescription ul li::marker,
 .targetDescription ul li::marker,
 .LotnDenbsList ul li::marker,
-.symptoms-content ul li::marker,
-.overview-section ul li::marker{
+.symptoms-content ul li::marker{
   color: #F36B2B; /* text-orange-500 */
-  /* font-size: 1.5rem;  */
+  font-size: 1.7rem; 
+  
 }
 
 .targetDescription h3{

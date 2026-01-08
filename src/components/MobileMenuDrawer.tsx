@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { MdOutlineKeyboardArrowUp } from "react-icons/md";
 import RequestCallbackModal from "./RequestCallbackModal";
-import { socialLinks } from "@/data/footer";
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa";
 
 /* ================= TYPES ================= */
@@ -21,6 +20,19 @@ type MenuItem = {
 
 };
 
+export const LOCATION_MENU = {
+    title: "Location",
+    items: [
+        { id: 1, title: "Delhi", url: "/delhi" },
+        { id: 2, title: "Mumbai", url: "/mumbai" },
+        { id: 3, title: "Lucknow", url: "/lucknow" },
+        { id: 4, title: "Noida", url: "/noida" },
+        { id: 5, title: "Ghaziabad", url: "/ghaziabad" },
+        { id: 6, title: "Faridabad", url: "/faridabad" },
+        { id: 7, title: "Jaipur", url: "/jaipur" },
+        { id: 8, title: "Gurugram", url: "/gurugram" },
+    ],
+};
 /* ================= MAIN COMPONENT ================= */
 
 export default function MobileMenuDrawer({
@@ -90,6 +102,7 @@ export default function MobileMenuDrawer({
                                 </span>
                             </button>
 
+
                             {active === item.id && item.children && (
                                 <div className="pb-4">
                                     {item.title === "Conditions" && (
@@ -102,11 +115,45 @@ export default function MobileMenuDrawer({
 
                                     {item.title === "Pain Management" && (
                                         <SimpleList data={item.children} onClose={onClose} />
-                                    )}
+                                    )}                                    
                                 </div>
                             )}
                         </div>
                     ))}
+                    {/* ==== STATIC LOCATION MENU ==== */}
+                    <div className="border-b border-gray-300">
+                        <button
+                            onClick={() => setActive(active === 999 ? null : 999)}
+                            className="w-full flex justify-between text-black items-center py-4 font-medium text-base uppercase tracking-wide"
+                        >
+                            {LOCATION_MENU.title}
+                            <span className="text-xs">
+                                {active === 999 ? (
+                                    <MdOutlineKeyboardArrowUp className="text-2xl" />
+                                ) : (
+                                    <MdOutlineKeyboardArrowUp className="rotate-180 text-2xl" />
+                                )}
+                            </span>
+                        </button>
+
+                        {active === 999 && (
+                            <ul className="space-y-3 pl-2 pb-4">
+                                {LOCATION_MENU.items.map((loc) => (
+                                    <li key={loc.id} className="flex items-start gap-3">
+                                        <span className="mt-2 h-2 w-2 rounded-full bg-[#F05432]" />
+                                        <Link
+                                            href={loc.url}
+                                            onClick={onClose}
+                                            className="text-sm text-black"
+                                        >
+                                            {loc.title}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+                    </div>
+
                 </div>
 
                 {/* ===== FOOTER ===== */}
@@ -191,7 +238,7 @@ function ConditionsList({
                                     <span className="mt-2 h-2 w-2 rounded-full bg-[#F05432]" />
                                     <Link
                                         href={child.url || "#"}
-                                         onClick={onClose}
+                                        onClick={onClose}
                                         className="text-sm capitalize text-gray-600"
                                     >
                                         {child.title}

@@ -13,10 +13,10 @@ interface Props {
 export default function CausesCarousel({ data }: Props) {
 
     return (
-        <section className="bg-white w-full overview-section">
+        <section className="bg-white w-full ">
             <div className="container mr-auto">
                 {/* Heading */}
-                <div className="">
+                <div className="overview-section">
                     <div
                         className="text-gray-700 text-base xl:text-lg font-mono space-y-4 mt-4"
                         dangerouslySetInnerHTML={{ __html: data.causes_description }}
@@ -58,11 +58,11 @@ export default function CausesCarousel({ data }: Props) {
                                     </div>}
 
                                     {/* Content */}
-                                    <h3 className="text-lg font-semibold text-[#0F2A44] ">
+                                    <h3 className="text-lg xl:text-xl font-bold mb-3 text-[#0F2A44] ">
                                         {item.title}
                                     </h3>
 
-                                    <p className="text-xs font-semibold text-blue-600 uppercase">
+                                    <p className="font-semibold text-blue-600 uppercase">
                                         {item.subtitle}
                                     </p>
 
@@ -81,7 +81,7 @@ export default function CausesCarousel({ data }: Props) {
                 </Swiper>
 
                 {/* Bottom CTA */}
-                <div className=" cta-treatment-section mt-5">
+                <div className=" cta-treatment-section mt-5 overview-section">
                     <div
                         className="text-gray-700 text-base xl:text-lg font-mono space-y-4 mb-10"
                         dangerouslySetInnerHTML={{
