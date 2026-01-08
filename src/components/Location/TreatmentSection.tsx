@@ -80,7 +80,6 @@ export default function TreatmentSection({ data }: Props) {
                     />
                 </div>}
 
-
                 {data.conditions_button_name &&
                     <div className="flex justify-center">
                         <RequestCallbackModal buttonText={data.conditions_button_name} id={data.conditions_button_name} />

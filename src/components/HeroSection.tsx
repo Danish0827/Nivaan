@@ -60,7 +60,7 @@ export function HeroSection({
           <div className="flex items-center gap-4 mt-6 2xl:mt-12 flex-wrap">
             {primaryBtn?.url &&
               <Link href={primaryBtn.url} className="w-full lg:w-fit">
-                <button id={primaryBtn.title} className="block relative z-30 hover:scale-105 duration-500 cursor-pointer bg-gradient-to-r from-[#EC6724] to-[#F05432] uppercase hover:from-[#EC6724]/80 hover:to-[#F05432]/80 text-white font-normal px-6 py-3 rounded-full shadow">
+                <button id={primaryBtn.title} className="block w-full lg:w-fit relative z-30 hover:scale-105 duration-500 cursor-pointer bg-gradient-to-r from-[#EC6724] to-[#F05432] uppercase hover:from-[#EC6724]/80 hover:to-[#F05432]/80 text-white font-normal px-6 py-3 rounded-full shadow">
                   {primaryBtn.title}
                 </button>
               </Link>
