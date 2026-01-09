@@ -6,6 +6,8 @@ import React from 'react'
 
 const conditionpage = async ({ params }: any) => {
     const slug = params.slug
+    const hub = params.hub
+
     const res = await fetch(
         `https://www.hclient.in/nivaan/wp-json/site/v1/conditions/${slug}`,
         {
@@ -20,11 +22,17 @@ const conditionpage = async ({ params }: any) => {
         return null;
     }
     let data;
-    try {
+    
+     try {
         data = await res.json();
-    } catch (err) {
-        console.error("JSON parse failed");
-        return null;
+    } catch (e) {
+        console.error("Invalid JSON response");
+        notFound();
+    }
+    const apiHubSlug = data?.acf?.condition_type?.[0]?.slug;
+
+    if (!apiHubSlug || apiHubSlug !== hub) {
+        notFound();
     }
 
     const { acf } = data
@@ -39,7 +47,7 @@ const conditionpage = async ({ params }: any) => {
                 image={data?.featured_image}
             />
             {!acf?.banner_boxs == false &&
-            <ConditionStatsBar stats={acf?.banner_boxs} />}
+                <ConditionStatsBar stats={acf?.banner_boxs} />}
             <ConditionSection data={acf} />
         </>
     )

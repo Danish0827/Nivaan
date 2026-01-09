@@ -1,12 +1,12 @@
 import LocationGrid from '@/components/locationGrid';
 import { PageBreadcrumb } from '@/components/PageBreadcrumb';
-import {  getTreatments } from '@/lib/api';
+import {  getTreatment } from '@/lib/api';
 import React from 'react'
 
 const page  = async ({ params }: any) => {
   const { hub } = params;
 
-  const data = await getTreatments(hub);
+  const data = await getTreatment(hub);
   console.log(data,"data djkdajdajkdak");
   
   return (

@@ -14,7 +14,7 @@ export default function NivaanFooter() {
                 src="/images/watermark.webp"
                 className="absolute top-20 left-0 w-[850px] pointer-events-none"
             />
-            <div className="max-w-[1700px] mx-auto px-6 xl:px-10 2xl:px-0 relative">
+            <div className="max-w-[1700px] mx-auto px-6 xl:px-10 2xl:px-10 relative">
                 <div className="lg:flex justify-between">
                     <div className="lg:w-1/3 xl:w-2/5">
                         <h2 className="text-4xl font-bold text-[#0852A0]">Get The Latest Insights!</h2>
@@ -25,7 +25,7 @@ export default function NivaanFooter() {
                     <ZohoSubscribeForm />
                 </div>
                 <hr className="border-blue-200 my-10" />
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-[22%_15%_15%_15%_15%_15%] gap-5">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-[20%_12%_17%_10%_15%_15%] xl:grid-cols-[22%_15%_15%_10%_15%_15%] gap-5">
                     <div className="col-span-2 md:col-span-1 m-auto pb-10 lg:pb-0 lg:m-0">
                         <Link href="/"><Image src="/images/logo.svg" alt="Nivaan Logo" width={260} height={80} /></Link>
                     </div>

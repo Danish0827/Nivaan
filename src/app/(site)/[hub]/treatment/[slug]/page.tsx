@@ -6,6 +6,8 @@ import React from 'react'
 
 const treatmentpage = async ({params}:any) => {
     const slug = params.slug
+    const hub = params.hub
+
     const res = await fetch(
         `https://www.hclient.in/nivaan/wp-json/site/v1/treatments/${slug}`,
         {
@@ -29,6 +31,12 @@ const treatmentpage = async ({params}:any) => {
         console.error("JSON parse failed");
         return null;
     }
+
+    const apiHubSlug = data?.acf?.treatment_types?.slug;
+    
+        if (!apiHubSlug || apiHubSlug !== hub) {
+            notFound();
+        }
 
     const { acf } = data
     return (
