@@ -3,18 +3,12 @@ import BlogCategories from "@/components/BlogCategories";
 import BlogGrid from "@/components/BlogGrid";
 import BlogEmptyState from "@/components/BlogEmptyState";
 
-export const dynamic = "force-dynamic";
-
-export default async function CategoryBlogPage({
-  params,
-}: {
+export default async function CategoryBlogPage({ params }: {
   params: Promise<{ category: string }>;
 }) {
   const { category } = await params;
-
   const blogs = await getBlogsByCategory(category);
   const categories = await getBlogCategories();
-
   const hasBlogs = blogs?.posts && blogs.posts.length > 0;
 
   return (
@@ -22,9 +16,7 @@ export default async function CategoryBlogPage({
       <h1 className="mb-6 text-3xl font-bold capitalize text-blue-900">
         {category.replace("-", " ")}
       </h1>
-
       <BlogCategories categories={categories} />
-
       <div className="mt-10">
         {hasBlogs ? (
           <BlogGrid posts={blogs.posts} />

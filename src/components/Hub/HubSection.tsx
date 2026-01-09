@@ -77,7 +77,7 @@ export default function HubSection({ breadcrumbTitle, data }: { breadcrumbTitle:
     return (
         <div className="min-h-screen bg-white relative z-30 font-mono">
             <div className="px-4 lg:px-7 xl:px-7 2xl:px-24 md:flex flex-row-reverse gap-6 lg:gap-6 2xl:gap-10 py-16">
-                <main className="flex-1 space-y-28 2xl:space-y-40 mb-8 lg:mb-0">
+                <main className="flex-1 space-y-28 2xl:space-y-20 mb-8 lg:mb-0">
                     {data?.overview_subtitle &&
                         <section id="overview" className="scroll-mt-28">
                             <SectionHeader
@@ -227,7 +227,7 @@ export default function HubSection({ breadcrumbTitle, data }: { breadcrumbTitle:
                     }
                 </main>
 
-                <aside className="w-full md:w-72 xl:w-80 2xl:w-96 md:sticky top-28 h-fit font-sans">
+                <aside className="w-full md:w-72 xl:w-80 2xl:w-96 md:sticky top-28 h-fit font-sans overflow-y-auto ">
                     <div className="bg-[#EEF8FD] rounded-3xl p-6">
                         <h2 className="font-bold text-2xl mb-6 text-[#0852A0] text-center ">
                             {breadcrumbTitle}

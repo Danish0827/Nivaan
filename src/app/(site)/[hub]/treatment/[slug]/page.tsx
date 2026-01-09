@@ -1,43 +1,18 @@
 import { TreatmentHeroSection } from '@/components/TreatmentHeroSection'
 import TreatmentSection from '@/components/Treatments/TreatmentSection';
 import TreatmentStatsBar from '@/components/TreatmentStatsBar';
+import { getSingleTreatment } from '@/lib/api';
 import { notFound } from 'next/navigation';
 import React from 'react'
 
 const treatmentpage = async ({params}:any) => {
     const slug = params.slug
     const hub = params.hub
-
-    const res = await fetch(
-        `https://www.hclient.in/nivaan/wp-json/site/v1/treatments/${slug}`,
-        {
-            next: { revalidate: 60 }, // IMPORTANT
-        }
-    );
-    console.log(res.status,"res.status");
-    
-    if (res.status === 404) {
+    const data = await getSingleTreatment(slug)
+    const apiHubSlug = data?.acf?.treatment_types?.slug;    
+    if (!apiHubSlug || apiHubSlug !== hub) {
         notFound();
     }
-    if (!res.ok) {
-        console.error("API failed", res.status);
-        return null;
-    }
-
-    let data;
-    try {
-        data = await res.json();
-    } catch (err) {
-        console.error("JSON parse failed");
-        return null;
-    }
-
-    const apiHubSlug = data?.acf?.treatment_types?.slug;
-    
-        if (!apiHubSlug || apiHubSlug !== hub) {
-            notFound();
-        }
-
     const { acf } = data
     return (
         <>

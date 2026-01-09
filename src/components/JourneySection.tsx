@@ -177,7 +177,7 @@ function JourneyCard({
 
     return (
         <div className="w-full p-3 transition bg-white relative flex flex-col items-center text-center rounded-t-full rounded-b-2xl">
-            <div className="relative rounded-[40px] lg:rounded-2xl overflow-hidden w-full mb-5">
+            <div className="relative lg:rounded-[40px] rounded-2xl overflow-hidden w-full mb-5">
                 <div className="absolute top-10 left-1/2 -translate-x-1/2 bg-white rounded-full p-5 w-20 h-20 mb-5 z-10">
                     <Image
                         src={item.icon.url}

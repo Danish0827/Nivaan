@@ -78,13 +78,13 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active
 
 .single-doctor-style ul li {
   margin-bottom: 0.5rem; 
-  font-size: 1.2rem;
+  /* font-size: 1.2rem; */
   font-weight: 500;
 }
 
 .single-doctor-style ul li::marker {
   color: #F36B2B;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 .blog-content-section {
@@ -518,4 +518,22 @@ p {
 .location-main-section h3{
   font-weight: 600;
   margin-bottom: 15px;
+}
+.jen-404 {
+    background-image: url(/images/404bg.png);
+    background-position: top;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.jen-404 .page-inner {
+    height: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 0px;
+    padding: 50px 30px 0 30px;
+    background: linear-gradient(177.01deg, rgba(84, 177, 226, 0.2) 2.49%, rgba(81, 180, 239, 0) 47.6%);
 }

@@ -1,14 +1,11 @@
 import LocationGrid from '@/components/locationGrid';
 import { PageBreadcrumb } from '@/components/PageBreadcrumb';
-import { getContition } from '@/lib/api';
+import { getCondition } from '@/lib/api';
 import React from 'react'
 
 const page = async ({ params }: any) => {
   const { hub } = params;
-
-  const data = await getContition(hub);
-  console.log(data, "data");
-
+  const data = await getCondition(hub);
   return (
     <>
       <PageBreadcrumb title={"Condition"} />

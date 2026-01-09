@@ -57,9 +57,9 @@ export function HubHeroSection({
                         <h1 className="text-[28px] sm:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-semibold text-blue-900 leading-tight">
                             {parsedTitle}
                         </h1>
-                        <p className="my-4 lg:my-6 text-base sm:text-lg lg:text-xl  text-gray-800 leading-relaxed font-normal">
+                        <div className="my-4 lg:my-6 text-base sm:text-lg lg:text-xl  text-gray-800 leading-relaxed font-normal">
                             {parsedDescription}
-                        </p>
+                        </div>
                         {button &&
                             <div className="flex justify-center lg:justify-start">
                                 <RequestCallbackModal buttonText={button} id={button} />

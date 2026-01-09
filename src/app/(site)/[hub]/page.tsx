@@ -3,53 +3,29 @@ import { HubHeroSection } from '@/components/HubHeroSection';
 import HubStatsBar from '@/components/HubStatsBar';
 import LocationGrid from '@/components/locationGrid';
 import { PageBreadcrumb } from '@/components/PageBreadcrumb';
-// import LocationSection from '@/components/Location/LocationSection';
-// import { LocationHeroSection } from '@/components/LocationHeroSection';
-// import LocationStatsBar from '@/components/LocationStatsBar';
+import { getHub, getLocation } from '@/lib/api';
 import { notFound } from 'next/navigation';
 import React from 'react';
 
-const DynamicPage = async ({ params }: any) => { 
-  const slug = params.hub; 
-  
-  let data: any = null; 
+const DynamicPage = async ({ params }: any) => {
+  const slug = params.hub;
+  let data: any = null;
   let type: 'hub' | 'location' | null = null;
 
-  // First try hub API
-  try {
-    const hubRes = await fetch(`https://www.hclient.in/nivaan/wp-json/site/v1/hub/${slug}`, {
-      next: { revalidate: 60 },
-    });
-
-    if (hubRes.ok) {
-      data = await hubRes.json();
-
-      type = 'hub';
-    }
-  } catch (err) {
-    console.error("Hub API failed", err);
+  const hubRes = await getHub(slug)
+  if (hubRes && hubRes.acf) {
+    data = hubRes;
+    type = 'hub';
   }
-
-  // If hub not found, try location API
   if (!data) {
-    try {
-      const locRes = await fetch(`https://www.hclient.in/nivaan/wp-json/site/v1/locations/${slug}`, {
-        next: { revalidate: 60 },
-      });
-
-      if (locRes.ok) {
-        data = await locRes.json();
-        type = 'location';
-      }
-    } catch (err) {
-      console.error("Location API failed", err);
+    const locRes = await getLocation(slug)
+    if (locRes && locRes.name) {
+      data = locRes;
+      type = 'location';
     }
   }
 
-  if (!data || !type) {
-    notFound();
-  }
-
+  if (!data || !type) return notFound();
   const acf = data?.acf;
 
   return (
@@ -67,7 +43,6 @@ const DynamicPage = async ({ params }: any) => {
           <HubSection breadcrumbTitle={data?.title} data={acf} />
         </>
       )}
-
       {type === 'location' && (
         <>
           <PageBreadcrumb title={data.name} />

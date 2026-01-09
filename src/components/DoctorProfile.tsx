@@ -1,22 +1,15 @@
-"use client";
-
 import Image from "next/image";
-import parse from "html-react-parser";
-import he from "he";
 import DoctorInfoSection from "./DoctorInfoSection";
 import RequestCallbackModal from "./RequestCallbackModal";
 
 interface DoctorProfileProps {
   data: any;
 }
-
 export default function DoctorProfile({ data }: DoctorProfileProps) {
   const {
     title,
     featured_image,
     qualification,
-    experience,
-    place,
     hospital,
     informations,
   } = data;
@@ -25,36 +18,27 @@ export default function DoctorProfile({ data }: DoctorProfileProps) {
     <section className="bg-[#F5FBFF] mt-10 py-10 lg:py-20 relative ">
       <div className="px-4 pt-10 lg:px-10 xl:px-24">
         <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] 2xl:grid-cols-[450px_1fr] gap-8 lg:gap-12">
-
-          {/* LEFT – Sticky Card */}
           <div className="relative">
             <div className="lg:sticky lg:top-24 text-center">
               <div className="px-6">
-
-                {/* Image */}
-                <div className="relative mx-auto mb-6 w-full h-full">
-                  <Image
-                    src={featured_image?.url}
-                    alt={title}
-                    width={1000}
-                    height={1000}
-                    className="object-contain"
-                    priority
-                  />
-                </div>
-
-                {/* Name */}
+                {featured_image &&
+                  <div className="relative mx-auto mb-6 w-full h-full">
+                    <Image
+                      src={featured_image?.url}
+                      alt={title}
+                      width={1000}
+                      height={1000}
+                      className="object-contain"
+                      priority
+                    />
+                  </div>}
                 <h2 className="text-2xl font-semibold text-[#0852A0]">
                   {title}
                 </h2>
-
-                {/* Qualification */}
                 <p className="mt-1 text-base font-medium text-[#06A1DC]">
                   {qualification}
                 </p>
                 <hr className="my-5 2xl:my-8" />
-
-                {/* Locations */}
                 <span className="text-black font-thin ">Available at:</span>
                 <div className="mt-1 space-y-1 text-lg text-black underline">
                   <p>{hospital}</p>
@@ -65,8 +49,6 @@ export default function DoctorProfile({ data }: DoctorProfileProps) {
               </div>
             </div>
           </div>
-
-          {/* RIGHT – Content */}
           <div className="rounded-2xl lg:rounded-[50px] bg-[#EAF6FF] p-6 sm:p-8 lg:p-10">
             {informations?.map((item: any, index: number) => (
               <DoctorInfoSection

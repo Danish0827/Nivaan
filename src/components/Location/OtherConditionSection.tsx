@@ -17,25 +17,25 @@ export default function OtherConditionSection({ data }: Props) {
     const datastatic = {
         "other_boxs": [
       {
-        "image": `${process.env.NEXT_PUBLIC_BACKEND}/nivaan/wp-content/uploads/2025/12/1-7.webp`,
+        "image": `${process.env.NEXT_PUBLIC_BACKEND}/wp-content/uploads/2025/12/1-7.webp`,
         "title": "Back Pain",
         "description": "Targeted spine care for disc-related pain, nerve irritation, and movement limitations.",
         "link": "/back-pain"
       },
       {
-        "image": `${process.env.NEXT_PUBLIC_BACKEND}/nivaan/wp-content/uploads/2025/12/knee-pain-banner.webp`,
+        "image": `${process.env.NEXT_PUBLIC_BACKEND}/wp-content/uploads/2025/12/knee-pain-banner.webp`,
         "title": "Knee Pain",
         "description": "Joint preservation treatments focused on reducing pain and improving mobility.",
         "link": "/knee-pain"
       },
       {
-       "image": `${process.env.NEXT_PUBLIC_BACKEND}/nivaan/wp-content/uploads/2025/12/1-2.webp`,
+       "image": `${process.env.NEXT_PUBLIC_BACKEND}/wp-content/uploads/2025/12/1-2.webp`,
         "title": "Neck Pain",
         "description": "Specialized cervical spine care for stiffness, nerve compression, and posture-related pain.",
         "link": "/neck-pain"
       },
       {
-        "image": `${process.env.NEXT_PUBLIC_BACKEND}/nivaan/wp-content/uploads/2025/12/1.webp`,
+        "image": `${process.env.NEXT_PUBLIC_BACKEND}/wp-content/uploads/2025/12/1.webp`,
         "title": "Shoulder Pain",
         "description": "Learn why shoulder pain keeps returning, what drives it beneath the surface, and how structured.",
         "link": "/shoulder-pain"
@@ -96,7 +96,6 @@ export default function OtherConditionSection({ data }: Props) {
                             </SwiperSlide>
                         );
                     })}
-
                 </Swiper>
 
                 <div

@@ -11,3 +11,14 @@ export interface HeroSectionProps {
   image: string;
   mobile: string;
 }
+
+export interface MenuItem {
+  id: number;
+  title: string;
+  url?: string;
+  target?: string;
+  icon?: {
+    url: string;
+  };
+  children?: MenuItem[];
+}

@@ -55,3 +55,17 @@ export const socialLinks = [
     { icon: "fab fa-linkedin", href: "https://in.linkedin.com/company/nivaancare" },
     { icon: "fab fa-youtube", href: "https://www.youtube.com/@nivaancare" },
 ];
+
+export const LOCATION_MENU = {
+  title: "CLINICS",
+  items: [
+    { id: 1, title: "Delhi", url: "/delhi" },
+    { id: 2, title: "Mumbai", url: "/mumbai" },
+    { id: 3, title: "Lucknow", url: "/lucknow" },
+    { id: 4, title: "Noida", url: "/noida" },
+    { id: 5, title: "Ghaziabad", url: "/ghaziabad" },
+    { id: 6, title: "Faridabad", url: "/faridabad" },
+    { id: 7, title: "Jaipur", url: "/jaipur" },
+    { id: 8, title: "Gurugram", url: "/gurugram" },
+  ],
+};

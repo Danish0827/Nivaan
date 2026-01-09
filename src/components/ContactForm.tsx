@@ -1,13 +1,13 @@
-"use client";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import parse from "html-react-parser";
 
-const ContactForm = ({ title, description }: any) => {
+const ContactForm = ({ title, description }: { title: string, description: string }) => {
   return (
     <div className="w-full rounded-3xl bg-gradient-to-b from-[#1FA2D8] to-[#0B5FA5] p-8 text-white">
       <h2 className="text-2xl font-bold text-center">{title}</h2>
-      <p className="text-center text-base lg:text-lg font-thin mt-2 opacity-90">
-        {description}
-      </p>
+      <div className="text-center text-base lg:text-lg font-thin mt-2 opacity-90">
+        {parse(description)}
+      </div>
 
       <form
         action="https://forms.zohopublic.in/nivaancare/form/NivaanNextjsLandingPageForm2/formperma/XBy9lPuUYW-iiX-2yyXoXGpTLy3Yn4PLb8GjCBllefc/htmlRecords/submit"
@@ -16,7 +16,6 @@ const ContactForm = ({ title, description }: any) => {
         encType="multipart/form-data"
         className="mt-6 space-y-4"
       >
-        {/* Hidden Zoho Fields */}
         <input type="hidden" name="utm_source" value="" />
         <input type="hidden" name="utm_medium" value="" />
         <input type="hidden" name="utm_campaign" value="" />
@@ -36,7 +35,6 @@ const ContactForm = ({ title, description }: any) => {
         <input type="hidden" name="SingleLine10" value="" />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {/* First Name */}
           <input
             type="text"
             name="SingleLine"
@@ -44,16 +42,12 @@ const ContactForm = ({ title, description }: any) => {
             placeholder="First Name *"
             className="mb-2 w-full rounded-full bg-white px-6 py-4 outline-none text-black text-base"
           />
-
-          {/* Last Name */}
           <input
             type="text"
             name="SingleLine_LastName"
             placeholder="Last Name"
             className="mb-2 w-full rounded-full bg-white px-6 py-4 outline-none text-black text-base"
           />
-
-          {/* Mobile */}
           <input
             type="tel"
             name="PhoneNumber_countrycode"
@@ -62,8 +56,6 @@ const ContactForm = ({ title, description }: any) => {
             placeholder="Mobile Number *"
             className="mb-2 w-full rounded-full bg-white px-6 py-4 outline-none text-black text-base"
           />
-
-          {/* Email */}
           <input
             type="email"
             name="Email"
@@ -71,8 +63,6 @@ const ContactForm = ({ title, description }: any) => {
             className="mb-2 w-full rounded-full bg-white px-6 py-4 outline-none text-black text-base"
           />
         </div>
-
-        {/* Pain Area / Dropdown */}
         <div className="relative w-full">
           <select
             name="Dropdown2"
@@ -89,8 +79,6 @@ const ContactForm = ({ title, description }: any) => {
             <MdKeyboardArrowDown className="text-2xl text-black" />
           </span>
         </div>
-
-        {/* Message / Notes */}
         <textarea
           placeholder="Enter Message"
           name="MultiLine"
