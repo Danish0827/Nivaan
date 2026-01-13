@@ -10,6 +10,7 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "backend.nivaancare.com",
+        pathname: "/wp-content/uploads/**",
       },
     ],
   },
