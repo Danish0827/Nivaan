@@ -7,6 +7,7 @@ import RequestCallbackModal from "@/components/RequestCallbackModal"
 import MobileMenuDrawer from "./MobileMenuDrawer";
 import { MenuItem } from "@/interfaces/hero";
 import { LOCATION_MENU } from "@/data/footer";
+import { usePathname } from "next/navigation";
 
 interface HeaderProps {
   menu: MenuItem[];
@@ -17,18 +18,18 @@ export default function Header({ menu }: HeaderProps) {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [open, setOpen] = useState<boolean | null>(null);
 
-  const centerMenus = menu.filter(
-    (item) =>
-      item.title === "Conditions" ||
-      item.title === "Our Specialists" ||
-      item.title === "Pain Management"
+  const pathname = usePathname(); 
+  const firstSegment = pathname.split("/")[1];
+  const matchedItem = LOCATION_MENU.items.find(
+    (item) => item.url.replace("/", "") === firstSegment
   );
-
+  const displayTitle = matchedItem?.title || "LOCATION";
+  const centerMenus = menu
   return (
     <header className="fixed top-0 left-0 z-40 w-full bg-gradient-to-t from-[#EEF8FD]/0 font-sans to-white">
       <div className="xl:px-10 2xl:px-24 flex items-center justify-between py-4 px-4">
         <Link href="/">
-          <Image src="/images/logo.svg" alt="Nivaan Logo" width={170} height={40} className="h-10" />
+          <Image src="/images/logo.svg" alt="Nivaan Logo" width={170} height={40} className="h-10 lg:h-20 lg:bg-white lg:px-6 lg:shadow-lg lg:rounded-4xl" />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-6 lg:gap-3 xl:gap-6 py-2 text-xs xl:text-sm font-medium">
@@ -51,8 +52,7 @@ export default function Header({ menu }: HeaderProps) {
                       data={item.children}
                     />
                   )}
-                {(item.title === "Pain Management" ||
-                  item.title === "Our Specialists") &&
+                {(item.title !== "Conditions") &&
                   openMenu === item.title &&
                   item.children && (
                     <PillGridDropdown
@@ -68,9 +68,9 @@ export default function Header({ menu }: HeaderProps) {
             onMouseEnter={() => setOpen(true)}
             onMouseLeave={() => setOpen(false)}
           >
-            <div className="flex shadow-lg font-normal items-center gap-1 text-black bg-white px-6 py-4 rounded-full cursor-pointer hover:shadow-lg transition">
+            <div className="flex shadow-lg uppercase font-normal items-center gap-1 text-black bg-white px-6 py-4 rounded-full cursor-pointer hover:shadow-lg transition">
               <MapPin className="text-[#06A1DC]" size={16} />
-              LOCATION
+              {displayTitle}
               <ChevronDown size={16} />
             </div>
             {open && (
@@ -95,6 +95,7 @@ export default function Header({ menu }: HeaderProps) {
           isOpen={menuOpen}
           onClose={() => setMenuOpen(false)}
           menu={centerMenus}
+          displayTitle={displayTitle}
         />
       </div>
     </header>

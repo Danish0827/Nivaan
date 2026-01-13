@@ -217,6 +217,7 @@ function StoryCard({ item }: { item: Story }) {
     <>
       {/* CARD */}
       <div className="relative rounded-[50px] overflow-hidden shadow-[0_3px_20px_rgba(0,0,0,0.15)]">
+        <div className="bg-black/30 absolute w-full h-full"></div>
         {item.video_image ? (
           <Image
             src={item.video_image.url}

@@ -30,7 +30,7 @@ export default function ResultsSection({
           <div className="overflow-hidden flex justify-end lg:rounded-[40px] rounded-[60px]">
             <video
               src={image}
-              className="h-[300px] lg:w-[500px] lg:h-[400px] xl:w-full xl:h-[450px] object-cover"
+              className="h-[300px] md:w-full lg:w-[500px] lg:h-[400px] xl:w-full xl:h-[450px] object-cover"
               autoPlay
               muted
               loop

@@ -76,6 +76,7 @@ export function ConditionHeroSection({
                                 alt={image?.alt}
                                 width={1000}
                                 height={1000}
+                                unoptimized
                             />
                         }
                     </div>

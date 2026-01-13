@@ -39,10 +39,12 @@ export default function MobileMenuDrawer({
     isOpen,
     onClose,
     menu,
+    displayTitle
 }: {
     isOpen: boolean;
     onClose: () => void;
     menu: MenuItem[];
+    displayTitle:string;
 }) {
     const [active, setActive] = useState<number | null>(null);
 
@@ -76,7 +78,7 @@ export default function MobileMenuDrawer({
                         alt="Nivaan"
                         width={140}
                         height={40}
-          unoptimized
+                        unoptimized
                     />
 
                     <button
@@ -114,9 +116,9 @@ export default function MobileMenuDrawer({
                                         <DoctorList data={item.children} onClose={onClose} />
                                     )}
 
-                                    {item.title === "Pain Management" && (
+                                    {item.title !== "Conditions" && (
                                         <SimpleList data={item.children} onClose={onClose} />
-                                    )}                                    
+                                    )}
                                 </div>
                             )}
                         </div>
@@ -127,7 +129,7 @@ export default function MobileMenuDrawer({
                             onClick={() => setActive(active === 999 ? null : 999)}
                             className="w-full flex justify-between text-black items-center py-4 font-medium text-base uppercase tracking-wide"
                         >
-                            {LOCATION_MENU.title}
+                            {displayTitle}
                             <span className="text-xs">
                                 {active === 999 ? (
                                     <MdOutlineKeyboardArrowUp className="text-2xl" />
@@ -218,7 +220,7 @@ function ConditionsList({
                                         width={50}
                                         height={50}
                                         className="bg-[#284599] w-10 h-10 p-2 rounded-xl"
-          unoptimized
+                                        unoptimized
                                     />
                                 )}
                                 {item.title}

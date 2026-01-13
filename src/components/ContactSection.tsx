@@ -38,7 +38,7 @@ export default function ContactSection({ data }: { data: ContactData }) {
                         </div>
                     ))}
                 </div>
-                <div className="flex flex-wrap justify-center gap-4 text-gray-400 text-sm">
+                <div className="flex flex-wrap justify-center gap-4 text-gray-400 text-sm lg:text-lg">
                     {LOCATION_MENU.items.map((clinic, index) => (
                         <Link
                             key={clinic.id}

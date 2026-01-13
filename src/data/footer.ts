@@ -3,9 +3,9 @@ export const footerData = [
         title: "CONDITIONS",
         items: [
             { label: "Back Pain", href: "/back-pain/condition" },
+            { label: "Knee Pain", href: "/knee-pain/condition" },
             { label: "Neck Pain", href: "/neck-pain/condition" },
             { label: "Shoulder Pain", href: "/shoulder-pain/condition" },
-            { label: "Knee Pain", href: "/knee-pain/condition" },
             // { label: "Others", href: "/conditions/others" },
         ],
     },

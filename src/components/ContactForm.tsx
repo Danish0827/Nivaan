@@ -74,6 +74,7 @@ const ContactForm = ({ title, description }: { title: string, description: strin
             <option value="Neck Pain">Neck Pain</option>
             <option value="Shoulder Pain">Shoulder Pain</option>
             <option value="Knee Pain">Knee Pain</option>
+            <option value="Other Pain">Other Pain</option>
           </select>
           <span className="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2">
             <MdKeyboardArrowDown className="text-2xl text-black" />

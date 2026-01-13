@@ -1,7 +1,7 @@
 "use client";
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 type PainKeys = keyof typeof CONTENT;
 type ScreenSize = "lg" | "xl";
@@ -176,9 +176,12 @@ function getDotPosition(key: PainKeys, screen: ScreenSize) {
 /* ---------------- COMPONENT ---------------- */
 
 export default function PainAreaSection() {
-    const [active, setActive] = useState<PainKeys | null>("shoulder");
+    const [active, setActive] = useState<PainKeys | null>(null);
 
     const [screenSize, setScreenSize] = useState<ScreenSize>("xl");
+    const accordionRefs = useRef<Record<string, HTMLButtonElement | null>>({});
+    const HEADER_OFFSET = 80; // <-- yahan header ki height set karo (px)
+
 
     useEffect(() => {
         const handleResize = () => {
@@ -191,13 +194,30 @@ export default function PainAreaSection() {
     }, []);
     // const [active, setActive] = useState<number | null>(2); // Shoulder open by default
     const activeKey = active ?? "shoulder";
+    useEffect(() => {
+    if (window.innerWidth >= 1024) return;
+
+    if (active && accordionRefs.current[active]) {
+        const element = accordionRefs.current[active];
+        const y =
+            element.getBoundingClientRect().top +
+            window.scrollY -
+            HEADER_OFFSET;
+
+        window.scrollTo({
+            top: y,
+            behavior: "smooth",
+        });
+    }
+}, [active]);
+
 
     return (
         <div className="max-w-[1500px] mx-auto px-6 xl:px-10 2xl:px-0 relative -mt-96 lg:mb-10 overflow-hidden">
             <div className="w-full p-4 bg-gradient-to-b from-[#0AA2DC] to-[#115CAB] rounded-[60px] shadow-xl grid grid-cols-1 lg:grid-cols-[27%_35%_35%] xl:grid-cols-[27%_34%_35%] 2xl:grid-cols-[27%_33.5%_36%] gap-4 xl:gap-6">
 
                 {/* LEFT MENU */}
-                <div className="hidden lg:block bg-white text-[#0852A0] rounded-[50px] lg:px-1 xl:px-3 xl:px-6 py-10">
+                <div className="hidden lg:block bg-white text-[#0852A0] rounded-[50px] lg:px-1 xl:px-3 2xl:px-6 py-10">
                     <h2 className="text-3xl font-bold text-center mb-4">Pain Areas</h2>
 
                     <div className="flex flex-col gap-1">
@@ -208,7 +228,8 @@ export default function PainAreaSection() {
                                 className={`text-sm xl:text-base w-full font-semibold px-8 py-3 cursor-pointer rounded-[50px] transition-all flex justify-between items-center 
                                 ${active === area.key ? "bg-[#06A1DC21]" : "hover:bg-[#06A1DC21]"}`}
                             >
-                                {area.label} <Image
+                                {area.label}
+                                <Image
                                     className="group-hover:-rotate-45 w-8 h-8 duration-700 rounded-full p-2"
                                     src="/images/leftarrow.svg"
                                     width={20}
@@ -277,6 +298,10 @@ export default function PainAreaSection() {
                             return (
                                 <div key={area.key}>
                                     <button
+                                        ref={(el) => {
+                                            accordionRefs.current[area.key] = el;
+                                        }}
+
                                         onClick={() => setActive(isOpen ? null : area.key)}
                                         className="w-full flex items-center justify-between px-5 py-5.5 text-left font-medium text-gray-900"
                                     >

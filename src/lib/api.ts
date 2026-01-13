@@ -7,6 +7,12 @@ export async function getHeader() {
   });
   return res.json();
 }
+export async function getFooter() {
+  const res = await fetch(`${BASE_URL}/menus/footer_menu`, {
+    next: { revalidate: 60 },
+  });
+  return res.json();
+}
 
 //home
 export async function getHome() {
