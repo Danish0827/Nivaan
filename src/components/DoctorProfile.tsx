@@ -43,7 +43,7 @@ export default function DoctorProfile({ data }: DoctorProfileProps) {
                 <div className="mt-1 space-y-1 text-lg text-black underline">
                   <p>{hospital}</p>
                 </div>
-                <div className="flex justify-center relative z-50 mt-6">
+                <div className="flex justify-center relative mt-6">
                   <RequestCallbackModal buttonText={'BOOK APPOINTMENT'} id={data.cta_button_name} />
                 </div>
               </div>

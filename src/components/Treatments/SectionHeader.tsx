@@ -21,9 +21,9 @@ export function SectionHeader({
                 </h2>
             )}
             {midtitle && (
-                <h2 className="text-lg lg:text-[22px] font-mono text-[#284599] font-medium mt-2 mb-4">
+                <div className="text-lg lg:text-[22px] font-mono text-[#284599] font-medium mt-2 mb-4">
                     {parse(midtitle)}
-                </h2>
+                </div>
             )}
         </>
     );

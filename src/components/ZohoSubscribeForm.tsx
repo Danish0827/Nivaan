@@ -44,7 +44,7 @@ const ZohoSubscribeForm = () => {
 
       <button
         type="submit"
-        className="block relative z-30 hover:scale-105 duration-500 cursor-pointer
+        className="block hover:scale-105 duration-500 cursor-pointer
         bg-gradient-to-r from-[#EC6724] to-[#F05432] uppercase
         hover:from-[#EC6724]/80 hover:to-[#F05432]/80
         text-white font-normal px-6 py-4 rounded-full shadow"

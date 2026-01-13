@@ -6,7 +6,8 @@ import ZohoSubscribeForm from "./ZohoSubscribeForm";
 
 export default function NivaanFooter() {
     return (
-        <footer className="bg-[#D4F1FF] w-full pt-16 pb-6 relative overflow-hidden ">            
+        <footer className="bg-[#D4F1FF] w-full pt-16 pb-6 overflow-hidden">  
+        <div className="relative">
             <Image
                 width={1000}
                 height={1000}
@@ -14,7 +15,8 @@ export default function NivaanFooter() {
                 src="/images/watermark.webp"
                 className="absolute top-20 left-0 w-[850px] pointer-events-none"
             />
-            <div className="max-w-[1700px] mx-auto px-6 xl:px-10 2xl:px-10 relative">
+            </div>          
+            <div className="max-w-[1700px] mx-auto px-6 xl:px-10 2xl:px-10">
                 <div className="lg:flex justify-between">
                     <div className="lg:w-1/3 xl:w-2/5">
                         <h2 className="text-4xl font-bold text-[#0852A0]">Get The Latest Insights!</h2>

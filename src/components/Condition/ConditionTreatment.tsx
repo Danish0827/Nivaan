@@ -48,18 +48,18 @@ export default function ConditionTreatment({ data }: Props) {
                         {data.treatments_boxs.map((item: any, index: number) => {
                             return (
                                 <SwiperSlide key={index}>
-                                    <div className="w-full h-full bg-white rounded-3xl border p-5 gap-5 flex flex-row mb-5">
-                                        <div className="w-1/5 rounded-2xl overflow-hidden ">
+                                    <div className="w-full h-full bg-white rounded-3xl border p-5 gap-5 flex flex-col lg:flex-row mb-5">
+                                        <div className="lg:w-2/5 rounded-2xl overflow-hidden ">
                                         {item.image &&
                                             <Image
                                                 src={item.image.url}
                                                 alt={item.image.alt || item.title}
                                                 width={400}
                                                 height={260}
-                                                className="w-full h-full object-cover"
+                                                className="w-full h-72 lg:h-full object-cover"
                                             />}
                                         </div>
-                                        <div className="w-4/5">
+                                        <div className="lg:w-3/5">
                                             <h3 className="text-lg font-semibold text-[#0F2A44] mb-1">
                                                 {item.title}
                                             </h3>

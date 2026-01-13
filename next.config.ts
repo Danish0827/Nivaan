@@ -9,11 +9,11 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "hclient.in",
+        hostname: `"backend.nivaancare.com"`,
       },
       {
         protocol: "https",
-        hostname: "www.hclient.in",
+        hostname: "backend.nivaancare.com",
       },
     ],
   },

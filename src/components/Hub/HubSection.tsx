@@ -75,7 +75,7 @@ export default function HubSection({ breadcrumbTitle, data }: { breadcrumbTitle:
       return () => observer.disconnect();
     }, [sections]);
     return (
-        <div className="min-h-screen bg-white relative z-30 font-mono">
+        <div className="min-h-screen bg-white relative font-mono">
             <div className="px-4 lg:px-7 xl:px-7 2xl:px-24 md:flex flex-row-reverse gap-6 lg:gap-6 2xl:gap-10 py-16">
                 <main className="flex-1 space-y-28 2xl:space-y-20 mb-8 lg:mb-0">
                     {data?.overview_subtitle &&

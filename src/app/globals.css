@@ -307,12 +307,12 @@ section.relative.home-main-section nav ol li span {
   display: flex;
   font-weight: 400;
   flex-direction: column;
-  gap: 16px;
+  gap: 10px;
 }
 
 .overview-list li {
   position: relative;
-  padding-left: 36px;
+  padding-left: 30px;
 }
 
 .overview-list li::before {
@@ -320,8 +320,8 @@ section.relative.home-main-section nav ol li span {
   position: absolute;
   left: 0;
   top: 5px;
-  width: 22px;
-  height: 22px;
+  width: 18px;
+  height: 18px;
   border-radius: 9999px;
   background: #F05432;
   color: #ffffff;
@@ -329,7 +329,7 @@ section.relative.home-main-section nav ol li span {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px;
+  font-size: 10px;
 }
 
 .overview-section h3 {
@@ -362,6 +362,33 @@ section.relative.home-main-section nav ol li span {
 
 /* Desktop */
 @media (min-width: 1024px) {
+  .overview-list ul {
+  display: flex;
+  font-weight: 400;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.overview-list li {
+  position: relative;
+  padding-left: 36px;
+}
+  .overview-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 5px;
+  width: 22px;
+  height: 22px;
+  border-radius: 9999px;
+  background: #F05432;
+  color: #ffffff;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
   .overview-section h3 {
     font-size: 22px;        
   }

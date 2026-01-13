@@ -1,4 +1,4 @@
-const BASE_URL = "https://hclient.in/nivaan/wp-json/site/v1";
+const BASE_URL = `${process.env.NEXT_PUBLIC_BACKEND}/wp-json/site/v1`;
 
 //header
 export async function getHeader() {
