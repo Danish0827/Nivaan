@@ -28,6 +28,7 @@ export default function ProblemAwareness({
             height={1000}
             className="rounded-[40px] object-cover w-full 2xl:w-[90%]"
             priority
+            unoptimized
           />
         </div>
         {/* Content */}

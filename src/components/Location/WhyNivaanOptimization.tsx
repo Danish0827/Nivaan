@@ -42,6 +42,7 @@ export default function WhyNivaanOptimization({ data }: Props) {
                                     width={700}
                                     height={700}
                                     className="w-full h-auto object-cover"
+                                    unoptimized
                                 />
                             }
                         </div>

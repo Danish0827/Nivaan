@@ -29,6 +29,7 @@ export default function Risks({ data }: any) {
                                     width={600}
                                     height={600}
                                     className="w-full h-auto object-cover"
+                                    unoptimized
                                 />
                             }
                         </div>
@@ -47,8 +48,8 @@ export default function Risks({ data }: any) {
                 {/* CTA */}
                 {data?.risks_button_name &&
                     <div className="flex justify-center">
-              <RequestCallbackModal buttonText={data.risks_button_name} id={data.risks_button_name} />
-            </div>
+                        <RequestCallbackModal buttonText={data.risks_button_name} id={data.risks_button_name} />
+                    </div>
                 }
             </div>
         </section>

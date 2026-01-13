@@ -54,6 +54,7 @@ export default function ConditionSection({ data }: Props) {
                                             width={400}
                                             height={260}
                                             className="w-full h-[220px] object-cover"
+          unoptimized
                                         />
                                     </div>
 
@@ -95,6 +96,7 @@ export default function ConditionSection({ data }: Props) {
                                     width={20}
                                     height={20}
                                     alt="arrow"
+          unoptimized
                                 />
                             </button>
                         </Link>

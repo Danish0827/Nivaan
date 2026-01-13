@@ -58,6 +58,7 @@ export default function WhyNivaan({ data }: WhyNivaanProps) {
                     alt={item.icon.alt || item.title}
                     width={50}
                     height={50}
+                    unoptimized
                   />
                 </div>
 

@@ -43,6 +43,7 @@ export default function WhenToConsult({
                             width={800}
                             height={800}
                             className="object-cover h-full w-full"
+                            unoptimized
                         />
                     </div>
 

@@ -21,6 +21,7 @@ const WhyNivaan = ({ data }: Props) => {
                       height={60}
                       style={{ filter: 'brightness(100)' }}
                       className="p-2"
+                      unoptimized
                     />
                   </div>}
                   {/* Text */}

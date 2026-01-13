@@ -54,20 +54,21 @@ const RecoveryTimeline = ({ data }: RecoveryTimelineProps) => {
                                     <div key={index} className="flex gap-5 items-start ">
                                         {/* Icon + Line */}
                                         {step.icon &&
-                                        <div className="relative flex flex-col items-center">
-                                            <div className="w-20 h-20 rounded-full bg-[#284599] flex items-center justify-center">
-                                                <Image
-                                                    src={step.icon.url || ""}
-                                                    alt={step.icon.alt || ""}
-                                                    width={50}
-                                                    height={50}
-                                                />
+                                            <div className="relative flex flex-col items-center">
+                                                <div className="w-20 h-20 rounded-full bg-[#284599] flex items-center justify-center">
+                                                    <Image
+                                                        src={step.icon.url || ""}
+                                                        alt={step.icon.alt || ""}
+                                                        width={50}
+                                                        height={50}
+                                                        unoptimized
+                                                    />
+                                                </div>
+                                                {index !== data.recovery_phase_lists.length - 1 && (
+                                                    <div className="w-0.5 h-full bg-blue-200 mt-2" />
+                                                )}
                                             </div>
-                                            {index !== data.recovery_phase_lists.length - 1 && (
-                                                <div className="w-0.5 h-full bg-blue-200 mt-2" />
-                                            )}
-                                        </div>
-}
+                                        }
                                         <div className="pb-10">
                                             <p className="text-sm font-semibold text-[#06A1DC] mb-1">
                                                 PHASE {index + 1}
@@ -177,6 +178,7 @@ const RecoveryTimeline = ({ data }: RecoveryTimelineProps) => {
                                     width={600}
                                     height={600}
                                     className="w-full h-auto object-cover"
+                                    unoptimized
                                 />
                             }
                         </div>

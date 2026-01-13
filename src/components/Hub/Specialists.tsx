@@ -67,6 +67,7 @@ export default function Specialists({ data }: Props) {
                                                     width={400}
                                                     height={260}
                                                     className="w-full h-[220px] object-cover"
+                                                    unoptimized
                                                 />
                                             </div>
                                         )}
@@ -86,21 +87,21 @@ export default function Specialists({ data }: Props) {
                             );
                         })}
                     </Swiper>
-                     <div
-                    className="mt-4 text-gray-600 "
-                    dangerouslySetInnerHTML={{ __html: data.specialists_3nd_description }}
-                />
+                    <div
+                        className="mt-4 text-gray-600 "
+                        dangerouslySetInnerHTML={{ __html: data.specialists_3nd_description }}
+                    />
 
-                <div className="text-center cta-treatment-section py-8">
-                    {data.specialists_button_name &&
-                        <div className="flex justify-center">
-                            <RequestCallbackModal buttonText={data.specialists_button_name} id={data.specialists_button_name} />
-                        </div>
-                    }
-                </div>
+                    <div className="text-center cta-treatment-section py-8">
+                        {data.specialists_button_name &&
+                            <div className="flex justify-center">
+                                <RequestCallbackModal buttonText={data.specialists_button_name} id={data.specialists_button_name} />
+                            </div>
+                        }
+                    </div>
                 </div>
 
-               
+
             </div>
         </section>
     );

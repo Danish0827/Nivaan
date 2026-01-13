@@ -56,6 +56,7 @@ export default function Symptoms({ data }: Props) {
                                             width={400}
                                             height={260}
                                             className="w-full h-[220px] object-cover"
+                                            unoptimized
                                         />
                                     </div>
 
@@ -69,7 +70,7 @@ export default function Symptoms({ data }: Props) {
                                             dangerouslySetInnerHTML={{ __html: item.description }}
                                         />
 
-                                        
+
                                     </div>
                                 </div>
                             </SwiperSlide>
@@ -92,6 +93,7 @@ export default function Symptoms({ data }: Props) {
                                     width={600}
                                     height={600}
                                     className="w-full h-auto object-cover"
+                                    unoptimized
                                 />
                             }
                         </div>

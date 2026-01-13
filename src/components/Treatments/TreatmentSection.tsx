@@ -207,6 +207,7 @@ export default function TreatmentSection({ data }: { data: any }) {
                                             width={20}
                                             height={20}
                                             alt="arrow"
+                                            unoptimized
                                         />
                                     </Link>
                                 </li>

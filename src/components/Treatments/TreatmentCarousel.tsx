@@ -56,6 +56,7 @@ export default function TreatmentCarousel({ data }: Props) {
                       width={400}
                       height={260}
                       className="w-full h-[220px] object-cover"
+                      unoptimized
                     />
                   </div>
 

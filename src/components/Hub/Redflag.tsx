@@ -79,6 +79,7 @@ export default function Redflag({ data }: Props) {
                                     width={600}
                                     height={600}
                                     className="w-full h-auto object-cover"
+                                    unoptimized
                                 />
                             }
                         </div>

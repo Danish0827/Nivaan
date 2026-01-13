@@ -92,7 +92,7 @@ export default function LocationTargetingSection({ data }: { data: any }) {
                 subtitle={data?.symptoms_subtitle}
                 title={data?.symptoms_title}
               />
-              <Symptoms data={data} />              
+              <Symptoms data={data} />
             </section>
           }
           {data?.why_subtitle &&
@@ -110,7 +110,7 @@ export default function LocationTargetingSection({ data }: { data: any }) {
                 subtitle={data?.conditions_subtitle}
                 title={data?.conditions_title}
               />
-               <ConditionSection data={data} />
+              <ConditionSection data={data} />
             </section>
           }
           {data?.treatments_title &&
@@ -146,7 +146,7 @@ export default function LocationTargetingSection({ data }: { data: any }) {
                 subtitle={data?.other_subtitle}
                 title={data?.other_title}
               />
-              <OtherConditionSection data={data}/>
+              <OtherConditionSection data={data} />
             </section>
           }
           {data?.faqs_subtitle &&
@@ -184,6 +184,7 @@ export default function LocationTargetingSection({ data }: { data: any }) {
                       width={20}
                       height={20}
                       alt="arrow"
+                      unoptimized
                     />
                   </Link>
                 </li>

@@ -117,7 +117,7 @@ export default function LocationOptimizationSection({ data }: { data: any }) {
                                 title={data?.approach_title}
                             />
 
-                             <ApprochSection
+                            <ApprochSection
                                 featuresHtml={data?.approach_description}
                                 featuresHtml2={data?.approach_3th_description}
                                 mainfeaturesHtml={data?.approach_2nd_description}
@@ -182,6 +182,7 @@ export default function LocationOptimizationSection({ data }: { data: any }) {
                                             width={20}
                                             height={20}
                                             alt="arrow"
+                                            unoptimized
                                         />
                                     </Link>
                                 </li>

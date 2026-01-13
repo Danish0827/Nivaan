@@ -48,9 +48,10 @@ const Patient = ({ data }: Props) => {
                       width={35}
                       height={35}
                       className="ml-auto"
+          unoptimized
                     />
                   </div>
-                  <Image src="/images/starts.svg" alt="Stars" width={100} height={20} className="mb-3" />
+                  <Image src="/images/starts.svg" alt="Stars" width={100} height={20} className="mb-3" unoptimized />
                   <p className="text-gray-700 text-sm xl:text-base leading-relaxed">{item.comment}</p>
                 </div>
               </SwiperSlide>

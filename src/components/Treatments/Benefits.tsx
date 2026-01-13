@@ -37,6 +37,7 @@ export default function Benefits({
                width={800}
               height={800}
               className="object-cover h-full w-full"
+              unoptimized
             />
           </div>
           <div className="bg-gradient-to-br from-[#0EA5E9] to-[#0B4FA3] p-8 lg:p-8 items-center flex text-white">

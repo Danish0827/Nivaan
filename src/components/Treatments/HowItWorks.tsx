@@ -47,6 +47,7 @@ export default function HowItWorks({ data }: HowItWorksProps) {
                                                 alt={step.how_icons.alt}
                                                 width={50}
                                                 height={50}
+                                                unoptimized
                                             />
                                         </div>}
                                         {index !== data.how_list_steps.length - 1 && (
@@ -79,6 +80,7 @@ export default function HowItWorks({ data }: HowItWorksProps) {
                                     height={700}
                                     className="w-full h-auto 2xl:h-[600px] object-cover"
                                     priority
+                                    unoptimized
                                 />
                             }
                         </div>

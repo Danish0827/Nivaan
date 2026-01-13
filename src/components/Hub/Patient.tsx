@@ -47,6 +47,7 @@ const Patient = ({ data }: Props) => {
                           width={600}
                           height={350}
                           className="w-full h-[270px] object-cover"
+                          unoptimized
                         />
                       ) : (
                         <video
@@ -156,9 +157,10 @@ const Patient = ({ data }: Props) => {
                         width={35}
                         height={35}
                         className="ml-auto"
+                        unoptimized
                       />
                     </div>
-                    <Image src="images/starts.svg" alt="Stars" width={100} height={20} className="mb-3" />
+                    <Image src="images/starts.svg" alt="Stars" width={100} height={20} className="mb-3" unoptimized />
                     <p className="text-gray-700 text-sm xl:text-base leading-relaxed">{item.review_comments}</p>
                   </div>
                 </SwiperSlide>
@@ -187,6 +189,7 @@ const Patient = ({ data }: Props) => {
                     alt={item.icon.alt || item.title}
                     width={50}
                     height={50}
+                    unoptimized
                   />
                 </div>}
               {/* Content */}
