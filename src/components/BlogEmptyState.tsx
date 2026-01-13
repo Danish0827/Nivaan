@@ -17,6 +17,7 @@ export default function BlogEmptyState({
           alt="No blogs"
           fill
           className="object-contain"
+          unoptimized 
         />
       </div>
 

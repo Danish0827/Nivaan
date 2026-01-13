@@ -30,7 +30,7 @@ export function PageBreadcrumb({
                     </div>
                 </div>
             </div>
-            <Image className="absolute bottom-0 z-20" width={5000} height={5000} alt="" src="/images/bottom.png" />
+            <Image className="absolute bottom-0 z-20" width={5000} height={5000} alt="" src="/images/bottom.png" unoptimized />
         </section>
     );
 }

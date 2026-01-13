@@ -51,28 +51,28 @@ export default function HubSection({ breadcrumbTitle, data }: { breadcrumbTitle:
     );
 
     useEffect(() => {
-      if (!sections.length) return;
-    
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              setActiveSection(entry.target.id);
+        if (!sections.length) return;
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setActiveSection(entry.target.id);
+                    }
+                });
+            },
+            {
+                threshold: 0.2, // previously 0.3, lower means section considered visible earlier
+                rootMargin: "-15% 0px -10% 0px", // smaller negative margin
             }
-          });
-        },
-        {
-          threshold: 0.2, // previously 0.3, lower means section considered visible earlier
-          rootMargin: "-15% 0px -10% 0px", // smaller negative margin
-        }
-      );
-    
-      sections.forEach(({ id }) => {
-        const el = document.getElementById(id);
-        if (el) observer.observe(el);
-      });
-    
-      return () => observer.disconnect();
+        );
+
+        sections.forEach(({ id }) => {
+            const el = document.getElementById(id);
+            if (el) observer.observe(el);
+        });
+
+        return () => observer.disconnect();
     }, [sections]);
     return (
         <div className="min-h-screen bg-white relative font-mono">
@@ -250,6 +250,7 @@ export default function HubSection({ breadcrumbTitle, data }: { breadcrumbTitle:
                                             width={20}
                                             height={20}
                                             alt="arrow"
+                                            unoptimized
                                         />
                                     </Link>
                                 </li>

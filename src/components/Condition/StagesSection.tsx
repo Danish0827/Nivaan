@@ -44,6 +44,7 @@ export default function Stages({
               fill
               className="object-cover"
               priority
+          unoptimized
             />
           </div>
         }

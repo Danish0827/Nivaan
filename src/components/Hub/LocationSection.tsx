@@ -31,6 +31,7 @@ export default function LocationSection({
             height={2000}
             className="object-cover"
             priority
+            unoptimized
           />
         </div>}
 

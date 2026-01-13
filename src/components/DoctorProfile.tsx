@@ -30,6 +30,7 @@ export default function DoctorProfile({ data }: DoctorProfileProps) {
                       height={1000}
                       className="object-contain"
                       priority
+          unoptimized
                     />
                   </div>}
                 <h2 className="text-2xl font-semibold text-[#0852A0]">

@@ -33,6 +33,7 @@ export default function EvidenceNewsSection({ evidence, news }: EvidenceNewsSect
                   width={1000}
                   height={1000}
                   className="object-contain mx-auto md:w-4/5 transition brightness-30 hover:brightness-100"
+          unoptimized
                 />
               </Link>
               </div>
@@ -52,6 +53,7 @@ function EvidenceCard({ item }: EvidenceCardProps) {
         width={200}
         height={100}
         className="mx-auto w-32 lg:w-36 xl:w-52 my-2 pb-3 object-contain"
+          unoptimized
       />
       <p className="text-gray-800 lg:text-sm xl:text-base font-bold leading-relaxed">
         {item.details}

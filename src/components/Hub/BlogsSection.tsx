@@ -40,7 +40,7 @@ export default function BlogsSection({ data }: Props) {
                         return (
                             <SwiperSlide key={i}>
                                 <Link
-                                      href={`/blog/${post.categories[0].slug}/${post.slug}`}
+                                    href={`/blog/${post.categories[0].slug}/${post.slug}`}
                                     className="group  overflow-hidden"
                                 >
                                     <div className="relative h-[230px] lg:h-[180px] xl:h-[230px] w-full rounded-3xl overflow-hidden">
@@ -49,6 +49,7 @@ export default function BlogsSection({ data }: Props) {
                                             alt={post.featured_image?.alt || post.title}
                                             fill
                                             className="object-cover rounded-3xl  shadow-sm hover:shadow-md transition group-hover:scale-110 duration-500"
+                                            unoptimized
                                         />
                                     </div>
 
@@ -57,7 +58,7 @@ export default function BlogsSection({ data }: Props) {
                                             <span className="inline-block mb-2 text-xs px-3 py-1 rounded-full bg-blue-50 text-blue-800">
                                                 {parse(post.categories?.[0]?.name)}
                                             </span>
-                                                <span className="text-sm text-gray-500">
+                                            <span className="text-sm text-gray-500">
                                                 {formatDate(post.date)}
                                             </span>
 
@@ -70,7 +71,7 @@ export default function BlogsSection({ data }: Props) {
                                 </Link>
                             </SwiperSlide>
                         );
-                    }):<BlogEmptyState/>}
+                    }) : <BlogEmptyState />}
 
                 </Swiper>
             </div>

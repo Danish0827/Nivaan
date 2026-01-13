@@ -126,7 +126,7 @@ function ConditionsDropdown({
                 }`}
             >
               {item?.icon?.url &&
-                <Image className="bg-[#284599] p-2.5 rounded-2xl w-12 h-12" src={item.icon.url} alt="" width={50} height={50} />}
+                <Image className="bg-[#284599] p-2.5 rounded-2xl w-12 h-12" src={item.icon.url} alt="" width={50} height={50} unoptimized/>}
               {item.title}
             </Link>
           ))}

@@ -32,6 +32,7 @@ export default function Symptoms({
           fill
           className="object-cover"
           priority
+          unoptimized
         />
       </div>}
 

@@ -74,6 +74,7 @@ export function LocationHeroSection({
                                 alt={image?.alt}
                                 width={1000}
                                 height={1000}
+          unoptimized
                             />
                         }
                     </div>
@@ -94,6 +95,7 @@ export function LocationHeroSection({
                                 width={20}
                                 height={20}
                                 alt="arrow"
+          unoptimized
                             />
                         </button>
                     </Link>

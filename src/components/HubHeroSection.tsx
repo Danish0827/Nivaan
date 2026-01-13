@@ -74,6 +74,7 @@ export function HubHeroSection({
                                 alt={image?.alt}
                                 width={1000}
                                 height={1000}
+          unoptimized
                             />
                         }
                     </div>

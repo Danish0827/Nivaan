@@ -41,6 +41,7 @@ export default function OverviewSection({ data }: Props) {
                                     width={600}
                                     height={600}
                                     className="w-full h-auto object-cover"
+                                    unoptimized
                                 />
                             }
                         </div>

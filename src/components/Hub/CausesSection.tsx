@@ -71,6 +71,7 @@ export default function CausesSection({ data }: Props) {
                                                             width={400}
                                                             height={260}
                                                             className="w-full h-[220px] object-cover"
+                                                            unoptimized
                                                         />
                                                     </div>
                                                 )}
@@ -83,7 +84,7 @@ export default function CausesSection({ data }: Props) {
                                                         <h3 className="text-lg font-semibold text-[#0F2A44]">
                                                             {box.title}
                                                         </h3>
-                                                        <IoArrowForward  className="text-black text-2xl -rotate-45"/>
+                                                        <IoArrowForward className="text-black text-2xl -rotate-45" />
 
                                                     </Link>
                                                 )}
@@ -109,7 +110,7 @@ export default function CausesSection({ data }: Props) {
                 })}
 
                 <div className="grid grid-cols-1 xl:grid-cols-[50%_40%] justify-center overview-section gap-10 pt-10 items-start">
-                   
+
 
                     <div>
                         {data?.causes_2nd_description && (
@@ -118,7 +119,7 @@ export default function CausesSection({ data }: Props) {
                             </div>
                         )}
                     </div>
-                     <div className="w-full">
+                    <div className="w-full">
                         <div className="relative rounded-[40px] overflow-hidden">
                             {data?.causes_image &&
                                 <Image
@@ -128,6 +129,7 @@ export default function CausesSection({ data }: Props) {
                                     width={600}
                                     height={600}
                                     className="w-full h-auto object-cover"
+                                    unoptimized
                                 />
                             }
                         </div>

@@ -57,6 +57,7 @@ export default function ConditionCarousel({ data }: Props) {
                                                 width={400}
                                                 height={260}
                                                 className="w-full h-[220px] object-cover"
+                                                unoptimized
                                             />
                                         </div>}
 
@@ -75,8 +76,8 @@ export default function ConditionCarousel({ data }: Props) {
                                             className={`text-sm text-gray-600 leading-relaxed `}
                                             dangerouslySetInnerHTML={{ __html: item.description }}
                                         />
-{/* ${!isExpanded ? "line-clamp-4" : "" */}
-                                                
+                                        {/* ${!isExpanded ? "line-clamp-4" : "" */}
+
                                         {/* <button
                                             onClick={() =>
                                                 setExpandedId(isExpanded ? null : index)

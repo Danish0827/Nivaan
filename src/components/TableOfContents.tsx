@@ -73,6 +73,7 @@ export default function TableOfContents({ content }: { content: string }) {
               width={20}
               height={20}
               alt="arrow"
+          unoptimized
             />
           </button>
         </li>

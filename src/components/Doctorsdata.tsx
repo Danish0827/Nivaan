@@ -24,6 +24,7 @@ const Doctorsdata: React.FC<DoctorsDataProps> = ({ experts }) => {
                                     width={1000}
                                     height={1000}
                                     className="rounded-xl object-cover w-full transition-transform duration-500 "
+          unoptimized
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#003B73] via-[#003B73]/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                 <div className="absolute inset-0 flex items-end mb-10 justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">

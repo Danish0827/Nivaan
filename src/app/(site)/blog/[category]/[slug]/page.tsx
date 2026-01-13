@@ -40,6 +40,7 @@ export default async function BlogDetailPage({ params }: {
                 height={600}
                 className="w-full object-cover"
                 priority
+                unoptimized 
               />
             </div>
             <div className="mt-6 pb-6 lg:pb-4 lg:px-10 text-center lg:flex items-center justify-between gap-10 rounded-full bg-[#0F4C92] p-4">

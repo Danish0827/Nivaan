@@ -21,6 +21,7 @@ export default function BlogCard({ post }: any) {
           src={post.featured_image?.url}
           alt={post.featured_image?.alt || post.title}
           fill
+          unoptimized 
           className="object-cover rounded-3xl  shadow-sm hover:shadow-md transition group-hover:scale-110 duration-500"
         />
       </div>

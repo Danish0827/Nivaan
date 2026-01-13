@@ -25,6 +25,7 @@ export default function LocationCard({ post, url, cat }: any) {
                         alt={post.featured_image?.alt || post.title}
                         fill
                         className="object-cover rounded-3xl shadow-sm transition duration-500 group-hover:scale-110"
+                        unoptimized
                     />}
 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent" />

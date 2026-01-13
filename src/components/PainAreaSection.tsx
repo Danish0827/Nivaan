@@ -209,12 +209,13 @@ export default function PainAreaSection() {
                                 ${active === area.key ? "bg-[#06A1DC21]" : "hover:bg-[#06A1DC21]"}`}
                             >
                                 {area.label} <Image
-                                              className="group-hover:-rotate-45 w-8 h-8 duration-700 rounded-full p-2"
-                                              src="/images/leftarrow.svg"
-                                              width={20}
-                                              height={20}
-                                              alt="arrow"
-                                            />
+                                    className="group-hover:-rotate-45 w-8 h-8 duration-700 rounded-full p-2"
+                                    src="/images/leftarrow.svg"
+                                    width={20}
+                                    height={20}
+                                    alt="arrow"
+                                    unoptimized
+                                />
                             </button>
                         ))}
                     </div>
@@ -242,23 +243,23 @@ export default function PainAreaSection() {
                 {/* CONTENT PANEL */}
                 <div className="hidden lg:block bg-white rounded-[50px] p-10">
                     <h2 className="text-2xl xl:text-3xl font-bold text-[#0852A0] mb-4">
-                {CONTENT[activeKey].title}
-                </h2>
+                        {CONTENT[activeKey].title}
+                    </h2>
 
-                <p className="text-gray-700 text-base xl:text-lg font-light mb-4">
-                    {CONTENT[activeKey].desc}
-                </p>
+                    <p className="text-gray-700 text-base xl:text-lg font-light mb-4">
+                        {CONTENT[activeKey].desc}
+                    </p>
 
-                <ul className="list-disc marker:text-orange-500 lg:marker:text-base xl:marker:text-2xl pl-6 space-y-2 pb-2">
-                    {CONTENT[activeKey].items.map((item) => (
-                        <li
-                            key={item}
-                            className="text-black text-lg"
-                        >
-                            {item}
-                        </li>
-                    ))}
-                </ul>
+                    <ul className="list-disc marker:text-orange-500 lg:marker:text-base xl:marker:text-2xl pl-6 space-y-2 pb-2">
+                        {CONTENT[activeKey].items.map((item) => (
+                            <li
+                                key={item}
+                                className="text-black text-lg"
+                            >
+                                {item}
+                            </li>
+                        ))}
+                    </ul>
 
                     {/* <button className="bg-gradient-to-r from-orange-500 to-orange-600 text-white mt-4 px-7 py-3.5 cursor-pointer rounded-full shadow-md hover:scale-105 duration-500">
                         LEARN MORE

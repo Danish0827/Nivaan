@@ -41,6 +41,7 @@ export default function Approach({ data }: ApproachProps) {
                                     width={600}
                                     height={600}
                                     className="w-full h-auto object-cover"
+          unoptimized
                                 />
                             }
                         </div>

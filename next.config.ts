@@ -9,7 +9,11 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "**",
+        hostname: "backend.nivaancare.com",
+      },
+      {
+        protocol: "https",
+        hostname: "backend.nivaancare.com",
       },
     ],
   },

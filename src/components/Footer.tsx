@@ -14,6 +14,7 @@ export default function NivaanFooter() {
                 alt="water"
                 src="/images/watermark.webp"
                 className="absolute top-20 left-0 w-[850px] pointer-events-none"
+          unoptimized
             />
             </div>          
             <div className="max-w-[1700px] mx-auto px-6 xl:px-10 2xl:px-10">

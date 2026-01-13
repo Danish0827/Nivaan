@@ -76,6 +76,7 @@ export default function MobileMenuDrawer({
                         alt="Nivaan"
                         width={140}
                         height={40}
+          unoptimized
                     />
 
                     <button
@@ -217,6 +218,7 @@ function ConditionsList({
                                         width={50}
                                         height={50}
                                         className="bg-[#284599] w-10 h-10 p-2 rounded-xl"
+          unoptimized
                                     />
                                 )}
                                 {item.title}

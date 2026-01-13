@@ -70,6 +70,7 @@ export default function ReviewsStoriesSection({ reviews, stories }: Props) {
                 alt="Google Logo"
                 width={130}
                 height={100}
+          unoptimized
               />
               <h2 className="text-2xl md:text-3xl font-semibold text-[#0852A0]">
                 Reviews
@@ -84,6 +85,7 @@ export default function ReviewsStoriesSection({ reviews, stories }: Props) {
                 width={120}
                 height={30}
                 className="object-contain"
+          unoptimized
               />
               <span className="text-[#0852A0]">({reviews.reviews_numbers_counts})</span>
             </div>
@@ -169,9 +171,10 @@ function ReviewCard({ item, star }: { item: Review; star: string }) {
           width={35}
           height={35}
           className="ml-auto"
+          unoptimized
         />
       </div>
-      <Image src={star} alt="Stars" width={100} height={20} className="mb-3" />
+      <Image src={star} alt="Stars" width={100} height={20} className="mb-3" unoptimized/>
       <p className="text-gray-700 text-sm xl:text-base leading-relaxed">{item.comments}</p>
     </div>
   );
@@ -221,6 +224,7 @@ function StoryCard({ item }: { item: Story }) {
             width={600}
             height={350}
             className="w-full h-[270px] object-cover"
+          unoptimized
           />
         ) : (
           <video

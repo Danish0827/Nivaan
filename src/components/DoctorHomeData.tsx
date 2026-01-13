@@ -54,6 +54,7 @@ const DoctorHomeData: React.FC<DoctorsDataProps> = ({ experts }) => {
                                         width={600}
                                         height={500}
                                         className="rounded-xl object-cover w-full"
+                                        unoptimized
                                     />
                                 </div>
                                 <div className="px-6 pb-8">
@@ -93,6 +94,7 @@ const DoctorHomeData: React.FC<DoctorsDataProps> = ({ experts }) => {
                                 width={600}
                                 height={500}
                                 className="rounded-xl object-cover w-full"
+                                unoptimized
                             />
                         </div>
                         <div className="px-6">

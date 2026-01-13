@@ -124,6 +124,7 @@ export default function JourneySection({ journey }: { journey: JourneyData }) {
                                     width={20}
                                     height={20}
                                     alt="arrow"
+                                    unoptimized
                                 />
                             </button>
                         </Link>
@@ -185,6 +186,7 @@ function JourneyCard({
                         width={65}
                         height={65}
                         className="w-16 h-16 -mt-3 flex justify-center items-center"
+                        unoptimized
                     />
                 </div>
                 <Image
@@ -194,6 +196,7 @@ function JourneyCard({
                     height={3000}
                     className="w-full h-48 lg:h-full shadow-2xl object-cover fade-in-up rounded-[40px]"
                     style={{ animationDelay: `${index * 0.2}s` }}
+                    unoptimized
                 />
             </div>
 

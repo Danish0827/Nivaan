@@ -33,6 +33,7 @@ export default function ExpertsSection({
                                     width={20}
                                     height={20}
                                     alt="arrow"
+          unoptimized
                                 />
                             </button>
                         </Link>
