@@ -57,7 +57,7 @@ const TreatmentStatsBar: React.FC<StatsBarProps> = ({ stats }) => {
               {animate ? <Counter end={value} suffix={suffix} /> : "0"}
             </h2>
       }
-            <p className="text-base lg:text-sm xl:text-base 2xl:text-xl uppercase font-semibold text-[#06A1DC] tracking-wide">
+            <p className="text-base lg:text-sm xl:text-base 2xl:text-xl uppercase font-semibold text-white tracking-wide">
               {label}
             </p>
             </div>

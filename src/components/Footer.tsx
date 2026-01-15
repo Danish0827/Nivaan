@@ -31,9 +31,9 @@ export default function NivaanFooter({ menu }: HeaderProps) {
                     <ZohoSubscribeForm />
                 </div>
                 <hr className="border-blue-200 my-10" />
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-[15%_10%_15%_10%_10%_10%] xl:grid-cols-[18%_15%_15%_15%_12%_15%] gap-5">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-[16%_15%_21%_15%_9%_15%] xl:grid-cols-[20%_15%_15%_17%_12%_15%] gap-5">
                     <div className="col-span-2 md:col-span-1 m-auto pb-10 lg:pb-0 lg:m-0">
-                        <Link href="/"><Image src="/images/logo.svg" alt="Nivaan Logo" width={260} height={80} /></Link>
+                        <Link href="/"><Image src="/images/logo.svg" alt="Nivaan Logo" width={250} height={80} /></Link>
                         <hr className="border-blue-200 my-7" />
                         <div className="hidden lg:block">
                             {/* <h4 className="font-bold text-[#06A1DC] pt-2 my-3">CONTACT</h4> */}
@@ -102,10 +102,10 @@ export default function NivaanFooter({ menu }: HeaderProps) {
                     </div>
                 </div>
                 <div className="flex justify-between items-center text-sm text-gray-600 mt-12 border-t pt-4">
-                    <p>© 2026 Nivaan. All Rights Reserved.</p>
-                    <p>
-                        Crafted by <span className="text-[#06A1DC] font-semibold"><Link target="_blank" href="https://healthus.ai/">Healthus.ai</Link></span>
-                    </p>
+                    <span>© 2026 Nivaan. All Rights Reserved.</span>
+                    <span>
+                        Crafted by <span className="text-[#06A1DC] hover:text-[#06A1DC]/80 font-medium"><Link target="_blank" href="https://healthus.ai/">Healthus.ai</Link></span>
+                    </span>
                 </div>
             </div>
         </footer>

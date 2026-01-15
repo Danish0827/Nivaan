@@ -39,7 +39,6 @@ export function ConditionHeroSection({
             if (domNode.name === "space") return " ";
         },
     });
-    console.log(breadcrumbTitle, "breadcrumbTitle");
 
     return (
         <section style={{ boxShadow: 'rgba(0, 0, 0, 0.05) 0px 10px 60px 0px' }} className="relative home-main-section w-full bg-gradient-to-b from-[#edf8fc] to-[#edf8fc]">

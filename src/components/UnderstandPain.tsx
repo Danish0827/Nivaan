@@ -23,7 +23,6 @@ export default function UnderstandPain({
 }: UnderstandPainProps) {
 
   const [isOpen, setIsOpen] = useState(false);
-  console.log(videoUrl);
 
   return (
     <section className={`px-4 lg:px-10 xl:px-14 2xl:px-20 mt-28 -mb-20 ${title == "We Rethink Pain. So You Can Rethink Life." ? "py-16" : "bg-[#EEF8FD]"}`}>

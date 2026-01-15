@@ -31,7 +31,7 @@ export default async function AboutPage() {
             <BuiltByPeopleSection {...aboutPageData.builtByPeople} />
             <ExpertsSection
                 title="Care Led by Experts Who Work as One"
-                description="At Nivaan, recovery does not depend on a single opinion..."
+                description="At Nivaan, recovery does not depend on a single opinion. It depends on collaboration. Our specialists work closely together, sharing insights, reviewing progress, and adjusting care plans as needed. This team-based approach ensures that nothing important is missed and every decision supports meaningful, sustained improvement."
                 doctordata={doctors?.data}
                 button={{ url: "/doctors", title: "Meet Our Team of Pain Specialists" }}
             />

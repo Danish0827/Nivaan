@@ -52,7 +52,7 @@ export default function TargetAudience({ data }: Props) {
           <div>
 
             {data?.target_description_with_image && (
-              <div className="text-gray-700 text-lg lg:text-sm xl:text-base 2xl:text-lg leading-relaxed font-mono space-y-4">
+              <div className="overview-list text-gray-700 text-lg lg:text-sm xl:text-base 2xl:text-lg leading-relaxed font-mono space-y-4">
                 {parse(data?.target_description_with_image)}
               </div>
             )}

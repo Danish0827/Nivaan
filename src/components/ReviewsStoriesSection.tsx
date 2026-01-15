@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 interface Review {
@@ -70,7 +70,7 @@ export default function ReviewsStoriesSection({ reviews, stories }: Props) {
                 alt="Google Logo"
                 width={130}
                 height={100}
-          unoptimized
+                unoptimized
               />
               <h2 className="text-2xl md:text-3xl font-semibold text-[#0852A0]">
                 Reviews
@@ -85,7 +85,7 @@ export default function ReviewsStoriesSection({ reviews, stories }: Props) {
                 width={120}
                 height={30}
                 className="object-contain"
-          unoptimized
+                unoptimized
               />
               <span className="text-[#0852A0]">({reviews.reviews_numbers_counts})</span>
             </div>
@@ -155,14 +155,37 @@ function ReviewSlider({ lists, star }: { lists: Review[]; star: string }) {
 
 
 function ReviewCard({ item, star }: { item: Review; star: string }) {
+  const [expanded, setExpanded] = useState(false);
+  const [showToggle, setShowToggle] = useState(false);
+  const textRef = useRef<HTMLParagraphElement>(null);
+
+  useLayoutEffect(() => {
+    const el = textRef.current;
+    if (!el) return;
+
+    el.classList.remove("line-clamp-3");
+    const fullHeight = el.scrollHeight;
+    const lineHeight = parseFloat(getComputedStyle(el).lineHeight);
+    const threeLineHeight = lineHeight * 3;
+
+    el.classList.add("line-clamp-3");
+
+    if (fullHeight > threeLineHeight + 1) {
+      setShowToggle(true);
+    }
+  }, []);
+
   return (
     <div className="bg-white rounded-[50px] p-5 xl:p-6 2xl:p-8 shadow-[0_3px_20px_rgba(0,0,0,0.1)]">
       <div className="flex items-center gap-3 mb-3">
         <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold">
           {item.name[0]}
         </div>
+
         <div className="flex-1">
-          <h4 className="font-semibold text-gray-900 xl:text-lg line-clamp-1">{item.name}</h4>
+          <h4 className="font-semibold text-gray-900 xl:text-lg line-clamp-1">
+            {item.name}
+          </h4>
           <p className="text-gray-500 text-sm xl:text-base">{item.time}</p>
         </div>
         <Image
@@ -174,8 +197,22 @@ function ReviewCard({ item, star }: { item: Review; star: string }) {
           unoptimized
         />
       </div>
-      <Image src={star} alt="Stars" width={100} height={20} className="mb-3" unoptimized/>
-      <p className="text-gray-700 text-sm xl:text-base leading-relaxed">{item.comments}</p>
+      <Image src={star} alt="Stars" width={100} height={20} className="mb-3" />
+      <p
+        ref={textRef}
+        className={`text-gray-700 text-sm xl:text-base leading-relaxed ${!expanded ? "line-clamp-3" : ""
+          }`}
+      >
+        {item.comments}
+      </p>
+      {showToggle && (
+        <button
+          onClick={() => setExpanded(!expanded)}
+          className="mt-2 text-sm font-semibold text-blue-600 hover:underline cursor-pointer"
+        >
+          {expanded ? "Read less" : "Read more"}
+        </button>
+      )}
     </div>
   );
 }
@@ -225,7 +262,7 @@ function StoryCard({ item }: { item: Story }) {
             width={600}
             height={350}
             className="w-full h-[270px] object-cover"
-          unoptimized
+            unoptimized
           />
         ) : (
           <video

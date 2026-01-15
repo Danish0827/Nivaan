@@ -564,3 +564,12 @@ p {
     padding: 50px 30px 0 30px;
     background: linear-gradient(177.01deg, rgba(84, 177, 226, 0.2) 2.49%, rgba(81, 180, 239, 0) 47.6%);
 }
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE & Edge */
+  scrollbar-width: none; /* Firefox */
+}

@@ -20,7 +20,7 @@ interface SectionItem {
   id: string;
   label: string;
 }
-export default function LocationTargetingSection({ data }: { data: any }) {
+export default function LocationTargetingSection({ data ,breadcrumbTitle }: { data: any ,breadcrumbTitle:any}) {
   const [activeSection, setActiveSection] = useState<string>("problem");
   const sections: SectionItem[] = [
     { id: "clinic", label: data?.clinic_subtitle },
@@ -161,25 +161,31 @@ export default function LocationTargetingSection({ data }: { data: any }) {
           }
         </main>
         {/* Sidebar */}
-        <aside className="w-full md:w-72 xl:w-80 2xl:w-96 md:sticky top-28 h-fit font-sans">
+        <aside
+          className="w-full md:w-72 xl:w-80 2xl:w-96 md:sticky top-28 max-h-[calc(100vh-7rem)] h-fit font-sans overflow-y-auto hide-scrollbar">
           <div className="bg-[#EEF8FD] rounded-3xl p-6">
-            <h2 className="font-bold text-2xl mb-6 text-[#0852A0] text-center ">
-              {data?.treatment_types?.title} Treatments
+            <h2 className="font-bold text-2xl mb-6 text-[#0852A0] text-center">
+              {breadcrumbTitle?.name}
             </h2>
+
             <ul className="space-y-1">
               {sections.map((s) => (
                 <li key={s.id}>
                   <Link
                     href={`#${s.id}`}
                     className={`flex items-center justify-between px-4 py-3 rounded-full transition group
-                                        ${activeSection === s.id
+                                            ${activeSection === s.id
                         ? "bg-[#DDF1FB] font-semibold text-black"
                         : "text-gray-600 hover:bg-[#DDF1FB]"
                       }`}
                   >
                     {s.label}
                     <Image
-                      className={`group-hover:opacity-100 w-8 h-8 duration-500 rounded-full p-2 ${activeSection === s.id ? "opacity-100" : "opacity-0"}`}
+                      className={`w-8 h-8 rounded-full p-2 duration-300
+                                                ${activeSection === s.id
+                          ? "opacity-100"
+                          : "opacity-0 group-hover:opacity-100"
+                        }`}
                       src="/images/leftarrow.svg"
                       width={20}
                       height={20}
@@ -191,7 +197,9 @@ export default function LocationTargetingSection({ data }: { data: any }) {
               ))}
             </ul>
           </div>
-          <CallbackForm />
+          <div className="pb-6">
+            <CallbackForm />
+          </div>
         </aside>
       </div>
     </div>

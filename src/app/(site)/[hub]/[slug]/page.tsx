@@ -41,7 +41,7 @@ const DynamicLocationPage = async ({ params }: any) => {
             image={data?.featured_image}
           />
           <LocationStatsBar stats={acf?.banner_numbers} />
-          <LocationTargetingSection data={acf} />
+          <LocationTargetingSection data={acf} breadcrumbTitle={data?.locations?.[0] || ""} />
         </>
       )}
 
@@ -57,7 +57,7 @@ const DynamicLocationPage = async ({ params }: any) => {
             image={data?.featured_image}
           />
           <LocationStatsBar stats={acf?.banner_numbers} />
-          <LocationOptimizationSection data={acf} />
+          <LocationOptimizationSection data={acf} breadcrumbTitle={data?.locations?.[0] || ""} />
         </>
       )}
     </>
