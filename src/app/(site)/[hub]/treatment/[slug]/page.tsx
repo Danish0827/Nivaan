@@ -6,8 +6,9 @@ import { notFound } from 'next/navigation';
 import React from 'react'
 
 const treatmentpage = async ({params}:any) => {
-    const slug = params.slug
-    const hub = params.hub
+    const resolvedParams = await params
+    const slug = resolvedParams.slug
+    const hub = resolvedParams.hub
     const data = await getSingleTreatment(slug)
     const apiHubSlug = data?.acf?.treatment_types?.slug;    
     if (!apiHubSlug || apiHubSlug !== hub) {

@@ -4,10 +4,10 @@ import { LocationHeroSection } from '@/components/LocationHeroSection';
 import LocationStatsBar from '@/components/LocationStatsBar';
 import { getLocalOptimization, getLocalTargeting } from '@/lib/api';
 import { notFound } from 'next/navigation';
-import React from 'react';
 
 const DynamicLocationPage = async ({ params }: any) => {
-  const slug = params.slug;
+  const resolvedParams = await params
+  const slug = resolvedParams.slug;
   let data: any = null;
   let type: 'targeting' | 'optimization' | null = null;
 

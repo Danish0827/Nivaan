@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { Rubik, Montserrat } from "next/font/google";
+import { GoogleTagManager } from "@next/third-parties/google";
+import { VWOScript } from 'vwo-smartcode-nextjs';
+import Template from "./template";
 import "./globals.css";
 
 const rubik = Rubik({
@@ -24,10 +27,18 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <VWOScript accountId="1147532" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+        />
+        <GoogleTagManager gtmId="GTM-MZ7ZLG9" />
+      </head>
       <body
         className={`${rubik.variable} ${montserrat.variable} font-sans antialiased`}
       >
-        {children}
+        <Template>{children}</Template>
       </body>
     </html>
   );

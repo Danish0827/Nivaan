@@ -1,10 +1,10 @@
 import LocationGrid from '@/components/locationGrid';
 import { PageBreadcrumb } from '@/components/PageBreadcrumb';
 import { getTreatment } from '@/lib/api';
-import React from 'react'
 
 const page = async ({ params }: any) => {
-  const { hub } = params;
+  const resolvedParams = await params
+  const hub = resolvedParams.hub
   const data = await getTreatment(hub);
   return (
     <>

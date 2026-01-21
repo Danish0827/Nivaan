@@ -39,10 +39,13 @@ export default function NivaanFooter({ menu }: HeaderProps) {
                             {/* <h4 className="font-bold text-[#06A1DC] pt-2 my-3">CONTACT</h4> */}
                             <ul className="space-y-2 text-gray-700 mb-3">
                                 <li>
-                                    <Link href="mailto:care@nivaancare.com">care@nivaancare.com</Link>
+                                    <Link className="hover:text-blue-700" href="mailto:care@nivaancare.com">care@nivaancare.com</Link>
                                 </li>
                                 <li>
-                                    <Link href="tel:+919070057005">+91 90-7005-7005</Link>
+                                    <Link className="hover:text-blue-700" href="tel:+919070057005">+91 90700 57005</Link>
+                                </li>
+                                 <li>
+                                    <Link className="hover:text-blue-700" href="tel:+919020295000">+91 90202 95000</Link>
                                 </li>
                             </ul>
 
@@ -86,8 +89,15 @@ export default function NivaanFooter({ menu }: HeaderProps) {
                     <div className="col-span-1 lg:hidden">
                         <h4 className="font-bold text-[#06A1DC] mb-3">CONTACT</h4>
                         <ul className="space-y-2 text-gray-700">
-                            <li><Link href="mailto:care@nivaancare.com">care@nivaancare.com</Link></li>
-                            <li><Link href="tel:+919070057005">+91 90-7005-7005</Link></li>
+                            <li>
+                                    <Link className="hover:text-blue-700" href="mailto:care@nivaancare.com">care@nivaancare.com</Link>
+                                </li>
+                                <li>
+                                    <Link className="hover:text-blue-700" href="tel:+919070057005">+91 90700 57005</Link>
+                                </li>
+                                 <li>
+                                    <Link className="hover:text-blue-700" href="tel:+919020295000">+91 90202 95000</Link>
+                                </li>
                         </ul>
                     </div>
 

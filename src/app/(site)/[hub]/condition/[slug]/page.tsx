@@ -6,8 +6,9 @@ import { notFound } from 'next/navigation';
 import React from 'react'
 
 const conditionpage = async ({ params }: any) => {
-    const slug = params.slug
-    const hub = params.hub
+    const resolvedParams = await params
+    const slug = resolvedParams.slug
+    const hub = resolvedParams.hub
     const data = await getSingleCondition(slug)
     const apiHubSlug = data?.acf?.condition_type?.[0]?.slug;
     if (!apiHubSlug || apiHubSlug !== hub) {

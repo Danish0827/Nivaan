@@ -8,7 +8,8 @@ import { notFound } from 'next/navigation';
 import React from 'react';
 
 const DynamicPage = async ({ params }: any) => {
-  const slug = params.hub;
+  const resolvedParams = await params;
+  const slug = resolvedParams.hub;
   let data: any = null;
   let type: 'hub' | 'location' | null = null;
 

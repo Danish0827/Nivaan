@@ -1,0 +1,93 @@
+import Faq from "@/sections/Faq/Faq";
+import FormAd from "@/sections/FormAd/FormAd";
+import HeroSection from "@/sections/Sciatica/HeroSection";
+import FloatingButton from "@/components/FloatingButton";
+import Navbar from "@/sections/Nav/Navbar";
+import TreatmentAtNivaan from "@/sections/TreatmentAtNivaan/TreatmentAtNivaan";
+import WhatPatientSayAboutUs from "@/sections/WhatPatientSayAboutUs/WhatPatientSayAboutUs";
+import React from "react";
+//import { usePathname } from "next/navigation";
+import FeatureListCardSection from "./FeatureListCardSection";
+import WhatIsSection from "@/sections/WhatIsSection/WhatIsSection";
+import sciaticaPainImage from "../../public/Siatica.webp";
+import sciaticaPainImageMob from "../../public/Siatica.webp";
+import WhyChooseNivaan from "@/sections/WhyChooseNivaan/WhyChooseNivaan";
+import Footer2 from "@/sections/Footer/Footer2";
+import { doctorVideoData } from "@/app/api/v1DrVideoMenData";
+import { doctorVideoDataMob,OurCareExpertsNcr } from "@/app/api/v1DrVideoWomenData";
+import { SciaticaPainFaqData, SciaticaPainHeading, SciaticaPainNewFeatureListCardData1, SciaticaPainNewFeatureListCardData2, SciaticaPainPatientReviewData, SciaticaPainTreatmentAtNivaan, WhatIsSciaticaPainCarouselCardData } from "@/app/api/sciaticaPainNewData";
+import OurCareExpertsNcrs from "@/sections/OurCareExperts/OurCareExpertsNcr";
+
+const SciaticaPainNew = () => {
+  // const pathName = usePathname();
+  // const [showFloatingButton, setShowFloatingButton] = useState(false);
+  // const expertsRef = useRef<HTMLDivElement>(null);
+  // const isSciaticaPainNew = pathName === "/next/nerve-block-new";
+
+  // const handleScroll = () => {
+  //   if (expertsRef.current) {
+  //     const { top } = expertsRef.current.getBoundingClientRect();
+  //     if (top <= window.innerHeight) {
+  //       setShowFloatingButton(true);
+  //     } else {
+  //       setShowFloatingButton(false);
+  //     }
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
+
+  const whatIsSectionProps = {
+    heading: "What is Sciatica Pain ?",
+    ImgSrc: sciaticaPainImage,
+    ImgSrcMob: sciaticaPainImageMob,
+    ImgTxt:
+      "Sciatica pain is the pain that happens when the Sciatica nerve gets damaged.",
+    cardData: WhatIsSciaticaPainCarouselCardData,
+        hideImageOverlayText: true,
+
+  };
+  return (
+    <>
+      <Navbar isForm2={true} formLocation="Sciatica-Navbar-Form" />
+      <HeroSection />
+      {/* <HeroSection 
+        pathName="/next/sciatica-pain-new"
+        heading="Best Sciatica Pain treatment in Delhi NCR"
+        imgSrc={SciaticaPainNewImg.src}
+        imgSrcMob={SciaticaPainNewImgMob.src}
+      /> */}
+      {/* <div ref={expertsRef}> */}
+
+        <FeatureListCardSection
+          title1="Why opt for Nivaan’s Sciatica pain treatment?"
+          title2="When does one get Sciatica pain treatment?"
+          data1={SciaticaPainNewFeatureListCardData1}
+          data2={SciaticaPainNewFeatureListCardData2}
+      />
+      {/* </div> */}
+      <WhyChooseNivaan isForm2={true} formLocation="Sciatica-Why-Choose-Nivaan-Form" />
+      <TreatmentAtNivaan
+        TreatmentCardData={SciaticaPainTreatmentAtNivaan}
+        TreatmentHeading={SciaticaPainHeading}
+      />
+      <FormAd isForm2={true} formLocation="Sciatica-FormAd-Form" />
+    <OurCareExpertsNcrs
+     Heading={'Our Care Experts'} DoctorData={OurCareExpertsNcr} />
+
+      <WhatIsSection {...whatIsSectionProps} />
+      <WhatPatientSayAboutUs patientReviewData={SciaticaPainPatientReviewData} />
+      <Faq askedCardData={SciaticaPainFaqData} />
+      <FloatingButton />
+      <Footer2 phoneNumber="+91-73 5871 2483" />
+      {/* {showFloatingButton && <FloatingButton />} */}
+    </>
+  );
+};
+
+export default SciaticaPainNew;

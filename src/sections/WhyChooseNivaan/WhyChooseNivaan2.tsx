@@ -1,0 +1,192 @@
+"use client";
+import { montserratLightBold } from "@/app/fonts";
+import ComparisonTable from "@/components/ComparisonTable";
+import CustomButton from "@/components/CustomButton";
+import React, { useState } from "react";
+import Form from "@/components/Form";
+import { X } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { sendGTMEvent } from "@next/third-parties/google";
+import Form2 from "@/components/Form2";
+import { ComparisonTableDataType } from "@/app/api/allTypes";
+
+interface WhyChooseNivaanProps {
+  data?: ComparisonTableDataType[];
+  isForm2?: boolean;
+  formLocation?: string;
+  location?: string;
+}
+
+const WhyChooseNivaan2: React.FC<WhyChooseNivaanProps> = ({ data, isForm2, formLocation, location="" }) => {
+  const pathName = usePathname();
+  const isSciaticaPain = pathName == "/next/sciatica-pain-new";
+  const isEndoscopicDiscectomy = pathName === "/next/endoscopic-discectomy";
+  const isChronicPainVertobroplasty = pathName === "/next/chronic-pain-vertobroplasty";
+  const isNeckPain = pathName === "/next/neck-pain";
+  const isNerveBlockNew = pathName == "/next/nerve-block-new";
+  const isHipPain = pathName === "/next/hip-pain"
+  const isKyphoplastyNew = pathName === "/next/Kyphoplasty-new"
+  const isOsteoarthritisTreatment = pathName.includes(
+    "/next/osteoarthritis-treatment"
+  );
+  const isKPMumbai=pathName==="/next/mumbai/knee-pain-treatment"
+  
+  const origin =
+    typeof window !== "undefined" && window.location.origin
+      ? window.location.origin
+      : "";
+  const landingPageUrl = `${origin}${pathName}`;
+  const [modal, setModal] = useState(false);
+  const handleClick = () => {
+    sendGTMEvent({
+      event: "Form Open",
+      value: {
+        "Form Name": "Why-Nivaan-Form",
+        "CTA Button text": "Book Consultation",
+        "Landing Page URL": landingPageUrl,
+      },
+    });
+    setModal(!modal);
+  };
+  const handleCloseModal = () => {
+    setModal(!modal);
+    sendGTMEvent({
+      event: "Form Close",
+      value: {
+        "Form Name": "Why-Nivaan-Form",
+        "CTA Button text": null,
+        "Landing Page URL": landingPageUrl,
+      },
+    });
+  };
+
+  const form2LocationMapping: {
+    [key: string]: string;
+  } = {
+    "/v1/herniated-new": "Herniated-Why-Choose-Nivaan",
+    isOsteoarthritisTreatment: "Osteoarthritis-Why-Choose-Nivaan",
+    isRadioFrequencyTreatment: "Radio-Frequency-Why-Choose-Nivaan",
+  };
+  
+  const getForm2Location = () => {
+    if (pathName in form2LocationMapping) {
+      return form2LocationMapping[pathName];
+    }
+    return "Why-Nivaan-Form";
+  };
+
+  const formLocationMapping: {
+    [key: string]: string;
+  } = {
+    "/v1/herniated-new": "Herniated-Why-Choose-Nivaan",
+    "/next/chronic-pain-arthroplasty": "Arthroplasty-Why-Choose-Nivaan",
+    "/next/migraine": "Migraine-Why-Choose-Nivaan",
+    "/next/shoulder-pain": "Shoulder-Pain-Why-Choose-Nivaan",
+    "/next/hip-pain": "Next-Hip-Pain-Why-Choose_Nivaan",
+    "/next/Kyphoplasty-new": "Next-Kyphoplasty-Why-Choose_Nivaan"
+  };
+  
+  const getFormLocation = () => {
+    if (pathName in formLocationMapping) {
+      return formLocationMapping[pathName];
+    }
+    return "Why-Nivaan-Form";
+  };
+
+  const renderForm = () => {
+    if(isOsteoarthritisTreatment || isForm2) {
+      return (
+        <Form2
+          formLocation={formLocation || getForm2Location()}
+          formName="Why-Nivaan-Form"
+          location={location}
+        />
+      )
+    }
+    return (
+      <Form
+        formLocation={formLocation || getFormLocation()}
+        formName="Why-Nivaan-Form"
+        location={location}
+      />
+    )
+  }
+  return (
+    <div className="mx-0 md:mx-64">
+      <h2
+        className={`${montserratLightBold.className} w-3/4 mx-auto md:w-full text-lg md:text-[2.625rem] text-[#2F438F] mt-6 md:my-12 mb-2 text-center`}
+      >
+        Why Choose Nivaan Healthcare?
+      </h2>
+      <ComparisonTable data={data} />
+      <div className="mt-6 md:mt-8 mb-8 flex justify-center">
+        <CustomButton
+          className={`mx-auto bg-[#DB5115]`}
+          title="Book Consultation"
+          onBtnClick={handleClick}
+        />
+      </div>
+      {modal && (
+        <div
+          //className="fixed top-0 h-full w-full flex justify-center items-center z-[99]"
+          className="fixed inset-0 flex justify-center items-center z-[99]"
+          style={{ backgroundColor: "rgba(0, 0, 0, 0.3)" }}
+        >
+          <div className="relative">
+            {isForm2 || isOsteoarthritisTreatment || isSciaticaPain || isNerveBlockNew? (
+              <Form2
+                formLocation={
+                  pathName === "/v1/herniated-new"
+                    ? "Herniated-Why-Choose-Nivaan"
+                    : isOsteoarthritisTreatment
+                    ? "Osteoarthritis-Why-Choose-Nivaan"
+                    : isSciaticaPain
+                    ? "Sciatica-Why-Choose-Nivaan"
+                    : isNerveBlockNew
+                    ? "NerveBlock-Why-Choose-Nivaan"
+                    : isEndoscopicDiscectomy
+                    ? "EndoscopicDiscectomy-Why-Choose-Nivaan"
+                    : isChronicPainVertobroplasty
+                    ? "ChronicPain-Why-Choose-Nivaan"
+                    : isNeckPain
+                    ? "NeckPain-Why-Choose-Nivaan"
+                    : isForm2
+                    ? formLocation
+                    : "Why-Nivaan-Form"
+                }
+                formName="Why-Nivaan-Form"
+                location={location}
+              />
+            ) : (
+              <Form
+              formLocation={
+                pathName === "/v1/herniated-new"
+                  ? "Herniated-Why-Choose_Nivaan"
+                  : pathName === "/next/chronic-pain-arthroplasty"
+                  ? "Arthroplasty-Why-Choose-Nivaan"
+                  : pathName === "/next/migraine"
+                  ? "Migraine-Why-Choose-Nivaan"
+                  : pathName === "/next/shoulder-pain"
+                  ? "Shoulder-Pain-Why-Choose-Nivaan"
+                  : isHipPain
+                  ? "Next-Hip-Pain-Why-Choose_Nivaan"
+                  : isKyphoplastyNew
+                  ? "Next-Kyphoplasty-Why-Choose_Nivaan"
+                  : formLocation
+              }
+              formName="Why-Nivaan-Form"
+              location={location}
+            />
+            )}
+            <X
+              className="absolute top-3 z-[999] right-5 hover:cursor-pointer"
+              onClick={handleCloseModal}
+            />
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default WhyChooseNivaan2;

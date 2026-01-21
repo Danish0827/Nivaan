@@ -1,41 +1,169 @@
 "use client";
-import { MessageCircle } from "lucide-react";
-import Link from "next/link";
-import React from "react";
-import { CgMail } from "react-icons/cg";
-import { FaWhatsapp } from "react-icons/fa";
-import { MdCall } from "react-icons/md";
+import React, { useState, useEffect } from "react";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
+import Form from "@/components/Form";
+import Form2 from "./Form2";
+import { X, CalendarDays, Phone } from "lucide-react";
+import { sendGTMEvent } from "@next/third-parties/google";
+import { usePathname } from "next/navigation";
 
-const FloatingButton = () => {
+interface FormAdProps {
+  isForm2?: boolean;
+  formLocation?: string;
+  scrollOffset?: number;
+}
+
+const FloatingButton: React.FC<FormAdProps> = ({ isForm2, formLocation, scrollOffset = 1200 }) => {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [showButton, setShowButton] = useState(false); // 👈 controls visibility
+  const pathName = usePathname();
+
+  const origin =
+    typeof window !== "undefined" && window.location.origin
+      ? window.location.origin
+      : "";
+  const landingPageUrl = `${origin}${pathName}`;
+
+  const isDrVideo =
+    pathName === "/v1/dr-video-women-new" ||
+    pathName === "/v1/dr-video-men-new" ||
+    pathName === "/next/osteoarthritis-treatment" ||
+    pathName === "/next/radio-frequency-ablation-new";
+  const isNextPath =
+    pathName.includes("/next/") && pathName !== "/next/pain-medication";
+  const isNerveBlock = pathName === "/next/nerve-block-new";
+  const isSciaticaPain = pathName === "/next/sciatica-pain-new";
+
+  const formLocationMapping: { [key: string]: string } = {
+    isSciaticaPain: "Sciatica-Floating-Button-Form",
+    isNerveBlock: "NerveBlock-Floating-Button-Form",
+    isDrVideo: "DrVideo-Floating-Button-Form",
+  };
+
+  const getFormLocation = (): string => {
+    switch (true) {
+      case isSciaticaPain:
+        return formLocationMapping["isSciaticaPain"];
+      case isNerveBlock:
+        return formLocationMapping["isNerveBlock"];
+      case isDrVideo:
+        return formLocationMapping["isDrVideo"];
+      default:
+        return "Floating-Button-Form";
+    }
+  };
+
+  const renderForm = () => {
+    if (isDrVideo || isNerveBlock || isSciaticaPain || isForm2) {
+      return (
+        <Form2
+          formLocation={getFormLocation()}
+          formName="Floating-Button-Form"
+        />
+      );
+    }
+    return (
+      <Form
+        formLocation={formLocation || "Floating-Button-Form"}
+        formName="Floating-Button-Form"
+      />
+    );
+  };
+
+  // 👇 Scroll handler
+  useEffect(() => {
+    const handleScroll = () => {
+      console.log(window.scrollY,isDrawerOpen)
+      if(isDrawerOpen){
+        setShowButton(true);
+      }
+      else if (window.scrollY > scrollOffset) {
+        setShowButton(true);
+      } else {
+        setShowButton(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [scrollOffset,isDrawerOpen]);
+
   return (
-    <div className="group z-9999999 drop-shadow-xl fixed bottom-3 right-3 p-2  flex items-end justify-end w-24 h-24 ">
-      <div className="text-white shadow-xl flex items-center cursor-pointer bg-blue-600 hover:bg-blue-700 justify-center p-3 xl:p-4 rounded-full bg-gradient-to-r from-primary to-secondary z-9999999 absolute  ">
-        <MessageCircle color="white" size={25} />
-      </div>
-      <Link
-        target="_blank"
-        href={
-          "https://wa.me/+919070057005?text=Hello"
-        }
-        className="absolute rounded-full transition-all cursor-pointer bg-green-600 hover:bg-green-700 duration-[0.2s] ease-out scale-y-0 group-hover:scale-y-100 group-hover:-translate-x-16 flex p-2.5 hover:p-3 bg-dark scale-100 hover:bg-primary text-white"
-      >
-        <FaWhatsapp className="text-2xl" />
-      </Link>
-      <Link
-        target="_blank"
-        href={"tel:+919070057005"}
-        className="absolute rounded-full transition-all cursor-pointer bg-indigo-600 hover:bg-indigo-700 duration-[0.2s] ease-out scale-x-0 group-hover:scale-x-100 group-hover:-translate-y-16  flex  p-2.5 hover:p-3 bg-dark hover:bg-primary  text-white"
-      >
-        <MdCall className="text-2xl" />
-      </Link>
-      <Link
-        target="_blank"
-        href={"mailto:care@nivaancare.com"}
-        className="absolute rounded-full transition-all cursor-pointer bg-orange-600 hover:bg-orange-700 duration-[0.2s] ease-out scale-x-0 group-hover:scale-x-100 group-hover:-translate-y-14 group-hover:-translate-x-14 flex  p-2.5 hover:p-3 bg-dark hover:bg-primary text-white"
-      >
-        <CgMail className="text-2xl" />
-      </Link>
-    </div>
+    <>
+      
+        <div className="flex md:hidden justify-center relative z-[9999]">
+          <Drawer open={isDrawerOpen} onOpenChange={setIsDrawerOpen}>
+            {/* Floating bottom bar */}
+            {showButton && (
+            <div
+              className="fixed bottom-0 w-full bg-[#2f438f] flex justify-between items-center px-3 py-3 rounded-t-[20px] gap-3 transition-all duration-300"
+              style={{ zIndex: 9999 }}
+            >
+              {/* Book Now Button (opens Drawer) */}
+              <DrawerTrigger asChild>
+                <button
+                  onClick={() =>
+                    sendGTMEvent({
+                      event: "Form Open",
+                      value: {
+                        "Form Name": "Floating-Button-Form",
+                        "CTA Button text": "Book Now",
+                        "Landing Page URL": landingPageUrl,
+                      },
+                    })
+                  }
+                  className="flex items-center justify-center gap-2 bg-white text-[#2f438f] font-bold text-base rounded-xl py-3 w-1/2"
+                >
+                  <CalendarDays className="w-5 h-5" />
+                  Book Now
+                </button>
+              </DrawerTrigger>
+
+              {/* Call Now Button (just calls, does NOT open Drawer) */}
+              <a
+                href="tel:+916366525217"
+                onClick={() =>
+                  sendGTMEvent({
+                    event: "Call Now Click",
+                    value: {
+                      "CTA Button text": "Call Now",
+                      "Landing Page URL": landingPageUrl,
+                    },
+                  })
+                }
+                className="flex items-center justify-center gap-2 bg-white text-[#2f438f] font-bold text-base rounded-xl py-3 w-1/2"
+              >
+                <Phone className="w-5 h-5" />
+                Call Now
+              </a>
+            </div>
+            )}
+            {/* Drawer Content (for form) */}
+            <DrawerContent className="rounded-3xl z-50">
+              <DrawerClose className="flex justify-end items-center px-4 mb-2">
+                <X
+                  onClick={() =>
+                    sendGTMEvent({
+                      event: "Form Close",
+                      value: {
+                        "Form Name": "Floating-Button-Form",
+                        "Landing Page URL": landingPageUrl,
+                      },
+                    })
+                  }
+                />
+              </DrawerClose>
+              <div className="z-40 min-h-[310px]">{renderForm()}</div>
+            </DrawerContent>
+          </Drawer>
+        </div>
+      
+    </>
   );
 };
 
