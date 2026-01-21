@@ -56,7 +56,7 @@ const OurProcedures = ({
           />
         </div>
         {pathName !== "/next/avn-treatment" && (
-          <div className="absolute top-40 md:top-96 left-1/2 transform -translate-x-1/2 w-3/4 md:w-full">
+          <div className="absolute top-40 md:top-96 left-full transform -translate-x-1/2 w-3/4 md:w-full">
             <ProcedureCarousel TreatmentCardData={procedureCardData} />
           </div>
         )}
