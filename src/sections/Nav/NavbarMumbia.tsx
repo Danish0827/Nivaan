@@ -98,6 +98,7 @@ const NavbarMumbia: React.FC<NavbarProps> = ({ isForm2, formLocation }) => {
             alt="Nivaan logo in desktop Navbar"
             priority={true}
             loading="eager"
+            unoptimized
           />
         </Link>
        { 

@@ -47,16 +47,16 @@ export default function CausesCarousel({ data }: Props) {
 
                                     {/* Image */}
                                     {item.image &&
-                                    <div className="rounded-2xl overflow-hidden mb-5">
-                                        <Image
-                                            src={item.image.url}
-                                            alt={item.image.alt || item.title}
-                                            width={400}
-                                            height={260}
-                                            className="w-full h-[220px] object-cover"
-          unoptimized
-                                        />
-                                    </div>}
+                                        <div className="rounded-2xl overflow-hidden mb-5">
+                                            <Image
+                                                src={item.image.url}
+                                                alt={item.image.alt || item.title}
+                                                width={400}
+                                                height={260}
+                                                className="w-full h-[220px] object-cover"
+                                                unoptimized
+                                            />
+                                        </div>}
 
                                     {/* Content */}
                                     <h3 className="text-lg xl:text-xl font-bold mb-3 text-[#0F2A44] ">
@@ -72,7 +72,7 @@ export default function CausesCarousel({ data }: Props) {
                                         <div
                                             className={`text-sm text-gray-600 leading-relaxed`}
                                             dangerouslySetInnerHTML={{ __html: item.description }}
-                                        />                                        
+                                        />
                                     </div>
                                 </div>
                             </SwiperSlide>
@@ -88,7 +88,7 @@ export default function CausesCarousel({ data }: Props) {
                         dangerouslySetInnerHTML={{
                             __html: data.causes_2nd_description,
                         }}
-                    />                   
+                    />
                 </div>
             </div>
         </section>

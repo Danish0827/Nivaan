@@ -13,8 +13,8 @@ const ConditionsTreatedCard = ({ conditionsTreatedCardDataObj }: { conditionsTre
         }
       </ul>
       <div className="absolute bottom-6 right-6">
-        <Image src={conditionsTreatedCardDataObj.icon} alt="Icon" width={78.92} height={83.25} className='hidden md:block' />
-        <Image src={conditionsTreatedCardDataObj.icon} alt="Icon" width={55.94} height={57.61} className='block md:hidden' />
+        <Image src={conditionsTreatedCardDataObj.icon} alt="Icon" width={78.92} height={83.25} className='hidden md:block' unoptimized/>
+        <Image src={conditionsTreatedCardDataObj.icon} alt="Icon" width={55.94} height={57.61} className='block md:hidden' unoptimized/>
       </div>
     </div>
   );

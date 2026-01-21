@@ -10,6 +10,7 @@ const ThankYouPlaceCard = () => {
           src={require("../../public/locationIcon.webp")}
           alt="logo"
           className=""
+          unoptimized
         />
       </div>
       <p

@@ -23,8 +23,8 @@ const HeroSection = () => {
           {
             heroList.map((item, i) => (
               <li key={i} className='flex flex-row items-center gap-3 mb-3'>
-                <Image width={18} height={15} src={rightTick} alt={'list icon'} className='hidden md:block' />
-                <Image width={15.33} height={12.77} src={rightTick} alt={'list icon'} className='block md:hidden' />
+                <Image width={18} height={15} src={rightTick} alt={'list icon'} className='hidden md:block' unoptimized/>
+                <Image width={15.33} height={12.77} src={rightTick} alt={'list icon'} className='block md:hidden' unoptimized/>
                 <span className={`${montserratLightBold.className} text-[0.8125rem] md:text-lg`}>{item}</span>
               </li>
             ))

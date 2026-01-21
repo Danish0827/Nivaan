@@ -34,6 +34,7 @@ const DoctorCardWithConsultation: React.FC<DoctorCardProps> = ({
             alt="doctor img"
             width={70}
             height={70}
+            unoptimized
           />
           <Image
             className="hidden md:block mt-4"
@@ -41,6 +42,7 @@ const DoctorCardWithConsultation: React.FC<DoctorCardProps> = ({
             alt="doctor img"
             width={158}
             height={158}
+            unoptimized
           />
         </div>
 

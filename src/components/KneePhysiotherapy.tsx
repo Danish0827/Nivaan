@@ -81,7 +81,7 @@ const KneePhysiotherapy = () => {
             <div className="grid md:grid-cols-2 gap-8 items-center">
               {/* Left Image */}
               <div className="flex justify-center">
-                <Image src={require('../../public/physio/Experts.png')} alt="" className="rounded-lg w-full max-w-md" />
+                <Image src={require('../../public/physio/Experts.png')} alt="" className="rounded-lg w-full max-w-md" unoptimized/>
               </div>
 
               {/* Right Content */}
@@ -98,7 +98,7 @@ const KneePhysiotherapy = () => {
                 <ul className="space-y-4 text-gray-800">
                   <li className="flex items-start">
                     <span className="text-blue-600 text-lg mr-2">
-                    <Image src={require('../../public/physio/1.png')} alt="" className="w-10 max-w-md" />
+                    <Image src={require('../../public/physio/1.png')} alt="" className="w-10 max-w-md" unoptimized/>
                     </span>
                     <span>
                       <span className="font-semibold">Diagnosed and designed</span> by our
@@ -108,7 +108,7 @@ const KneePhysiotherapy = () => {
 
                   <li className="flex items-start">
                     <span className="text-blue-600 text-lg mr-2">
-                    <Image src={require('../../public/physio/2.png')} alt="" className="w-10 max-w-md" />
+                    <Image src={require('../../public/physio/2.png')} alt="" className="w-10 max-w-md" unoptimized/>
                     </span>
                     <span>
                       Delivered through{" "}
@@ -120,7 +120,7 @@ const KneePhysiotherapy = () => {
 
                   <li className="flex items-start">
                     <span className="text-blue-600 text-lg mr-2">
-                    <Image src={require('../../public/physio/3.png')} alt="" className="w-10 max-w-md" />
+                    <Image src={require('../../public/physio/3.png')} alt="" className="w-10 max-w-md" unoptimized/>
                     </span>
                     <span>
                       Reviewed with{" "}
@@ -131,7 +131,7 @@ const KneePhysiotherapy = () => {
 
                   <li className="flex items-start">
                     <span className="text-blue-600 text-lg mr-2">
-                    <Image src={require('../../public/physio/4.png')} alt="" className="w-10 max-w-md" />
+                    <Image src={require('../../public/physio/4.png')} alt="" className="w-10 max-w-md" unoptimized/>
                     </span>
                     <span>
                       Focused on{" "}
@@ -155,7 +155,7 @@ const KneePhysiotherapy = () => {
                 {/* Card 1 */}
                
                 <div className="bg-[#F1F6FF] rounded-lg p-4 shadow-sm flex items-center">
-                <Image src={require('../../public/physio/g1.png')} alt="Manual Therapy" style={{"width":"40%"}}/>
+                <Image src={require('../../public/physio/g1.png')} alt="Manual Therapy" style={{"width":"40%"}} unoptimized/>
                   <p className="font-semibold text-[#1A2A6C] text-md">
                     Manual Therapy <br /> And Joint Mobilisation
                   </p>
@@ -163,7 +163,7 @@ const KneePhysiotherapy = () => {
 
                 {/* Card 2 */}
                 <div className="bg-[#F1F6FF] rounded-lg p-4 shadow-sm flex items-center">
-                <Image src={require('../../public/physio/g2.png')} alt="Manual Therapy" style={{"width":"35%"}}/>
+                <Image src={require('../../public/physio/g2.png')} alt="Manual Therapy" style={{"width":"35%"}} unoptimized/>
                   <p className="font-semibold text-[#1A2A6C] text-md">
                     Dry Needling <br /> And Myofascial Release
                   </p>
@@ -171,7 +171,7 @@ const KneePhysiotherapy = () => {
 
                 {/* Card 3 */}
                 <div className="bg-[#F1F6FF] rounded-lg p-4 shadow-sm flex items-center">
-                <Image src={require('../../public/physio/g3.png')} alt="Manual Therapy" style={{"width":"35%"}}/>
+                <Image src={require('../../public/physio/g3.png')} alt="Manual Therapy" style={{"width":"35%"}} unoptimized/>
                   <p className="font-semibold text-[#1A2A6C] text-md ml-2">
                     Electrotherapy <br /> (Laser, IFT, TENS, Ultrasound)
                   </p>
@@ -179,7 +179,7 @@ const KneePhysiotherapy = () => {
 
                 {/* Card 4 */}
                 <div className="bg-[#F1F6FF] rounded-lg p-4 shadow-sm flex items-center">
-                <Image src={require('../../public/physio/g4.png')} alt="Manual Therapy" style={{"width":"40%"}}/>
+                <Image src={require('../../public/physio/g4.png')} alt="Manual Therapy" style={{"width":"40%"}} unoptimized/>
                   <p className="font-semibold text-[#1A2A6C] text-md">
                     Cupping And <br /> Kinesiology Taping
                   </p>
@@ -187,7 +187,7 @@ const KneePhysiotherapy = () => {
 
                 {/* Card 5 */}
                 <div className="bg-[#F1F6FF] rounded-lg p-4 shadow-sm flex items-center">
-                <Image src={require('../../public/physio/g5.png')} alt="Manual Therapy" style={{"width":"30%"}}/>
+                <Image src={require('../../public/physio/g5.png')} alt="Manual Therapy" style={{"width":"30%"}} unoptimized/>
                   <p className="font-semibold text-[#1A2A6C] text-md">
                     Strength And <br /> Conditioning Programs
                   </p>
@@ -195,7 +195,7 @@ const KneePhysiotherapy = () => {
 
                 {/* Card 6 */}
                 <div className="bg-[#F1F6FF] rounded-lg p-4 shadow-sm flex items-center">
-                <Image src={require('../../public/physio/g6.png')} alt="Manual Therapy" style={{"width":"20%"}}/>
+                <Image src={require('../../public/physio/g6.png')} alt="Manual Therapy" style={{"width":"20%"}} unoptimized/>
                   <p className="font-semibold text-[#1A2A6C] text-md ml-2">
                     Posture Correction <br /> And Ergonomic Training
                   </p>
@@ -203,7 +203,7 @@ const KneePhysiotherapy = () => {
 
                 {/* Card 7 */}
                 <div className="bg-[#F1F6FF] rounded-lg p-4 shadow-sm flex items-center">
-                <Image src={require('../../public/physio/g7.png')} alt="Manual Therapy" style={{"width":"30%"}}/>
+                <Image src={require('../../public/physio/g7.png')} alt="Manual Therapy" style={{"width":"30%"}} unoptimized/>
                   <p className="font-semibold text-[#1A2A6C] text-md">
                     Neuromuscular Re-Education <br /> And Balance Training
                   </p>
@@ -211,7 +211,7 @@ const KneePhysiotherapy = () => {
 
                 {/* Card 8 */}
                 <div className="bg-[#F1F6FF] rounded-lg p-4 shadow-sm flex items-center">
-                <Image src={require('../../public/physio/g8.png')} alt="Manual Therapy" style={{"width":"30%"}}/>
+                <Image src={require('../../public/physio/g8.png')} alt="Manual Therapy" style={{"width":"30%"}} unoptimized/>
                   <p className="font-semibold text-[#1A2A6C] text-md ml-3">
                     Post Surgical Rehabilitation <br /> (Knee, Hip, Spine, Shoulder)
                   </p>

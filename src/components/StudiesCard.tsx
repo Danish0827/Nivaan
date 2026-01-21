@@ -12,6 +12,7 @@ const StudiesCard = ({heading, subHeading, img, url}: ImportantStudiesType) => {
                     height={370}
                     alt='study'
                     className="mx-auto"
+                    unoptimized
                 />
                 <p className={`${rubikLight.className} text-xs md:text-sm text-gray-500`}>
                     {subHeading}

@@ -39,7 +39,7 @@ export default function TreatmentCarousel({ data }: Props) {
                                     width={600}
                                     height={600}
                                     className="w-full h-auto object-cover"
-          unoptimized
+                                    unoptimized
                                 />
                             }
                         </div>
@@ -156,7 +156,7 @@ export default function TreatmentCarousel({ data }: Props) {
                                                     width={400}
                                                     height={260}
                                                     className="w-full h-[220px] object-cover"
-          unoptimized
+                                                    unoptimized
                                                 />
                                             </div>
                                         )}
@@ -231,7 +231,7 @@ export default function TreatmentCarousel({ data }: Props) {
                                             width={600}
                                             height={600}
                                             className="w-full h-auto object-cover"
-          unoptimized
+                                            unoptimized
                                         />
                                     )}
                                 </div>

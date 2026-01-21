@@ -15,6 +15,7 @@ const PatientReviewCard = ({ review, isThereVideo }: { review: Review, isThereVi
           alt="google icon small"
           height={19.58}
           width={19.58}
+          unoptimized
         />
       </div>
       <div className="flex justify-end md:hidden">
@@ -24,6 +25,7 @@ const PatientReviewCard = ({ review, isThereVideo }: { review: Review, isThereVi
           alt="google icon small"
           height={16.31}
           width={16.31}
+          unoptimized
         />
       </div>
       <div className="flex flex-row">
@@ -34,6 +36,7 @@ const PatientReviewCard = ({ review, isThereVideo }: { review: Review, isThereVi
             width={110.4}
             height={154.8}
             className="rounded-bl-xl"
+            unoptimized
           />
         </div>
         <div className="flex flex-col w-[60%] absolute left-20 md:left-28">
@@ -47,7 +50,7 @@ const PatientReviewCard = ({ review, isThereVideo }: { review: Review, isThereVi
               <h4 className="font-bold text-[10px] leading-[11.85px] md:text-[13.57px] md:leading-[16.08px]">
                 {review.name}
               </h4>
-              {review.starImg ? <Image src={review.starImg} alt="star icon small" width={42.42} height={6.87} /> : <Image src={star} alt="star icon small" width={110} height={154} />}
+              {review.starImg ? <Image src={review.starImg} alt="star icon small" width={42.42} height={6.87} unoptimized/> : <Image src={star} alt="star icon small" width={110} height={154} unoptimized/>}
             </div>
             <div className="text-[7px] leading-[8.3px] md:text-[7.16px] md:leading-[8.48px]">
               {review.postedWhen}

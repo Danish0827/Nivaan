@@ -19,7 +19,7 @@ export default function ClinicSection({ data }: Props) {
         <section className="bg-white w-full ">
             <div className="container mr-auto">
                 {/* Heading */}
-                {data.clinic_description &&<div className="overview-section">
+                {data.clinic_description && <div className="overview-section">
                     <div
                         className="mt-4 text-gray-600 "
                         dangerouslySetInnerHTML={{ __html: data.clinic_description }}
@@ -55,7 +55,7 @@ export default function ClinicSection({ data }: Props) {
                                             width={400}
                                             height={260}
                                             className="w-full h-[220px] object-cover"
-          unoptimized
+                                            unoptimized
                                         />
                                     </div>
 
@@ -71,7 +71,7 @@ export default function ClinicSection({ data }: Props) {
                                             width={20}
                                             height={20}
                                             alt="arrow"
-          unoptimized
+                                            unoptimized
                                         /> {item.location_address}
                                     </span>
 
@@ -83,7 +83,7 @@ export default function ClinicSection({ data }: Props) {
                                             width={20}
                                             height={20}
                                             alt="arrow"
-          unoptimized
+                                            unoptimized
                                         /> {item.dr_name}
                                     </span>
                                 </div>
@@ -93,19 +93,19 @@ export default function ClinicSection({ data }: Props) {
 
                 </Swiper>
 
-                {data.clinic_2nd_description &&<div className="overview-section text-center pb-6">
+                {data.clinic_2nd_description && <div className="overview-section text-center pb-6">
                     <div
                         className="mt-4 text-gray-600 "
                         dangerouslySetInnerHTML={{ __html: data.clinic_2nd_description }}
                     />
                 </div>}
 
-                
-                    {data.clinic_button_name &&
-                        <div className="flex justify-center">
-                            <RequestCallbackModal buttonText={data.clinic_button_name} id={data.clinic_button_name} />
-                        </div>
-                    }
+
+                {data.clinic_button_name &&
+                    <div className="flex justify-center">
+                        <RequestCallbackModal buttonText={data.clinic_button_name} id={data.clinic_button_name} />
+                    </div>
+                }
             </div>
         </section>
     );

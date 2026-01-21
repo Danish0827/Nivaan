@@ -32,7 +32,7 @@ export default function ApprochSection({
               width={800}
               height={800}
               className="object-cover h-full w-full"
-          unoptimized
+              unoptimized
             />
           </div>
           {/* Right – Image */}
@@ -50,7 +50,7 @@ export default function ApprochSection({
             className="mt-4 text-gray-600 "
             dangerouslySetInnerHTML={{ __html: featuresHtml2 }}
           />
-        </div>}        
+        </div>}
       </div>
     </section>
   );

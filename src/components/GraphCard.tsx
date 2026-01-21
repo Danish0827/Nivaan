@@ -8,13 +8,13 @@ const GraphCard = ({graphObj, isHindi}: {graphObj: GraphCardType, isHindi?: bool
       {
         isHindi ? (
           <>
-            <Image src={graphObj.img} alt='graph footer' className='mx-auto hidden md:block' />
-            <Image src={graphObj.imgMob} alt='graph footer' width={291.76} className='mx-auto block md:hidden' />
+            <Image src={graphObj.img} alt='graph footer' className='mx-auto hidden md:block' unoptimized/>
+            <Image src={graphObj.imgMob} alt='graph footer' width={291.76} className='mx-auto block md:hidden' unoptimized/>
           </>
         ) : (
           <>
-            <Image src={graphObj.img} alt='graph footer' className='mx-auto hidden md:block' />
-            <Image src={graphObj.imgMob} alt='graph footer' width={291.76} className='mx-auto block md:hidden' />
+            <Image src={graphObj.img} alt='graph footer' className='mx-auto hidden md:block' unoptimized/>
+            <Image src={graphObj.imgMob} alt='graph footer' width={291.76} className='mx-auto block md:hidden' unoptimized/>
           </>
         )
       }

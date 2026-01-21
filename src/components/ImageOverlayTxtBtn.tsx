@@ -60,6 +60,7 @@ const ImageOverlayTxtBtn: React.FC<ImageOverlayTxtBtnProps> = ({
           alt="Background"
           layout="fill"
           objectFit="cover"
+          unoptimized
         />
       </div>
       <div className="md:hidden absolute inset-0">
@@ -68,6 +69,7 @@ const ImageOverlayTxtBtn: React.FC<ImageOverlayTxtBtnProps> = ({
           alt="Background Mobile"
           layout="fill"
           objectFit="cover"
+          unoptimized
         />
       </div>
       <div className="absolute inset-0 bg-[#2F438FCC] flex flex-col items-center justify-center text-white px-12 md:px-60">

@@ -15,7 +15,7 @@ const ConditionsTreatedBox = ({image, content, imgStyle}: Condition) => {
 
   return (
     <div className={`bg-white flex flex-row items-center ${isPainMedication ? 'p-3 md:p-6' : 'p-3'} border rounded-xl shadow-md`}>
-      <Image width={500} height={500} src={image.src} alt="Outcome Image" className={`${imgStyle ? imgStyle : defaultImgClassName}`} />
+      <Image width={500} height={500} src={image.src} alt="Outcome Image" className={`${imgStyle ? imgStyle : defaultImgClassName}`} unoptimized/>
       <div className="capitalize flex-1 flex items-center">
         <p className={`${rubikSemiBold.className} text-[#2F438F] text-[9px] leading-[11.34px] md:text-[23px] md:leading-[27px]`}>{content}</p>
       </div>

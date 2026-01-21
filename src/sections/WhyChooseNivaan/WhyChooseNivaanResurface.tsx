@@ -38,15 +38,15 @@ const WhyChooseNivaan: FC = () => {
               <div className="flex justify-center mb-4">
                 {/* <CheckCircle className="h-10 w-10 text-blue-600" /> */}
                 <Image
-                          src={require('../../../public/icon.png')}
-                          alt="Icon"
-                          width={30}
-                          height={40}
-                          loading="eager"
-                          priority={true}
-                          quality={30}
-                          unoptimized
-                        />
+                  src={require('../../../public/icon.png')}
+                  alt="Icon"
+                  width={30}
+                  height={40}
+                  loading="eager"
+                  priority={true}
+                  quality={30}
+                  unoptimized
+                />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
                 {feature.title}

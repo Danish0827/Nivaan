@@ -37,6 +37,7 @@ const HeroSectionKPW = ({pathName, imgStyle}: {pathName: string, imgStyle?: stri
                 src={require("../../../public/googleImage.webp")}
                 alt="logo"
                 className="lg:h-8 h-4 w-4 lg:w-8"
+                unoptimized
               />
             </div>
             <li>90% Surgeries Avoided</li>
@@ -50,6 +51,7 @@ const HeroSectionKPW = ({pathName, imgStyle}: {pathName: string, imgStyle?: stri
             loading="eager"
             priority={true}
             quality={30}
+            unoptimized
           />
         </div>
         <div className="flex-1 flex justify-center flex-col lg:items-end gap-1 md:gap-3 z-10 lg:pb-14 mt-[1rem]  items-center">
@@ -65,6 +67,7 @@ const HeroSectionKPW = ({pathName, imgStyle}: {pathName: string, imgStyle?: stri
           loading="eager"
           priority={true}
           quality={30}
+          unoptimized
         />
       </div>
 

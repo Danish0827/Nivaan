@@ -18,6 +18,7 @@ const FormHeader = () => {
       className="hidden md:block"
       src={require("../../public/FromTick.webp")}
       alt="logo"
+      unoptimized
     />
     <Image
       className="block md:hidden"
@@ -25,6 +26,7 @@ const FormHeader = () => {
       alt="logo"
       priority={true}
       loading="eager"
+      unoptimized
     />
     <p className="text-[#2F438F] text-[0.6rem] lg:text-base">
       Fully Covered Under All Govt. & Private Insurance<span>*</span>

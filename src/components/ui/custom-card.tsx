@@ -57,6 +57,7 @@ export function CustomCard({
             alt={imageAlt}
             fill
             className={imageClassName}
+            unoptimized
             />ß
         </div>
         {/* <div className='hidden md:block lg:hidden'>
@@ -73,6 +74,7 @@ export function CustomCard({
             alt={imageAlt}
             fill
             className={imageClassName}
+            unoptimized
             />
         </div>
       </div>

@@ -30,12 +30,14 @@ const HeroSection = ({pathName}: {pathName: string}) => {
                 alt="logo"
                 height={30}
                 className="hidden md:block"
+                unoptimized
               />
               <Image
                 src={require("../../../public/google.webp")}
                 alt="logo"
                 height={20}
                 className="block md:hidden"
+                unoptimized
               />
             </div>
             <li>90% Surgeries Avoided</li>
@@ -51,6 +53,7 @@ const HeroSection = ({pathName}: {pathName: string}) => {
               loading="eager"
               priority={true}
               quality={30}
+              unoptimized
             />
           ) : (
             <Image
@@ -62,6 +65,7 @@ const HeroSection = ({pathName}: {pathName: string}) => {
               loading="eager"
               priority={true}
               quality={30}
+              unoptimized
             />
           )}
         </div>
@@ -85,6 +89,7 @@ const HeroSection = ({pathName}: {pathName: string}) => {
             loading="eager"
             priority={true}
             quality={30}
+            unoptimized
           />
         ) : (
           <Image
@@ -95,6 +100,7 @@ const HeroSection = ({pathName}: {pathName: string}) => {
             loading="eager"
             priority={true}
             quality={30}
+            unoptimized
           />
         )}
       </div>

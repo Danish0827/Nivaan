@@ -147,7 +147,7 @@ const FormAdCard = ({ title, desc, img }: CardDataType) => {
             </p>
             <p className={`${rubikReg.className} text-xs md:text-xl`}>{desc}</p>
             <div className="border-[1px] border-[#2F438F] rounded-full absolute bg-white top-5 -left-5 p-1 md:p-[6px]">
-                <Image src={img} alt="logo" height={30} />
+                <Image src={img} alt="logo" height={30} unoptimized/>
             </div>
         </div>
     );
@@ -156,7 +156,7 @@ const FormAdCard = ({ title, desc, img }: CardDataType) => {
 const FormAdCard2 = ({ title, desc, img }: CardDataType) => {
     return (
         <div className="flex gap-2 border-[1px] border-[#E0E0DD] bg-[#FBFAFA] drop-shadow-lg w-[30%] rounded-lg text-[#2F438F] px-2 p-4 relative md:gap-3 md:px-3 md:w-[250px] ">
-            <Image className="size-5 md:size-11" src={img} alt="logo" />
+            <Image className="size-5 md:size-11" src={img} alt="logo" unoptimized/>
             <div>
                 <p className={`${montserratBold.className} text-xs md:text-2xl`}>
                     {title}
@@ -171,7 +171,7 @@ const FormAdCard2Mob = ({ title, desc, img }: CardDataType) => {
     return (
         <div className="flex flex-col gap-2 border-[1px] border-[#E0E0DD] bg-[#FBFAFA] drop-shadow-lg w-full rounded-lg text-[#2F438F] p-2 relative md:gap-3 md:px-3 md:w-[250px] ">
             <div className="flex flex-row items-center gap-2">
-                <Image className="size-5 md:size-11" src={img} alt="logo" />
+                <Image className="size-5 md:size-11" src={img} alt="logo" unoptimized/>
                 <p className={`${montserratBold.className} text-xs md:text-2xl`}>
                     {title}
                 </p>

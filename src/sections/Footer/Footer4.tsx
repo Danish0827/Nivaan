@@ -23,6 +23,7 @@ const Footer4 = () => {
             alt="Nivaan Footer logo"
             width={246}
             height={50}
+            unoptimized
           />
           <Image
             className="block md:hidden mx-auto mb-3"
@@ -30,6 +31,7 @@ const Footer4 = () => {
             alt="Nivaan Footer mobile logo"
             width={205}
             height={41}
+            unoptimized
           />
           {/* <span className='text-[9px] leading-[12px]'>Pioneering Interventional Pain Management</span> */}
           {/* <Image
@@ -49,10 +51,10 @@ const Footer4 = () => {
           <div className="flex flex-row justify-center mt-2 md:mt-3">
             <div className="flex flex-row justify-center md:justify-start w-20 gap-2 md:gap-3">
               <a href="https://www.facebook.com/nivaancare" target="_blank">
-                <Image src={social3} alt="facebook icon" className='w-[11.39px] h-[20.33px]' />
+                <Image src={social3} alt="facebook icon" className='w-[11.39px] h-[20.33px]' unoptimized/>
               </a>
               <a href="https://www.instagram.com/nivaancare/" target="_blank">
-                <Image src={social2} alt="instagram icon" className='w-[17.9px] h-[17.9px]' />
+                <Image src={social2} alt="instagram icon" className='w-[17.9px] h-[17.9px]' unoptimized/>
               </a>
             </div>
           </div>
@@ -64,7 +66,7 @@ const Footer4 = () => {
     return (
       <div className='flex flex-col md:pl-10 md:pr-10'>
         <h6 className="text-sm leading-8 font-medium flex flex-row items-center gap-2">
-          <Image src={enquiryIcon} alt='location' width={16.19} height={16.19} className='w-4 h-4' />
+          <Image src={enquiryIcon} alt='location' width={16.19} height={16.19} className='w-4 h-4' unoptimized/>
           For Enquiries 
         </h6>
         <ul className='list-none text-center md:text-left'>
@@ -171,7 +173,7 @@ const LocationComp = () => {
     return (
       <div>
         <h6 className="text-sm leading-8 font-medium flex flex-row items-center justify-center md:justify-start mt-2 md:-mt-6 gap-2">
-          <Image src={locationIcon} alt='location' width={16.19} height={16.19} className='w-4 h-4' />
+          <Image src={locationIcon} alt='location' width={16.19} height={16.19} className='w-4 h-4' unoptimized/>
           Our Locations
         </h6>
         <LocationComp />

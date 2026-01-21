@@ -20,7 +20,7 @@ interface SectionItem {
     id: string;
     label: string;
 }
-export default function LocationOptimizationSection({ data,breadcrumbTitle }: { data: any ,breadcrumbTitle:any}) {
+export default function LocationOptimizationSection({ data, breadcrumbTitle }: { data: any, breadcrumbTitle: any }) {
     const [activeSection, setActiveSection] = useState<string>("problem");
     const sections: SectionItem[] = [
         { id: "specialists", label: data?.specialists_subtitle },

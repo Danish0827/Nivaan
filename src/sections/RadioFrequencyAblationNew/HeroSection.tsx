@@ -41,6 +41,7 @@ const HeroSection = () => {
             loading="eager"
             priority={true}
             quality={30}
+            unoptimized
           />
         </div>
         <div className="flex-1 flex justify-center flex-col items-center lg:items-end gap-2 md:gap-3 z-10 lg:pb-14">
@@ -58,6 +59,7 @@ const HeroSection = () => {
           loading="eager"
           priority={true}
           quality={30}
+          unoptimized
         />
       </div>
       <div className="mt-8 lg:mt-0">

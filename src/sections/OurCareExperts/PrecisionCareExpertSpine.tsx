@@ -58,6 +58,7 @@ const PrecisionCareExpertSpine: FC = () => {
               alt="Dr. Sidharth Verma"
               fill
               className="object-cover"
+              unoptimized
             />
           </div>
         </div>

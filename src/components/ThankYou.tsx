@@ -31,6 +31,7 @@ const ThankYou = () => {
           alt="logo"
           className="hover:cursor-pointer"
           height={30}
+          unoptimized
         />
       </div>
       <div className="bg-[#EAF1FB] h-[260px] md:h-[340px]">
@@ -38,6 +39,7 @@ const ThankYou = () => {
           <Image
             src={require("../../public/thankyou-tick.webp")}
             alt="logo-tick"
+            unoptimized
           />
           <p
             className={`${montserratBold.className} text-[#2D458F] lg:text-6xl text-2xl `}

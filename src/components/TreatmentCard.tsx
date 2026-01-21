@@ -17,6 +17,7 @@ const TreatmentCard = ({ treatment }: { treatment: TreatmentData }) => {
             alt="treatement image"
             width={94}
             height={91.4}
+            unoptimized
           />
           <Image
             className="block md:hidden"
@@ -24,6 +25,7 @@ const TreatmentCard = ({ treatment }: { treatment: TreatmentData }) => {
             alt="treatement image"
             width={66}
             height={64.15}
+            unoptimized
           />
         </div>
       </div>

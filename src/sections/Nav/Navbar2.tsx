@@ -77,6 +77,7 @@ const Navbar2: React.FC<Navbar2Props> = ({ isHindi }) => {
             alt="Nivaan logo in desktop Navbar"
             width={165.35}
             height={36.18}
+            unoptimized
           />
         </Link>
         <div className="w-1/2 flex flex-row justify-around items-baseline ml-16 mr-28">

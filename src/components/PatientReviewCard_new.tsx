@@ -24,15 +24,16 @@ const PatientReviewCard_new = ({ review }: { review: Review }) => {
           width={18}
           height={18}
           className="ml-2"
+          unoptimized
         />
       </div>
 
       {/* Stars */}
       <div className="mt-2">
         {review.starImg ? (
-          <Image src={review.starImg} alt="stars" width={60} height={10} />
+          <Image src={review.starImg} alt="stars" width={60} height={10} unoptimized/>
         ) : (
-          <Image src={star} alt="stars" width={60} height={10} />
+          <Image src={star} alt="stars" width={60} height={10} unoptimized/>
         )}
       </div>
 

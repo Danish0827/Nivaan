@@ -18,7 +18,7 @@ const HeroSectionMob = ({ formLocation }: { formLocation?: string }) => {
             {
                 NivaanFeatureHeroSectionMob.map((feature,i) => (
                     <div key={i} className={`flex flex-row ${i===0 ? 'items-baseline' : 'items-center'} gap-2 mb-4`}>
-                        <Image src={blueTick} alt='blue-tick' className='w-[15.28px] h-[11.88px]' />
+                        <Image src={blueTick} alt='blue-tick' className='w-[15.28px] h-[11.88px]' unoptimized/>
                         <span className={`${montserratSemiSemiBold.className} text-sm`}>{feature}</span>
                     </div>
                 ))

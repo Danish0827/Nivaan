@@ -21,6 +21,7 @@ const FeatureListCard = ({ title, data }: { title: string | React.ReactNode, dat
               alt="Nivaan"
               fill
               className="hidden md:block object-contain"
+              unoptimized
             />
             {/* mobile icon */}
             <Image
@@ -28,6 +29,7 @@ const FeatureListCard = ({ title, data }: { title: string | React.ReactNode, dat
               alt="Nivaan Mob"
               fill
               className="block md:hidden object-contain"
+              unoptimized
             />
           </div>
         

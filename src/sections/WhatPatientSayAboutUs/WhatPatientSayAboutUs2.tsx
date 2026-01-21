@@ -58,13 +58,13 @@ const WhatPatientSayAboutUs2 = ({
             <p className="text-[13.48px] leading-[16.54px] flex flex-row justify-center items-center text-white">
               <span className="text-[#00B4E5] font-bold mr-1">5000+</span>{" "}
               reviews on Google{" "}
-              <Image src={googleIcon2} alt="google icon big" />
+              <Image src={googleIcon2} alt="google icon big" unoptimized/>
             </p>
             <div className="flex flex-row justify-center items-center gap-2">
               <span className="bg-[#00B4E5] px-3 py-5 rounded-full text-[14.12px] leading-[17.33px] font-bold text-white">
                 4.8+
               </span>
-              <Image src={starImg} alt="star img" width={110} height={154} />
+              <Image src={starImg} alt="star img" width={110} height={154} unoptimized/>
             </div>
           </div>
         ) : (
@@ -74,13 +74,13 @@ const WhatPatientSayAboutUs2 = ({
               <p className="text-base md:text-xl flex flex-row justify-center items-center text-white">
                 <span className="text-[#00B4E5] font-bold mr-1">5000+</span>{" "}
                 reviews on Google{" "}
-                <Image src={googleIcon2} alt="google icon big" />
+                <Image src={googleIcon2} alt="google icon big" unoptimized/>
               </p>
               <div className="flex flex-row justify-center items-center gap-2">
                 <span className="bg-[#00B4E5] px-3 py-5 rounded-full text-[14.79px] leading-[18.15px] md:text-[17.89px] md:leading-[21.95px] font-bold text-white">
                   4.8+
                 </span>
-                <Image src={starImg} alt="star img" width={110} height={154} />
+                <Image src={starImg} alt="star img" width={110} height={154} unoptimized/>
               </div>
             </div>
           )

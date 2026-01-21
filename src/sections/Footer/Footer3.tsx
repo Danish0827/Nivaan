@@ -21,11 +21,13 @@ const Footer3 = () => {
               className="hidden md:block mx-auto mb-4"
               src={NivaanWhiteLogo}
               alt="Nivaan Footer logo"
+              unoptimized
             />
             <Image
               className="block md:hidden mx-auto mb-4"
               src={NivaanWhiteMobLogo}
               alt="Nivaan Footer mobile logo"
+              unoptimized
             />
           </div>
           <p className='text-sm mt-4'>India’s most advanced pain management clinic in Delhi offering integrated solutions for chronic pain.</p>
@@ -33,10 +35,10 @@ const Footer3 = () => {
           <div className="flex flex-row justify-center mt-6">
             <div className="flex flex-row w-20 gap-3">
               <a href="https://www.facebook.com/nivaancare" target="_blank">
-                <Image src={social3} alt="facebook icon" width={12} height={16} />
+                <Image src={social3} alt="facebook icon" width={12} height={16} unoptimized/>
               </a>
               <a href="https://www.instagram.com/nivaancare/" target="_blank">
-                <Image src={social2} alt="instagram icon" width={20} height={20} />
+                <Image src={social2} alt="instagram icon" width={20} height={20} unoptimized/>
               </a>
             </div>
           </div>

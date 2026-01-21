@@ -44,13 +44,13 @@ export default function Stages({
               fill
               className="object-cover"
               priority
-          unoptimized
+              unoptimized
             />
           </div>
         }
 
         {/* Right Card */}
-        {stages_lists && 
+        {stages_lists &&
           <div className="bg-white rounded-[40px] shadow-lg p-8 md:p-10 relative">
             {/* Vertical Line */}
             {/* <div className="absolute left-10 md:left-16 top-12 bottom-0 w-0.5 h-[465px] lg:h-[380px] xl:h-[430px] 2xl:h-[370px] bg-[#284599]" /> */}

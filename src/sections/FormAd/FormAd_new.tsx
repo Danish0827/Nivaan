@@ -83,7 +83,7 @@ const FormAdCard = ({ title, desc, img }: CardDataType) => {
             </p>
             <p className={`${rubikReg.className} text-xs md:text-xl`}>{desc}</p>
             <div className="border-[1px] border-[#2F438F] rounded-full absolute bg-white top-5 -left-5 p-1 md:p-[6px]">
-                <Image src={img} alt="logo" height={30} />
+                <Image src={img} alt="logo" height={30} unoptimized/>
             </div>
         </div>
     );

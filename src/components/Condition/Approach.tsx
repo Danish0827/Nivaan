@@ -11,7 +11,7 @@ interface Props {
     };
     cta_title: string;
     cta_button_name: string;
-    cta_description: string; 
+    cta_description: string;
 }
 interface ApproachProps {
     data: Props;
@@ -20,7 +20,7 @@ interface ApproachProps {
 export default function Approach({ data }: ApproachProps) {
     return (
         <section className="w-full bg-white overview-section">
-            <div className="container mr-auto">                
+            <div className="container mr-auto">
                 <div className="grid grid-cols-1 xl:grid-cols-[40%_60%] gap-10 items-start py-10 approach-section">
                     <div className="overview-list">
                         {data?.approach_description && (
@@ -41,13 +41,13 @@ export default function Approach({ data }: ApproachProps) {
                                     width={600}
                                     height={600}
                                     className="w-full h-auto object-cover"
-          unoptimized
+                                    unoptimized
                                 />
                             }
                         </div>
                     </div>
                 </div>
-                
+
             </div>
 
             {/* CTA Section */}
@@ -70,8 +70,8 @@ export default function Approach({ data }: ApproachProps) {
                     />
                     {data.cta_button_name &&
                         <div className="flex justify-center">
-                        <RequestCallbackModal buttonText={data.cta_button_name} id={data.cta_button_name} />
-                    </div>
+                            <RequestCallbackModal buttonText={data.cta_button_name} id={data.cta_button_name} />
+                        </div>
                     }
                 </div>
             </div>

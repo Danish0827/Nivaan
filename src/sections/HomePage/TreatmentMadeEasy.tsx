@@ -41,10 +41,10 @@ const TreatmentMadeEasy = () => {
         </div>
       </div>
       <div className='hidden md:block md:flex-none mt-20'>
-        <Image src={treatmentMadeEasyImg} alt="Form3" className='w-full' width={418.63} height={360} />
+        <Image src={treatmentMadeEasyImg} alt="Form3" className='w-full' width={418.63} height={360} unoptimized/>
       </div>
       <div className='block mt-12 md:hidden'>
-        <Image src={treatmentMadeEasyImgMob} alt="Form3" className='w-full' width={283.69} height={405.86} />
+        <Image src={treatmentMadeEasyImgMob} alt="Form3" className='w-full' width={283.69} height={405.86} unoptimized/>
       </div>
     </div>
   )

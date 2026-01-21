@@ -38,6 +38,7 @@ const SubscribeButton: React.FC<SubscribeButtonProps> = ({
         src={subscribeIcon}
         alt="Subscribe"
         className="w-6 h-6 md:w-8 md:h-8"
+        unoptimized
       />
     </button>
   );

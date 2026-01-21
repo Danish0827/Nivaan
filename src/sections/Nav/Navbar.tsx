@@ -123,6 +123,7 @@ const Navbar: React.FC<NavbarProps> = ({ isForm2, formLocation,isForm2Physio }) 
             alt="Nivaan logo in desktop Navbar"
             priority={true}
             loading="eager"
+            unoptimized
           />
         </Link>
        { 

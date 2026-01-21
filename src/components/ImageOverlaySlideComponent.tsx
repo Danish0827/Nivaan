@@ -15,6 +15,7 @@ const ImageOverlaySlideComponent = ({overlaySlideData}: {overlaySlideData: overl
           width={500}
           height={300}
           className="w-full h-auto hidden md:block"
+          unoptimized
         />
           <Image
             src={overlaySlideData.img}
@@ -23,6 +24,7 @@ const ImageOverlaySlideComponent = ({overlaySlideData}: {overlaySlideData: overl
             width={500} 
             height={300}
             className="w-full h-auto block md:hidden"
+            unoptimized
           />
         {/* Overlay */}
         <div className="rounded-xl absolute inset-0 bg-[#2985BBE5] text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out flex flex-col items-start">

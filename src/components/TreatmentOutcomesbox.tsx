@@ -22,6 +22,7 @@ const TreatmentOutcomesBox: React.FC<{ outcome: Outcome }> = ({ outcome }) => {
           height={50}
           width={50}
           className="object-cover rounded-lg mr-4"
+          unoptimized
         />
       </div>
       <div className="flex-1 flex items-center">

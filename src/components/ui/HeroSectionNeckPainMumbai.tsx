@@ -94,6 +94,7 @@ const HeroSectionNeckPainMumbai = ({
                             style={{
                                 objectFit: 'contain' // This style applies regardless of screen size
                             }}
+                            unoptimized
                         />
                     }
                     {/* Desktop Image */}
@@ -109,6 +110,7 @@ const HeroSectionNeckPainMumbai = ({
                         style={{
                             objectFit: 'contain'
                         }}
+                        unoptimized
                     />
                 </div>
                 <div className={`col-span-2 lg:col-span-1 lg:col-start-3 flex justify-center flex-col items-center lg:items-end gap-2 md:gap-3 z-10 ${pageRoute==="avn-treatment" ? 'mt-4' : 'mt-8'} lg:mt-4`} style={{ height: '80%' }}>

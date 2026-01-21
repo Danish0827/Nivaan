@@ -8,13 +8,13 @@ const SocialIcon = () => {
       <div className="flex flex-row justify-center">
         <div className="flex flex-row w-20 gap-3">
           <a href="https://www.facebook.com/nivaancare" target="_blank">
-            <Image src={social3} alt="facebook icon" />
+            <Image src={social3} alt="facebook icon" unoptimized/>
           </a>
           <a href="https://www.youtube.com/@nivaancare" target="_blank">
-            <Image src={social1} alt="youtube icon" />
+            <Image src={social1} alt="youtube icon" unoptimized/>
           </a>
           <a href="https://www.instagram.com/nivaancare/" target="_blank">
-            <Image src={social2} alt="instagram icon" />
+            <Image src={social2} alt="instagram icon" unoptimized/>
           </a>
         </div>
       </div>

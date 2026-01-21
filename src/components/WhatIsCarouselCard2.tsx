@@ -31,8 +31,8 @@ const WhatIsCarouselCard: React.FC<WhatIsCarouselCardProps> = ({ data, index, ex
         `}>
             <div className="flex items-start mb-4">
                 <h2 className={`${montserratLightBold.className} text-sm md:text-xl w-[90%]`}>{data.heading}</h2>
-                <Image src={data.icon} alt='icon' className='hidden md:block md:-mt-4' />
-                <Image src={data.icon} alt='icon' className='absolute top-4 right-3 md:hidden' width={30} height={30} />
+                <Image src={data.icon} alt='icon' className='hidden md:block md:-mt-4' unoptimized/>
+                <Image src={data.icon} alt='icon' className='absolute top-4 right-3 md:hidden' width={30} height={30} unoptimized/>
             </div>
 
             <div ref={contentRef} className={`

@@ -46,7 +46,7 @@ export default function WhatMakesNivaanDifferent({
               width={1000}
               height={1000}
               className="w-full h-full object-cover object-center"
-          unoptimized
+              unoptimized
             />
           </div>
 
@@ -66,9 +66,9 @@ export default function WhatMakesNivaanDifferent({
                       alt={item.title}
                       width={60}
                       height={60}
-                      style={{filter: 'brightness(100)'}}
+                      style={{ filter: 'brightness(100)' }}
                       className="p-2"
-          unoptimized
+                      unoptimized
                     />
                   </div>
 

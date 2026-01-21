@@ -46,6 +46,7 @@ export default function Testimonials() {
             src={require("../../../public/googlereview.png")}
             className="block mx-2"
             alt="doctor img"
+            unoptimized
           />
         </div>
 
@@ -55,18 +56,21 @@ export default function Testimonials() {
               src={require('../../../public/AnubhavYadav.png')}
               className="block mr-2 ml-2"
               alt="anubhav"
+              unoptimized
               
             />
         <Image
               src={require('../../../public/bhoomidevi.png')}
               className="block mr-2 ml-2"
               alt="bhoomi"
+              unoptimized
               
             />
         <Image
               src={require('../../../public/kushalsingh.png')}
               className="block mr-2 ml-2"
               alt="kushal"
+              unoptimized
               
             />
         </div>

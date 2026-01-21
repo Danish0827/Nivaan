@@ -23,6 +23,7 @@ const ImageOverlayTxt: React.FC<WhatIsSectionProps> = (props) => {
           className="mx-auto"
           width={1190}
           height={240}
+          unoptimized
         />
       </div>
       <div className="block md:hidden">
@@ -30,6 +31,7 @@ const ImageOverlayTxt: React.FC<WhatIsSectionProps> = (props) => {
           src={props.ImgSrcMob}
           alt={props.imageAltText || "bg-img"}
           className="w-full transform md:scale-125 scale-100"
+          unoptimized
         />
       </div>
       {props.hideImageOverlayText ? null : (

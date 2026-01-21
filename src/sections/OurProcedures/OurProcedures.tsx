@@ -42,6 +42,7 @@ const OurProcedures = ({
             width={1600}
             height={900}
             loading="lazy"
+            unoptimized
           />
         </div>
         <div className="block lg:hidden">
@@ -51,6 +52,7 @@ const OurProcedures = ({
             width={800}
             height={450}
             loading="lazy"
+            unoptimized
           />
         </div>
         {pathName !== "/next/avn-treatment" && (

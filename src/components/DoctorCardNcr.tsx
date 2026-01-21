@@ -13,6 +13,7 @@ const DoctorCardNcr = ({ doctorData }: { doctorData: Doctor[] }) => {
           width={130}
           height={130}
           className="rounded-full object-cover mb-4"
+          unoptimized
         />
         <h3 className="text-base font-semibold text-black">{doctor.name}</h3>
         <p className="text-sm text-gray-700 mt-2">{doctor.field}</p>

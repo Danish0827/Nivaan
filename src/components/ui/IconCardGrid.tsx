@@ -29,6 +29,7 @@ const IconCardGrid = ({ title, gridData }: PropTypes) => {
                     width={30.55}
                     height={32}
                     className="lg:hidden"
+                    unoptimized
                     />
                     <Image
                     src={item.icon}
@@ -36,6 +37,7 @@ const IconCardGrid = ({ title, gridData }: PropTypes) => {
                     width={60}
                     height={80}
                     className="hidden lg:block"
+                    unoptimized
                     />
                 </div>
                 <p className={`${rubikSemiBold.className} text-[#2F438F] text-left text-sm lg:text-2xl font-bold`}>

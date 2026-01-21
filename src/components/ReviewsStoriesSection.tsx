@@ -197,7 +197,7 @@ function ReviewCard({ item, star }: { item: Review; star: string }) {
           unoptimized
         />
       </div>
-      <Image src={star} alt="Stars" width={100} height={20} className="mb-3" />
+      <Image src={star} alt="Stars" width={100} height={20} className="mb-3" unoptimized/>
       <p
         ref={textRef}
         className={`text-gray-700 text-sm xl:text-base leading-relaxed ${!expanded ? "line-clamp-3" : ""

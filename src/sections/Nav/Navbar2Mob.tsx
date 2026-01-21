@@ -58,6 +58,7 @@ const Navbar2Mob: React.FC<Navbar2MobProps> = ({ isHindi }) => {
             alt="Nivaan logo in mobile Navbar"
             width={112}
             height={35}
+            unoptimized
           />
         </Link>
         <Menu className="h-8 w-8 cursor-pointer" onClick={handleClick} />

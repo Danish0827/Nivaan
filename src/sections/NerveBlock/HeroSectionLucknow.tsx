@@ -32,6 +32,7 @@ const HeroSectionlucknow = () => {
               loading="eager"
               priority={true}
               quality={30}
+              unoptimized
             />
         </div>
         <div className="flex-1 flex justify-center flex-col items-center mt-[-12px] lg:items-end gap-1 md:gap-3 z-10 lg:pb-14">
@@ -49,6 +50,7 @@ const HeroSectionlucknow = () => {
               loading="eager"
               priority={true}
               quality={30}
+              unoptimized
             />
       </div>
       <div className="mt-8 w-[100vw] relative right-8 md:w-[90vw] md:left-12 lg:mt-0">

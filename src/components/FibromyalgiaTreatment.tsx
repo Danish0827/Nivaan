@@ -64,7 +64,7 @@ const ACHIEVEMENT_POINTS = [
     id: "1", 
     point: (
       <span className="flex items-center gap-1">
-        4.8+ Rating on <Image src={googleImg.src} alt="google-icon" width={24} height={24} />
+        4.8+ Rating on <Image src={googleImg.src} alt="google-icon" width={24} height={24} unoptimized/>
       </span>
     ) 
   },

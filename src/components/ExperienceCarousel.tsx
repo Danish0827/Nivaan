@@ -61,7 +61,7 @@ const ExperienceCarousel: React.FC = () => {
                 <div className="rounded-[12px] md:rounded-[16px] overflow-hidden bg-white shadow-sm">
                   <div className="relative w-full h-[220px] sm:h-[260px] md:h-[320px]">
                     {/* use fill so image covers container */}
-                    <Image src={slide.img} alt={slide.text} fill className="object-cover" />
+                    <Image src={slide.img} alt={slide.text} fill className="object-cover" unoptimized/>
                   </div>
 
                 </div>

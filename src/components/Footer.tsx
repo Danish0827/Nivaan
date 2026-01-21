@@ -33,7 +33,7 @@ export default function NivaanFooter({ menu }: HeaderProps) {
                 <hr className="border-blue-200 my-10" />
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-[16%_15%_21%_15%_9%_15%] xl:grid-cols-[20%_15%_15%_17%_12%_15%] gap-5">
                     <div className="col-span-2 md:col-span-1 m-auto pb-10 lg:pb-0 lg:m-0">
-                        <Link href="/"><Image src="/images/logo.svg" alt="Nivaan Logo" width={250} height={80} /></Link>
+                        <Link href="/"><Image src="/images/logo.svg" alt="Nivaan Logo" width={250} height={80} unoptimized/></Link>
                         <hr className="border-blue-200 my-7" />
                         <div className="hidden lg:block">
                             {/* <h4 className="font-bold text-[#06A1DC] pt-2 my-3">CONTACT</h4> */}

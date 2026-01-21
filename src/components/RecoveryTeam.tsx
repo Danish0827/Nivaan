@@ -72,7 +72,7 @@ export default function RecoveryTeam({
                                                 width={23}
                                                 height={23}
                                                 alt="arrow"
-          unoptimized
+                                                unoptimized
                                             />
                                         </div>
 
@@ -110,7 +110,7 @@ export default function RecoveryTeam({
                                         width={20}
                                         height={20}
                                         alt="arrow"
-          unoptimized
+                                        unoptimized
                                         className={`transition-transform duration-300 ${openIndex === index ? "-rotate-45" : "rotate-0"
                                             }`}
                                     />
@@ -154,7 +154,7 @@ export default function RecoveryTeam({
                                     width={20}
                                     height={20}
                                     alt="arrow"
-          unoptimized
+                                    unoptimized
                                 />
                             </button>
                         </Link>

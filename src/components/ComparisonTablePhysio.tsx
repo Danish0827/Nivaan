@@ -28,10 +28,10 @@ const ComparisonTableResurfacing: React.FC<ComparisonTableProps> = ({ data}) => 
               <tr>
                 <td className={`${rubikSemiBolder.className} py-4 px-4 md:px-16 text-[#5F5F5F] uppercase text-left text-[10px] md:text-2xl`}>{item.advantage}</td>
                 <td className={`py-4 px-4 bg-[#EAF1FB] ${index === tableData.length - 1 ? 'rounded-b-[0.625rem]' : ''}`}>
-                  <Image src={item.nivaan ? require('../../public/right_icon.webp') : require('../../public/wrong_icon.webp')} alt={item.nivaan ? 'Right Tick' : 'Wrong Cross'} className="w-8 h-8 md:w-14 md:h-14 mx-auto" />
+                  <Image src={item.nivaan ? require('../../public/right_icon.webp') : require('../../public/wrong_icon.webp')} alt={item.nivaan ? 'Right Tick' : 'Wrong Cross'} className="w-8 h-8 md:w-14 md:h-14 mx-auto" unoptimized/>
                 </td>
                 <td className="py-4 px-4">
-                  <Image src={item.other ? require('../../public/right_icon.webp') : require('../../public/wrong_icon.webp')} alt={item.other ? 'Right Tick' : 'Wrong Cross'} className="w-5 h-5 md:w-10 md:h-10 mx-auto" />
+                  <Image src={item.other ? require('../../public/right_icon.webp') : require('../../public/wrong_icon.webp')} alt={item.other ? 'Right Tick' : 'Wrong Cross'} className="w-5 h-5 md:w-10 md:h-10 mx-auto" unoptimized />
                 </td>
               </tr>
               {index < tableData.length - 1 && (

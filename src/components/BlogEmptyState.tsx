@@ -10,10 +10,9 @@ export default function BlogEmptyState({
 }) {
   return (
     <div className="flex flex-col items-center justify-center text-center py-20 px-4">
-      {/* Illustration */}
       <div className="relative w-56 h-56 mb-8">
         <Image
-          src="/images/empty.png" // 👉 add any premium illustration
+          src="/images/empty.png"
           alt="No blogs"
           fill
           className="object-contain"

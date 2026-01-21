@@ -72,12 +72,14 @@ const HeroSection: React.FC<HeroSectionProps> = ({ pathName }) => {
                 alt="logo"
                 height={30}
                 className="hidden md:block"
+                unoptimized
               />
               <Image
                 src={require("../../../public/google.webp")}
                 alt="logo"
                 height={20}
                 className="block md:hidden"
+                unoptimized
               />
             </div>
             <li>9.3X more effective than other treatments</li>
@@ -91,6 +93,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ pathName }) => {
             loading="eager"
             priority={true}
             quality={30}
+            unoptimized
           />
         </div>
         <div className="mt-3 flex-1 flex justify-center flex-col items-center lg:items-end gap-1 md:gap-3 z-10 pb-2 lg:pb-14">
@@ -113,6 +116,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ pathName }) => {
           loading="eager"
           priority={true}
           quality={30}
+          unoptimized
         />
       </div>
       {/* <div className="mt-8 md:mx-auto">

@@ -22,14 +22,14 @@ const PatientReviewCard3 = ({ review }: { review: Review }) => {
                   <h4 className="font-bold text-[14.31px] leading-[13.4px] md:text-[16.57px] md:leading-[16.08px]">
                       {review.name}
                   </h4>
-                  <Image src={googleIcon} alt="google" />
+                  <Image src={googleIcon} alt="google" unoptimized/>
                 </div> 
               )}
             </div>
             <div className="text-[9px] leading-[7.07px] md:text-[11px] md:leading-[8.48px] pb-2 md:pb-3">
               {review.postedWhen}
             </div>
-            <Image className={`mb-3 ${review.isFourStar ? "h-[0.968rem] w-[5.204rem] md:h-[19.53px] md:w-[104.99px]" : "h-[0.968rem] w-[6.656rem] md:h-[1.221rem] md:w-[8.393rem]"}`} src={isArthroplasty ? star : review.img} alt="star icon small" />
+            <Image className={`mb-3 ${review.isFourStar ? "h-[0.968rem] w-[5.204rem] md:h-[19.53px] md:w-[104.99px]" : "h-[0.968rem] w-[6.656rem] md:h-[1.221rem] md:w-[8.393rem]"}`} src={isArthroplasty ? star : review.img} alt="star icon small" unoptimized/>
             <p
                 className={`text-[12.7px] leading-[13px] font-thin md:text-[14.63px] md:leading-[18px] rounded-2xl mt-4 md:mt-0 ${rubikReg.className}`}
             >

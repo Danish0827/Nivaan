@@ -9,9 +9,9 @@ import check_icon from "../../../public/Isolation_Mode.svg"
 import { Rubik } from 'next/font/google';
 
 export const rubik = Rubik({
-  weight: ['300', '400', '500'], 
-  subsets: ['latin'],
-  variable: '--font-rubik',
+    weight: ['300', '400', '500'],
+    subsets: ['latin'],
+    variable: '--font-rubik',
 });
 const HeroSection = () => {
     return (
@@ -32,21 +32,22 @@ const HeroSection = () => {
                         Best Treatment Options for Sciatica in Delhi NCR
                     </h2>
                     <div className="mt-5 flex flex-col gap-4 pl-0 md:pl-0 items-start self-start">
-<div
-  className={`flex items-start gap-3 text-[#1E1E1E] text-sm md:text-2xl leading-snug ${rubik.className}`}
->
-  <Image
-    src={check_icon}
-    alt="check icon"
-    width={30}
-    height={50}
-    className="mt-1 flex-shrink-0"
-  />
-  <p className="font-light text-[#1E1E1E]">
-    Get checked by Delhi NCR<br />
-    top pain specialists
-  </p>
-</div>
+                        <div
+                            className={`flex items-start gap-3 text-[#1E1E1E] text-sm md:text-2xl leading-snug ${rubik.className}`}
+                        >
+                            <Image
+                                src={check_icon}
+                                alt="check icon"
+                                width={30}
+                                height={50}
+                                className="mt-1 flex-shrink-0"
+                                unoptimized
+                            />
+                            <p className="font-light text-[#1E1E1E]">
+                                Get checked by Delhi NCR<br />
+                                top pain specialists
+                            </p>
+                        </div>
 
                         <div
                             className={`flex items-start gap-3 text-[#1E1E1E] text-sm md:text-2xl leading-snug ${rubik.className}`}
@@ -57,6 +58,7 @@ const HeroSection = () => {
                                 width={30}
                                 height={20}
                                 className="mt-1 flex-shrink-0"
+                                unoptimized
                             />
 
                             <span><p className='text-[#1E1E1E] text-sm md:text-2xl font-light leading-snug'>Experience pain relief that<br />lasts, without complex surgery</p></span>

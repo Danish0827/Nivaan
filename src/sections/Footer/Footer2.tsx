@@ -56,6 +56,7 @@ const Footer2 = ({ phoneNumber }: { phoneNumber?: string }) => {
             alt="Nivaan Footer logo"
             width={151}
             height={31.79}
+            unoptimized
           />
           <Image
             className="block md:hidden mx-auto mb-4"
@@ -63,6 +64,7 @@ const Footer2 = ({ phoneNumber }: { phoneNumber?: string }) => {
             alt="Nivaan Footer mobile logo"
             width={78}
             height={19}
+            unoptimized
           />
           <p className={`${rubikLight.className} text-xs w-3/4 mx-auto`}>
             {/* Pioneering Interventional Pain Management */}

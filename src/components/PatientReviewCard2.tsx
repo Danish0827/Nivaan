@@ -15,6 +15,7 @@ const PatientReviewCard2 = ({ review }: { review: Review }) => {
           alt="google icon small"
           height={36.73}
           width={36.73}
+          unoptimized
         />
         <Image
           className="mt-[-2px] mr-[-2px] block md:hidden"
@@ -22,6 +23,7 @@ const PatientReviewCard2 = ({ review }: { review: Review }) => {
           alt="google icon small"
           height={16.31}
           width={16.31}
+          unoptimized
         />
       </div>
       <div className="flex flex-row">
@@ -32,6 +34,7 @@ const PatientReviewCard2 = ({ review }: { review: Review }) => {
             alt="user image"
             width={255}
             height={283}
+            unoptimized
           />
           <Image
             className="block md:hidden"
@@ -39,6 +42,7 @@ const PatientReviewCard2 = ({ review }: { review: Review }) => {
             alt="user image"
             width={110.21}
             height={125.95}
+            unoptimized
           />
         </div>
         <div className="flex flex-col w-[283px] ml-[70px] md:w-[calc(100%-240px)] md:ml-[220px]">
@@ -52,8 +56,8 @@ const PatientReviewCard2 = ({ review }: { review: Review }) => {
               <h4 className="font-bold text-[10px] leading-[11.85px] md:text-[25.47px] md:leading-[30.18px]">
                 {review.name}
               </h4>
-              <Image src={star} alt="star icon small" width={104.75} height={15.62} className="hidden md:block" />
-              <Image src={star} alt="star icon small" width={46.05} height={6.87} className="block md:hidden ml-[5px]" />
+              <Image src={star} alt="star icon small" width={104.75} height={15.62} className="hidden md:block" unoptimized/>
+              <Image src={star} alt="star icon small" width={46.05} height={6.87} className="block md:hidden ml-[5px]" unoptimized/>
             </div>
             <div className="text-[7px] leading-[8.3px] md:text-[13.43px] md:leading-[15.91px]">
               {review.postedWhen}

@@ -29,7 +29,7 @@ export default function Header({ menu }: HeaderProps) {
     <header className="fixed top-0 left-0 z-40 w-full bg-gradient-to-t from-[#EEF8FD]/0 font-sans to-white">
       <div className="xl:px-10 2xl:px-24 flex items-center justify-between py-4 px-4">
         <Link href="/">
-          <Image src="/images/logo.svg" alt="Nivaan Logo" width={170} height={40} className="h-10 lg:h-20 lg:bg-white lg:px-6 lg:shadow-lg lg:rounded-4xl" />
+          <Image src="/images/logo.svg" alt="Nivaan Logo" width={170} height={40} className="h-10 lg:h-20 lg:bg-white lg:px-6 lg:shadow-lg lg:rounded-4xl" unoptimized/>
         </Link>
 
         <nav className="hidden lg:flex items-center gap-6 lg:gap-3 xl:gap-6 py-2 text-xs xl:text-sm font-medium">
@@ -88,7 +88,7 @@ export default function Header({ menu }: HeaderProps) {
           onClick={() => setMenuOpen(true)}
           className="lg:hidden flex items-center gap-2 bg-white text-[#F05432] font-semibold px-8 py-3 rounded-full shadow"
         >
-          <Image src="/images/menu.svg" alt="menu" width={20} height={20} />
+          <Image src="/images/menu.svg" alt="menu" width={20} height={20} unoptimized/>
           MENU
         </button>
         <MobileMenuDrawer

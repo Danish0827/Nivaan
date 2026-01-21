@@ -26,6 +26,7 @@ const DoctorCardDesktop: React.FC<DoctorCardProps> = ({ doc }) => {
           alt={`${doc.name} profile picture`}
           width={160}
           height={160}
+          unoptimized
         />
       </CardHeader>
       <CardContent className=" text-base px-4 text-[#1E1E1E]">

@@ -40,6 +40,7 @@ const HeroSectionMumbia = () => {
             loading="eager"
             priority={true}
             quality={30}
+            unoptimized
           />
         </div>
         <div className="flex-1 flex justify-center flex-col items-center lg:items-end gap-1 md:gap-3 z-10 -md:pb-6 mt-16">
@@ -58,6 +59,7 @@ const HeroSectionMumbia = () => {
           loading="eager"
           priority={true}
           quality={30}
+          unoptimized
         />
       </div>
       <div className="mt-4 w-[100vw] relative right-8 md:w-[90vw] md:left-12 md:top-16 mb:mt-4">

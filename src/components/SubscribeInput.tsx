@@ -67,6 +67,7 @@ const SubscribeInput: React.FC = () => {
           src={subscribeIcon}
           alt="Subscribe"
           className="w-6 h-6 rounded-full"
+          unoptimized
         />
       </button>
     </form>

@@ -36,12 +36,14 @@ const HeroSectionMumbai = () => {
                 alt="logo"
                 height={40}
                 className="hidden md:block"
+                unoptimized
               />
               <Image
                 src={require("../../../public/googleImage.webp")}
                 alt="logo"
                 height={30}
                 className="block md:hidden"
+                unoptimized
               />
             </div>
             <li>90% Surgeries Avoided</li>
@@ -58,6 +60,7 @@ const HeroSectionMumbai = () => {
             loading="eager"
             priority={true}
             quality={30}
+            unoptimized
           />
         </div>
         <div className="relative flex flex-1 justify-center items-center md:hidden w-36 h-24">
@@ -70,6 +73,7 @@ const HeroSectionMumbai = () => {
             loading="eager"
             priority={true}
             quality={30}
+            unoptimized
           />
         </div>
         <div className="flex-1 flex justify-center flex-col items-center gap-1 md:gap-3 mt-1 md:mt-16 z-10 relative top-[-4.3rem]">

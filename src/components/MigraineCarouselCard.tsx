@@ -26,8 +26,8 @@ const WhatIsCarouselCard: React.FC<WhatIsCarouselCardProps> = ({ data, expanded,
             <div id='div2' ref={contentRef} className={`overflow-hidden transition-all ${expanded ? `md:min-h-[509px] md:h-auto` : `h-[258px] md:h-[24rem]`}`}>
                 <div className="flex items-center mb-4">
                     <h2 className={`${montserratLightBold.className} text-sm md:text-xl w-[90%]`}>{data.heading}</h2>
-                    <Image src={data.icon} alt='icon' className='hidden md:block' />
-                    <Image src={data.icon} alt='icon' className='absolute top-6 right-6 md:hidden' width={30} height={30} />
+                    <Image src={data.icon} alt='icon' className='hidden md:block' unoptimized/>
+                    <Image src={data.icon} alt='icon' className='absolute top-6 right-6 md:hidden' width={30} height={30} unoptimized/>
                 </div>
 
                 <div>

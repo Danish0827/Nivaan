@@ -62,7 +62,7 @@ export default function ResultsSection({
                         width={50}
                         height={50}
                         className="w-12 h-12"
-          unoptimized
+                        unoptimized
                       />
                     </div>
                     <div>

@@ -38,6 +38,7 @@ const HeroSection = () => {
                 src={require("../../../public/googleImage.webp")}
                 alt="logo"
                 height={20}
+                unoptimized
               />
             </div>
             <li>90% Surgeries Avoided</li>
@@ -54,6 +55,7 @@ const HeroSection = () => {
             loading="eager"
             priority={true}
             quality={30}
+            unoptimized
           />
         </div>
         <div className="relative flex flex-1 justify-center items-center md:hidden w-28 h-24">
@@ -66,6 +68,7 @@ const HeroSection = () => {
             loading="eager"
             priority={true}
             quality={30}
+            unoptimized
           />
         </div>
         <div className="flex-1 flex justify-center flex-col items-center gap-1 md:gap-3 mt-1 md:mt-16 z-10 relative top-[-4.3rem]">

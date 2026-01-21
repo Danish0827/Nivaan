@@ -34,7 +34,7 @@ export default function UnderstandPain({
             width={1000}
             height={1000}
             className={`w-full  mt-0.5 object-cover ${title == "We Rethink Pain. So You Can Rethink Life." ? "lg:h-[600px]" : "h-full"}`}
-          unoptimized
+            unoptimized
           />
           <div
             className="absolute inset-0 flex items-center justify-center cursor-pointer "
@@ -60,7 +60,7 @@ export default function UnderstandPain({
                   width={20}
                   height={20}
                   alt="arrow"
-          unoptimized
+                  unoptimized
                 />
               </button>
             </Link>

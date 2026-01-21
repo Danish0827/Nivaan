@@ -37,7 +37,7 @@ const DoctorCardDesktop: React.FC<DoctorCardProps> = ({ doc }) => {
   return (
     <Card className="px-0  mb-6 md:text-center flex flex-row md:flex-col lg:pb-8 pb-2 w-[82%] md:w-[380px] ">
       <CardHeader>
-        <Image className="mx-auto" src={doc.img} alt="doctor img" />
+        <Image className="mx-auto" src={doc.img} alt="doctor img" unoptimized/>
       </CardHeader>
       <CardContent className="w-[130%] md:w-full mt-4 px-0 text-[#1E1E1E]">
         <h3 className="font-semibold text-sm md:text-xl">{doc.name}</h3>
@@ -63,6 +63,7 @@ const DoctorCardMob: React.FC<DoctorCardProps> = ({ doc }) => {
             src={doc.img}
             alt="Doctor profile"
             className="w-24 h-24 rounded-full object-cover"
+            unoptimized
           />
         </div>
         <div className="flex flex-col">

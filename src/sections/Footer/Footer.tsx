@@ -49,6 +49,7 @@ const Footer = ({ phoneNumber, FooterLinks, FooterLinksMobile }: { phoneNumber?:
             alt="Nivaan Footer logo"
             width={151}
             height={31.79}
+            unoptimized
           />
           <Image
             className="block md:hidden mx-auto mb-4"
@@ -56,6 +57,7 @@ const Footer = ({ phoneNumber, FooterLinks, FooterLinksMobile }: { phoneNumber?:
             alt="Nivaan Footer mobile logo"
             width={78}
             height={19}
+            unoptimized
           />
           <p className="text-xs w-3/4 mx-auto">
           {/* Pioneering Interventional Pain Management */}
@@ -226,13 +228,13 @@ const Footer = ({ phoneNumber, FooterLinks, FooterLinksMobile }: { phoneNumber?:
             <div className="flex flex-row justify-end mt-2 mx-36">
               <div className="flex flex-row w-20 gap-3">
                 <a href="https://www.facebook.com/nivaancare" target="_blank">
-                  <Image src={social3} alt="facebook icon" />
+                  <Image src={social3} alt="facebook icon" unoptimized/>
                 </a>
                 <a href="https://www.youtube.com/@nivaancare" target="_blank">
-                  <Image src={social1} alt="youtube icon" />
+                  <Image src={social1} alt="youtube icon" unoptimized/>
                 </a>
                 <a href="https://www.instagram.com/nivaancare/" target="_blank">
-                  <Image src={social2} alt="instagram icon" />
+                  <Image src={social2} alt="instagram icon" unoptimized/>
                 </a>
               </div>
             </div>
