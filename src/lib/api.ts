@@ -148,3 +148,11 @@ export async function getSingleTreatment(slug: string) {
   });
   return res.json();
 }
+
+//landingpage
+export async function getLandingPage(slug: string) {
+  const res = await fetch(`${BASE_URL}/nivaan-landing-pages/${slug}`, {
+    next: { revalidate: 60 },
+  });
+  return res.json();
+}
