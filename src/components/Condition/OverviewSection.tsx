@@ -27,7 +27,7 @@ export default function OverviewSection({ data }: Props) {
                 )}
 
                 {/* Content Grid */}
-                <div className="grid grid-cols-1 xl:grid-cols-[40%_60%] gap-10 items-start py-10">
+                <div className="grid grid-cols-1 xl:grid-cols-[40%_58%] gap-10 items-start py-10">
                     {/* Image */}
                     <div className="w-full">
                         <div className="relative rounded-[40px] overflow-hidden">

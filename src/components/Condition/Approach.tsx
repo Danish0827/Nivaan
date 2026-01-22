@@ -21,7 +21,7 @@ export default function Approach({ data }: ApproachProps) {
     return (
         <section className="w-full bg-white overview-section">
             <div className="container mr-auto">
-                <div className="grid grid-cols-1 xl:grid-cols-[40%_60%] gap-10 items-start py-10 approach-section">
+                <div className="grid grid-cols-1 xl:grid-cols-[40%_58%] gap-10 items-start py-10 approach-section">
                     <div className="overview-list">
                         {data?.approach_description && (
                             <div className="text-gray-700 text-lg lg:text-sm xl:text-base 2xl:text-lg leading-relaxed font-mono space-y-4">

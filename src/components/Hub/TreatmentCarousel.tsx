@@ -28,7 +28,7 @@ export default function TreatmentCarousel({ data }: Props) {
                     />
                 </div>
 
-                <div className="grid grid-cols-1 xl:grid-cols-[40%_60%] overview-section gap-10 pt-10 items-start">
+                <div className="grid grid-cols-1 xl:grid-cols-[40%_58%] overview-section gap-10 pt-10 items-start">
                     <div className="w-full">
                         <div className="relative rounded-[40px] overflow-hidden">
                             {data?.treatment_image &&
@@ -206,8 +206,8 @@ export default function TreatmentCarousel({ data }: Props) {
                             key={index}
                             className={`grid grid-cols-1 gap-10 pt-14 items-start
                                 ${isReverse
-                                    ? "xl:grid-cols-[60%_40%]"
-                                    : "xl:grid-cols-[40%_60%]"
+                                    ? "xl:grid-cols-[58%_40%]"
+                                    : "xl:grid-cols-[40%_58%]"
                                 }`}
                         >
                             {/* CONTENT */}

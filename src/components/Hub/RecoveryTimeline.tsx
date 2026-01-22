@@ -33,7 +33,7 @@ const RecoveryTimeline = ({ data }: RecoveryTimelineProps) => {
                 </h2> */}
 
                 {/* Card Layout */}
-                <div className="grid grid-cols-1 xl:grid-cols-[40%_60%] gap-8 py-4 lg:py-6 lg:pr-6">
+                <div className="grid grid-cols-1 xl:grid-cols-[40%_58%] gap-8 py-4 lg:py-6 lg:pr-6">
                     {/* Image */}
                     <div className="w-full rounded-[40px] shadow-xs">
                         <img
@@ -164,7 +164,7 @@ const RecoveryTimeline = ({ data }: RecoveryTimelineProps) => {
 
 
                 {/* Bottom Description */}
-                <div className="grid grid-cols-1 xl:grid-cols-[45%_55%] gap-10 items-start pt-10">
+                <div className="grid grid-cols-1 xl:grid-cols-[44%_54%] gap-10 items-start pt-10">
                     {/* Image */}
                     <div className="w-full">
                         <div className="relative rounded-[40px] overflow-hidden">

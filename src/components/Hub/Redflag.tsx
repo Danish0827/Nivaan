@@ -65,7 +65,7 @@ export default function Redflag({ data }: Props) {
                 </Swiper>
 
 
-                <div className="grid grid-cols-1 xl:grid-cols-[45%_55%] gap-10 items-start">
+                <div className="grid grid-cols-1 xl:grid-cols-[44%_54%] gap-10 items-start">
                     {/* Image */}
                     <div className="w-full">
                         <div className="relative rounded-[40px] overflow-hidden">

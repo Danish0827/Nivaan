@@ -129,7 +129,7 @@ export default function HubSection({ breadcrumbTitle, data }: { breadcrumbTitle:
                         <section id="causes" className="scroll-mt-28">
                             <SectionHeader
                                 subtitle={data?.causes_subtitle}
-                                title={data?.causes_subtitle}
+                                title={data?.causes_title}
                             />
                             <CausesSection data={data} />
                         </section>

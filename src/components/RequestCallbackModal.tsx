@@ -38,7 +38,7 @@ const RequestCallbackModal = ({ buttonText, id }: any) => {
         id={id}
         className="block text-sm md:text-base relative hover:scale-105 duration-500 cursor-pointer
         bg-gradient-to-r from-[#EC6724] to-[#F05432] uppercase w-full lg:w-fit
-        hover:from-[#EC6724]/80 hover:to-[#F05432]/80 z-0
+        hover:from-[#EC6724]/80 hover:to-[#F05432]/80 z-20
         text-white font-normal px-6 py-3 rounded-full shadow"
       >
         {buttonText}

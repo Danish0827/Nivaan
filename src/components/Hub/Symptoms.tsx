@@ -79,7 +79,7 @@ export default function Symptoms({ data }: Props) {
 
                 </Swiper>
 
-                <div className="grid grid-cols-1 xl:grid-cols-[40%_60%] gap-10 items-start">
+                <div className="grid grid-cols-1 xl:grid-cols-[40%_58%] gap-10 items-start">
                     {/* Image */}
                     <div className="w-full">
                         <div className="relative rounded-[40px] overflow-hidden">
