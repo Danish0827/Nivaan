@@ -1,7 +1,7 @@
 import LandingFooter from '@/components/LandingPages/LandingFooter'
 import LandingHeader from '@/components/LandingPages/LandingHeader'
+import NivaanSteps from '@/components/LandingPages/NivaanSteps'
 import { getLandingPage } from '@/lib/api'
-import React from 'react'
 
 const landingpages = async ({ params }: any) => {
     const paramsData = await params
@@ -10,6 +10,13 @@ const landingpages = async ({ params }: any) => {
     return (
         <>
             <LandingHeader menu={res.acf.head_menus} location={res.acf.location_name} appointment={res.acf.head_button_name} />
+            <NivaanSteps
+                step_title={res.acf.step_title}
+                step_designation={res.acf.step_designation}
+                step_image={res.acf.step_image}
+                steps={res.acf.steps}
+                step_button_name={res.acf.step_button_name}
+            />
             <LandingFooter />
         </>
     )

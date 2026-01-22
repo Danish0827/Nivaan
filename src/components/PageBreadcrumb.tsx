@@ -12,7 +12,7 @@ export function PageBreadcrumb({
                 src="/images/watermark.webp"
                 className="absolute top-20 left-0 w-[700px] pointer-events-none z-20"
             />
-            <div className="py-10 md:py-20 px-4 lg:px-10 xl:px-16 2xl:px-24">
+            <div className="pt-10 md:pt-20 px-4 lg:px-10 xl:px-16 2xl:px-24">
                 <div className="grid items-center gap-10 lg:gap-16 py-12 lg:py-10">
                     <div className="relative z-30 text-center lg:text-left flex flex-col items-center justify-center order-2 lg:order-1">
                         <Breadcrumb

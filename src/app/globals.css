@@ -27,3 +27,7 @@ body {
   /* font-family: var(--font-sans); */
 }
 
+.landing-h4-bold h4{
+  font-weight: 700;
+}
+

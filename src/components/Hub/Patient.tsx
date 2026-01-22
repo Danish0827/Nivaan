@@ -40,6 +40,7 @@ const Patient = ({ data }: Props) => {
                     {/* CARD */}
                     <div className="relative rounded-[50px] overflow-hidden shadow-[0_3px_20px_rgba(0,0,0,0.15)]">
                       {/* Image or Video Thumbnail */}
+                      <div className='bg-gradient-to-tl from-black/50 to-black/30 absolute w-full h-full ' />
                       {item.video_image ? (
                         <Image
                           src={item.video_image.url}

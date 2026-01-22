@@ -26,7 +26,7 @@ export default function Header({ menu }: HeaderProps) {
   const displayTitle = matchedItem?.title || "LOCATION";
   const centerMenus = menu
   return (
-    <header className="fixed top-0 left-0 z-40 w-full bg-gradient-to-t from-[#EEF8FD]/0 font-sans to-white">
+    <header className="fixed top-0 left-0 z-99 w-full bg-gradient-to-t from-[#EEF8FD]/0 font-sans to-white">
       <div className="xl:px-10 2xl:px-24 flex items-center justify-between py-4 px-4">
         <Link href="/">
           <Image src="/images/logo.svg" alt="Nivaan Logo" width={170} height={40} className="h-10 lg:h-20 lg:bg-white lg:px-6 lg:shadow-lg lg:rounded-4xl" unoptimized/>

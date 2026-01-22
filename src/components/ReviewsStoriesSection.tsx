@@ -292,10 +292,9 @@ function StoryCard({ item }: { item: Story }) {
         </div>
       </div>
 
-      {/* ================= VIDEO MODAL ================= */}
       {open && item.video?.url && (
         <div
-          className="fixed inset-0 z-[999] bg-black/70 flex items-center justify-center px-4"
+          className="fixed inset-0 z-999 bg-black/70 flex items-center justify-center px-4"
           onClick={() => setOpen(false)}
         >
           <div

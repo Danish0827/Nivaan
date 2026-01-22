@@ -65,7 +65,7 @@ export default function LocationTargetingSection({ data ,breadcrumbTitle }: { da
 
   return (
     <div className="min-h-screen bg-white relative font-mono">
-      <div className="px-4 lg:px-7 xl:px-7 2xl:px-24 md:flex flex-row-reverse gap-6 lg:gap-6 2xl:gap-10 py-16">
+      <div className="px-4 lg:px-7 xl:px-7 2xl:px-16 md:flex flex-row-reverse gap-6 lg:gap-6 2xl:gap-10 py-16">
         {/* Content */}
         <main className="flex-1 space-y-28 2xl:space-y-40 mb-8 lg:mb-0">
           {data?.clinic_subtitle &&
@@ -162,7 +162,7 @@ export default function LocationTargetingSection({ data ,breadcrumbTitle }: { da
         </main>
         {/* Sidebar */}
         <aside
-          className="w-full md:w-72 xl:w-80 2xl:w-96 md:sticky top-28 max-h-[calc(100vh-7rem)] h-fit font-sans overflow-y-auto hide-scrollbar">
+          className="w-full md:w-72 xl:w-80 2xl:w-80 md:sticky top-28 max-h-[calc(100vh-7rem)] h-fit font-sans overflow-y-auto hide-scrollbar">
           <div className="bg-[#EEF8FD] rounded-3xl p-6">
             <h2 className="font-bold text-2xl mb-6 text-[#0852A0] text-center">
               {breadcrumbTitle?.name}
