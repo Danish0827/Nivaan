@@ -9,6 +9,16 @@ import WhatMakesNivaanDifferent from "@/components/WhatMakesNivaanDifferent";
 import BuiltByPeopleSection from "@/components/BuiltByPeopleSection";
 import ExpertsSection from "@/components/ExpertsSection";
 import BetterWayCTA from "@/components/BetterWayCTA";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Nivaan Care | Advanced Non-Surgical Pain Management Clinic",
+  description:
+    "Nivaan Care is an advanced pain management clinic focused on non-surgical pain relief through expert doctors, modern technology, and patient-first care.",
+  alternates: {
+    canonical: "https://www.nivaancare.com/about-us",
+  },
+};
 
 export default async function AboutPage() {
     const doctors = await getFourDoctors();

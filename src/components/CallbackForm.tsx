@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import { PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
 
 export default function CallbackForm() {
@@ -9,8 +8,17 @@ export default function CallbackForm() {
   const [error, setError] = useState("");
   const [error2, setError2] = useState("");
 
+  const handlePhoneChange = (e:any) => {
+    const value = e.target.value.replace(/\D/g, "");
+    if (value.length <= 10) {
+      setPhone(value);
+      setError2("");
+    }
+  };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     setError("");
+    setError2("");
 
     if (!name.trim()) {
       e.preventDefault();
@@ -35,7 +43,9 @@ export default function CallbackForm() {
       <h3 className="mb-4 text-center text-3xl lg:text-2xl xl:text-3xl font-semibold">
         Get A Call Back
       </h3>
-      <form action="https://forms.zohopublic.in/nivaancare/form/NivaanNextjsLandingPageForm2/formperma/XBy9lPuUYW-iiX-2yyXoXGpTLy3Yn4PLb8GjCBllefc/htmlRecords/submit"
+
+      <form
+        action="https://forms.zohopublic.in/nivaancare/form/NivaanNextjsLandingPageForm2/formperma/XBy9lPuUYW-iiX-2yyXoXGpTLy3Yn4PLb8GjCBllefc/htmlRecords/submit"
         method="POST"
         acceptCharset="UTF-8"
         encType="multipart/form-data"
@@ -58,34 +68,46 @@ export default function CallbackForm() {
         <input type="hidden" name="fbclid" value="" />
         <input type="hidden" name="SingleLine1" value="" />
         <input type="hidden" name="SingleLine10" value="" />
+
         <input
           type="text"
           placeholder="Full Name *"
           name="SingleLine"
           value={name}
-          onChange={(e) => setName(e.target.value)}
-          className="mb-4 w-full rounded-full bg-white px-4 py-4 outline-none text-black text-base"
+          onChange={(e) => {
+            setName(e.target.value);
+            setError("");
+          }}
+          className="mb-2 w-full rounded-full bg-white px-4 py-4 outline-none text-black text-base"
         />
-        {error && (
-          <span className="relative bottom-2 text-sm text-red-200">{error}</span>
-        )}
+        {error && <span className="text-sm text-red-200">{error}</span>}
+
         <input
-          type="number"
-          placeholder="Mobile Number *"
+          type="text"
           name="PhoneNumber_countrycode"
+          placeholder="Mobile Number *"
           value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-          className="mb-4 w-full rounded-full bg-white px-4 py-4 outline-none text-black text-base"
+          maxLength={10}
+          required
+          className="mb-2 mt-4 w-full rounded-full bg-white px-4 py-4 outline-none text-black text-base"
+          onChange={handlePhoneChange}
+          onInvalid={(e) => {
+            const input = e.target as HTMLInputElement;
+            input.setCustomValidity("Please enter a valid 10-digit mobile number");
+          }}
+          onInput={(e) => {
+            const input = e.target as HTMLInputElement;
+            if (input.value.length === 10) {
+              input.setCustomValidity("");
+            }
+          }}
         />
-        {error2 && (
-          <span className="relative bottom-2 text-sm text-red-200">
-            {error2}
-          </span>
-        )}
-        {/* </div> */}
+
+        {error2 && <span className="text-sm text-red-200">{error2}</span>}
+
         <button
           type="submit"
-          className="w-full rounded-full bg-[#FF6A39] hover:bg-[#FF6A39]/90 py-3 cursor-pointer font-normal hover:scale-[1.02] duration-500"
+          className="w-full mt-4 rounded-full bg-[#FF6A39] hover:bg-[#FF6A39]/90 py-3 cursor-pointer font-normal hover:scale-[1.02] duration-500"
         >
           REQUEST CALL BACK
         </button>

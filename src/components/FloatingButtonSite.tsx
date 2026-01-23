@@ -11,7 +11,7 @@ import { FaUserDoctor } from "react-icons/fa6";
 const FloatingButtonSite = () => {
   const buttons = [
   {
-    href: "/contact-us",
+    href: "/contact",
     img: FaUserDoctor,
     alt: "Book Appointment",
     label: "Book Appt.",
@@ -45,7 +45,7 @@ const FloatingButtonSite = () => {
       <Link
         target="_blank"
         href={
-          "/contact-us"
+          "/contact"
         }
         className="absolute rounded-full transition-all cursor-pointer bg-indigo-600 hover:bg-indigo-700 duration-[0.2s] ease-out scale-y-0 group-hover:scale-y-100 group-hover:-translate-x-16 flex p-2.5 hover:p-3 bg-dark scale-100 hover:bg-primary text-white"
       >

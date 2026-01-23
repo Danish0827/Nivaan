@@ -116,7 +116,7 @@ const Navbar: React.FC<NavbarProps> = ({ isForm2, formLocation,isForm2Physio }) 
   return (
     <nav className="flex flex-row justify-between py-3 md:py-6 ">
       <div className="max-w-7xl mx-auto  flex justify-between w-full items-center px-4 ">
-        <Link href="/">
+        <a href="/">
           <Image
             className="h-[16.67px] w-[84px] lg:h-[51px] lg:w-[230.98px] hover:cursor-pointer"
             src={NivaanLogo}
@@ -125,7 +125,7 @@ const Navbar: React.FC<NavbarProps> = ({ isForm2, formLocation,isForm2Physio }) 
             loading="eager"
             unoptimized
           />
-        </Link>
+        </a>
        { 
        !isLocationPage &&
        <>

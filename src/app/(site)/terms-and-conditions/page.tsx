@@ -1,7 +1,16 @@
 import { PageBreadcrumb } from '@/components/PageBreadcrumb'
 import PolicySection from '@/components/PolicySection'
 import { termSections } from '@/data/termData'
-import React from 'react'
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Terms and Conditions | Nivaan Care",
+  description:
+    "Terms and Conditions for Nivaan Care - Your trusted healthcare provider",
+  alternates: {
+    canonical: "https://www.nivaancare.com/terms-and-conditions",
+  },
+};
 
 const page = () => {
   return (

@@ -14,6 +14,15 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/how-it-works",
+        destination: "https://nivaancare.com/about-us",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

@@ -49,7 +49,7 @@ const ContactForm = ({ title, description }: { title: string, description: strin
             className="mb-2 w-full rounded-full bg-white px-6 py-4 outline-none text-black text-base"
           />
           <input
-            type="tel"
+            type="number"
             name="PhoneNumber_countrycode"
             required
             maxLength={10}

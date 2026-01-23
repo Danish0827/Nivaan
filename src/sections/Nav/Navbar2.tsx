@@ -70,7 +70,7 @@ const Navbar2: React.FC<Navbar2Props> = ({ isHindi }) => {
   return (
     <nav className="hidden md:flex md:flex-row md:justify-between ">
       <div className="max-w-7xl mx-auto lg:px-8 lg:py-2 flex justify-between w-full px-8 items-center ">
-        <Link href="/">
+        <a href="/">
           <Image
             className="hover:cursor-pointer mr-20"
             src={NivaanLogo}
@@ -79,7 +79,7 @@ const Navbar2: React.FC<Navbar2Props> = ({ isHindi }) => {
             height={36.18}
             unoptimized
           />
-        </Link>
+        </a>
         <div className="w-1/2 flex flex-row justify-around items-baseline ml-16 mr-28">
          {Navbar2Links.map((obj) => {
   const isPainAreas = (isHindi ? obj.titleHindi : obj.title) === "Pain Areas";

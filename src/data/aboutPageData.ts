@@ -10,7 +10,7 @@ export const aboutPageData = {
       <p>Care at Nivaan is designed to be connected, thoughtful, and centred around the individual. Integrated, people-centric pain solution is not an exception here. It is the standard.</p>
     `,
         buttonText: "Take The Next Step",
-        buttonLink: "/contact-us",
+        buttonLink: "/contact",
     },
     problemSection: {
         title: "The Problem We Refuse To Accept",

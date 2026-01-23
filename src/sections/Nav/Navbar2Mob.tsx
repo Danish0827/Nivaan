@@ -51,7 +51,7 @@ const Navbar2Mob: React.FC<Navbar2MobProps> = ({ isHindi }) => {
   return (
     <>
       <nav className="flex flex-row px-8 py-4 justify-between md:hidden">
-        <Link href="/">
+        <a href="/">
           <Image
             className="hover:cursor-pointer"
             src={NivaanLogo}
@@ -60,7 +60,7 @@ const Navbar2Mob: React.FC<Navbar2MobProps> = ({ isHindi }) => {
             height={35}
             unoptimized
           />
-        </Link>
+        </a>
         <Menu className="h-8 w-8 cursor-pointer" onClick={handleClick} />
       </nav>
 

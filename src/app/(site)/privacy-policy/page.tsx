@@ -1,8 +1,17 @@
 import { PageBreadcrumb } from '@/components/PageBreadcrumb'
 import PolicySection from '@/components/PolicySection'
 import { privacyPolicySections } from '@/data/privacyPolicyData'
+import { Metadata } from 'next';
 import React from 'react'
 
+export const metadata: Metadata = {
+  title: "Privacy Policy | Nivaan Care",
+  description:
+    "Privacy Policy for Nivaan Care - Your trusted healthcare provider",
+  alternates: {
+    canonical: "https://www.nivaancare.com/privacy-policy",
+  },
+};
 const page = () => {
   return (
     <>
