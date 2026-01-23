@@ -39,13 +39,13 @@ export function LandingHeroSection({
     });
 
     return (
-        <section style={{ boxShadow: 'rgba(0, 0, 0, 0.05) 0px 10px 60px 0px' }} className="relative home-main-section w-full bg-gradient-to-b from-[#edf8fc] to-[#edf8fc] py-16">
+        <section id="book-appointment" style={{ boxShadow: 'rgba(0, 0, 0, 0.05) 0px 10px 60px 0px' }} className="relative home-main-section w-full bg-gradient-to-b from-[#edf8fc] to-[#edf8fc] lg:py-16">
             <img
                 src="/images/watermark.webp"
                 className="absolute top-20 left-0 w-[700px] pointer-events-none z-20"
             />
-            <div className=" pt-20 px-4 lg:px-10 xl:px-16 2xl:px-24">
-                <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-10 lg:gap-16 py-12 lg:py-10">
+            <div className="pt-20 px-4 lg:px-10 xl:px-16 2xl:px-24">
+                <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-10 lg:gap-14 pt-5 pb-16 lg:py-10">
                     <div className="landing-h3-bold landing-h4-bold text-left flex flex-col justify-center order-2 lg:order-1">                       
                         <h1 className="text-[28px] sm:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-semibold text-blue-900 leading-tight">
                             {parsedTitle}
@@ -59,12 +59,12 @@ export function LandingHeroSection({
                             </div>
                         }
                     </div>
-                    <div className="relative flex justify-center order-1 lg:order-2 lg:py-10">
+                    <div className="relative z-20 2xl:w-4/5 mx-auto flex justify-center order-1 lg:order-2 lg:py-10">
                        <LandingCallbackForm/>
                     </div>
                 </div>
             </div>
-            <Image className="absolute bottom-0 z-20" width={5000} height={5000} alt="" src="/images/bottom.png" unoptimized />
+            <Image className="absolute bottom-0 z-10" width={5000} height={5000} alt="" src="/images/bottom.png" unoptimized />
         </section>
     );
 }

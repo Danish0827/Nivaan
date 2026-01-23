@@ -4,6 +4,8 @@ import LandingHeader from '@/components/LandingPages/LandingHeader'
 import NivaanSteps from '@/components/LandingPages/NivaanSteps'
 import { getLandingPage } from '@/lib/api'
 import "@/app/style/site.css"
+import LandingStatsBar from '@/components/LandingPages/LandingStatsBar'
+import LandingReviews from '@/components/LandingPages/LandingReviews'
 
 const landingpages = async ({ params }: any) => {
     const paramsData = await params
@@ -18,6 +20,7 @@ const landingpages = async ({ params }: any) => {
                 button={res.acf?.banner_button_name}
                 clinic={res.acf?.clinics_boxs}
             />
+            <LandingStatsBar stats={res.acf.banner_numbers} />
             <NivaanSteps
                 step_title={res.acf.step_title}
                 step_designation={res.acf.step_designation}
@@ -25,6 +28,7 @@ const landingpages = async ({ params }: any) => {
                 steps={res.acf.steps}
                 step_button_name={res.acf.step_button_name}
             />
+            <LandingReviews data={res.acf.patients_lists} />
             <LandingFooter />
         </>
     )

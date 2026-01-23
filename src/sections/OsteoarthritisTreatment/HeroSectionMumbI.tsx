@@ -30,7 +30,7 @@ const HeroSectionMumbai = () => {
           <Image
             src={require('../../../public/mobile/osteoarthritis/osteomob.webp')}
             alt="img"
-            className="absolute bottom-0 right-[-0.8rem] translate-y-10 lg:hidden translate-x-10"
+            className="absolute bottom-14 right-7 translate-y-10 lg:hidden translate-x-10"
             height={160}
             width={220}
             loading="eager"
@@ -50,7 +50,7 @@ const HeroSectionMumbai = () => {
         <Image
           src={require('../../../public/desktop/osteoarthritisHeroImg.webp')}
           alt="img"
-          className="absolute -bottom-14 left-[47%] transform -translate-x-1/2 hidden lg:block"
+          className="absolute -bottom-14 left-[67%] transform -translate-x-1/2 hidden lg:block"
           height={500}
           loading="eager"
           priority={true}

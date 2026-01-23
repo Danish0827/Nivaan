@@ -71,7 +71,7 @@ export default function JourneySection({ journey }: { journey: JourneyData }) {
                         loop={true}
                         slidesPerView={1}
                         autoplay={{
-                            delay: 2500,
+                            delay: 3000,
                             disableOnInteraction: false,
                         }}
                         onSwiper={(swiper) => (swiperRef.current = swiper)}

@@ -80,14 +80,14 @@ export default function ConditionTreatment({ data }: Props) {
 
                     </Swiper>
                 </div>
-                <div className=" cta-treatment-section pt-3">
+                {/* <div className=" cta-treatment-section pt-3">
                     <div
                         className="text-gray-700 text-base xl:text-lg font-mono space-y-4 mb-10"
                         dangerouslySetInnerHTML={{
                             __html: data.treatments_3th_description,
                         }}
                     />
-                </div>
+                </div> */}
                 {data.treatments_button_name &&
                     <div className="flex justify-center">
                         <RequestCallbackModal buttonText={data.treatments_button_name} id={data.treatments_button_name} />

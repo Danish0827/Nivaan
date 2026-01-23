@@ -34,7 +34,7 @@ const HeroSectionMumbai = () => {
           <Image
             src={require('../../../public/anthroplasty_doctor.webp')}
             alt="img"
-            className="absolute bottom-0 right-2 translate-y-10 lg:hidden translate-x-6"
+            className="absolute bottom-9 right-6 translate-y-10 lg:hidden translate-x-6"
             height={130}
             width={130}
             loading="eager"
@@ -52,14 +52,12 @@ const HeroSectionMumbai = () => {
           <Form_mumbai
             formLocation={'Hero-Section-Next-Sciatica'}
             formName="Hero-Section-Form"
-          />
-          
-          
+          />    
         </div>
         <Image
           src={require('../../../public/anthroplasty_doctor.webp')}
           alt="img"
-          className="absolute bottom-0 left-[49%] transform -translate-x-1/2 hidden lg:block"
+          className="absolute bottom-0 left-[60%] transform -translate-x-1/2 hidden lg:block"
           height={400}
           loading="eager"
           priority={true}

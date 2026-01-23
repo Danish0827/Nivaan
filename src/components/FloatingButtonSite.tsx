@@ -16,12 +16,12 @@ const FloatingButtonSite = () => {
     alt: "Book Appointment",
     label: "Book Appt.",
   },
-  {
-    href: "https://wa.me/+919070057005?text=Hello",
-    img: FaWhatsapp,
-    alt: "WhatsApp",
-    label: "WhatsApp",
-  },
+  // {
+  //   href: "https://wa.me/+919070057005?text=Hello",
+  //   img: FaWhatsapp,
+  //   alt: "WhatsApp",
+  //   label: "WhatsApp",
+  // },
   {
     href: "mailto:care@nivaancare.com",
     img: CgMail,
@@ -45,16 +45,16 @@ const FloatingButtonSite = () => {
       <Link
         target="_blank"
         href={
-          "https://wa.me/+919070057005?text=Hello"
+          "/contact-us"
         }
-        className="absolute rounded-full transition-all cursor-pointer bg-green-600 hover:bg-green-700 duration-[0.2s] ease-out scale-y-0 group-hover:scale-y-100 group-hover:-translate-x-16 flex p-2.5 hover:p-3 bg-dark scale-100 hover:bg-primary text-white"
+        className="absolute rounded-full transition-all cursor-pointer bg-indigo-600 hover:bg-indigo-700 duration-[0.2s] ease-out scale-y-0 group-hover:scale-y-100 group-hover:-translate-x-16 flex p-2.5 hover:p-3 bg-dark scale-100 hover:bg-primary text-white"
       >
-        <FaWhatsapp className="text-2xl" />
+        <FaUserDoctor className="text-2xl" />
       </Link>
       <Link
         target="_blank"
         href={"tel:+919070057005"}
-        className="absolute rounded-full transition-all cursor-pointer bg-indigo-600 hover:bg-indigo-700 duration-[0.2s] ease-out scale-x-0 group-hover:scale-x-100 group-hover:-translate-y-16  flex  p-2.5 hover:p-3 bg-dark hover:bg-primary  text-white"
+        className="absolute rounded-full transition-all cursor-pointer bg-green-600 hover:bg-green-700 duration-[0.2s] ease-out scale-x-0 group-hover:scale-x-100 group-hover:-translate-y-16  flex  p-2.5 hover:p-3 bg-dark hover:bg-primary  text-white"
       >
         <MdCall className="text-2xl" />
       </Link>

@@ -24,15 +24,12 @@ const RequestCallbackModal = ({ buttonText, id }: any) => {
     } else {
       document.body.style.overflow = "";
     }
-
-    // Cleanup when component unmounts
     return () => {
       document.body.style.overflow = "";
     };
   }, [open]);
   return (
     <>
-      {/* Trigger Button */}
       <button
         onClick={() => setOpen(true)}
         id={id}
@@ -43,15 +40,13 @@ const RequestCallbackModal = ({ buttonText, id }: any) => {
       >
         {buttonText}
       </button>
-
-      {/* Modal */}
       {open && (
         <div
           className="fixed inset-0 z-99999 flex items-center justify-center bg-black/80 overflow-y-auto"
-          onClick={() => setOpen(false)} // click outside closes
+          onClick={() => setOpen(false)}
         >
           <div
-            className="relative w-full max-w-2xl m-4 rounded-3xl bg-gradient-to-b from-[#1FA2D8] to-[#0B5FA5] p-5 lg:p-8 text-white z-99999"
+            className="relative w-full max-w-2xl m-4 rounded-3xl bg-gradient-to-b from-[#1FA2D8] to-[#0B5FA5] p-4 lg:p-8 text-white z-99999"
             onClick={(e) => e.stopPropagation()} >
 
             <button
@@ -93,7 +88,6 @@ const RequestCallbackModal = ({ buttonText, id }: any) => {
                 <input type="hidden" name="SingleLine10" value="" />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-1 lg:gap-4">
-                  {/* Name */}
                   <input
                     name="SingleLine"
                     required
@@ -104,23 +98,32 @@ const RequestCallbackModal = ({ buttonText, id }: any) => {
                     placeholder="Last Name"
                     className="mb-2 w-full rounded-full bg-white px-6 py-2.5 lg:py-4 placeholder:text-sm lg:placeholder:text-base outline-none text-black text-sm lg:text-base"
                   />
-
-                  {/* Mobile */}
                   <input
                     name="PhoneNumber_countrycode"
                     required
-                    type="number"
-                    maxLength={10}
+                    type="text"
                     placeholder="Mobile Number *"
+                    maxLength={10}
                     className="mb-2 w-full rounded-full bg-white px-6 py-2.5 lg:py-4 placeholder:text-sm lg:placeholder:text-base outline-none text-black text-sm lg:text-base"
+                    onInput={(e) => {
+                      const input = e.target as HTMLInputElement;
+                      input.value = input.value.replace(/\D/g, "");
+                      if (input.value.length < 10) {
+                        input.setCustomValidity("Please enter a valid 10-digit mobile number");
+                      } else {
+                        input.setCustomValidity("");
+                      }
+                    }}
+                    onInvalid={(e) => {
+                      const input = e.target as HTMLInputElement;
+                      input.setCustomValidity("Please enter a valid 10-digit mobile number");
+                    }}
                   />
                   <input
                     placeholder="Email Address"
                     type="email"
                     className="mb-2 w-full rounded-full bg-white px-6 py-2.5 lg:py-4 placeholder:text-sm lg:placeholder:text-base outline-none text-black text-sm lg:text-base"
                   />
-
-                  {/* City */}
                   <div className="relative">
                     <select
                       name="Dropdown1"
@@ -138,8 +141,6 @@ const RequestCallbackModal = ({ buttonText, id }: any) => {
                       <MdKeyboardArrowDown className="text-2xl text-black" />
                     </span>
                   </div>
-
-                  {/* Preferred Time */}
                   <div className="relative">
                     <select
                       name="Dropdown2"
@@ -155,13 +156,11 @@ const RequestCallbackModal = ({ buttonText, id }: any) => {
                     </span>
                   </div>
                 </div>
-
-                {/* Pain Site */}
                 <div>
                   <p className="font-semibold text-center mb-3">SELECT PAIN SITE *</p>
-                  <div className="flex flex-wrap justify-center gap-4 text-base">
-                    {["Knee", "Back", "Neck", "Shoulder"].map((item) => (
-                      <label key={item} className="flex items-center gap-2 cursor-pointer text-xs lg:text-base">
+                  <div className="flex flex-wrap justify-center items-center gap-2 md:gap-4 text-base">
+                    {["Knee", "Back", "Neck", "Shoulder", "Others"].map((item) => (
+                      <label key={item} className="flex items-center gap-1 md:gap-2 cursor-pointer text-xs lg:text-base">
                         <input
                           type="checkbox"
                           name="Pain_Area"
@@ -173,8 +172,6 @@ const RequestCallbackModal = ({ buttonText, id }: any) => {
                     ))}
                   </div>
                 </div>
-
-                {/* Pain Intensity */}
                 <div>
                   <p className="font-semibold text-center mb-3">CHOOSE PAIN INTENSITY *</p>
                   <div className="flex justify-center gap-6 text-base">
@@ -192,8 +189,6 @@ const RequestCallbackModal = ({ buttonText, id }: any) => {
                     ))}
                   </div>
                 </div>
-
-                {/* Submit */}
                 <div className="text-center mt-4 lg:mt-6">
                   <button
                     type="submit"

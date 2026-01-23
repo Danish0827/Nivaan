@@ -26,7 +26,7 @@ const DoctorHomeData: React.FC<DoctorsDataProps> = ({ experts }) => {
                     slidesPerView={1}
                     loop={true}
                     autoplay={{
-                        delay: 2500,
+                        delay: 3000,
                         disableOnInteraction: false,
                     }}
                     pagination={{ clickable: true }}

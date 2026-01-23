@@ -34,7 +34,7 @@ const HeroSectionMumbai = () => {
             <Image
               src={require("../../../public/migraine1.webp")}
               alt="img"
-              className="absolute bottom-0 right-0 translate-y-4 lg:hidden translate-x-6"
+              className="absolute bottom-0 right-6 translate-y-4 lg:hidden translate-x-6"
               height={190}
               width={190}
               loading="eager"
@@ -54,7 +54,7 @@ const HeroSectionMumbai = () => {
         <Image
             src={require("../../../public/migraine1.webp")}
             alt="img"
-            className="absolute bottom-0 left-[47%] transform -translate-x-1/2 hidden lg:block"
+            className="absolute bottom-0 left-[62%] transform -translate-x-1/2 hidden lg:block"
             height={400}
             loading="eager"
             priority={true}

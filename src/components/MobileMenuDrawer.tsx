@@ -112,9 +112,9 @@ export default function MobileMenuDrawer({
                                         <ConditionsList data={item.children} onClose={onClose} />
                                     )}
 
-                                    {item.title === "Our Specialists" && (
+                                    {/* {item.title === "Our Specialists" && (
                                         <DoctorList data={item.children} onClose={onClose} />
-                                    )}
+                                    )} */}
 
                                     {item.title !== "Conditions" && (
                                         <SimpleList data={item.children} onClose={onClose} />

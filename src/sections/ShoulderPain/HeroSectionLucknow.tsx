@@ -40,7 +40,7 @@ const HeroSectionLucknow = () => {
           <Image
             src={require('../../../public/shoulderpain.webp')}
             alt="img"
-            className="absolute bottom-0 right-0 translate-y-4 lg:hidden translate-x-10"
+            className="absolute -bottom-2 right-8 translate-y-4 lg:hidden translate-x-10"
             height={190}
             width={190}
             loading="eager"
@@ -59,7 +59,7 @@ const HeroSectionLucknow = () => {
         <Image
           src={require('../../../public/shoulderpain.webp')}
           alt="img"
-          className="absolute bottom-0 left-[47%] transform -translate-x-1/2 hidden lg:block"
+          className="absolute bottom-0 left-[62%] transform -translate-x-1/2 hidden lg:block"
           height={450}
           loading="eager"
           priority={true}

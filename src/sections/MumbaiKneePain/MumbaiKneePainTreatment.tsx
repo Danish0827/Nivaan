@@ -36,9 +36,9 @@ const HeroSectionMumbia = () => {
             <li>Insurance Support</li>
           </ul>
           <Image
-            src={require('../../../public/Deepa-Knee-Pain 1.webp')}
+            src={require('../../../public/Deepa-Knee-Pain 12.webp')}
             alt="img"
-            className="absolute bottom-4 right-0 translate-y-24 md:hidden translate-x-6"
+            className="absolute bottom-28 right-6 translate-y-24 md:hidden translate-x-6"
             height={140}
             width={130}
             loading="eager"
@@ -64,7 +64,7 @@ const HeroSectionMumbia = () => {
         <Image
           src={require('../../../public/kneePainWoman.webp')}
           alt="img"
-          className="absolute -bottom-36 left-[48%] transform -translate-x-1/2 hidden md:block"
+          className="absolute -bottom-36 left-[62%] transform -translate-x-1/2 hidden md:block"
           width={391}
           height={472}
           loading="eager"
